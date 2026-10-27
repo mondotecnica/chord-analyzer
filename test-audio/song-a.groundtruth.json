@@ -1,0 +1,66 @@
+{
+  "songId": "song-a",
+  "title": "Song A — C major (I–vi–IV–V)",
+  "key": "C major",
+  "bpm": 120,
+  "sampleRate": 44100,
+  "durationSec": 16,
+  "segments": [
+    {
+      "startSec": 0,
+      "endSec": 2,
+      "chord": "C",
+      "bass": "C",
+      "bassPc": 0
+    },
+    {
+      "startSec": 2,
+      "endSec": 4,
+      "chord": "Am",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 4,
+      "endSec": 6,
+      "chord": "F",
+      "bass": "F",
+      "bassPc": 5
+    },
+    {
+      "startSec": 6,
+      "endSec": 8,
+      "chord": "G",
+      "bass": "G",
+      "bassPc": 7
+    },
+    {
+      "startSec": 8,
+      "endSec": 10,
+      "chord": "C",
+      "bass": "C",
+      "bassPc": 0
+    },
+    {
+      "startSec": 10,
+      "endSec": 12,
+      "chord": "Am",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 12,
+      "endSec": 14,
+      "chord": "F",
+      "bass": "F",
+      "bassPc": 5
+    },
+    {
+      "startSec": 14,
+      "endSec": 16,
+      "chord": "G",
+      "bass": "G",
+      "bassPc": 7
+    }
+  ]
+}

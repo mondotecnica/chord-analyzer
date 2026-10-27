@@ -1,0 +1,505 @@
+.app {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 44px 20px 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 固定再生バーが表示される間は、下部にその分の余白を確保する */
+.app.has-playback {
+  padding-bottom: 168px;
+}
+
+.header h1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0 0 10px;
+}
+
+.privacy-note {
+  color: var(--muted);
+  font-size: 13.5px;
+  margin: 0;
+  max-width: 620px;
+}
+
+.dropzone {
+  border: 1px dashed var(--border-strong);
+  border-radius: 20px;
+  background: var(--panel);
+  padding: 44px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.dropzone.dragover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.dropzone p {
+  margin: 0;
+}
+
+.dropzone p:first-child {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.dropzone-sub {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* モード切り替え（セグメントコントロール） */
+.mode-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.segmented {
+  display: inline-flex;
+  gap: 2px;
+  background: var(--control-bg);
+  border-radius: 980px;
+  padding: 3px;
+}
+
+.segmented button {
+  border: none;
+  background: transparent;
+  border-radius: 980px;
+  padding: 6px 22px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.segmented button.active {
+  background: var(--panel);
+  color: var(--text);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.segmented button:not(:disabled):hover {
+  background: transparent;
+  color: var(--text);
+}
+
+.segmented button.active:not(:disabled):hover {
+  background: var(--panel);
+}
+
+.mode-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+.mode-note {
+  margin: 0;
+  font-size: 13px;
+  background: var(--accent-soft);
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.panel.notice {
+  background: var(--accent-soft);
+}
+
+.panel.notice p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.progress-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.progress-elapsed {
+  color: var(--muted);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.summary-value-small {
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.panel h2 {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+
+.panel.error {
+  background: var(--error-bg);
+  border-color: var(--error-border);
+  color: var(--error-text);
+}
+
+.panel.error p {
+  margin: 0;
+}
+
+.progress-bar {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--control-bg);
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+/* 固定再生バー（常時表示） */
+.playback-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  background: var(--bar-bg);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-top: 1px solid var(--border);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.playback-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 12px 20px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.playback-seek {
+  width: 100%;
+  margin: 0;
+}
+
+.playback-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+}
+
+.play-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+
+.play-btn:not(:disabled):hover {
+  background: var(--text);
+  opacity: 0.85;
+}
+
+.play-btn svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  padding: 0;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+
+.icon-btn:not(:disabled):hover {
+  background: var(--control-bg);
+  color: var(--text);
+}
+
+.icon-btn svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.playback-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+.playback-chord {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  flex: none;
+}
+
+.playback-file {
+  color: var(--muted);
+  font-size: 12.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.playback-time {
+  color: var(--muted);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  flex: none;
+}
+
+.summary-row {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.summary-label {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.summary-value {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.summary-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 12.5px;
+  margin: 14px 0 0;
+}
+
+/* タイムライン */
+.timeline {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 64px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.timeline-seg {
+  border: none;
+  border-right: 1px solid var(--border);
+  border-radius: 0;
+  background: var(--panel);
+  color: var(--text);
+  padding: 0 4px;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.timeline-seg:not(:disabled):hover {
+  background: var(--panel-alt);
+}
+
+.timeline-seg:nth-child(odd) {
+  background: var(--panel-alt);
+}
+
+.timeline-seg:nth-child(odd):not(:disabled):hover {
+  background: var(--control-bg);
+}
+
+.timeline-seg.nc {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.timeline-seg.active,
+.timeline-seg.active:not(:disabled):hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.timeline-playhead {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  pointer-events: none;
+}
+
+/* セグメント一覧 */
+.segment-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.segment-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.segment-row:last-child {
+  border-bottom: none;
+}
+
+.segment-row.active {
+  background: var(--accent-soft);
+  border-radius: 10px;
+}
+
+.segment-time {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  padding: 4px 2px;
+  min-width: 118px;
+  text-align: left;
+}
+
+.segment-time:not(:disabled):hover {
+  background: transparent;
+  color: var(--accent);
+}
+
+.segment-chord {
+  font-weight: 600;
+  min-width: 92px;
+}
+
+.segment-slash {
+  font-weight: 600;
+  font-size: 13.5px;
+  white-space: nowrap;
+}
+
+.segment-conf {
+  color: var(--muted);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  margin-left: auto;
+}
+
+.segment-edited {
+  color: var(--muted);
+  font-size: 11.5px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 1px 8px;
+}
+
+.footer {
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.7;
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+@media (max-width: 560px) {
+  .app {
+    padding: 28px 16px 56px;
+  }
+  .app.has-playback {
+    padding-bottom: 160px;
+  }
+  .header h1 {
+    font-size: 24px;
+  }
+  .panel {
+    padding: 18px;
+  }
+  .playback-inner {
+    padding: 10px 16px 12px;
+  }
+  .playback-file {
+    display: none;
+  }
+  .playback-chord {
+    font-size: 20px;
+  }
+  .segment-time {
+    min-width: 104px;
+    font-size: 13.5px;
+  }
+}

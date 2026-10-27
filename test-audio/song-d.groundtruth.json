@@ -1,0 +1,66 @@
+{
+  "songId": "song-d",
+  "title": "Song D — C major slash chords (C/E–F/A–G/B–Am/E)",
+  "key": "C major",
+  "bpm": 112,
+  "sampleRate": 44100,
+  "durationSec": 17.143,
+  "segments": [
+    {
+      "startSec": 0,
+      "endSec": 2.143,
+      "chord": "C",
+      "bass": "E",
+      "bassPc": 4
+    },
+    {
+      "startSec": 2.143,
+      "endSec": 4.286,
+      "chord": "F",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 4.286,
+      "endSec": 6.429,
+      "chord": "G",
+      "bass": "B",
+      "bassPc": 11
+    },
+    {
+      "startSec": 6.429,
+      "endSec": 8.571,
+      "chord": "Am",
+      "bass": "E",
+      "bassPc": 4
+    },
+    {
+      "startSec": 8.571,
+      "endSec": 10.714,
+      "chord": "C",
+      "bass": "E",
+      "bassPc": 4
+    },
+    {
+      "startSec": 10.714,
+      "endSec": 12.857,
+      "chord": "F",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 12.857,
+      "endSec": 15,
+      "chord": "G",
+      "bass": "B",
+      "bassPc": 11
+    },
+    {
+      "startSec": 15,
+      "endSec": 17.143,
+      "chord": "Am",
+      "bass": "E",
+      "bassPc": 4
+    }
+  ]
+}

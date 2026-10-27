@@ -1,0 +1,38 @@
+{
+  "name": "chord-analyzer-phase0",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "test": "vitest run",
+    "measure:synthetic": "vitest run scripts/measure-synthetic.test.ts",
+    "measure:phase1": "vitest run scripts/measure-phase1.test.ts",
+    "measure:phase1-step2": "vitest run scripts/measure-phase1-step2.test.ts",
+    "measure:upperband": "vitest run scripts/measure-upperband.test.ts",
+    "measure:real": "node scripts/measure-real-launcher.mjs",
+    "measure:hybrid": "vitest run scripts/measure-hybrid.test.ts",
+    "measure:conditional": "vitest run scripts/measure-conditional.test.ts",
+    "measure:step3": "vitest run scripts/measure-step3.test.ts",
+    "measure:stems": "vitest run scripts/measure-stems.test.ts",
+    "test:app-stems": "vitest run scripts/analyze-stems-app-path.test.ts",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "onnxruntime-web": "^1.31.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "oxlint": "^1.88.0",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.5"
+  }
+}

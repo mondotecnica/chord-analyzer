@@ -1,0 +1,35 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Secrets / local environment (never commit)
+.env
+.env.*
+!.env.example
+
+# Phase 2 local working data (never commit):
+# - stem-work/: separated stems of user-provided songs (large, derived from private audio)
+# - tools/: local Demucs venv (~1.2GB) and downloaded model weights
+stem-work/
+tools/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

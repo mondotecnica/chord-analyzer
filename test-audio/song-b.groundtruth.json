@@ -1,0 +1,66 @@
+{
+  "songId": "song-b",
+  "title": "Song B — G major (I–ii–vi–IV / I–ii–IV–V)",
+  "key": "G major",
+  "bpm": 108,
+  "sampleRate": 44100,
+  "durationSec": 17.778,
+  "segments": [
+    {
+      "startSec": 0,
+      "endSec": 2.222,
+      "chord": "G",
+      "bass": "G",
+      "bassPc": 7
+    },
+    {
+      "startSec": 2.222,
+      "endSec": 4.444,
+      "chord": "Am",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 4.444,
+      "endSec": 6.667,
+      "chord": "Em",
+      "bass": "E",
+      "bassPc": 4
+    },
+    {
+      "startSec": 6.667,
+      "endSec": 8.889,
+      "chord": "C",
+      "bass": "C",
+      "bassPc": 0
+    },
+    {
+      "startSec": 8.889,
+      "endSec": 11.111,
+      "chord": "G",
+      "bass": "G",
+      "bassPc": 7
+    },
+    {
+      "startSec": 11.111,
+      "endSec": 13.333,
+      "chord": "Am",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 13.333,
+      "endSec": 15.556,
+      "chord": "C",
+      "bass": "C",
+      "bassPc": 0
+    },
+    {
+      "startSec": 15.556,
+      "endSec": 17.778,
+      "chord": "D",
+      "bass": "D",
+      "bassPc": 2
+    }
+  ]
+}

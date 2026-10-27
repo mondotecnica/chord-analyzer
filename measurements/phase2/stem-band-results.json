@@ -1,0 +1,70 @@
+{
+  "configs": [
+    {
+      "id": "s-split",
+      "label": "分業（フレーム=other 全帯域、モードだけ other 上帯域 260Hz で決め直し）"
+    },
+    {
+      "id": "s-plain",
+      "label": "帯域操作なし（フレーム=other 全帯域、後段なし）"
+    },
+    {
+      "id": "s-unified",
+      "label": "上帯域一括（フレーム=other 上帯域 260Hz、後段なし）"
+    },
+    {
+      "id": "s-conditional",
+      "label": "条件分岐（分業＋崩壊セグメントだけルートも other 上帯域で決め直し）"
+    }
+  ],
+  "aggregates": [
+    {
+      "strategy": "s-split",
+      "perSongScore": {
+        "put-your-records-on": 0.6009426120228785,
+        "everything": 0.2830999491197736,
+        "a-hard-days-night": 0.4567572083565388
+      },
+      "meanScore": 0.4469332564997303,
+      "meanNcShare": 0.03303101086032988,
+      "songDRoot": 0.9859976662777107,
+      "bestOrTiedSongs": 2
+    },
+    {
+      "strategy": "s-plain",
+      "perSongScore": {
+        "put-your-records-on": 0.5363640697741148,
+        "everything": 0.27864788195070084,
+        "a-hard-days-night": 0.40935183816040693
+      },
+      "meanScore": 0.40812126329507414,
+      "meanNcShare": 0.03303101086032988,
+      "songDRoot": 0.9859976662777107,
+      "bestOrTiedSongs": 0
+    },
+    {
+      "strategy": "s-unified",
+      "perSongScore": {
+        "put-your-records-on": 0.5155457911861054,
+        "everything": 0.27118055591149065,
+        "a-hard-days-night": 0.2840533662808897
+      },
+      "meanScore": 0.35692657112616194,
+      "meanNcShare": 0.037126672499114284,
+      "songDRoot": 0.9859976662777107,
+      "bestOrTiedSongs": 0
+    },
+    {
+      "strategy": "s-conditional",
+      "perSongScore": {
+        "put-your-records-on": 0.604731623691034,
+        "everything": 0.2830999491197736,
+        "a-hard-days-night": 0.4567572083565388
+      },
+      "meanScore": 0.4481962603891154,
+      "meanNcShare": 0.03303101086032988,
+      "songDRoot": 0.9859976662777107,
+      "bestOrTiedSongs": 3
+    }
+  ]
+}

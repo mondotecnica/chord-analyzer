@@ -1,0 +1,190 @@
+{
+  "synthetic": {
+    "songs": [
+      {
+        "songId": "song-a",
+        "title": "Song A — C major (I–vi–IV–V)",
+        "trueKey": "C major",
+        "detectedKey": "C major",
+        "rootAccuracy": 0.9568750000000001,
+        "triadAccuracy": 0.8900000000000003,
+        "ncShare": 0,
+        "rootWrongSec": 0.6900000000000004,
+        "modeFlipSec": 1.0700000000000007,
+        "slashAccuracy": 0,
+        "spuriousSlashSec": 0,
+        "topConfusions": [
+          {
+            "gt": "G",
+            "det": "Gm",
+            "sec": 1.0700000000000007
+          },
+          {
+            "gt": "G",
+            "det": "C",
+            "sec": 0.34000000000000014
+          },
+          {
+            "gt": "C",
+            "det": "Am",
+            "sec": 0.21000000000000005
+          }
+        ]
+      },
+      {
+        "songId": "song-b",
+        "title": "Song B — G major (I–ii–vi–IV / I–ii–IV–V)",
+        "trueKey": "G major",
+        "detectedKey": "A minor",
+        "rootAccuracy": 0.9325084364454337,
+        "triadAccuracy": 0.8638920134982978,
+        "ncShare": 0,
+        "rootWrongSec": 1.2000000000000008,
+        "modeFlipSec": 1.2200000000000009,
+        "slashAccuracy": 0,
+        "spuriousSlashSec": 0,
+        "topConfusions": [
+          {
+            "gt": "G",
+            "det": "Gm",
+            "sec": 1.2200000000000009
+          },
+          {
+            "gt": "G",
+            "det": "Am",
+            "sec": 0.7400000000000004
+          },
+          {
+            "gt": "Em",
+            "det": "C",
+            "sec": 0.3100000000000001
+          }
+        ]
+      },
+      {
+        "songId": "song-c",
+        "title": "Song C — A minor (i–VI–III–VII / i–iv–v–i)",
+        "trueKey": "A minor",
+        "detectedKey": "A minor",
+        "rootAccuracy": 0.9718749999999959,
+        "triadAccuracy": 0.9187499999999882,
+        "ncShare": 0,
+        "rootWrongSec": 0.5400000000000003,
+        "modeFlipSec": 1.0200000000000007,
+        "slashAccuracy": 0,
+        "spuriousSlashSec": 0,
+        "topConfusions": [
+          {
+            "gt": "G",
+            "det": "Gm",
+            "sec": 1.0200000000000007
+          },
+          {
+            "gt": "Em",
+            "det": "Am",
+            "sec": 0.3100000000000001
+          },
+          {
+            "gt": "C",
+            "det": "G",
+            "sec": 0.09
+          }
+        ]
+      },
+      {
+        "songId": "song-d",
+        "title": "Song D — C major slash chords (C/E–F/A–G/B–Am/E)",
+        "trueKey": "C major",
+        "detectedKey": "F major",
+        "rootAccuracy": 0.2672112018669766,
+        "triadAccuracy": 0.2672112018669766,
+        "ncShare": 0,
+        "rootWrongSec": 12.559999999999777,
+        "modeFlipSec": 0,
+        "slashAccuracy": 0.2672112018669766,
+        "spuriousSlashSec": 0,
+        "topConfusions": [
+          {
+            "gt": "G",
+            "det": "Bm",
+            "sec": 4.279999999999953
+          },
+          {
+            "gt": "Am",
+            "det": "Em",
+            "sec": 4.129999999999956
+          },
+          {
+            "gt": "C",
+            "det": "Em",
+            "sec": 1.7100000000000013
+          }
+        ]
+      }
+    ],
+    "acRootAccuracy": 0.9541344517182009,
+    "acTriadAccuracy": 0.8916582773221435,
+    "acSpuriousSlashSec": 0,
+    "dRootAccuracy": 0.2672112018669766,
+    "dTriadAccuracy": 0.2672112018669766,
+    "dSlashAccuracy": 0.2672112018669766,
+    "dKeyCorrect": false
+  },
+  "real": {
+    "base": {
+      "detectedKey": "A minor",
+      "detectedBpm": 96,
+      "rootAccuracy": 0.5407591482728763,
+      "triadAccuracy": 0.6419534113751175,
+      "coreAccuracy": 0.3110392839382843,
+      "ncShare": 0.03394931113932332,
+      "confusions": [
+        {
+          "gt": "Dm(maj7)",
+          "det": "D",
+          "sec": 11.669999999999796
+        },
+        {
+          "gt": "F#m6",
+          "det": "A",
+          "sec": 10.579999999999819
+        },
+        {
+          "gt": "F#m6",
+          "det": "F",
+          "sec": 7.269999999999889
+        },
+        {
+          "gt": "Dmaj7",
+          "det": "A",
+          "sec": 6.859999999999898
+        },
+        {
+          "gt": "A",
+          "det": "D",
+          "sec": 6.679999999999902
+        }
+      ]
+    },
+    "sensitivity": [
+      {
+        "shiftSec": -0.3,
+        "rootAccuracy": 0.49817473837934445,
+        "triadAccuracy": 0.5951345634033911,
+        "coreAccuracy": 0.26994017946157733
+      },
+      {
+        "shiftSec": 0,
+        "rootAccuracy": 0.5407591482728763,
+        "triadAccuracy": 0.6419534113751175,
+        "coreAccuracy": 0.3110392839382843
+      },
+      {
+        "shiftSec": 0.3,
+        "rootAccuracy": 0.5539452495976387,
+        "triadAccuracy": 0.660712159104365,
+        "coreAccuracy": 0.33052248677242363
+      }
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "songId": "song-c",
+  "title": "Song C — A minor (i–VI–III–VII / i–iv–v–i)",
+  "key": "A minor",
+  "bpm": 100,
+  "sampleRate": 44100,
+  "durationSec": 19.2,
+  "segments": [
+    {
+      "startSec": 0,
+      "endSec": 2.4,
+      "chord": "Am",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 2.4,
+      "endSec": 4.8,
+      "chord": "F",
+      "bass": "F",
+      "bassPc": 5
+    },
+    {
+      "startSec": 4.8,
+      "endSec": 7.2,
+      "chord": "C",
+      "bass": "C",
+      "bassPc": 0
+    },
+    {
+      "startSec": 7.2,
+      "endSec": 9.6,
+      "chord": "G",
+      "bass": "G",
+      "bassPc": 7
+    },
+    {
+      "startSec": 9.6,
+      "endSec": 12,
+      "chord": "Am",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 12,
+      "endSec": 14.4,
+      "chord": "Dm",
+      "bass": "D",
+      "bassPc": 2
+    },
+    {
+      "startSec": 14.4,
+      "endSec": 16.8,
+      "chord": "Em",
+      "bass": "E",
+      "bassPc": 4
+    },
+    {
+      "startSec": 16.8,
+      "endSec": 19.2,
+      "chord": "Am",
+      "bass": "A",
+      "bassPc": 9
+    }
+  ]
+}

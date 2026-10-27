@@ -1,0 +1,530 @@
+{
+  "title": "Put Your Records On — Corinne Bailey Rae",
+  "key": "A major",
+  "bpm": 96,
+  "durationSec": 212.67,
+  "segments": [
+    {
+      "startSec": 0.216,
+      "endSec": 2.716,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 2.716,
+      "endSec": 5.216,
+      "chord": "F#m6",
+      "bass": "F#"
+    },
+    {
+      "startSec": 5.216,
+      "endSec": 7.716,
+      "chord": "Dmaj7",
+      "bass": "E"
+    },
+    {
+      "startSec": 7.716,
+      "endSec": 10.216,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 10.216,
+      "endSec": 12.716,
+      "chord": "F#m6",
+      "bass": "F#"
+    },
+    {
+      "startSec": 12.716,
+      "endSec": 15.216,
+      "chord": "Dmaj7",
+      "bass": "E"
+    },
+    {
+      "startSec": 15.216,
+      "endSec": 17.716,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 17.716,
+      "endSec": 20.216,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 20.216,
+      "endSec": 22.716,
+      "chord": "F#m6",
+      "bass": "F#"
+    },
+    {
+      "startSec": 22.716,
+      "endSec": 25.216,
+      "chord": "Dmaj7",
+      "bass": "E"
+    },
+    {
+      "startSec": 25.216,
+      "endSec": 27.716,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 27.716,
+      "endSec": 30.216,
+      "chord": "F#m",
+      "bass": "F#"
+    },
+    {
+      "startSec": 30.216,
+      "endSec": 32.716,
+      "chord": "C#7",
+      "bass": "C#"
+    },
+    {
+      "startSec": 32.716,
+      "endSec": 35.216,
+      "chord": "F#m7",
+      "bass": "F#"
+    },
+    {
+      "startSec": 35.216,
+      "endSec": 37.716,
+      "chord": "B7",
+      "bass": "B"
+    },
+    {
+      "startSec": 37.716,
+      "endSec": 40.216,
+      "chord": "Dmaj7",
+      "bass": "D"
+    },
+    {
+      "startSec": 40.216,
+      "endSec": 42.716,
+      "chord": "Dm(maj7)",
+      "bass": "D"
+    },
+    {
+      "startSec": 42.716,
+      "endSec": 45.216,
+      "chord": "Dm(maj7)",
+      "bass": "D"
+    },
+    {
+      "startSec": 45.216,
+      "endSec": 46.466,
+      "chord": "Dm(maj7)",
+      "bass": "D"
+    },
+    {
+      "startSec": 46.466,
+      "endSec": 47.716,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 47.716,
+      "endSec": 50.216,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 50.216,
+      "endSec": 52.716,
+      "chord": "F#m6",
+      "bass": "F#"
+    },
+    {
+      "startSec": 52.716,
+      "endSec": 55.216,
+      "chord": "Dmaj7",
+      "bass": "E"
+    },
+    {
+      "startSec": 55.216,
+      "endSec": 57.716,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 57.716,
+      "endSec": 60.216,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 60.216,
+      "endSec": 62.716,
+      "chord": "F#m6",
+      "bass": "F#"
+    },
+    {
+      "startSec": 62.716,
+      "endSec": 65.216,
+      "chord": "Dmaj7",
+      "bass": "E"
+    },
+    {
+      "startSec": 65.216,
+      "endSec": 67.716,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 67.716,
+      "endSec": 70.216,
+      "chord": "Dmaj7",
+      "bass": "D"
+    },
+    {
+      "startSec": 70.216,
+      "endSec": 72.716,
+      "chord": "Dm(maj7)",
+      "bass": "D"
+    },
+    {
+      "startSec": 72.716,
+      "endSec": 75.216,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 75.216,
+      "endSec": 77.716,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 77.716,
+      "endSec": 80.216,
+      "chord": "F#m6",
+      "bass": "F#"
+    },
+    {
+      "startSec": 80.216,
+      "endSec": 82.716,
+      "chord": "Dmaj7",
+      "bass": "E"
+    },
+    {
+      "startSec": 82.716,
+      "endSec": 85.216,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 85.216,
+      "endSec": 87.716,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 87.716,
+      "endSec": 90.216,
+      "chord": "F#m6",
+      "bass": "F#"
+    },
+    {
+      "startSec": 90.216,
+      "endSec": 92.716,
+      "chord": "Dmaj7",
+      "bass": "E"
+    },
+    {
+      "startSec": 92.716,
+      "endSec": 95.216,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 95.216,
+      "endSec": 97.716,
+      "chord": "F#m",
+      "bass": "F#"
+    },
+    {
+      "startSec": 97.716,
+      "endSec": 100.216,
+      "chord": "C#7",
+      "bass": "C#"
+    },
+    {
+      "startSec": 100.216,
+      "endSec": 102.716,
+      "chord": "F#m7",
+      "bass": "F#"
+    },
+    {
+      "startSec": 102.716,
+      "endSec": 105.216,
+      "chord": "B7",
+      "bass": "B"
+    },
+    {
+      "startSec": 105.216,
+      "endSec": 107.716,
+      "chord": "Dmaj7",
+      "bass": "D"
+    },
+    {
+      "startSec": 107.716,
+      "endSec": 110.216,
+      "chord": "Dm(maj7)",
+      "bass": "D"
+    },
+    {
+      "startSec": 110.216,
+      "endSec": 112.716,
+      "chord": "Dm(maj7)",
+      "bass": "D"
+    },
+    {
+      "startSec": 112.716,
+      "endSec": 115.216,
+      "chord": "Dm(maj7)",
+      "bass": "D"
+    },
+    {
+      "startSec": 115.216,
+      "endSec": 117.716,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 117.716,
+      "endSec": 120.216,
+      "chord": "F#m6",
+      "bass": "F#"
+    },
+    {
+      "startSec": 120.216,
+      "endSec": 122.716,
+      "chord": "Dmaj7",
+      "bass": "E"
+    },
+    {
+      "startSec": 122.716,
+      "endSec": 125.216,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 125.216,
+      "endSec": 127.716,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 127.716,
+      "endSec": 130.216,
+      "chord": "F#m6",
+      "bass": "F#"
+    },
+    {
+      "startSec": 130.216,
+      "endSec": 132.716,
+      "chord": "Dmaj7",
+      "bass": "E"
+    },
+    {
+      "startSec": 132.716,
+      "endSec": 135.216,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 135.216,
+      "endSec": 137.716,
+      "chord": "Dmaj7",
+      "bass": "D"
+    },
+    {
+      "startSec": 137.716,
+      "endSec": 140.216,
+      "chord": "Dm(maj7)",
+      "bass": "D"
+    },
+    {
+      "startSec": 140.216,
+      "endSec": 142.716,
+      "chord": "Bm7",
+      "bass": "B"
+    },
+    {
+      "startSec": 142.716,
+      "endSec": 145.216,
+      "chord": "Bm7",
+      "bass": "B"
+    },
+    {
+      "startSec": 145.216,
+      "endSec": 147.716,
+      "chord": "F#m",
+      "bass": "F#"
+    },
+    {
+      "startSec": 147.716,
+      "endSec": 150.216,
+      "chord": "Bm7",
+      "bass": "B"
+    },
+    {
+      "startSec": 150.216,
+      "endSec": 152.716,
+      "chord": "Bm7",
+      "bass": "B"
+    },
+    {
+      "startSec": 152.716,
+      "endSec": 155.216,
+      "chord": "Bm7",
+      "bass": "B"
+    },
+    {
+      "startSec": 155.216,
+      "endSec": 156.466,
+      "chord": "Dmaj7",
+      "bass": "D"
+    },
+    {
+      "startSec": 156.466,
+      "endSec": 157.716,
+      "chord": "Bm7",
+      "bass": "B"
+    },
+    {
+      "startSec": 157.716,
+      "endSec": 160.216,
+      "chord": "Dm(maj7)",
+      "bass": "D"
+    },
+    {
+      "startSec": 160.216,
+      "endSec": 162.716,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 162.716,
+      "endSec": 165.216,
+      "chord": "F#m",
+      "bass": "F#"
+    },
+    {
+      "startSec": 165.216,
+      "endSec": 167.716,
+      "chord": "Dmaj7",
+      "bass": "E"
+    },
+    {
+      "startSec": 167.716,
+      "endSec": 170.216,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 170.216,
+      "endSec": 172.716,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 172.716,
+      "endSec": 175.216,
+      "chord": "F#m6",
+      "bass": "F#"
+    },
+    {
+      "startSec": 175.216,
+      "endSec": 177.716,
+      "chord": "Bm",
+      "bass": "B"
+    },
+    {
+      "startSec": 177.716,
+      "endSec": 180.216,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 180.216,
+      "endSec": 182.716,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 182.716,
+      "endSec": 185.216,
+      "chord": "F#m6",
+      "bass": "F#"
+    },
+    {
+      "startSec": 185.216,
+      "endSec": 187.716,
+      "chord": "Bm",
+      "bass": "B"
+    },
+    {
+      "startSec": 187.716,
+      "endSec": 190.216,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 190.216,
+      "endSec": 192.716,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 192.716,
+      "endSec": 195.216,
+      "chord": "F#m6",
+      "bass": "F#"
+    },
+    {
+      "startSec": 195.216,
+      "endSec": 197.716,
+      "chord": "Dmaj7",
+      "bass": "E"
+    },
+    {
+      "startSec": 197.716,
+      "endSec": 200.216,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 200.216,
+      "endSec": 202.716,
+      "chord": "Dmaj7",
+      "bass": "D"
+    },
+    {
+      "startSec": 202.716,
+      "endSec": 205.216,
+      "chord": "G9",
+      "bass": "G"
+    },
+    {
+      "startSec": 205.216,
+      "endSec": 207.716,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 207.716,
+      "endSec": 210.216,
+      "chord": "A",
+      "bass": "A"
+    },
+    {
+      "startSec": 210.216,
+      "endSec": 212.67,
+      "chord": "A",
+      "bass": "A"
+    }
+  ]
+}

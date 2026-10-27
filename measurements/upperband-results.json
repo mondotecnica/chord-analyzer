@@ -1,0 +1,969 @@
+{
+  "variants": [
+    {
+      "variant": {
+        "id": "off",
+        "label": "対照（全帯域）",
+        "band": null
+      },
+      "songs": [
+        {
+          "songId": "song-a",
+          "title": "Song A — C major (I–vi–IV–V)",
+          "trueKey": "C major",
+          "detectedKey": "C major",
+          "trueBpm": 120,
+          "detectedBpm": 117,
+          "rootAccuracy": 0.9568750000000001,
+          "triadAccuracy": 0.8681250000000004,
+          "ncShare": 0,
+          "rootWrongSec": 0.6900000000000004,
+          "modeFlipSec": 1.420000000000001,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Gm",
+              "sec": 1.420000000000001
+            },
+            {
+              "gt": "G",
+              "det": "C",
+              "sec": 0.34000000000000014
+            },
+            {
+              "gt": "C",
+              "det": "Am",
+              "sec": 0.21000000000000005
+            }
+          ]
+        },
+        {
+          "songId": "song-b",
+          "title": "Song B — G major (I–ii–vi–IV / I–ii–IV–V)",
+          "trueKey": "G major",
+          "detectedKey": "A minor",
+          "trueBpm": 108,
+          "detectedBpm": 108,
+          "rootAccuracy": 0.9325084364454337,
+          "triadAccuracy": 0.802024746906623,
+          "ncShare": 0,
+          "rootWrongSec": 1.2000000000000008,
+          "modeFlipSec": 2.3199999999999945,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Gm",
+              "sec": 1.2200000000000009
+            },
+            {
+              "gt": "D",
+              "det": "Dm",
+              "sec": 1.1000000000000008
+            },
+            {
+              "gt": "G",
+              "det": "Am",
+              "sec": 0.7400000000000004
+            }
+          ]
+        },
+        {
+          "songId": "song-c",
+          "title": "Song C — A minor (i–VI–III–VII / i–iv–v–i)",
+          "trueKey": "A minor",
+          "detectedKey": "A minor",
+          "trueBpm": 100,
+          "detectedBpm": 99,
+          "rootAccuracy": 0.9718749999999959,
+          "triadAccuracy": 0.9187499999999882,
+          "ncShare": 0,
+          "rootWrongSec": 0.5400000000000003,
+          "modeFlipSec": 1.0200000000000007,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Gm",
+              "sec": 1.0200000000000007
+            },
+            {
+              "gt": "Em",
+              "det": "Am",
+              "sec": 0.3100000000000001
+            },
+            {
+              "gt": "C",
+              "det": "G",
+              "sec": 0.09
+            }
+          ]
+        },
+        {
+          "songId": "song-d",
+          "title": "Song D — C major slash chords (C/E–F/A–G/B–Am/E)",
+          "trueKey": "C major",
+          "detectedKey": "F major",
+          "trueBpm": 112,
+          "detectedBpm": 112,
+          "rootAccuracy": 0.2672112018669766,
+          "triadAccuracy": 0.2672112018669766,
+          "ncShare": 0,
+          "rootWrongSec": 12.559999999999777,
+          "modeFlipSec": 0,
+          "slashAccuracy": 0.2672112018669766,
+          "slashCorrectSec": 4.579999999999947,
+          "slashExpectedSec": 17.13999999999988,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Bm",
+              "sec": 4.279999999999953
+            },
+            {
+              "gt": "Am",
+              "det": "Em",
+              "sec": 4.129999999999956
+            },
+            {
+              "gt": "C",
+              "det": "Em",
+              "sec": 1.7100000000000013
+            }
+          ]
+        }
+      ],
+      "acRootAccuracy": 0.9541344517182009,
+      "acTriadAccuracy": 0.8642907612689367,
+      "acSpuriousSlashSec": 0,
+      "dRootAccuracy": 0.2672112018669766,
+      "dTriadAccuracy": 0.2672112018669766,
+      "dSlashAccuracy": 0.2672112018669766,
+      "dKeyCorrect": false
+    },
+    {
+      "variant": {
+        "id": "cut260",
+        "label": "ハードカット 260Hz（×0）",
+        "band": {
+          "cutoffHz": 260,
+          "belowWeight": 0
+        }
+      },
+      "songs": [
+        {
+          "songId": "song-a",
+          "title": "Song A — C major (I–vi–IV–V)",
+          "trueKey": "C major",
+          "detectedKey": "C major",
+          "trueBpm": 120,
+          "detectedBpm": 117,
+          "rootAccuracy": 0.9775,
+          "triadAccuracy": 0.8862500000000003,
+          "ncShare": 0,
+          "rootWrongSec": 0.36000000000000015,
+          "modeFlipSec": 1.460000000000001,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Gm",
+              "sec": 1.460000000000001
+            },
+            {
+              "gt": "C",
+              "det": "Am",
+              "sec": 0.10999999999999999
+            },
+            {
+              "gt": "Am",
+              "det": "F",
+              "sec": 0.10999999999999999
+            }
+          ]
+        },
+        {
+          "songId": "song-b",
+          "title": "Song B — G major (I–ii–vi–IV / I–ii–IV–V)",
+          "trueKey": "G major",
+          "detectedKey": "A minor",
+          "trueBpm": 108,
+          "detectedBpm": 108,
+          "rootAccuracy": 0.9602272727272664,
+          "triadAccuracy": 0.8971590909090768,
+          "ncShare": 0.010124873439082013,
+          "rootWrongSec": 0.7000000000000004,
+          "modeFlipSec": 1.1100000000000008,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "D",
+              "det": "Dm",
+              "sec": 1.1100000000000008
+            },
+            {
+              "gt": "C",
+              "det": "D",
+              "sec": 0.3300000000000001
+            },
+            {
+              "gt": "C",
+              "det": "G",
+              "sec": 0.21000000000000005
+            }
+          ]
+        },
+        {
+          "songId": "song-c",
+          "title": "Song C — A minor (i–VI–III–VII / i–iv–v–i)",
+          "trueKey": "A minor",
+          "detectedKey": "A minor",
+          "trueBpm": 100,
+          "detectedBpm": 99,
+          "rootAccuracy": 0.9708333333333291,
+          "triadAccuracy": 0.9708333333333291,
+          "ncShare": 0,
+          "rootWrongSec": 0.5600000000000003,
+          "modeFlipSec": 0,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "C",
+              "det": "G",
+              "sec": 0.3300000000000001
+            },
+            {
+              "gt": "Am",
+              "det": "Dm",
+              "sec": 0.060000000000000005
+            },
+            {
+              "gt": "Dm",
+              "det": "Em",
+              "sec": 0.05
+            }
+          ]
+        },
+        {
+          "songId": "song-d",
+          "title": "Song D — C major slash chords (C/E–F/A–G/B–Am/E)",
+          "trueKey": "C major",
+          "detectedKey": "F major",
+          "trueBpm": 112,
+          "detectedBpm": 112,
+          "rootAccuracy": 0.8722287047841208,
+          "triadAccuracy": 0.8722287047841208,
+          "ncShare": 0,
+          "rootWrongSec": 2.1899999999999973,
+          "modeFlipSec": 0,
+          "slashAccuracy": 0.8722287047841208,
+          "slashCorrectSec": 14.949999999999726,
+          "slashExpectedSec": 17.13999999999988,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Bm",
+              "sec": 1.350000000000001
+            },
+            {
+              "gt": "C",
+              "det": "Em",
+              "sec": 0.37000000000000016
+            },
+            {
+              "gt": "C",
+              "det": "F",
+              "sec": 0.3100000000000001
+            }
+          ]
+        }
+      ],
+      "acRootAccuracy": 0.9692876374069476,
+      "acTriadAccuracy": 0.920565032998254,
+      "acSpuriousSlashSec": 0,
+      "dRootAccuracy": 0.8722287047841208,
+      "dTriadAccuracy": 0.8722287047841208,
+      "dSlashAccuracy": 0.8722287047841208,
+      "dKeyCorrect": false
+    },
+    {
+      "variant": {
+        "id": "cut220",
+        "label": "ハードカット 220Hz（×0）",
+        "band": {
+          "cutoffHz": 220,
+          "belowWeight": 0
+        }
+      },
+      "songs": [
+        {
+          "songId": "song-a",
+          "title": "Song A — C major (I–vi–IV–V)",
+          "trueKey": "C major",
+          "detectedKey": "C major",
+          "trueBpm": 120,
+          "detectedBpm": 117,
+          "rootAccuracy": 0.9775,
+          "triadAccuracy": 0.8250000000000005,
+          "ncShare": 0,
+          "rootWrongSec": 0.36000000000000015,
+          "modeFlipSec": 2.439999999999992,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Gm",
+              "sec": 2.439999999999992
+            },
+            {
+              "gt": "C",
+              "det": "Am",
+              "sec": 0.10999999999999999
+            },
+            {
+              "gt": "Am",
+              "det": "F",
+              "sec": 0.10999999999999999
+            }
+          ]
+        },
+        {
+          "songId": "song-b",
+          "title": "Song B — G major (I–ii–vi–IV / I–ii–IV–V)",
+          "trueKey": "G major",
+          "detectedKey": "A minor",
+          "trueBpm": 108,
+          "detectedBpm": 108,
+          "rootAccuracy": 0.9505061867266513,
+          "triadAccuracy": 0.7086614173228228,
+          "ncShare": 0,
+          "rootWrongSec": 0.8800000000000006,
+          "modeFlipSec": 4.299999999999953,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Gm",
+              "sec": 3.00999999999998
+            },
+            {
+              "gt": "D",
+              "det": "Dm",
+              "sec": 1.290000000000001
+            },
+            {
+              "gt": "C",
+              "det": "D",
+              "sec": 0.3300000000000001
+            }
+          ]
+        },
+        {
+          "songId": "song-c",
+          "title": "Song C — A minor (i–VI–III–VII / i–iv–v–i)",
+          "trueKey": "A minor",
+          "detectedKey": "A minor",
+          "trueBpm": 100,
+          "detectedBpm": 99,
+          "rootAccuracy": 0.9708333333333291,
+          "triadAccuracy": 0.8932291666666511,
+          "ncShare": 0,
+          "rootWrongSec": 0.5600000000000003,
+          "modeFlipSec": 1.490000000000001,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Gm",
+              "sec": 1.490000000000001
+            },
+            {
+              "gt": "C",
+              "det": "G",
+              "sec": 0.3300000000000001
+            },
+            {
+              "gt": "Am",
+              "det": "Dm",
+              "sec": 0.060000000000000005
+            }
+          ]
+        },
+        {
+          "songId": "song-d",
+          "title": "Song D — C major slash chords (C/E–F/A–G/B–Am/E)",
+          "trueKey": "C major",
+          "detectedKey": "F major",
+          "trueBpm": 112,
+          "detectedBpm": 112,
+          "rootAccuracy": 0.8500583430571667,
+          "triadAccuracy": 0.8500583430571667,
+          "ncShare": 0,
+          "rootWrongSec": 2.569999999999989,
+          "modeFlipSec": 0,
+          "slashAccuracy": 0.8500583430571667,
+          "slashCorrectSec": 14.569999999999734,
+          "slashExpectedSec": 17.13999999999988,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "F",
+              "det": "Am",
+              "sec": 0.7500000000000004
+            },
+            {
+              "gt": "G",
+              "det": "Bm",
+              "sec": 0.7500000000000004
+            },
+            {
+              "gt": "G",
+              "det": "Am",
+              "sec": 0.6200000000000003
+            }
+          ]
+        }
+      ],
+      "acRootAccuracy": 0.966025500917859,
+      "acTriadAccuracy": 0.8106871281883962,
+      "acSpuriousSlashSec": 0,
+      "dRootAccuracy": 0.8500583430571667,
+      "dTriadAccuracy": 0.8500583430571667,
+      "dSlashAccuracy": 0.8500583430571667,
+      "dKeyCorrect": false
+    },
+    {
+      "variant": {
+        "id": "cut200",
+        "label": "ハードカット 200Hz（×0）",
+        "band": {
+          "cutoffHz": 200,
+          "belowWeight": 0
+        }
+      },
+      "songs": [
+        {
+          "songId": "song-a",
+          "title": "Song A — C major (I–vi–IV–V)",
+          "trueKey": "C major",
+          "detectedKey": "C major",
+          "trueBpm": 120,
+          "detectedBpm": 117,
+          "rootAccuracy": 0.9512500000000002,
+          "triadAccuracy": 0.7987500000000005,
+          "ncShare": 0,
+          "rootWrongSec": 0.7800000000000005,
+          "modeFlipSec": 2.439999999999992,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Gm",
+              "sec": 2.439999999999992
+            },
+            {
+              "gt": "C",
+              "det": "Am",
+              "sec": 0.5300000000000002
+            },
+            {
+              "gt": "Am",
+              "det": "F",
+              "sec": 0.10999999999999999
+            }
+          ]
+        },
+        {
+          "songId": "song-b",
+          "title": "Song B — G major (I–ii–vi–IV / I–ii–IV–V)",
+          "trueKey": "G major",
+          "detectedKey": "A minor",
+          "trueBpm": 108,
+          "detectedBpm": 108,
+          "rootAccuracy": 0.9825646794150704,
+          "triadAccuracy": 0.6642294713160746,
+          "ncShare": 0,
+          "rootWrongSec": 0.3100000000000001,
+          "modeFlipSec": 5.659999999999924,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Gm",
+              "sec": 2.9299999999999815
+            },
+            {
+              "gt": "Em",
+              "det": "E",
+              "sec": 1.440000000000001
+            },
+            {
+              "gt": "D",
+              "det": "Dm",
+              "sec": 1.290000000000001
+            }
+          ]
+        },
+        {
+          "songId": "song-c",
+          "title": "Song C — A minor (i–VI–III–VII / i–iv–v–i)",
+          "trueKey": "A minor",
+          "detectedKey": "A minor",
+          "trueBpm": 100,
+          "detectedBpm": 99,
+          "rootAccuracy": 0.9593749999999941,
+          "triadAccuracy": 0.8213541666666428,
+          "ncShare": 0,
+          "rootWrongSec": 0.7800000000000005,
+          "modeFlipSec": 2.6499999999999875,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Gm",
+              "sec": 1.440000000000001
+            },
+            {
+              "gt": "Em",
+              "det": "E",
+              "sec": 1.2100000000000009
+            },
+            {
+              "gt": "Em",
+              "det": "Am",
+              "sec": 0.3100000000000001
+            }
+          ]
+        },
+        {
+          "songId": "song-d",
+          "title": "Song D — C major slash chords (C/E–F/A–G/B–Am/E)",
+          "trueKey": "C major",
+          "detectedKey": "F major",
+          "trueBpm": 112,
+          "detectedBpm": 112,
+          "rootAccuracy": 0.8121353558926397,
+          "triadAccuracy": 0.8121353558926397,
+          "ncShare": 0,
+          "rootWrongSec": 3.2199999999999753,
+          "modeFlipSec": 0,
+          "slashAccuracy": 0.8121353558926397,
+          "slashCorrectSec": 13.919999999999748,
+          "slashExpectedSec": 17.13999999999988,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "F",
+              "det": "Am",
+              "sec": 1.1200000000000008
+            },
+            {
+              "gt": "G",
+              "det": "Bm",
+              "sec": 0.7500000000000004
+            },
+            {
+              "gt": "F",
+              "det": "G",
+              "sec": 0.6200000000000003
+            }
+          ]
+        }
+      ],
+      "acRootAccuracy": 0.9647029874785951,
+      "acTriadAccuracy": 0.7618005878111052,
+      "acSpuriousSlashSec": 0,
+      "dRootAccuracy": 0.8121353558926397,
+      "dTriadAccuracy": 0.8121353558926397,
+      "dSlashAccuracy": 0.8121353558926397,
+      "dKeyCorrect": false
+    },
+    {
+      "variant": {
+        "id": "soft260-025",
+        "label": "減衰 260Hz ×0.25",
+        "band": {
+          "cutoffHz": 260,
+          "belowWeight": 0.25
+        }
+      },
+      "songs": [
+        {
+          "songId": "song-a",
+          "title": "Song A — C major (I–vi–IV–V)",
+          "trueKey": "C major",
+          "detectedKey": "C major",
+          "trueBpm": 120,
+          "detectedBpm": 117,
+          "rootAccuracy": 0.9537500000000001,
+          "triadAccuracy": 0.7925000000000005,
+          "ncShare": 0,
+          "rootWrongSec": 0.7400000000000004,
+          "modeFlipSec": 2.579999999999989,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Gm",
+              "sec": 2.579999999999989
+            },
+            {
+              "gt": "C",
+              "det": "Am",
+              "sec": 0.49000000000000027
+            },
+            {
+              "gt": "Am",
+              "det": "F",
+              "sec": 0.10999999999999999
+            }
+          ]
+        },
+        {
+          "songId": "song-b",
+          "title": "Song B — G major (I–ii–vi–IV / I–ii–IV–V)",
+          "trueKey": "G major",
+          "detectedKey": "A minor",
+          "trueBpm": 108,
+          "detectedBpm": 108,
+          "rootAccuracy": 0.9583802024746841,
+          "triadAccuracy": 0.7373453318335085,
+          "ncShare": 0,
+          "rootWrongSec": 0.7400000000000004,
+          "modeFlipSec": 3.92999999999996,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Gm",
+              "sec": 2.4999999999999907
+            },
+            {
+              "gt": "D",
+              "det": "Dm",
+              "sec": 1.430000000000001
+            },
+            {
+              "gt": "G",
+              "det": "Am",
+              "sec": 0.38000000000000017
+            }
+          ]
+        },
+        {
+          "songId": "song-c",
+          "title": "Song C — A minor (i–VI–III–VII / i–iv–v–i)",
+          "trueKey": "A minor",
+          "detectedKey": "A minor",
+          "trueBpm": 100,
+          "detectedBpm": 99,
+          "rootAccuracy": 0.9343749999999904,
+          "triadAccuracy": 0.873958333333315,
+          "ncShare": 0,
+          "rootWrongSec": 1.260000000000001,
+          "modeFlipSec": 1.1600000000000008,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Gm",
+              "sec": 1.1600000000000008
+            },
+            {
+              "gt": "Am",
+              "det": "F",
+              "sec": 0.36000000000000015
+            },
+            {
+              "gt": "G",
+              "det": "Am",
+              "sec": 0.36000000000000015
+            }
+          ]
+        },
+        {
+          "songId": "song-d",
+          "title": "Song D — C major slash chords (C/E–F/A–G/B–Am/E)",
+          "trueKey": "C major",
+          "detectedKey": "F major",
+          "trueBpm": 112,
+          "detectedBpm": 112,
+          "rootAccuracy": 0.7310385064177284,
+          "triadAccuracy": 0.7310385064177284,
+          "ncShare": 0,
+          "rootWrongSec": 4.609999999999946,
+          "modeFlipSec": 0,
+          "slashAccuracy": 0.7310385064177284,
+          "slashCorrectSec": 12.529999999999777,
+          "slashExpectedSec": 17.13999999999988,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Bm",
+              "sec": 2.6899999999999866
+            },
+            {
+              "gt": "F",
+              "det": "Am",
+              "sec": 1.1200000000000008
+            },
+            {
+              "gt": "F",
+              "det": "G",
+              "sec": 0.6200000000000003
+            }
+          ]
+        }
+      ],
+      "acRootAccuracy": 0.9482819894974281,
+      "acTriadAccuracy": 0.8035132566222918,
+      "acSpuriousSlashSec": 0,
+      "dRootAccuracy": 0.7310385064177284,
+      "dTriadAccuracy": 0.7310385064177284,
+      "dSlashAccuracy": 0.7310385064177284,
+      "dKeyCorrect": false
+    },
+    {
+      "variant": {
+        "id": "soft260-010",
+        "label": "減衰 260Hz ×0.10",
+        "band": {
+          "cutoffHz": 260,
+          "belowWeight": 0.1
+        }
+      },
+      "songs": [
+        {
+          "songId": "song-a",
+          "title": "Song A — C major (I–vi–IV–V)",
+          "trueKey": "C major",
+          "detectedKey": "C major",
+          "trueBpm": 120,
+          "detectedBpm": 117,
+          "rootAccuracy": 0.9775,
+          "triadAccuracy": 0.8193750000000005,
+          "ncShare": 0,
+          "rootWrongSec": 0.36000000000000015,
+          "modeFlipSec": 2.52999999999999,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Gm",
+              "sec": 2.52999999999999
+            },
+            {
+              "gt": "C",
+              "det": "Am",
+              "sec": 0.10999999999999999
+            },
+            {
+              "gt": "Am",
+              "det": "F",
+              "sec": 0.10999999999999999
+            }
+          ]
+        },
+        {
+          "songId": "song-b",
+          "title": "Song B — G major (I–ii–vi–IV / I–ii–IV–V)",
+          "trueKey": "G major",
+          "detectedKey": "A minor",
+          "trueBpm": 108,
+          "detectedBpm": 108,
+          "rootAccuracy": 0.9870641169853748,
+          "triadAccuracy": 0.7530933633295711,
+          "ncShare": 0,
+          "rootWrongSec": 0.23000000000000007,
+          "modeFlipSec": 4.159999999999956,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Gm",
+              "sec": 2.7299999999999858
+            },
+            {
+              "gt": "D",
+              "det": "Dm",
+              "sec": 1.430000000000001
+            },
+            {
+              "gt": "G",
+              "det": "Am",
+              "sec": 0.09999999999999999
+            }
+          ]
+        },
+        {
+          "songId": "song-c",
+          "title": "Song C — A minor (i–VI–III–VII / i–iv–v–i)",
+          "trueKey": "A minor",
+          "detectedKey": "A minor",
+          "trueBpm": 100,
+          "detectedBpm": 99,
+          "rootAccuracy": 0.9854166666666645,
+          "triadAccuracy": 0.9078124999999866,
+          "ncShare": 0,
+          "rootWrongSec": 0.2800000000000001,
+          "modeFlipSec": 1.490000000000001,
+          "slashAccuracy": 0,
+          "slashCorrectSec": 0,
+          "slashExpectedSec": 0,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Gm",
+              "sec": 1.490000000000001
+            },
+            {
+              "gt": "Am",
+              "det": "Dm",
+              "sec": 0.060000000000000005
+            },
+            {
+              "gt": "C",
+              "det": "G",
+              "sec": 0.05
+            }
+          ]
+        },
+        {
+          "songId": "song-d",
+          "title": "Song D — C major slash chords (C/E–F/A–G/B–Am/E)",
+          "trueKey": "C major",
+          "detectedKey": "F major",
+          "trueBpm": 112,
+          "detectedBpm": 112,
+          "rootAccuracy": 0.7911318553092095,
+          "triadAccuracy": 0.7911318553092095,
+          "ncShare": 0,
+          "rootWrongSec": 3.5799999999999677,
+          "modeFlipSec": 0,
+          "slashAccuracy": 0.7911318553092095,
+          "slashCorrectSec": 13.559999999999755,
+          "slashExpectedSec": 17.13999999999988,
+          "spuriousSlashSec": 0,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "Bm",
+              "sec": 2.6899999999999866
+            },
+            {
+              "gt": "F",
+              "det": "Am",
+              "sec": 0.37000000000000016
+            },
+            {
+              "gt": "F",
+              "det": "G",
+              "sec": 0.34000000000000014
+            }
+          ]
+        }
+      ],
+      "acRootAccuracy": 0.9835785773673213,
+      "acTriadAccuracy": 0.8291836953692641,
+      "acSpuriousSlashSec": 0,
+      "dRootAccuracy": 0.7911318553092095,
+      "dTriadAccuracy": 0.7911318553092095,
+      "dSlashAccuracy": 0.7911318553092095,
+      "dKeyCorrect": false
+    }
+  ],
+  "selection": {
+    "winnerId": "cut260",
+    "evaluations": [
+      {
+        "variantId": "cut260",
+        "pass": true,
+        "reasons": []
+      },
+      {
+        "variantId": "cut220",
+        "pass": false,
+        "reasons": [
+          "A–C 三和音 81.1% が対照 86.4% から 1pt 超低下"
+        ]
+      },
+      {
+        "variantId": "cut200",
+        "pass": false,
+        "reasons": [
+          "A–C 三和音 76.2% が対照 86.4% から 1pt 超低下"
+        ]
+      },
+      {
+        "variantId": "soft260-025",
+        "pass": false,
+        "reasons": [
+          "A–C 三和音 80.4% が対照 86.4% から 1pt 超低下"
+        ]
+      },
+      {
+        "variantId": "soft260-010",
+        "pass": false,
+        "reasons": [
+          "A–C 三和音 82.9% が対照 86.4% から 1pt 超低下"
+        ]
+      }
+    ]
+  }
+}
