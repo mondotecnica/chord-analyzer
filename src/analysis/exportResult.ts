@@ -20,6 +20,10 @@ export function resultToJson(result: AnalysisResult): string {
         ? {
             separationModel: result.separationModel ?? null,
             stemStrategy: result.stemStrategy ?? null,
+            // 分離本体の実測秒数（モデル取得は含まない）。実測がある場合のみ
+            ...(typeof result.separationSeconds === "number"
+              ? { separationSeconds: Number(result.separationSeconds.toFixed(1)) }
+              : {}),
           }
         : {}),
       fileName: result.fileName,

@@ -9,6 +9,7 @@ import {
   detectEnvironment,
   selectExecutionProviders,
   type EnvironmentInfo,
+  type ExecutionProvider,
 } from "./environment";
 import {
   createCacheStorageStore,
@@ -82,6 +83,14 @@ function throwIfCancelled(signal?: AbortSignal): void {
   if (signal?.aborted) throw new SeparationCancelledError();
 }
 
+/** 実測時間用の単調時計（ミリ秒）。performance が無い環境では Date に落とす */
+function nowMs(): number {
+  return typeof performance !== "undefined" &&
+    typeof performance.now === "function"
+    ? performance.now()
+    : Date.now();
+}
+
 export class OnnxStemSeparator implements StemSeparator {
   readonly modelId: string = SEPARATION_MODEL.id;
   private readonly options: OnnxStemSeparatorOptions;
@@ -119,6 +128,9 @@ export class OnnxStemSeparator implements StemSeparator {
     }
 
     // 段階1: モデル取得（キャッシュ済みなら即時）
+    // 実測時間はここで分けて計る: ダウンロードは初回のみで性質が違うため、
+    // 待ち時間の較正（separationCalibration）に使うのは分離本体だけ。
+    const downloadStartedAt = nowMs();
     let modelBuffer: ArrayBuffer;
     try {
       modelBuffer = await fetchModelBuffer({
@@ -149,12 +161,14 @@ export class OnnxStemSeparator implements StemSeparator {
       throw e;
     }
     throwIfCancelled(signal);
+    const modelDownloadSeconds = (nowMs() - downloadStartedAt) / 1000;
 
     // 段階2: Worker 起動 + チャンク推論 + 合成
+    const separationStartedAt = nowMs();
     const worker = (this.options.workerFactory ?? defaultWorkerFactory)();
     this.worker = worker;
     try {
-      await this.waitForResponse(
+      const ready = await this.waitForResponse(
         worker,
         (res) => res.type === "ready",
         signal,
@@ -166,6 +180,13 @@ export class OnnxStemSeparator implements StemSeparator {
           );
         },
       );
+      // 実際に使われたプロバイダは ready 応答の先頭（Worker が選んだ実績）
+      const usedProvider =
+        ready.type === "ready"
+          ? ready.providers.find(
+              (p): p is ExecutionProvider => p === "webgpu" || p === "wasm",
+            )
+          : undefined;
       throwIfCancelled(signal);
 
       const total = input.left.length;
@@ -207,7 +228,15 @@ export class OnnxStemSeparator implements StemSeparator {
       STEM_NAMES.forEach((name, i) => {
         stems[name] = { left: assembled[i * 2], right: assembled[i * 2 + 1] };
       });
-      return { sampleRate: input.sampleRate, stems };
+      return {
+        sampleRate: input.sampleRate,
+        stems,
+        timings: {
+          modelDownloadSeconds,
+          separationSeconds: (nowMs() - separationStartedAt) / 1000,
+          ...(usedProvider ? { provider: usedProvider } : {}),
+        },
+      };
     } finally {
       worker.terminate();
       if (this.worker === worker) this.worker = null;

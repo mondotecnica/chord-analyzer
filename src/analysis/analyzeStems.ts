@@ -169,6 +169,8 @@ export interface StemAnalysisInput {
   fileName: string;
   /** 分離モデル名（例: "htdemucs"）。結果のメタ情報に記録する */
   separationModel?: string;
+  /** 分離本体にかかった秒数（実測がある場合）。結果へそのまま引き継ぐ */
+  separationSeconds?: number;
 }
 
 const yieldToUi = () =>
@@ -208,6 +210,9 @@ export async function analyzeStemsAudio(
     stemStrategy: HIGH_ACCURACY_STEM_STRATEGY,
     ...(input.separationModel
       ? { separationModel: input.separationModel }
+      : {}),
+    ...(typeof input.separationSeconds === "number"
+      ? { separationSeconds: input.separationSeconds }
       : {}),
   };
 }

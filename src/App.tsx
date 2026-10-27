@@ -24,6 +24,13 @@ import {
   takeSeparationMarker,
   type SeparationInProgressMarker,
 } from "./stems/separationMarker";
+import {
+  estimateSeparationSeconds,
+  formatApproxDuration,
+  loadSeparationCalibration,
+  recordSeparationCalibration,
+  type SeparationCalibration,
+} from "./stems/separationCalibration";
 import { SeparationCancelledError } from "./stems/types";
 import { displayChordName } from "./lib/chordDisplay";
 import { formatTime, noteName } from "./lib/notes";
@@ -77,6 +84,10 @@ export default function App() {
   const [cancellable, setCancellable] = useState(false);
   const [interruptedRun, setInterruptedRun] =
     useState<SeparationInProgressMarker | null>(null);
+  // 待ち時間見積もりの較正記録（この端末での直近の分離実績）
+  const [calibration, setCalibration] = useState<SeparationCalibration | null>(
+    () => loadSeparationCalibration(),
+  );
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -166,6 +177,16 @@ export default function App() {
         // 分離が終わればキャンセル対象は無い（解析段は短時間）
         setCancellable(false);
         abortRef.current = null;
+        // 実測が取れていれば、この端末の待ち時間較正として記録する
+        // （分離本体のみ。ダウンロード時間は含めない）
+        if (stems.timings) {
+          const rec = recordSeparationCalibration(
+            stems.timings.separationSeconds,
+            loaded.duration,
+            stems.timings.provider,
+          );
+          if (rec) setCalibration(rec);
+        }
         setProgress({ stage: "ステムからコードを解析中…", ratio: 0.85 });
         const mixSamples = resampleChannel(
           loaded.monoSamples,
@@ -180,6 +201,9 @@ export default function App() {
             sampleRate: SEPARATION_SAMPLE_RATE,
             fileName,
             separationModel: separator.modelId,
+            ...(stems.timings
+              ? { separationSeconds: stems.timings.separationSeconds }
+              : {}),
           },
           (p) =>
             setProgress({ stage: p.stage, ratio: 0.85 + p.ratio * 0.15 }),
@@ -308,6 +332,18 @@ export default function App() {
 
   const busy = status === "loading" || status === "analyzing";
 
+  // 高精度モードの分離所要時間の目安。較正記録（この端末の前回実績）が
+  // あればそれから見積もり、無ければ端末差の大きい範囲を正直に示す
+  // （非力な端末では 20 分以上かかる実測があるため「数分」とは言わない）。
+  const separationEstimateSec = audio
+    ? estimateSeparationSeconds(calibration, audio.duration)
+    : null;
+  const separationEstimateNote = audio
+    ? separationEstimateSec !== null
+      ? `この曲（${formatTime(audio.duration)}）の分離には${formatApproxDuration(separationEstimateSec)}かかる見込みです（この端末での前回実績に基づく目安。モデルのダウンロード時間は含みません）。`
+      : `この曲（${formatTime(audio.duration)}）の分離時間は端末性能で大きく変わります。速い端末では数分程度ですが、非力な端末では20分以上かかることもあります（目安）。`
+    : null;
+
   // 処理中の経過時間（高精度モードは待ち時間が長いため常時見せる）
   useEffect(() => {
     if (!busy) {
@@ -376,17 +412,15 @@ export default function App() {
         <p className="mode-desc">
           {mode === "simple"
             ? "混合音をそのまま解析します。待ち時間はほぼなく、スマホでも使えます。"
-            : "ドラム／ベース／その他／ボーカルに分離してから解析します。精度は上がりますが、数分かかることがあります。初回のみ分離モデル（約172MB）のダウンロードがあります。"}
+            : "ドラム／ベース／その他／ボーカルに分離してから解析します。精度は上がりますが、端末性能によっては時間がかかります（非力な端末では20分以上かかることもあります）。初回のみ分離モデル（約172MB）のダウンロードがあります。"}
         </p>
         {mode === "high-accuracy" && environment.recommendDesktop && (
           <p className="mode-note">
             この端末では処理に時間がかかったり、メモリ不足で失敗したりすることがあります。デスクトップ環境を推奨します（失敗した場合は簡易モードで解析し直します）。
           </p>
         )}
-        {mode === "high-accuracy" && audio && !busy && (
-          <p className="mode-note">
-            この曲（{formatTime(audio.duration)}）の分離には数分かかる見込みです（目安）。
-          </p>
+        {mode === "high-accuracy" && audio && !busy && separationEstimateNote && (
+          <p className="mode-note">{separationEstimateNote}</p>
         )}
         {audio && !busy && (
           <button type="button" onClick={reanalyze}>
@@ -550,6 +584,14 @@ export default function App() {
                 </span>
               </div>
             </div>
+            {effectiveResult.mode === "high-accuracy" &&
+              typeof effectiveResult.separationSeconds === "number" && (
+                <p className="hint">
+                  この解析のステム分離には
+                  {formatApproxDuration(effectiveResult.separationSeconds)}
+                  かかりました（モデルのダウンロード時間は含みません。この実績は次回以降の目安表示に使われます）。
+                </p>
+              )}
             <div className="summary-actions">
               <button
                 type="button"

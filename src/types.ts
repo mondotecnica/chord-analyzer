@@ -52,4 +52,9 @@ export interface AnalysisResult {
   separationModel?: string;
   /** 高精度モード時のステム帯域戦略（例: "s-conditional"） */
   stemStrategy?: string;
+  /**
+   * 高精度モード時のステム分離本体にかかった秒数（モデル取得は含まない）。
+   * 分離器が実測した場合のみ設定される。待ち時間の較正と書き出し用。
+   */
+  separationSeconds?: number;
 }

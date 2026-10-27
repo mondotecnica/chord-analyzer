@@ -171,6 +171,17 @@ describe("OnnxStemSeparator", () => {
     expect(separator.modelId).toBe("htdemucs");
   });
 
+  it("実測時間（timings）を結果に付け、プロバイダは ready 応答由来にする", async () => {
+    const worker = new FakeWorker();
+    const separator = makeSeparator(worker);
+    const result = await separator.separate(testInput());
+    expect(result.timings).toBeDefined();
+    expect(result.timings!.modelDownloadSeconds).toBeGreaterThanOrEqual(0);
+    expect(result.timings!.separationSeconds).toBeGreaterThanOrEqual(0);
+    // 偽 Worker の ready 応答は providers: ["wasm"]
+    expect(result.timings!.provider).toBe("wasm");
+  });
+
   it("モデル取得の失敗は SeparationError（model-download）で伝わる", async () => {
     const worker = new FakeWorker();
     const separator = new OnnxStemSeparator({

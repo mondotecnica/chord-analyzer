@@ -1,4 +1,5 @@
 import type { StemName } from "./config";
+import type { ExecutionProvider } from "./environment";
 
 export type { StemName };
 
@@ -9,10 +10,26 @@ export interface StereoAudio {
   sampleRate: number;
 }
 
+/**
+ * 分離の実測時間（待ち時間見積もりの自己キャリブレーション用）。
+ * ダウンロードは初回のみで性質が違うため、分離本体とは分けて持つ。
+ * 実装が計測しない場合は未設定でよい（任意フィールド）。
+ */
+export interface SeparationTimings {
+  /** モデル取得にかかった秒数（キャッシュ済みならほぼ 0） */
+  modelDownloadSeconds: number;
+  /** 分離本体（ランタイム初期化 + 推論 + 合成）にかかった秒数 */
+  separationSeconds: number;
+  /** 実際にセッション生成に使った実行プロバイダ（Worker の ready 応答由来） */
+  provider?: ExecutionProvider;
+}
+
 /** 分離結果。ステムはメモリ内にのみ存在し、保存しない（MODES.md §4） */
 export interface SeparatedStems {
   sampleRate: number;
   stems: Record<StemName, { left: Float32Array; right: Float32Array }>;
+  /** 実測時間。計測した実装だけが付ける（StemSeparator の任意契約） */
+  timings?: SeparationTimings;
 }
 
 export type SeparationStage = "model-download" | "separating";
