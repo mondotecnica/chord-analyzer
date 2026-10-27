@@ -18,6 +18,12 @@ import {
 import { SEPARATION_SAMPLE_RATE } from "./stems/config";
 import { detectEnvironment } from "./stems/environment";
 import { OnnxStemSeparator } from "./stems/onnxSeparator";
+import {
+  clearSeparationMarker,
+  markSeparationStarted,
+  takeSeparationMarker,
+  type SeparationInProgressMarker,
+} from "./stems/separationMarker";
 import { SeparationCancelledError } from "./stems/types";
 import { displayChordName } from "./lib/chordDisplay";
 import { formatTime, noteName } from "./lib/notes";
@@ -69,6 +75,8 @@ export default function App() {
   const [mode, setMode] = useState<AnalysisMode>("simple");
   const [elapsedSec, setElapsedSec] = useState(0);
   const [cancellable, setCancellable] = useState(false);
+  const [interruptedRun, setInterruptedRun] =
+    useState<SeparationInProgressMarker | null>(null);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -85,6 +93,15 @@ export default function App() {
     return () => {
       if (prevObjectUrl.current) URL.revokeObjectURL(prevObjectUrl.current);
     };
+  }, []);
+
+  // 起動時チェック: 前回の高精度モードがページの強制終了（メモリ不足に
+  // よる再読み込み等）で中断されていたら、マーカーが残っている。
+  // ハンドル済みの終了では必ず消えるため、残っていれば無言で終わった
+  // ということであり、その旨をユーザーへ知らせる（取り除いて一度だけ表示）。
+  useEffect(() => {
+    const marker = takeSeparationMarker();
+    if (marker) setInterruptedRun(marker);
   }, []);
 
   /** 簡易モード: 混合音をそのまま解析する（従来動作） */
@@ -111,14 +128,19 @@ export default function App() {
    */
   const runHighAccuracyAnalysis = useCallback(
     async (loaded: LoadedAudio, fileName: string) => {
-      if (!separatorRef.current) {
-        separatorRef.current = new OnnxStemSeparator();
-      }
-      const separator = separatorRef.current;
+      // 実行中マーカー: ページが強制再読み込みされても、次回起動時に
+      // 「前回は完了せずに終了した」と知らせるために立てる。
+      // ハンドル済みの全経路（成功・失敗・キャンセル）では finally が
+      // 必ず消すため、マーカーが残るのはページ自体が死んだ場合だけになる。
+      markSeparationStarted(fileName);
       const controller = new AbortController();
       abortRef.current = controller;
       setCancellable(true);
       try {
+        if (!separatorRef.current) {
+          separatorRef.current = new OnnxStemSeparator();
+        }
+        const separator = separatorRef.current;
         setStatus("analyzing");
         setProgress({ stage: "ステム分離の準備中…", ratio: 0 });
         const stereo = resampleStereo(
@@ -179,6 +201,7 @@ export default function App() {
       } finally {
         setCancellable(false);
         abortRef.current = null;
+        clearSeparationMarker();
       }
     },
     [runSimpleAnalysis],
@@ -308,6 +331,24 @@ export default function App() {
           サーバーへアップロード・保存されることはありません。
         </p>
       </header>
+
+      {interruptedRun && (
+        <section className="panel notice" role="status">
+          <div className="notice-row">
+            <p>
+              前回の高精度モード解析は完了せずに終了しました（端末のメモリ不足の可能性があります）。簡易モードはそのまま使えます。
+              {interruptedRun.fileName && (
+                <span className="notice-file">
+                  対象ファイル: {interruptedRun.fileName}
+                </span>
+              )}
+            </p>
+            <button type="button" onClick={() => setInterruptedRun(null)}>
+              閉じる
+            </button>
+          </div>
+        </section>
+      )}
 
       <section className="mode-section" aria-label="解析モード">
         <div className="segmented" role="tablist" aria-label="解析モード">

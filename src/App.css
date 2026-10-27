@@ -125,6 +125,25 @@
   font-size: 14px;
 }
 
+.notice-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.notice-row button {
+  flex-shrink: 0;
+}
+
+.notice-file {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
 .progress-actions {
   display: flex;
   align-items: center;

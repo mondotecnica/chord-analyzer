@@ -16,14 +16,24 @@ import type { WorkerRequest, WorkerResponse } from "./workerProtocol";
 class FakeWorker implements WorkerLike {
   terminated = false;
   private listeners = new Set<(e: MessageEvent<WorkerResponse>) => void>();
-  /** "echo" = 入力をそのまま全ステムに返す、"silent-chunk" = チャンクに応答しない */
-  mode: "echo" | "error-init" | "error-chunk" | "silent-chunk" = "echo";
+  private errorListeners = new Set<(e: Event) => void>();
+  /** "echo" = 入力をそのまま全ステムに返す、"silent-chunk" = チャンクに応答しない、
+   *  "crash-*" = 応答を返さず error イベントで死ぬ（Worker クラッシュの再現） */
+  mode:
+    | "echo"
+    | "error-init"
+    | "error-chunk"
+    | "silent-chunk"
+    | "crash-init"
+    | "crash-chunk" = "echo";
 
   postMessage(message: WorkerRequest): void {
     if (message.type === "init") {
       queueMicrotask(() => {
         if (this.mode === "error-init") {
           this.emit({ type: "error", stage: "runtime-init", message: "init boom" });
+        } else if (this.mode === "crash-init") {
+          this.emitCrash();
         } else {
           this.emit({ type: "ready", providers: ["wasm"] });
         }
@@ -35,6 +45,10 @@ class FakeWorker implements WorkerLike {
       queueMicrotask(() => {
         if (this.mode === "error-chunk") {
           this.emit({ type: "error", stage: "inference", message: "infer boom" });
+          return;
+        }
+        if (this.mode === "crash-chunk") {
+          this.emitCrash();
           return;
         }
         // 全ステム = 入力そのもの（合成が恒等になる組み立て）
@@ -53,22 +67,51 @@ class FakeWorker implements WorkerLike {
   }
 
   addEventListener(
-    _type: "message",
+    type: "message",
     listener: (e: MessageEvent<WorkerResponse>) => void,
+  ): void;
+  addEventListener(type: "error", listener: (e: Event) => void): void;
+  addEventListener(
+    type: "message" | "error",
+    listener:
+      | ((e: MessageEvent<WorkerResponse>) => void)
+      | ((e: Event) => void),
   ): void {
-    this.listeners.add(listener);
+    if (type === "message") {
+      this.listeners.add(listener as (e: MessageEvent<WorkerResponse>) => void);
+    } else {
+      this.errorListeners.add(listener as (e: Event) => void);
+    }
   }
 
   removeEventListener(
-    _type: "message",
+    type: "message",
     listener: (e: MessageEvent<WorkerResponse>) => void,
+  ): void;
+  removeEventListener(type: "error", listener: (e: Event) => void): void;
+  removeEventListener(
+    type: "message" | "error",
+    listener:
+      | ((e: MessageEvent<WorkerResponse>) => void)
+      | ((e: Event) => void),
   ): void {
-    this.listeners.delete(listener);
+    if (type === "message") {
+      this.listeners.delete(listener as (e: MessageEvent<WorkerResponse>) => void);
+    } else {
+      this.errorListeners.delete(listener as (e: Event) => void);
+    }
   }
 
   private emit(res: WorkerResponse): void {
     for (const l of [...this.listeners]) {
       l({ data: res } as MessageEvent<WorkerResponse>);
+    }
+  }
+
+  /** Worker が応答を返さずに死ぬ状態（error イベント）を再現する */
+  private emitCrash(): void {
+    for (const l of [...this.errorListeners]) {
+      l(new Event("error"));
     }
   }
 }
@@ -158,6 +201,28 @@ describe("OnnxStemSeparator", () => {
   it("推論エラーは SeparationError（inference）で伝わる", async () => {
     const worker = new FakeWorker();
     worker.mode = "error-chunk";
+    const separator = makeSeparator(worker);
+    await expect(separator.separate(testInput())).rejects.toMatchObject({
+      name: "SeparationError",
+      stage: "inference",
+    });
+    expect(worker.terminated).toBe(true);
+  });
+
+  it("初期化中に Worker がクラッシュしても SeparationError（runtime-init）で settle する", async () => {
+    const worker = new FakeWorker();
+    worker.mode = "crash-init";
+    const separator = makeSeparator(worker);
+    await expect(separator.separate(testInput())).rejects.toMatchObject({
+      name: "SeparationError",
+      stage: "runtime-init",
+    });
+    expect(worker.terminated).toBe(true);
+  });
+
+  it("推論中に Worker がクラッシュしても SeparationError（inference）で settle する（無言ハング防止）", async () => {
+    const worker = new FakeWorker();
+    worker.mode = "crash-chunk";
     const separator = makeSeparator(worker);
     await expect(separator.separate(testInput())).rejects.toMatchObject({
       name: "SeparationError",

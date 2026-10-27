@@ -46,10 +46,12 @@ export interface WorkerLike {
     type: "message",
     listener: (event: MessageEvent<WorkerResponse>) => void,
   ): void;
+  addEventListener(type: "error", listener: (event: Event) => void): void;
   removeEventListener(
     type: "message",
     listener: (event: MessageEvent<WorkerResponse>) => void,
   ): void;
+  removeEventListener(type: "error", listener: (event: Event) => void): void;
 }
 
 export interface OnnxStemSeparatorOptions {
@@ -156,6 +158,7 @@ export class OnnxStemSeparator implements StemSeparator {
         worker,
         (res) => res.type === "ready",
         signal,
+        "runtime-init",
         () => {
           worker.postMessage(
             { type: "init", modelBuffer, providers },
@@ -180,6 +183,7 @@ export class OnnxStemSeparator implements StemSeparator {
           worker,
           (r) => r.type === "chunk-done" && r.index === win.index,
           signal,
+          "inference",
           () => {
             worker.postMessage(
               { type: "chunk", index: win.index, left, right },
@@ -213,16 +217,22 @@ export class OnnxStemSeparator implements StemSeparator {
   /**
    * Worker へ送信し、条件に合う応答を待つ。
    * error 応答は SeparationError、abort は SeparationCancelledError に変換する。
+   * Worker 自体が応答を返さずに死ぬ場合（スクリプトエラー、メモリ不足に
+   * よる Worker の強制終了など）は "error" イベントで検出し、
+   * SeparationError として必ず settle させる。ここで待ったままになると
+   * UI が「分離中…」のまま無言で止まるため、この経路を欠かしてはならない。
    */
   private waitForResponse(
     worker: WorkerLike,
     predicate: (res: WorkerResponse) => boolean,
     signal: AbortSignal | undefined,
+    stage: SeparationError["stage"],
     send: () => void,
   ): Promise<WorkerResponse> {
     return new Promise<WorkerResponse>((resolve, reject) => {
       const cleanup = () => {
         worker.removeEventListener("message", onMessage);
+        worker.removeEventListener("error", onWorkerError);
         signal?.removeEventListener("abort", onAbort);
       };
       const onMessage = (event: MessageEvent<WorkerResponse>) => {
@@ -236,11 +246,21 @@ export class OnnxStemSeparator implements StemSeparator {
         cleanup();
         resolve(res);
       };
+      const onWorkerError = () => {
+        cleanup();
+        reject(
+          new SeparationError(
+            stage,
+            "分離 Worker が予期せず終了しました（メモリ不足の可能性があります）。",
+          ),
+        );
+      };
       const onAbort = () => {
         cleanup();
         reject(new SeparationCancelledError());
       };
       worker.addEventListener("message", onMessage);
+      worker.addEventListener("error", onWorkerError);
       signal?.addEventListener("abort", onAbort);
       if (signal?.aborted) {
         cleanup();
