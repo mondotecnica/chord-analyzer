@@ -34,6 +34,7 @@ import {
 import { SeparationCancelledError } from "./stems/types";
 import { displayChordName } from "./lib/chordDisplay";
 import { summarizeLocalKeys } from "./lib/localKeySummary";
+import { modelFetchSummaryLine } from "./lib/modelFetchSummary";
 import { formatTime, noteName } from "./lib/notes";
 import type { AnalysisResult, ChordSegment } from "./types";
 import Timeline from "./components/Timeline";
@@ -163,8 +164,13 @@ export default function App() {
           signal: controller.signal,
           onProgress: (p) => {
             if (p.stage === "model-download") {
+              // キャッシュから読んでいる回は「ダウンロード中」と
+              // 表示しない（実態と食い違う表示の是正、2026-10-28）。
               setProgress({
-                stage: `分離モデルをダウンロード中…（初回のみ）${p.detail ? ` ${p.detail}` : ""}`,
+                stage:
+                  p.fromCache === true
+                    ? "分離モデルを読み込み中…（キャッシュから）"
+                    : `分離モデルをダウンロード中…${p.detail ? ` ${p.detail}` : ""}`,
                 ratio: (p.ratio ?? 0) * 0.05,
               });
             } else {
@@ -194,6 +200,24 @@ export default function App() {
           loaded.sampleRate,
           SEPARATION_SAMPLE_RATE,
         );
+        // モデル取得の記録（取得元・秒数・保存の成否）を結果に残す。
+        // 「毎回ダウンロードしているのか」をユーザーが切り分けられる
+        // ようにするためのもので、判定には使わない。
+        const modelFetch = stems.modelFetch
+          ? {
+              source: stems.modelFetch.source,
+              seconds: stems.timings?.modelDownloadSeconds ?? 0,
+              persisted: stems.modelFetch.persisted,
+              ...(stems.modelFetch.cacheLost ? { cacheLost: true } : {}),
+              ...(stems.storage
+                ? {
+                    storagePersisted: stems.storage.persistGranted,
+                    storageUsageBytes: stems.storage.usageBytes,
+                    storageQuotaBytes: stems.storage.quotaBytes,
+                  }
+                : {}),
+            }
+          : undefined;
         const res = await analyzeStemsAudio(
           {
             mixSamples,
@@ -205,6 +229,7 @@ export default function App() {
             ...(stems.timings
               ? { separationSeconds: stems.timings.separationSeconds }
               : {}),
+            ...(modelFetch ? { modelFetch } : {}),
           },
           (p) =>
             setProgress({ stage: p.stage, ratio: 0.85 + p.ratio * 0.15 }),
@@ -335,6 +360,13 @@ export default function App() {
   );
   const localKeyLabel = (root: number, mode: "major" | "minor") =>
     `${noteName(root)} ${mode === "major" ? "メジャー" : "マイナー"}`;
+
+  // 高精度モードのモデル取得の記録（ダウンロードか、キャッシュか、
+  // 保存できたか）を結果サマリに1行で正直に伝える。
+  const modelFetchLine = useMemo(
+    () => modelFetchSummaryLine(effectiveResult?.modelFetch),
+    [effectiveResult?.modelFetch],
+  );
 
   const currentChord = segments.find(
     (s) => currentTime >= s.start && currentTime < s.end,
@@ -621,6 +653,9 @@ export default function App() {
                   かかりました（モデルのダウンロード時間は含みません。この実績は次回以降の目安表示に使われます）。
                 </p>
               )}
+            {effectiveResult.mode === "high-accuracy" && modelFetchLine && (
+              <p className="hint">{modelFetchLine}</p>
+            )}
             <div className="summary-actions">
               <button
                 type="button"

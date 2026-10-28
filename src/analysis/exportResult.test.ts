@@ -58,6 +58,74 @@ describe("resultToJson のモード記録", () => {
     expect(json.mode).toBe("high-accuracy");
     expect(json).not.toHaveProperty("separationSeconds");
   });
+
+  it("簡易モードでは modelFetch を出さない", () => {
+    const json = JSON.parse(resultToJson(baseResult()));
+    expect(json).not.toHaveProperty("modelFetch");
+  });
+
+  it("高精度モードで記録があれば modelFetch（取得元／秒数／保存の成否）を含む", () => {
+    const json = JSON.parse(
+      resultToJson(
+        baseResult({
+          mode: "high-accuracy",
+          separationModel: "htdemucs",
+          stemStrategy: "s-conditional",
+          modelFetch: {
+            source: "download",
+            seconds: 182.34,
+            persisted: true,
+            storagePersisted: true,
+            storageUsageBytes: 180_000_000,
+            storageQuotaBytes: 1_000_000_000,
+          },
+        }),
+      ),
+    );
+    expect(json.modelFetch).toEqual({
+      source: "download",
+      seconds: 182.3,
+      persisted: true,
+      storagePersisted: true,
+      storageUsageBytes: 180_000_000,
+      storageQuotaBytes: 1_000_000_000,
+    });
+  });
+
+  it("キャッシュ読み込みと保存失敗の記録もそのまま写る", () => {
+    const cached = JSON.parse(
+      resultToJson(
+        baseResult({
+          mode: "high-accuracy",
+          modelFetch: { source: "cache", seconds: 3.21, persisted: null },
+        }),
+      ),
+    );
+    expect(cached.modelFetch).toEqual({
+      source: "cache",
+      seconds: 3.2,
+      persisted: null,
+    });
+    const lost = JSON.parse(
+      resultToJson(
+        baseResult({
+          mode: "high-accuracy",
+          modelFetch: {
+            source: "download",
+            seconds: 100,
+            persisted: false,
+            cacheLost: true,
+          },
+        }),
+      ),
+    );
+    expect(lost.modelFetch).toEqual({
+      source: "download",
+      seconds: 100,
+      persisted: false,
+      cacheLost: true,
+    });
+  });
 });
 
 describe("局所キーの書き出し（Phase 3.3 分割採用）", () => {

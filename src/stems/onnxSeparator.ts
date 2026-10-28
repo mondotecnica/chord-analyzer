@@ -14,8 +14,11 @@ import {
 import {
   createCacheStorageStore,
   fetchModelBuffer,
+  type ModelFetchOutcome,
   type ModelStore,
 } from "./modelCache";
+import type { StorageLike } from "./separationMarker";
+import { requestPersistentStorage } from "./storagePersistence";
 import {
   SeparationCancelledError,
   SeparationError,
@@ -62,6 +65,11 @@ export interface OnnxStemSeparatorOptions {
   environment?: Pick<EnvironmentInfo, "hasWebGPU" | "hasWasm">;
   /** 取得先の差し替え（ミラー利用・テスト用）。既定は config のピン留め URL */
   model?: { url: string; expectedBytes?: number };
+  /**
+   * 「モデルを保存できた前歴」フラグの保存先（テスト用）。
+   * 未指定は localStorage、null はフラグ追跡を無効化する。
+   */
+  cacheRecordStorage?: StorageLike | null;
 }
 
 function defaultWorkerFactory(): WorkerLike {
@@ -127,11 +135,17 @@ export class OnnxStemSeparator implements StemSeparator {
       );
     }
 
+    // モデル取得の前に、ブラウザへ保存の永続化を要求しておく
+    // （ベストエフォート。失敗しても分離は止めない）。
+    // Cache Storage はベストエフォート保存で、逼迫時に消されうるため。
+    const storageInfo = await requestPersistentStorage();
+
     // 段階1: モデル取得（キャッシュ済みなら即時）
     // 実測時間はここで分けて計る: ダウンロードは初回のみで性質が違うため、
     // 待ち時間の較正（separationCalibration）に使うのは分離本体だけ。
     const downloadStartedAt = nowMs();
     let modelBuffer: ArrayBuffer;
+    let fetchOutcome: ModelFetchOutcome | undefined;
     try {
       modelBuffer = await fetchModelBuffer({
         url: this.options.model?.url ?? SEPARATION_MODEL.url,
@@ -144,16 +158,21 @@ export class OnnxStemSeparator implements StemSeparator {
             ? createCacheStorageStore(SEPARATION_MODEL.cacheName)
             : undefined),
         fetchImpl: this.options.fetchImpl,
+        cacheRecordStorage: this.options.cacheRecordStorage,
         signal,
         onProgress: (p) => {
           onProgress?.({
             stage: "model-download",
             ratio: p.ratio,
+            fromCache: p.fromCache,
             detail:
               p.totalBytes !== null
                 ? `${Math.floor(p.loadedBytes / 1_000_000)}MB / ${Math.floor(p.totalBytes / 1_000_000)}MB`
                 : `${Math.floor(p.loadedBytes / 1_000_000)}MB`,
           });
+        },
+        onOutcome: (o) => {
+          fetchOutcome = o;
         },
       });
     } catch (e) {
@@ -236,6 +255,18 @@ export class OnnxStemSeparator implements StemSeparator {
           separationSeconds: (nowMs() - separationStartedAt) / 1000,
           ...(usedProvider ? { provider: usedProvider } : {}),
         },
+        ...(fetchOutcome
+          ? {
+              modelFetch: {
+                source: fetchOutcome.fromCache
+                  ? ("cache" as const)
+                  : ("download" as const),
+                persisted: fetchOutcome.persisted,
+                cacheLost: fetchOutcome.cacheLost,
+              },
+            }
+          : {}),
+        storage: storageInfo,
       };
     } finally {
       worker.terminate();

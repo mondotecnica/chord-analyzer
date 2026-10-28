@@ -25,6 +25,32 @@ export function resultToJson(result: AnalysisResult): string {
             ...(typeof result.separationSeconds === "number"
               ? { separationSeconds: Number(result.separationSeconds.toFixed(1)) }
               : {}),
+            // モデル取得の記録（取得元／秒数／保存の成否）。記録がある場合のみ。
+            // 「毎回ダウンロードしているのか」を後から切り分けるための診断情報
+            ...(result.modelFetch
+              ? {
+                  modelFetch: {
+                    source: result.modelFetch.source,
+                    seconds: Number(result.modelFetch.seconds.toFixed(1)),
+                    persisted: result.modelFetch.persisted,
+                    ...(result.modelFetch.cacheLost
+                      ? { cacheLost: true }
+                      : {}),
+                    ...(typeof result.modelFetch.storagePersisted ===
+                    "boolean"
+                      ? { storagePersisted: result.modelFetch.storagePersisted }
+                      : {}),
+                    ...(typeof result.modelFetch.storageUsageBytes ===
+                    "number"
+                      ? { storageUsageBytes: result.modelFetch.storageUsageBytes }
+                      : {}),
+                    ...(typeof result.modelFetch.storageQuotaBytes ===
+                    "number"
+                      ? { storageQuotaBytes: result.modelFetch.storageQuotaBytes }
+                      : {}),
+                  },
+                }
+              : {}),
           }
         : {}),
       fileName: result.fileName,

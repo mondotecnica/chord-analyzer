@@ -1,5 +1,6 @@
 import type { StemName } from "./config";
 import type { ExecutionProvider } from "./environment";
+import type { StoragePersistenceInfo } from "./storagePersistence";
 
 export type { StemName };
 
@@ -24,12 +25,36 @@ export interface SeparationTimings {
   provider?: ExecutionProvider;
 }
 
+/**
+ * モデル取得の事実（modelCache の ModelFetchOutcome の分離結果側の形）。
+ * 結果表示と書き出しが「ダウンロードだったのか、キャッシュから
+ * 読めたのか、保存はできたのか」を正直に伝えるためのもの。
+ */
+export interface ModelFetchFacts {
+  /** 取得元: キャッシュから読めたか、ダウンロードしたか */
+  source: "cache" | "download";
+  /**
+   * ダウンロード後の保存結果。true = 保存できた、false = 失敗した。
+   * キャッシュ読み込みの回と保存先が無い場合は null。
+   */
+  persisted: boolean | null;
+  /** 保存したはずのキャッシュが失われていて再取得した場合に true */
+  cacheLost: boolean;
+}
+
 /** 分離結果。ステムはメモリ内にのみ存在し、保存しない（MODES.md §4） */
 export interface SeparatedStems {
   sampleRate: number;
   stems: Record<StemName, { left: Float32Array; right: Float32Array }>;
   /** 実測時間。計測した実装だけが付ける（StemSeparator の任意契約） */
   timings?: SeparationTimings;
+  /** モデル取得の事実。計測した実装だけが付ける */
+  modelFetch?: ModelFetchFacts;
+  /**
+   * 永続ストレージ要求と使用量（storagePersistence）。
+   * 診断用で、取れなかった項目は null。
+   */
+  storage?: StoragePersistenceInfo;
 }
 
 export type SeparationStage = "model-download" | "separating";
@@ -40,6 +65,12 @@ export interface SeparationProgress {
   ratio: number | null;
   /** 表示用の補足（例: ダウンロード済み MB） */
   detail?: string;
+  /**
+   * model-download 段階のみ: キャッシュから読んでいる場合は true。
+   * UI が「ダウンロード中」と「読み込み中（キャッシュから）」を
+   * 出し分けるために使う（2026-10-28 の実機報告を受けた正直化）。
+   */
+  fromCache?: boolean;
 }
 
 export interface SeparateOptions {

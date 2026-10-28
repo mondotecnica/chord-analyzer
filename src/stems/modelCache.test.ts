@@ -1,20 +1,40 @@
 import { describe, expect, it, vi } from "vitest";
 import {
   fetchModelBuffer,
+  type ModelFetchOutcome,
   type ModelFetchProgress,
   type ModelStore,
 } from "./modelCache";
+import { wasModelCachedBefore } from "./modelCacheRecord";
+import type { StorageLike } from "./separationMarker";
 import { SeparationError } from "./types";
 
 const URL = "https://example.test/model.onnx";
 
 class FakeStore implements ModelStore {
   readonly data = new Map<string, ArrayBuffer>();
+  /** false にすると保存失敗（容量制限など）を再現する */
+  putSucceeds = true;
   async match(url: string): Promise<ArrayBuffer | undefined> {
     return this.data.get(url);
   }
-  async put(url: string, buffer: ArrayBuffer): Promise<void> {
+  async put(url: string, buffer: ArrayBuffer): Promise<boolean> {
+    if (!this.putSucceeds) return false;
     this.data.set(url, buffer);
+    return true;
+  }
+}
+
+class FakeStorage implements StorageLike {
+  readonly data = new Map<string, string>();
+  getItem(key: string): string | null {
+    return this.data.get(key) ?? null;
+  }
+  setItem(key: string, value: string): void {
+    this.data.set(key, value);
+  }
+  removeItem(key: string): void {
+    this.data.delete(key);
   }
 }
 
@@ -112,5 +132,107 @@ describe("fetchModelBuffer", () => {
     })) as unknown as typeof fetch;
     const result = await fetchModelBuffer({ url: URL, expectedBytes: 4, fetchImpl });
     expect(new Uint8Array(result)).toEqual(bytes);
+  });
+});
+
+describe("fetchModelBuffer の取得結果報告（onOutcome）", () => {
+  it("キャッシュヒットでは fromCache: true、persisted: null を報告する", async () => {
+    const store = new FakeStore();
+    store.data.set(URL, new Uint8Array([9, 8, 7]).buffer);
+    const outcomes: ModelFetchOutcome[] = [];
+    await fetchModelBuffer({
+      url: URL,
+      expectedBytes: 3,
+      store,
+      cacheRecordStorage: new FakeStorage(),
+      fetchImpl: vi.fn(() => {
+        throw new Error("fetch should not be called");
+      }) as unknown as typeof fetch,
+      onOutcome: (o) => outcomes.push(o),
+    });
+    expect(outcomes).toEqual([
+      { fromCache: true, persisted: null, cacheLost: false },
+    ]);
+  });
+
+  it("ダウンロード＋保存成功では persisted: true を報告し、前歴フラグが立つ", async () => {
+    const store = new FakeStore();
+    const storage = new FakeStorage();
+    const outcomes: ModelFetchOutcome[] = [];
+    await fetchModelBuffer({
+      url: URL,
+      expectedBytes: 6,
+      store,
+      cacheRecordStorage: storage,
+      fetchImpl: streamingFetch(new Uint8Array([1, 2, 3, 4, 5, 6])),
+      onOutcome: (o) => outcomes.push(o),
+    });
+    expect(outcomes).toEqual([
+      { fromCache: false, persisted: true, cacheLost: false },
+    ]);
+    expect(wasModelCachedBefore(storage)).toBe(true);
+  });
+
+  it("保存に失敗したら persisted: false を報告する（握りつぶさない）", async () => {
+    const store = new FakeStore();
+    store.putSucceeds = false;
+    const storage = new FakeStorage();
+    const outcomes: ModelFetchOutcome[] = [];
+    const result = await fetchModelBuffer({
+      url: URL,
+      expectedBytes: 6,
+      store,
+      cacheRecordStorage: storage,
+      fetchImpl: streamingFetch(new Uint8Array([1, 2, 3, 4, 5, 6])),
+      onOutcome: (o) => outcomes.push(o),
+    });
+    // 取得自体は成功として返るが、保存失敗は結果として見える
+    expect(new Uint8Array(result)).toEqual(new Uint8Array([1, 2, 3, 4, 5, 6]));
+    expect(outcomes).toEqual([
+      { fromCache: false, persisted: false, cacheLost: false },
+    ]);
+    expect(wasModelCachedBefore(storage)).toBe(false);
+  });
+
+  it("保存できた前歴があるのにキャッシュを引けない回は cacheLost: true", async () => {
+    const storage = new FakeStorage();
+    // 1 回目: ダウンロード＋保存成功で前歴が立つ
+    const firstStore = new FakeStore();
+    await fetchModelBuffer({
+      url: URL,
+      expectedBytes: 3,
+      store: firstStore,
+      cacheRecordStorage: storage,
+      fetchImpl: streamingFetch(new Uint8Array([1, 2, 3])),
+    });
+    expect(wasModelCachedBefore(storage)).toBe(true);
+    // 2 回目: キャッシュが消えている（別ストアで再現）→ 消失として報告
+    const emptiedStore = new FakeStore();
+    const outcomes: ModelFetchOutcome[] = [];
+    await fetchModelBuffer({
+      url: URL,
+      expectedBytes: 3,
+      store: emptiedStore,
+      cacheRecordStorage: storage,
+      fetchImpl: streamingFetch(new Uint8Array([1, 2, 3])),
+      onOutcome: (o) => outcomes.push(o),
+    });
+    expect(outcomes).toEqual([
+      { fromCache: false, persisted: true, cacheLost: true },
+    ]);
+  });
+
+  it("保存先が無い構成では persisted: null、cacheLost: false", async () => {
+    const outcomes: ModelFetchOutcome[] = [];
+    await fetchModelBuffer({
+      url: URL,
+      expectedBytes: 3,
+      cacheRecordStorage: new FakeStorage(),
+      fetchImpl: streamingFetch(new Uint8Array([1, 2, 3])),
+      onOutcome: (o) => outcomes.push(o),
+    });
+    expect(outcomes).toEqual([
+      { fromCache: false, persisted: null, cacheLost: false },
+    ]);
   });
 });

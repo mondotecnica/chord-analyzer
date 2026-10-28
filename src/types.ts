@@ -63,6 +63,27 @@ export interface LocalKeyWindow {
   runnerUpMode: "major" | "minor";
 }
 
+/** 高精度モードのモデル取得の記録（結果表示・書き出し用） */
+export interface ModelFetchSummary {
+  /** 取得元: キャッシュから読めたか、ダウンロードしたか */
+  source: "cache" | "download";
+  /** モデル取得にかかった秒数（キャッシュ読み込みの時間を含む） */
+  seconds: number;
+  /**
+   * ダウンロード後の保存結果。true = 保存できた、false = 失敗した。
+   * キャッシュ読み込みの回と保存先が無い場合は null。
+   */
+  persisted: boolean | null;
+  /** 保存したはずのキャッシュが失われていて再取得した場合に true */
+  cacheLost?: boolean;
+  /** ブラウザに永続化が認められたか（診断用。不明な場合は null） */
+  storagePersisted?: boolean | null;
+  /** ストレージ使用量（バイト、診断用。不明な場合は null） */
+  storageUsageBytes?: number | null;
+  /** ストレージ上限（バイト、診断用。不明な場合は null） */
+  storageQuotaBytes?: number | null;
+}
+
 export interface AnalysisResult {
   fileName: string;
   duration: number; // 秒
@@ -92,6 +113,13 @@ export interface AnalysisResult {
    * 分離器が実測した場合のみ設定される。待ち時間の較正と書き出し用。
    */
   separationSeconds?: number;
+  /**
+   * 高精度モード時のモデル取得の記録（stems 層の ModelFetchFacts に
+   * 取得秒数を合わせたもの）。「ダウンロードだったのか、キャッシュ
+   * から読めたのか、保存はできたのか」を結果表示と書き出しが
+   * 正直に伝えるために持つ。簡易モードでは設定されない。
+   */
+  modelFetch?: ModelFetchSummary;
   /**
    * Phase 3.3: 局所キー推定の窓列（analysis/localKey.ts）。
    * 2026-10-28 の分割採用以降は既定で設定される加算的フィールド

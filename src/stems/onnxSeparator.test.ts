@@ -1,12 +1,25 @@
 import { describe, expect, it, vi } from "vitest";
 import { OnnxStemSeparator, type WorkerLike } from "./onnxSeparator";
 import { STEM_NAMES } from "./config";
+import type { ModelStore } from "./modelCache";
 import {
   SeparationCancelledError,
   type SeparationProgress,
   type StereoAudio,
 } from "./types";
 import type { WorkerRequest, WorkerResponse } from "./workerProtocol";
+
+/** テスト用のインメモリ ModelStore */
+class MapStore implements ModelStore {
+  readonly data = new Map<string, ArrayBuffer>();
+  async match(url: string): Promise<ArrayBuffer | undefined> {
+    return this.data.get(url);
+  }
+  async put(url: string, buffer: ArrayBuffer): Promise<boolean> {
+    this.data.set(url, buffer);
+    return true;
+  }
+}
 
 /**
  * 偽 Worker で分離オーケストレーション（モデル取得 → init →
@@ -180,6 +193,78 @@ describe("OnnxStemSeparator", () => {
     expect(result.timings!.separationSeconds).toBeGreaterThanOrEqual(0);
     // 偽 Worker の ready 応答は providers: ["wasm"]
     expect(result.timings!.provider).toBe("wasm");
+  });
+
+  it("キャッシュ済みモデルでは進捗が fromCache: true になり、結果にも残る", async () => {
+    const worker = new FakeWorker();
+    const store = new MapStore();
+    store.data.set(
+      "https://example.test/model.onnx",
+      new Uint8Array([1, 2, 3, 4]).buffer,
+    );
+    const separator = new OnnxStemSeparator({
+      workerFactory: () => worker,
+      fetchImpl: vi.fn(() => {
+        throw new Error("fetch should not be called");
+      }) as unknown as typeof fetch,
+      environment: { hasWebGPU: false, hasWasm: true },
+      model: { url: "https://example.test/model.onnx", expectedBytes: 4 },
+      modelStore: store,
+      cacheRecordStorage: null,
+    });
+    const progresses: SeparationProgress[] = [];
+    const result = await separator.separate(testInput(), {
+      onProgress: (p) => progresses.push(p),
+    });
+    const downloadEvents = progresses.filter(
+      (p) => p.stage === "model-download",
+    );
+    expect(downloadEvents.length).toBeGreaterThan(0);
+    expect(downloadEvents.every((p) => p.fromCache === true)).toBe(true);
+    expect(result.modelFetch).toEqual({
+      source: "cache",
+      persisted: null,
+      cacheLost: false,
+    });
+  });
+
+  it("ダウンロード時は進捗が fromCache: false で、保存結果が結果に残る", async () => {
+    const worker = new FakeWorker();
+    const store = new MapStore();
+    const separator = new OnnxStemSeparator({
+      workerFactory: () => worker,
+      fetchImpl: okFetch(),
+      environment: { hasWebGPU: false, hasWasm: true },
+      model: { url: "https://example.test/model.onnx", expectedBytes: 4 },
+      modelStore: store,
+      cacheRecordStorage: null,
+    });
+    const progresses: SeparationProgress[] = [];
+    const result = await separator.separate(testInput(), {
+      onProgress: (p) => progresses.push(p),
+    });
+    const downloadEvents = progresses.filter(
+      (p) => p.stage === "model-download",
+    );
+    expect(downloadEvents.length).toBeGreaterThan(0);
+    expect(downloadEvents.every((p) => p.fromCache === false)).toBe(true);
+    expect(result.modelFetch).toEqual({
+      source: "download",
+      persisted: true,
+      cacheLost: false,
+    });
+    expect(store.data.has("https://example.test/model.onnx")).toBe(true);
+  });
+
+  it("保存先が無い構成では modelFetch.persisted が null になる", async () => {
+    const worker = new FakeWorker();
+    const separator = makeSeparator(worker);
+    const result = await separator.separate(testInput());
+    expect(result.modelFetch).toEqual({
+      source: "download",
+      persisted: null,
+      cacheLost: false,
+    });
   });
 
   it("モデル取得の失敗は SeparationError（model-download）で伝わる", async () => {

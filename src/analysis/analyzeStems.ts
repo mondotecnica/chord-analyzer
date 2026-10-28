@@ -1,5 +1,5 @@
 import { computeChromagram } from "../dsp/chroma";
-import type { AnalysisResult } from "../types";
+import type { AnalysisResult, ModelFetchSummary } from "../types";
 import { DEFAULT_CHORD_BAND, type AnalyzeProgress } from "./analyze";
 import { applyBassCorrection } from "./bassCorrection";
 import { estimateChordFrames } from "./chordEstimation";
@@ -253,6 +253,8 @@ export interface StemAnalysisInput {
   separationModel?: string;
   /** 分離本体にかかった秒数（実測がある場合）。結果へそのまま引き継ぐ */
   separationSeconds?: number;
+  /** モデル取得の記録（実測がある場合）。結果へそのまま引き継ぐ */
+  modelFetch?: ModelFetchSummary;
 }
 
 const yieldToUi = () =>
@@ -296,5 +298,6 @@ export async function analyzeStemsAudio(
     ...(typeof input.separationSeconds === "number"
       ? { separationSeconds: input.separationSeconds }
       : {}),
+    ...(input.modelFetch ? { modelFetch: input.modelFetch } : {}),
   };
 }
