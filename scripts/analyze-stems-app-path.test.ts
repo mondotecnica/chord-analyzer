@@ -1,49 +1,27 @@
 /**
  * アプリ経路（src/analysis/analyzeStems.ts の analyzeStemsAudio）が、
- * 測定ハーネスで記録した A/B の勝者 s-conditional の数値を再現することの検証。
+ * 共有コア（analyzeStemsWithStrategy の s-conditional、現行既定）の
+ * 数値を再現することの検証。
  *
- * 入力は stem-work/ に分離済みのステムと、STEM_BAND_AB.md の記録値
- * （measurements/phase2/stems-results.json の variants[s-conditional]）。
+ * 期待値は同一素材に対する共有コアの実行結果（テスト内で算出）。
+ * Phase 2 の記録 JSON（measurements/phase2/stems-results.json）は
+ * legacy ゲート時代の記録であり、その再現は measureStems 側の
+ * legacy 固定（measure-stems.test.ts）が担う。アプリ入口は採用済み
+ * の現行既定（曲参照フレームゲート、measurements/nc/FRAME_GATE.md）
+ * に従うため、記録 JSON とは一致しないのが正しい。
  * 対象は実曲1（Put Your Records On）と合成 Song D。
  * 実曲1の混合音ファイル（~/workspace/user/files/）が無い環境では
  * その曲だけスキップする。Song D はリポジトリ内素材のみで完結する。
  */
 import { existsSync, readFileSync } from "node:fs";
-import { join } from "node:path";
-import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
-import { analyzeStemsAudio } from "../src/analysis/analyzeStems";
 import {
-  findStemWav,
-  STEM_SONGS,
-  type StemSongResult,
-} from "./measureStems";
+  analyzeStemsAudio,
+  analyzeStemsWithStrategy,
+  prepareStemChromas,
+} from "../src/analysis/analyzeStems";
+import { findStemWav, STEM_SONGS } from "./measureStems";
 import { loadAudioFile, measureRealSong, parseTruthJson, type RealTruth } from "./measureReal";
-
-const PROJECT_ROOT = fileURLToPath(new URL("..", import.meta.url));
-
-interface RecordedExpectation {
-  root: number;
-  triad: number;
-  core: number | null;
-}
-
-function recordedExpectation(slug: string): RecordedExpectation {
-  const results = JSON.parse(
-    readFileSync(
-      join(PROJECT_ROOT, "measurements/phase2/stems-results.json"),
-      "utf-8",
-    ),
-  ) as StemSongResult[];
-  const song = results.find((r) => r.slug === slug);
-  const variant = song?.variants.find((v) => v.strategy === "s-conditional");
-  if (!variant) throw new Error(`記録値に ${slug} の s-conditional がありません`);
-  return {
-    root: variant.measurement.rootAccuracy,
-    triad: variant.measurement.triadAccuracy,
-    core: variant.measurement.coreAccuracy,
-  };
-}
 
 function materialsAvailable(slug: string): boolean {
   const spec = STEM_SONGS.find((s) => s.slug === slug);
@@ -77,36 +55,41 @@ async function measureViaAppPath(slug: string) {
     fileName: spec.slug,
     separationModel: "htdemucs",
   });
-  return { result, measurement: measureRealSong(truth, result, "app-path") };
+  // 期待値: 共有コア（s-conditional、現行既定オプション）の素の結果。
+  const chromas = prepareStemChromas(mix.samples, other.samples, bass.samples, sr);
+  const core = analyzeStemsWithStrategy(chromas, sr, spec.slug, "s-conditional");
+  return {
+    result,
+    measurement: measureRealSong(truth, result, "app-path"),
+    expected: measureRealSong(truth, core, "core"),
+  };
 }
 
 const TOLERANCE = 0.0005;
 
-describe("アプリ経路 analyzeStemsAudio（s-conditional）の記録値再現", () => {
+describe("アプリ経路 analyzeStemsAudio（s-conditional）の共有コア再現", () => {
   it.skipIf(!materialsAvailable("song-d"))(
-    "Song D: 記録値（ルート/三和音/コア）を再現する",
+    "Song D: 共有コアの数値（ルート/三和音/コア）を再現する",
     async () => {
-      const expected = recordedExpectation("song-d");
-      const { result, measurement } = await measureViaAppPath("song-d");
+      const { result, measurement, expected } = await measureViaAppPath("song-d");
       expect(result.mode).toBe("high-accuracy");
       expect(result.stemStrategy).toBe("s-conditional");
-      expect(Math.abs(measurement.rootAccuracy - expected.root)).toBeLessThan(TOLERANCE);
-      expect(Math.abs(measurement.triadAccuracy - expected.triad)).toBeLessThan(TOLERANCE);
-      expect(Math.abs((measurement.coreAccuracy ?? 0) - (expected.core ?? 0))).toBeLessThan(TOLERANCE);
+      expect(Math.abs(measurement.rootAccuracy - expected.rootAccuracy)).toBeLessThan(TOLERANCE);
+      expect(Math.abs(measurement.triadAccuracy - expected.triadAccuracy)).toBeLessThan(TOLERANCE);
+      expect(Math.abs((measurement.coreAccuracy ?? 0) - (expected.coreAccuracy ?? 0))).toBeLessThan(TOLERANCE);
     },
     300_000,
   );
 
   it.skipIf(!materialsAvailable("put-your-records-on"))(
-    "実曲1 Put Your Records On: 記録値を再現する",
+    "実曲1 Put Your Records On: 共有コアの数値を再現する",
     async () => {
-      const expected = recordedExpectation("put-your-records-on");
-      const { result, measurement } = await measureViaAppPath("put-your-records-on");
+      const { result, measurement, expected } = await measureViaAppPath("put-your-records-on");
       expect(result.mode).toBe("high-accuracy");
       expect(result.stemStrategy).toBe("s-conditional");
-      expect(Math.abs(measurement.rootAccuracy - expected.root)).toBeLessThan(TOLERANCE);
-      expect(Math.abs(measurement.triadAccuracy - expected.triad)).toBeLessThan(TOLERANCE);
-      expect(Math.abs((measurement.coreAccuracy ?? 0) - (expected.core ?? 0))).toBeLessThan(TOLERANCE);
+      expect(Math.abs(measurement.rootAccuracy - expected.rootAccuracy)).toBeLessThan(TOLERANCE);
+      expect(Math.abs(measurement.triadAccuracy - expected.triadAccuracy)).toBeLessThan(TOLERANCE);
+      expect(Math.abs((measurement.coreAccuracy ?? 0) - (expected.coreAccuracy ?? 0))).toBeLessThan(TOLERANCE);
     },
     300_000,
   );

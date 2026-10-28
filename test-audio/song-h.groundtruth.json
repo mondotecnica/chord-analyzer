@@ -1,0 +1,106 @@
+{
+  "songId": "song-h",
+  "title": "Song H — 12-bar blues in A (A7–D7–E7)",
+  "key": "A major",
+  "bpm": 96,
+  "sampleRate": 44100,
+  "durationSec": 30,
+  "segments": [
+    {
+      "startSec": 0,
+      "endSec": 2.5,
+      "chord": "A",
+      "fullChord": "A7",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 2.5,
+      "endSec": 5,
+      "chord": "A",
+      "fullChord": "A7",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 5,
+      "endSec": 7.5,
+      "chord": "A",
+      "fullChord": "A7",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 7.5,
+      "endSec": 10,
+      "chord": "A",
+      "fullChord": "A7",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 10,
+      "endSec": 12.5,
+      "chord": "D",
+      "fullChord": "D7",
+      "bass": "D",
+      "bassPc": 2
+    },
+    {
+      "startSec": 12.5,
+      "endSec": 15,
+      "chord": "D",
+      "fullChord": "D7",
+      "bass": "D",
+      "bassPc": 2
+    },
+    {
+      "startSec": 15,
+      "endSec": 17.5,
+      "chord": "A",
+      "fullChord": "A7",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 17.5,
+      "endSec": 20,
+      "chord": "A",
+      "fullChord": "A7",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 20,
+      "endSec": 22.5,
+      "chord": "E",
+      "fullChord": "E7",
+      "bass": "E",
+      "bassPc": 4
+    },
+    {
+      "startSec": 22.5,
+      "endSec": 25,
+      "chord": "D",
+      "fullChord": "D7",
+      "bass": "D",
+      "bassPc": 2
+    },
+    {
+      "startSec": 25,
+      "endSec": 27.5,
+      "chord": "A",
+      "fullChord": "A7",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 27.5,
+      "endSec": 30,
+      "chord": "E",
+      "fullChord": "E7",
+      "bass": "E",
+      "bassPc": 4
+    }
+  ]
+}

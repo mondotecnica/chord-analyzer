@@ -1,0 +1,66 @@
+{
+  "songId": "song-i",
+  "title": "Song I — rock with ♭VII (G–F–C–G / G–F–C–D)",
+  "key": "G major",
+  "bpm": 132,
+  "sampleRate": 44100,
+  "durationSec": 14.545,
+  "segments": [
+    {
+      "startSec": 0,
+      "endSec": 1.818,
+      "chord": "G",
+      "bass": "G",
+      "bassPc": 7
+    },
+    {
+      "startSec": 1.818,
+      "endSec": 3.636,
+      "chord": "F",
+      "bass": "F",
+      "bassPc": 5
+    },
+    {
+      "startSec": 3.636,
+      "endSec": 5.455,
+      "chord": "C",
+      "bass": "C",
+      "bassPc": 0
+    },
+    {
+      "startSec": 5.455,
+      "endSec": 7.273,
+      "chord": "G",
+      "bass": "G",
+      "bassPc": 7
+    },
+    {
+      "startSec": 7.273,
+      "endSec": 9.091,
+      "chord": "G",
+      "bass": "G",
+      "bassPc": 7
+    },
+    {
+      "startSec": 9.091,
+      "endSec": 10.909,
+      "chord": "F",
+      "bass": "F",
+      "bassPc": 5
+    },
+    {
+      "startSec": 10.909,
+      "endSec": 12.727,
+      "chord": "C",
+      "bass": "C",
+      "bassPc": 0
+    },
+    {
+      "startSec": 12.727,
+      "endSec": 14.545,
+      "chord": "D",
+      "bass": "D",
+      "bassPc": 2
+    }
+  ]
+}

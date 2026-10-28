@@ -1,0 +1,1723 @@
+{
+  "suites": [
+    {
+      "suite": "synthetic",
+      "id": "song-a",
+      "title": "Song A — C major (I–vi–IV–V)",
+      "baseline": {
+        "ncShare": 0.0520794984660531,
+        "metrics": {
+          "root": 0.9568750000000001,
+          "triad": 0.8900000000000003,
+          "core": null,
+          "rootAllTime": 0.9568749999999824,
+          "triadAllTime": 0.8899999999999838
+        },
+        "conversion": {
+          "baselineNcSec": 0.9,
+          "convertedCorrectSec": 0,
+          "convertedWrongSec": 0,
+          "stillNcSec": 0.9,
+          "filledUnverifiableSec": 0
+        },
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0.0520794984660531,
+          "metrics": {
+            "root": 0.9568750000000001,
+            "triad": 0.8900000000000003,
+            "core": null,
+            "rootAllTime": 0.9568749999999824,
+            "triadAllTime": 0.8899999999999838
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.0520794984660531,
+          "metrics": {
+            "root": 0.9568750000000001,
+            "triad": 0.8900000000000003,
+            "core": null,
+            "rootAllTime": 0.9568749999999824,
+            "triadAllTime": 0.8899999999999838
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0.0520794984660531,
+          "metrics": {
+            "root": 0.9568750000000001,
+            "triad": 0.8900000000000003,
+            "core": null,
+            "rootAllTime": 0.9568749999999824,
+            "triadAllTime": 0.8899999999999838
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    },
+    {
+      "suite": "synthetic",
+      "id": "song-b",
+      "title": "Song B — G major (I–ii–vi–IV / I–ii–IV–V)",
+      "baseline": {
+        "ncShare": 0.045371331964738526,
+        "metrics": {
+          "root": 0.9325084364454337,
+          "triad": 0.8638920134982978,
+          "core": null,
+          "rootAllTime": 0.9326133423332092,
+          "triadAllTime": 0.8639892001349825
+        },
+        "conversion": {
+          "baselineNcSec": 0.9,
+          "convertedCorrectSec": 0,
+          "convertedWrongSec": 0,
+          "stillNcSec": 0.9,
+          "filledUnverifiableSec": 0
+        },
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0.045371331964738526,
+          "metrics": {
+            "root": 0.9325084364454337,
+            "triad": 0.8638920134982978,
+            "core": null,
+            "rootAllTime": 0.9326133423332092,
+            "triadAllTime": 0.8639892001349825
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.045371331964738526,
+          "metrics": {
+            "root": 0.9325084364454337,
+            "triad": 0.8638920134982978,
+            "core": null,
+            "rootAllTime": 0.9326133423332092,
+            "triadAllTime": 0.8639892001349825
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0.045371331964738526,
+          "metrics": {
+            "root": 0.9325084364454337,
+            "triad": 0.8638920134982978,
+            "core": null,
+            "rootAllTime": 0.9326133423332092,
+            "triadAllTime": 0.8639892001349825
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    },
+    {
+      "suite": "synthetic",
+      "id": "song-c",
+      "title": "Song C — A minor (i–VI–III–VII / i–iv–v–i)",
+      "baseline": {
+        "ncShare": 0.04361374913001494,
+        "metrics": {
+          "root": 0.9718749999999959,
+          "triad": 0.9187499999999882,
+          "core": null,
+          "rootAllTime": 0.9718750000000062,
+          "triadAllTime": 0.9187499999999978
+        },
+        "conversion": {
+          "baselineNcSec": 0.9,
+          "convertedCorrectSec": 0,
+          "convertedWrongSec": 0,
+          "stillNcSec": 0.9,
+          "filledUnverifiableSec": 0
+        },
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0.04361374913001494,
+          "metrics": {
+            "root": 0.9718749999999959,
+            "triad": 0.9187499999999882,
+            "core": null,
+            "rootAllTime": 0.9718750000000062,
+            "triadAllTime": 0.9187499999999978
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.04361374913001494,
+          "metrics": {
+            "root": 0.9718749999999959,
+            "triad": 0.9187499999999882,
+            "core": null,
+            "rootAllTime": 0.9718750000000062,
+            "triadAllTime": 0.9187499999999978
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0.04361374913001494,
+          "metrics": {
+            "root": 0.9718749999999959,
+            "triad": 0.9187499999999882,
+            "core": null,
+            "rootAllTime": 0.9718750000000062,
+            "triadAllTime": 0.9187499999999978
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    },
+    {
+      "suite": "synthetic",
+      "id": "song-d",
+      "title": "Song D — C major slash chords (C/E–F/A–G/B–Am/E)",
+      "baseline": {
+        "ncShare": 0.04779902512185981,
+        "metrics": {
+          "root": 0.2672112018669766,
+          "triad": 0.2672112018669766,
+          "core": null,
+          "rootAllTime": 0.26716444029632774,
+          "triadAllTime": 0.26716444029632774
+        },
+        "conversion": {
+          "baselineNcSec": 0.9,
+          "convertedCorrectSec": 0,
+          "convertedWrongSec": 0,
+          "stillNcSec": 0.9,
+          "filledUnverifiableSec": 0
+        },
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0,
+          "metrics": {
+            "root": 0.2672112018669766,
+            "triad": 0.2672112018669766,
+            "core": null,
+            "rootAllTime": 0.26716444029632774,
+            "triadAllTime": 0.26716444029632774
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.05,
+            "filledUnverifiableSec": 0.85
+          },
+          "filledBySource": {
+            "segment-rematch": 0.87
+          },
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.04779902512185981,
+          "metrics": {
+            "root": 0.2672112018669766,
+            "triad": 0.2672112018669766,
+            "core": null,
+            "rootAllTime": 0.26716444029632774,
+            "triadAllTime": 0.26716444029632774
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0,
+          "metrics": {
+            "root": 0.2672112018669766,
+            "triad": 0.2672112018669766,
+            "core": null,
+            "rootAllTime": 0.26716444029632774,
+            "triadAllTime": 0.26716444029632774
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.05,
+            "filledUnverifiableSec": 0.85
+          },
+          "filledBySource": {
+            "segment-rematch": 0.87
+          },
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    },
+    {
+      "suite": "synthetic",
+      "id": "song-e",
+      "title": "Song E — 7th chords (CM7–B7–E7–Am7 / Dm7–G7–CM7–Am7)",
+      "baseline": {
+        "ncShare": 0.07257577587247913,
+        "metrics": {
+          "root": 0.9171974522292877,
+          "triad": 0.8853503184713264,
+          "core": null,
+          "rootAllTime": 0.8909888626392006,
+          "triadAllTime": 0.8600517493531173
+        },
+        "conversion": {
+          "baselineNcSec": 1.45,
+          "convertedCorrectSec": 0.05,
+          "convertedWrongSec": 0,
+          "stillNcSec": 1.4,
+          "filledUnverifiableSec": 0
+        },
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0.07257577587247913,
+          "metrics": {
+            "root": 0.9171974522292877,
+            "triad": 0.8853503184713264,
+            "core": null,
+            "rootAllTime": 0.8909888626392006,
+            "triadAllTime": 0.8600517493531173
+          },
+          "conversion": {
+            "baselineNcSec": 1.45,
+            "convertedCorrectSec": 0.05,
+            "convertedWrongSec": 0,
+            "stillNcSec": 1.4,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.045371331964738526,
+          "metrics": {
+            "root": 0.9195725534308085,
+            "triad": 0.8886389201349677,
+            "core": null,
+            "rootAllTime": 0.9196760040499358,
+            "triadAllTime": 0.888738890763849
+          },
+          "conversion": {
+            "baselineNcSec": 1.45,
+            "convertedCorrectSec": 0.55,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {
+            "gap-fill": 0.51
+          },
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0.045371331964738526,
+          "metrics": {
+            "root": 0.9195725534308085,
+            "triad": 0.8886389201349677,
+            "core": null,
+            "rootAllTime": 0.9196760040499358,
+            "triadAllTime": 0.888738890763849
+          },
+          "conversion": {
+            "baselineNcSec": 1.45,
+            "convertedCorrectSec": 0.55,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {
+            "gap-fill": 0.51
+          },
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    },
+    {
+      "suite": "synthetic",
+      "id": "song-f",
+      "title": "Song F — secondary dominants (CM7–A7–Dm7–G7 / C–F–G7–Am7)",
+      "baseline": {
+        "ncShare": 0.040241874527588775,
+        "metrics": {
+          "root": 0.9804999999999973,
+          "triad": 0.9204999999999889,
+          "core": null,
+          "rootAllTime": 0.9805000000000132,
+          "triadAllTime": 0.9205000000000039
+        },
+        "conversion": {
+          "baselineNcSec": 0.85,
+          "convertedCorrectSec": 0,
+          "convertedWrongSec": 0,
+          "stillNcSec": 0.85,
+          "filledUnverifiableSec": 0
+        },
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0.040241874527588775,
+          "metrics": {
+            "root": 0.9804999999999973,
+            "triad": 0.9204999999999889,
+            "core": null,
+            "rootAllTime": 0.9805000000000132,
+            "triadAllTime": 0.9205000000000039
+          },
+          "conversion": {
+            "baselineNcSec": 0.85,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.85,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.040241874527588775,
+          "metrics": {
+            "root": 0.9804999999999973,
+            "triad": 0.9204999999999889,
+            "core": null,
+            "rootAllTime": 0.9805000000000132,
+            "triadAllTime": 0.9205000000000039
+          },
+          "conversion": {
+            "baselineNcSec": 0.85,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.85,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0.040241874527588775,
+          "metrics": {
+            "root": 0.9804999999999973,
+            "triad": 0.9204999999999889,
+            "core": null,
+            "rootAllTime": 0.9805000000000132,
+            "triadAllTime": 0.9205000000000039
+          },
+          "conversion": {
+            "baselineNcSec": 0.85,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.85,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    },
+    {
+      "suite": "synthetic",
+      "id": "song-g",
+      "title": "Song G — add9 layers (Am(add9)/C# / Cadd9 / G / Am(add9) / Fadd9 / Em)",
+      "baseline": {
+        "ncShare": 0.033453866395042914,
+        "metrics": {
+          "root": 0.8098016336055802,
+          "triad": 0.7596266044340462,
+          "core": null,
+          "rootAllTime": 0.8096756630629407,
+          "triadAllTime": 0.7595084389826653
+        },
+        "conversion": {
+          "baselineNcSec": 0.9,
+          "convertedCorrectSec": 0,
+          "convertedWrongSec": 0,
+          "stillNcSec": 0.9,
+          "filledUnverifiableSec": 0
+        },
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0.033453866395042914,
+          "metrics": {
+            "root": 0.8098016336055802,
+            "triad": 0.7596266044340462,
+            "core": null,
+            "rootAllTime": 0.8096756630629407,
+            "triadAllTime": 0.7595084389826653
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.033453866395042914,
+          "metrics": {
+            "root": 0.8098016336055802,
+            "triad": 0.7596266044340462,
+            "core": null,
+            "rootAllTime": 0.8096756630629407,
+            "triadAllTime": 0.7595084389826653
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0.033453866395042914,
+          "metrics": {
+            "root": 0.8098016336055802,
+            "triad": 0.7596266044340462,
+            "core": null,
+            "rootAllTime": 0.8096756630629407,
+            "triadAllTime": 0.7595084389826653
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    },
+    {
+      "suite": "synthetic",
+      "id": "song-h",
+      "title": "Song H — 12-bar blues in A (A7–D7–E7)",
+      "baseline": {
+        "ncShare": 0.027758027942359757,
+        "metrics": {
+          "root": 0.967999999999997,
+          "triad": 0.804333333333315,
+          "core": null,
+          "rootAllTime": 0.968000000000058,
+          "triadAllTime": 0.8043333333333658
+        },
+        "conversion": {
+          "baselineNcSec": 0.9,
+          "convertedCorrectSec": 0,
+          "convertedWrongSec": 0,
+          "stillNcSec": 0.9,
+          "filledUnverifiableSec": 0
+        },
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0.027758027942359757,
+          "metrics": {
+            "root": 0.967999999999997,
+            "triad": 0.804333333333315,
+            "core": null,
+            "rootAllTime": 0.968000000000058,
+            "triadAllTime": 0.8043333333333658
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.027758027942359757,
+          "metrics": {
+            "root": 0.967999999999997,
+            "triad": 0.804333333333315,
+            "core": null,
+            "rootAllTime": 0.968000000000058,
+            "triadAllTime": 0.8043333333333658
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0.027758027942359757,
+          "metrics": {
+            "root": 0.967999999999997,
+            "triad": 0.804333333333315,
+            "core": null,
+            "rootAllTime": 0.968000000000058,
+            "triadAllTime": 0.8043333333333658
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    },
+    {
+      "suite": "synthetic",
+      "id": "song-i",
+      "title": "Song I — rock with ♭VII (G–F–C–G / G–F–C–D)",
+      "baseline": {
+        "ncShare": 0.05599404861754342,
+        "metrics": {
+          "root": 0.9491408934707906,
+          "triad": 0.8790378006872855,
+          "core": null,
+          "rootAllTime": 0.9494671708490718,
+          "triadAllTime": 0.8793399793743397
+        },
+        "conversion": {
+          "baselineNcSec": 0.9,
+          "convertedCorrectSec": 0,
+          "convertedWrongSec": 0,
+          "stillNcSec": 0.9,
+          "filledUnverifiableSec": 0
+        },
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0.05599404861754342,
+          "metrics": {
+            "root": 0.9491408934707906,
+            "triad": 0.8790378006872855,
+            "core": null,
+            "rootAllTime": 0.9494671708490718,
+            "triadAllTime": 0.8793399793743397
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.05599404861754342,
+          "metrics": {
+            "root": 0.9491408934707906,
+            "triad": 0.8790378006872855,
+            "core": null,
+            "rootAllTime": 0.9494671708490718,
+            "triadAllTime": 0.8793399793743397
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0.05599404861754342,
+          "metrics": {
+            "root": 0.9491408934707906,
+            "triad": 0.8790378006872855,
+            "core": null,
+            "rootAllTime": 0.9494671708490718,
+            "triadAllTime": 0.8793399793743397
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    },
+    {
+      "suite": "real-mixture",
+      "id": "put-your-records-on",
+      "title": "Put Your Records On — Corinne Bailey Rae",
+      "baseline": {
+        "ncShare": 0.03395567201659574,
+        "metrics": {
+          "root": 0.5407591482728763,
+          "triad": 0.6419534113751175,
+          "core": 0.3110392839382843
+        },
+        "conversion": {
+          "baselineNcSec": 7.25,
+          "convertedCorrectSec": 0,
+          "convertedWrongSec": 0,
+          "stillNcSec": 7.25,
+          "filledUnverifiableSec": 0
+        },
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0.03395567201659574,
+          "metrics": {
+            "root": 0.5407591482728763,
+            "triad": 0.6419534113751175,
+            "core": 0.3110392839382843
+          },
+          "conversion": {
+            "baselineNcSec": 7.25,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 7.25,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.03395567201659574,
+          "metrics": {
+            "root": 0.5407591482728763,
+            "triad": 0.6419534113751175,
+            "core": 0.3110392839382843
+          },
+          "conversion": {
+            "baselineNcSec": 7.25,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 7.25,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0.03395567201659574,
+          "metrics": {
+            "root": 0.5407591482728763,
+            "triad": 0.6419534113751175,
+            "core": 0.3110392839382843
+          },
+          "conversion": {
+            "baselineNcSec": 7.25,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 7.25,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    },
+    {
+      "suite": "real-mixture",
+      "id": "everything",
+      "title": "Everything — MISIA",
+      "baseline": {
+        "ncShare": 0.04389715832205679,
+        "metrics": {
+          "root": 0.22712524334862347,
+          "triad": 0.3159404888416397,
+          "core": 0.13860255741133437
+        },
+        "conversion": {
+          "baselineNcSec": 18.95,
+          "convertedCorrectSec": 0,
+          "convertedWrongSec": 0.05,
+          "stillNcSec": 18.85,
+          "filledUnverifiableSec": 0.05
+        },
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0.02506089309878209,
+          "metrics": {
+            "root": 0.22910702282870038,
+            "triad": 0.31601317607053764,
+            "core": 0.1381429221666517
+          },
+          "conversion": {
+            "baselineNcSec": 18.95,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 1.05,
+            "stillNcSec": 10.8,
+            "filledUnverifiableSec": 7.1
+          },
+          "filledBySource": {
+            "segment-rematch": 8.08
+          },
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.04389715832205679,
+          "metrics": {
+            "root": 0.22712524334862347,
+            "triad": 0.3159404888416397,
+            "core": 0.13860255741133437
+          },
+          "conversion": {
+            "baselineNcSec": 18.95,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 18.85,
+            "filledUnverifiableSec": 0.05
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0.02506089309878209,
+          "metrics": {
+            "root": 0.22910702282870038,
+            "triad": 0.31601317607053764,
+            "core": 0.1381429221666517
+          },
+          "conversion": {
+            "baselineNcSec": 18.95,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 1.05,
+            "stillNcSec": 10.8,
+            "filledUnverifiableSec": 7.1
+          },
+          "filledBySource": {
+            "segment-rematch": 8.08
+          },
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    },
+    {
+      "suite": "real-mixture",
+      "id": "a-hard-days-night",
+      "title": "A Hard Day's Night — The Beatles",
+      "baseline": {
+        "ncShare": 0.04809764452349362,
+        "metrics": {
+          "root": 0.28085831062668354,
+          "triad": 0.22559166244479784,
+          "core": 0.3603707995365038
+        },
+        "conversion": {
+          "baselineNcSec": 7.45,
+          "convertedCorrectSec": 0,
+          "convertedWrongSec": 0.05,
+          "stillNcSec": 7.4,
+          "filledUnverifiableSec": 0
+        },
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0.04809764452349362,
+          "metrics": {
+            "root": 0.28085831062668354,
+            "triad": 0.22559166244479784,
+            "core": 0.3603707995365038
+          },
+          "conversion": {
+            "baselineNcSec": 7.45,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 7.4,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.04809764452349362,
+          "metrics": {
+            "root": 0.28085831062668354,
+            "triad": 0.22559166244479784,
+            "core": 0.3603707995365038
+          },
+          "conversion": {
+            "baselineNcSec": 7.45,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 7.4,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0.04809764452349362,
+          "metrics": {
+            "root": 0.28085831062668354,
+            "triad": 0.22559166244479784,
+            "core": 0.3603707995365038
+          },
+          "conversion": {
+            "baselineNcSec": 7.45,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 7.4,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    },
+    {
+      "suite": "real-stems",
+      "id": "put-your-records-on",
+      "title": "Put Your Records On — Corinne Bailey Rae",
+      "baseline": {
+        "ncShare": 0.06930287772729136,
+        "metrics": {
+          "root": 0.6139064475350018,
+          "triad": 0.8169508525575884,
+          "core": 0.38333757098051174
+        },
+        "conversion": {
+          "baselineNcSec": 15.05,
+          "convertedCorrectSec": 0.1,
+          "convertedWrongSec": 0.25,
+          "stillNcSec": 14.7,
+          "filledUnverifiableSec": 0
+        },
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0.059696808438058656,
+          "metrics": {
+            "root": 0.6142142142144567,
+            "triad": 0.8199309324123502,
+            "core": 0.3809804582209442
+          },
+          "conversion": {
+            "baselineNcSec": 15.05,
+            "convertedCorrectSec": 1.45,
+            "convertedWrongSec": 0.95,
+            "stillNcSec": 12.65,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {
+            "segment-rematch": 2.04
+          },
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "fallback": {
+          "ncShare": 0.05554873306316268,
+          "metrics": {
+            "root": 0.6115208291810287,
+            "triad": 0.7950219619325578,
+            "core": 0.3809804582209442
+          },
+          "conversion": {
+            "baselineNcSec": 15.05,
+            "convertedCorrectSec": 0.1,
+            "convertedWrongSec": 3.15,
+            "stillNcSec": 11.8,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {
+            "stems-fallback": 2.93
+          },
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.06711968016155663,
+          "metrics": {
+            "root": 0.6148024822160695,
+            "triad": 0.8180004986286872,
+            "core": 0.38333757098051174
+          },
+          "conversion": {
+            "baselineNcSec": 15.05,
+            "convertedCorrectSec": 0.55,
+            "convertedWrongSec": 0.25,
+            "stillNcSec": 14.25,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {
+            "gap-fill": 0.46
+          },
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0.05554873306316268,
+          "metrics": {
+            "root": 0.6115208291810287,
+            "triad": 0.8111273792092853,
+            "core": 0.3809804582209442
+          },
+          "conversion": {
+            "baselineNcSec": 15.05,
+            "convertedCorrectSec": 1.45,
+            "convertedWrongSec": 1.8,
+            "stillNcSec": 11.8,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {
+            "stems-fallback": 0.88,
+            "segment-rematch": 2.04
+          },
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    },
+    {
+      "suite": "real-stems",
+      "id": "everything",
+      "title": "Everything — MISIA",
+      "baseline": {
+        "ncShare": 0.05688152838664307,
+        "metrics": {
+          "root": 0.2710270874627112,
+          "triad": 0.37086535248912567,
+          "core": 0.20740740740748398
+        },
+        "conversion": {
+          "baselineNcSec": 24.5,
+          "convertedCorrectSec": 0,
+          "convertedWrongSec": 0,
+          "stillNcSec": 24.45,
+          "filledUnverifiableSec": 0.05
+        },
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0.05309303458353639,
+          "metrics": {
+            "root": 0.2731045652395912,
+            "triad": 0.37957166392090086,
+            "core": 0.2071618822137493
+          },
+          "conversion": {
+            "baselineNcSec": 24.5,
+            "convertedCorrectSec": 1.3,
+            "convertedWrongSec": 0.35,
+            "stillNcSec": 22.8,
+            "filledUnverifiableSec": 0.05
+          },
+          "filledBySource": {
+            "segment-rematch": 1.63
+          },
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "fallback": {
+          "ncShare": 0.05688152838664307,
+          "metrics": {
+            "root": 0.2710270874627112,
+            "triad": 0.37086535248912567,
+            "core": 0.20740740740748398
+          },
+          "conversion": {
+            "baselineNcSec": 24.5,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 24.45,
+            "filledUnverifiableSec": 0.05
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.05688152838664307,
+          "metrics": {
+            "root": 0.2710270874627112,
+            "triad": 0.37086535248912567,
+            "core": 0.20740740740748398
+          },
+          "conversion": {
+            "baselineNcSec": 24.5,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 24.45,
+            "filledUnverifiableSec": 0.05
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0.05309303458353639,
+          "metrics": {
+            "root": 0.2731045652395912,
+            "triad": 0.37957166392090086,
+            "core": 0.2071618822137493
+          },
+          "conversion": {
+            "baselineNcSec": 24.5,
+            "convertedCorrectSec": 1.3,
+            "convertedWrongSec": 0.35,
+            "stillNcSec": 22.8,
+            "filledUnverifiableSec": 0.05
+          },
+          "filledBySource": {
+            "segment-rematch": 1.63
+          },
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    },
+    {
+      "suite": "real-stems",
+      "id": "a-hard-days-night",
+      "title": "A Hard Day's Night — The Beatles",
+      "baseline": {
+        "ncShare": 0.0435224386113462,
+        "metrics": {
+          "root": 0.5063033753558076,
+          "triad": 0.5171165954982243,
+          "core": 0.34685165421558467
+        },
+        "conversion": {
+          "baselineNcSec": 6.75,
+          "convertedCorrectSec": 0,
+          "convertedWrongSec": 0.05,
+          "stillNcSec": 6.7,
+          "filledUnverifiableSec": 0
+        },
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0.0435224386113462,
+          "metrics": {
+            "root": 0.5063033753558076,
+            "triad": 0.5171165954982243,
+            "core": 0.34685165421558467
+          },
+          "conversion": {
+            "baselineNcSec": 6.75,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 6.7,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "fallback": {
+          "ncShare": 0.0435224386113462,
+          "metrics": {
+            "root": 0.5063033753558076,
+            "triad": 0.5171165954982243,
+            "core": 0.34685165421558467
+          },
+          "conversion": {
+            "baselineNcSec": 6.75,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 6.7,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.0435224386113462,
+          "metrics": {
+            "root": 0.5063033753558076,
+            "triad": 0.5171165954982243,
+            "core": 0.34685165421558467
+          },
+          "conversion": {
+            "baselineNcSec": 6.75,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 6.7,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0.0435224386113462,
+          "metrics": {
+            "root": 0.5063033753558076,
+            "triad": 0.5171165954982243,
+            "core": 0.34685165421558467
+          },
+          "conversion": {
+            "baselineNcSec": 6.75,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 6.7,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    },
+    {
+      "suite": "real-stems",
+      "id": "song-d",
+      "title": "Song D — 合成分数コード（C/E–F/A–G/B–Am/E）",
+      "baseline": {
+        "ncShare": 0.04523934508186476,
+        "metrics": {
+          "root": 0.9859976662777107,
+          "triad": 0.9859976662777107,
+          "core": null
+        },
+        "conversion": {
+          "baselineNcSec": 0.85,
+          "convertedCorrectSec": 0,
+          "convertedWrongSec": 0,
+          "stillNcSec": 0.85,
+          "filledUnverifiableSec": 0
+        },
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0.04523934508186476,
+          "metrics": {
+            "root": 0.9859976662777107,
+            "triad": 0.9859976662777107,
+            "core": null
+          },
+          "conversion": {
+            "baselineNcSec": 0.85,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.85,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "fallback": {
+          "ncShare": 0.04523934508186476,
+          "metrics": {
+            "root": 0.9859976662777107,
+            "triad": 0.9859976662777107,
+            "core": null
+          },
+          "conversion": {
+            "baselineNcSec": 0.85,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.85,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.04523934508186476,
+          "metrics": {
+            "root": 0.9859976662777107,
+            "triad": 0.9859976662777107,
+            "core": null
+          },
+          "conversion": {
+            "baselineNcSec": 0.85,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.85,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0.04523934508186476,
+          "metrics": {
+            "root": 0.9859976662777107,
+            "triad": 0.9859976662777107,
+            "core": null
+          },
+          "conversion": {
+            "baselineNcSec": 0.85,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.85,
+            "filledUnverifiableSec": 0
+          },
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    },
+    {
+      "suite": "suno-mixture",
+      "id": "suno-05",
+      "title": "Suno 05（混合音）",
+      "baseline": {
+        "ncShare": 0.05236498436549372,
+        "metrics": null,
+        "conversion": null,
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0.028368493286359067,
+          "metrics": null,
+          "conversion": null,
+          "filledBySource": {
+            "segment-rematch": 4.92
+          },
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.05236498436549372,
+          "metrics": null,
+          "conversion": null,
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0.028368493286359067,
+          "metrics": null,
+          "conversion": null,
+          "filledBySource": {
+            "segment-rematch": 4.92
+          },
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    },
+    {
+      "suite": "suno-stems",
+      "id": "suno-05",
+      "title": "Suno 05（ステム）",
+      "baseline": {
+        "ncShare": 0.227584645641439,
+        "metrics": null,
+        "conversion": null,
+        "filledBySource": {},
+        "nonNcIdentical": true,
+        "filledGlobalSilenceSec": 0
+      },
+      "arms": {
+        "rematch": {
+          "ncShare": 0.20336177257099175,
+          "metrics": null,
+          "conversion": null,
+          "filledBySource": {
+            "segment-rematch": 4.97
+          },
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "fallback": {
+          "ncShare": 0.20970046832774428,
+          "metrics": null,
+          "conversion": null,
+          "filledBySource": {
+            "stems-fallback": 3.67
+          },
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "gapfill": {
+          "ncShare": 0.227584645641439,
+          "metrics": null,
+          "conversion": null,
+          "filledBySource": {},
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        },
+        "all": {
+          "ncShare": 0.19883413274473993,
+          "metrics": null,
+          "conversion": null,
+          "filledBySource": {
+            "segment-rematch": 4.97,
+            "stems-fallback": 0.93
+          },
+          "nonNcIdentical": true,
+          "filledGlobalSilenceSec": 0
+        }
+      }
+    }
+  ],
+  "sunoFixturesBaseline": {
+    "q3": {
+      "slices": [
+        {
+          "range": [
+            85,
+            87
+          ],
+          "expected": "C",
+          "stemsOn": "C",
+          "mixOn": "Bm"
+        },
+        {
+          "range": [
+            87,
+            89
+          ],
+          "expected": "B7",
+          "stemsOn": "B7",
+          "mixOn": "Am"
+        },
+        {
+          "range": [
+            89,
+            91
+          ],
+          "expected": "E7",
+          "stemsOn": "E7",
+          "mixOn": "Em7"
+        },
+        {
+          "range": [
+            91,
+            93
+          ],
+          "expected": "Am",
+          "stemsOn": "Am7",
+          "mixOn": "CM7"
+        }
+      ],
+      "pass": true
+    },
+    "q2": {
+      "window": [
+        153,
+        168
+      ],
+      "stemsCmSecOff": 4.749999999999991,
+      "stemsCmSecOn": 4.749999999999991,
+      "mixCmSecOff": 1.1000000000000003,
+      "mixCmSecOn": 1.1000000000000003,
+      "strictPass": false,
+      "stage2Pass": false
+    },
+    "q1": {
+      "windows": [
+        {
+          "range": [
+            51,
+            56
+          ],
+          "stemsDominantOff": {
+            "chord": "Dm",
+            "bassPc": 2,
+            "sec": 1.7647165532879825
+          },
+          "stemsDominantOn": {
+            "chord": "Dm",
+            "extension": "m7",
+            "bassPc": 2,
+            "sec": 1.7647165532879825
+          }
+        },
+        {
+          "range": [
+            93,
+            98
+          ],
+          "stemsDominantOff": {
+            "chord": "Dm",
+            "bassPc": 2,
+            "sec": 1.8575963718820816
+          },
+          "stemsDominantOn": {
+            "chord": "Dm",
+            "extension": "m7",
+            "bassPc": 2,
+            "sec": 1.8575963718820816
+          }
+        }
+      ],
+      "pass": false
+    }
+  },
+  "sunoFixturesRecovery": {
+    "q3": {
+      "slices": [
+        {
+          "range": [
+            85,
+            87
+          ],
+          "expected": "C",
+          "stemsOn": "C",
+          "mixOn": "Bm"
+        },
+        {
+          "range": [
+            87,
+            89
+          ],
+          "expected": "B7",
+          "stemsOn": "B7",
+          "mixOn": "Am"
+        },
+        {
+          "range": [
+            89,
+            91
+          ],
+          "expected": "E7",
+          "stemsOn": "E7",
+          "mixOn": "Em7"
+        },
+        {
+          "range": [
+            91,
+            93
+          ],
+          "expected": "Am",
+          "stemsOn": "Am7",
+          "mixOn": "CM7"
+        }
+      ],
+      "pass": true
+    },
+    "q2": {
+      "window": [
+        153,
+        168
+      ],
+      "stemsCmSecOff": 4.749999999999991,
+      "stemsCmSecOn": 4.749999999999991,
+      "mixCmSecOff": 1.1000000000000003,
+      "mixCmSecOn": 1.1000000000000003,
+      "strictPass": false,
+      "stage2Pass": false
+    },
+    "q1": {
+      "windows": [
+        {
+          "range": [
+            51,
+            56
+          ],
+          "stemsDominantOff": {
+            "chord": "Dm",
+            "bassPc": 2,
+            "sec": 1.7647165532879825
+          },
+          "stemsDominantOn": {
+            "chord": "Dm",
+            "extension": "m7",
+            "bassPc": 2,
+            "sec": 1.7647165532879825
+          }
+        },
+        {
+          "range": [
+            93,
+            98
+          ],
+          "stemsDominantOff": {
+            "chord": "Dm",
+            "bassPc": 2,
+            "sec": 1.8575963718820816
+          },
+          "stemsDominantOn": {
+            "chord": "Dm",
+            "extension": "m7",
+            "bassPc": 2,
+            "sec": 1.8575963718820816
+          }
+        }
+      ],
+      "pass": false
+    }
+  },
+  "sunoOutroStillNc": true
+}

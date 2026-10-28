@@ -237,6 +237,52 @@ export const ADD9_SONGS: SongSpec[] = [
   },
 ];
 
+/**
+ * Song H: 12 小節ブルース（Phase 3 後半・ジャンル傾向の測定土台）。
+ * A の 12-bar ブルース定型（A7×4 → D7×2 → A7×2 → E7–D7–A7–E7）。
+ * I／IV にも dom7 が乗るのがブルースの文法であり、ジャンル推定では
+ * blues の代表例、第2段では「トニックの dom7 を genre 文脈が
+ * 拾いやすくするか」の検証例になる。SEVENTH_SONGS 等とは分けて持ち、
+ * 既存の測定の対象範囲を変えない。
+ */
+export const BLUES_SONGS: SongSpec[] = [
+  {
+    id: "song-h",
+    title: "Song H — 12-bar blues in A (A7–D7–E7)",
+    trueKey: "A major",
+    bpm: 96,
+    beatsPerBar: 4,
+    progression: [
+      dom7("A"), dom7("A"), dom7("A"), dom7("A"),
+      dom7("D"), dom7("D"), dom7("A"), dom7("A"),
+      dom7("E"), dom7("D"), dom7("A"), dom7("E"),
+    ],
+    repeats: 1,
+  },
+];
+
+/**
+ * Song I: ♭VII を含むロック進行（Phase 3 後半・ジャンル傾向の測定土台）。
+ * G の I–♭VII–IV 型（G–F–C–G / G–F–C–D）。全小節三和音で、
+ * ジャンル推定では rock の代表例、第2段では「7th の無い曲で
+ * genre 文脈があっても誤発火しないか」の対照になる。
+ * SEVENTH_SONGS 等とは分けて持ち、既存の測定の対象範囲を変えない。
+ */
+export const ROCK_SONGS: SongSpec[] = [
+  {
+    id: "song-i",
+    title: "Song I — rock with ♭VII (G–F–C–G / G–F–C–D)",
+    trueKey: "G major",
+    bpm: 132,
+    beatsPerBar: 4,
+    progression: [
+      M("G"), M("F"), M("C"), M("G"),
+      M("G"), M("F"), M("C"), M("D"),
+    ],
+    repeats: 1,
+  },
+];
+
 const midiToFreq = (midi: number) => 440 * Math.pow(2, (midi - 69) / 12);
 
 /** 8分音符ごとのベロシティパターン（固定、再現性のため） */

@@ -73,6 +73,22 @@ export {
   type StemChromas,
 } from "../src/analysis/analyzeStems";
 
+// Phase 2 の記録（measurements/phase2/）は legacy ゲート時代のもの。
+// 再生時に記録が書き換わらないよう、本モジュール内の測定呼び出し
+// では frameGate: "legacy" を固定する。再エクスポート側はアプリ
+// 既定のまま（analyze-stems-app-path.test.ts が検証する経路）。
+const analyzeStemsLegacy: typeof analyzeStemsWithStrategy = (
+  chromas,
+  sr,
+  name,
+  strategy,
+  opts,
+) =>
+  analyzeStemsWithStrategy(chromas, sr, name, strategy, {
+    frameGate: "legacy",
+    ...opts,
+  });
+
 // ---------------------------------------------------------------------------
 // 分離品質の sanity（ステム別エネルギーと bass の追跡可能性）
 // ---------------------------------------------------------------------------
@@ -311,7 +327,7 @@ export async function runStemSong(spec: StemSongSpec): Promise<StemSongResult | 
   for (const config of STEM_BAND_CONFIGS) {
     variantResults.set(
       config.id,
-      analyzeStemsWithStrategy(chromas, sr, `${spec.slug} (stems ${config.id})`, config.id),
+      analyzeStemsLegacy(chromas, sr, `${spec.slug} (stems ${config.id})`, config.id),
     );
   }
   const variants: StemVariantResult[] = STEM_BAND_CONFIGS.map((config) => {

@@ -1,0 +1,1983 @@
+{
+  "suites": [
+    {
+      "suite": "synthetic",
+      "id": "song-a",
+      "title": "Song A — C major (I–vi–IV–V)",
+      "durationSec": 17,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.0520794984660531,
+          "metrics": {
+            "root": 0.9568750000000001,
+            "triad": 0.8900000000000003,
+            "core": null,
+            "rootAllTime": 0.9568749999999824,
+            "triadAllTime": 0.8899999999999838
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 16.1,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song": {
+          "ncShare": 0.0520794984660531,
+          "metrics": {
+            "root": 0.9568750000000001,
+            "triad": 0.8900000000000003,
+            "core": null,
+            "rootAllTime": 0.9568749999999824,
+            "triadAllTime": 0.8899999999999838
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 16.1,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        }
+      }
+    },
+    {
+      "suite": "synthetic",
+      "id": "song-b",
+      "title": "Song B — G major (I–ii–vi–IV / I–ii–IV–V)",
+      "durationSec": 18.77777777777778,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.045371331964738526,
+          "metrics": {
+            "root": 0.9325084364454337,
+            "triad": 0.8638920134982978,
+            "core": null,
+            "rootAllTime": 0.9326133423332092,
+            "triadAllTime": 0.8639892001349825
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 17.95,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song": {
+          "ncShare": 0.045371331964738526,
+          "metrics": {
+            "root": 0.9325084364454337,
+            "triad": 0.8638920134982978,
+            "core": null,
+            "rootAllTime": 0.9326133423332092,
+            "triadAllTime": 0.8639892001349825
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 17.95,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        }
+      }
+    },
+    {
+      "suite": "synthetic",
+      "id": "song-c",
+      "title": "Song C — A minor (i–VI–III–VII / i–iv–v–i)",
+      "durationSec": 20.2,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.04361374913001494,
+          "metrics": {
+            "root": 0.9718749999999959,
+            "triad": 0.9187499999999882,
+            "core": null,
+            "rootAllTime": 0.9718750000000062,
+            "triadAllTime": 0.9187499999999978
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 19.3,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song": {
+          "ncShare": 0.04361374913001494,
+          "metrics": {
+            "root": 0.9718749999999959,
+            "triad": 0.9187499999999882,
+            "core": null,
+            "rootAllTime": 0.9718750000000062,
+            "triadAllTime": 0.9187499999999978
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 19.3,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        }
+      }
+    },
+    {
+      "suite": "synthetic",
+      "id": "song-d",
+      "title": "Song D — C major slash chords (C/E–F/A–G/B–Am/E)",
+      "durationSec": 18.142857142857142,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.04779902512185981,
+          "metrics": {
+            "root": 0.2672112018669766,
+            "triad": 0.2672112018669766,
+            "core": null,
+            "rootAllTime": 0.26716444029632774,
+            "triadAllTime": 0.26716444029632774
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 17.3,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song": {
+          "ncShare": 0.04779902512185981,
+          "metrics": {
+            "root": 0.2672112018669766,
+            "triad": 0.2672112018669766,
+            "core": null,
+            "rootAllTime": 0.26716444029632774,
+            "triadAllTime": 0.26716444029632774
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 17.3,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        }
+      }
+    },
+    {
+      "suite": "synthetic",
+      "id": "song-e",
+      "title": "Song E — 7th chords (CM7–B7–E7–Am7 / Dm7–G7–CM7–Am7)",
+      "durationSec": 18.77777777777778,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.07257577587247913,
+          "metrics": {
+            "root": 0.9171974522292877,
+            "triad": 0.8853503184713264,
+            "core": null,
+            "rootAllTime": 0.8909888626392006,
+            "triadAllTime": 0.8600517493531173
+          },
+          "conversion": {
+            "baselineNcSec": 1.45,
+            "convertedCorrectSec": 0.05,
+            "convertedWrongSec": 0,
+            "stillNcSec": 1.4,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 17.45,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song": {
+          "ncShare": 0.07257577587247913,
+          "metrics": {
+            "root": 0.9171974522292877,
+            "triad": 0.8853503184713264,
+            "core": null,
+            "rootAllTime": 0.8909888626392006,
+            "triadAllTime": 0.8600517493531173
+          },
+          "conversion": {
+            "baselineNcSec": 1.45,
+            "convertedCorrectSec": 0.05,
+            "convertedWrongSec": 0,
+            "stillNcSec": 1.4,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 17.45,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        }
+      }
+    },
+    {
+      "suite": "synthetic",
+      "id": "song-f",
+      "title": "Song F — secondary dominants (CM7–A7–Dm7–G7 / C–F–G7–Am7)",
+      "durationSec": 21,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.040241874527588775,
+          "metrics": {
+            "root": 0.9804999999999973,
+            "triad": 0.9204999999999889,
+            "core": null,
+            "rootAllTime": 0.9805000000000132,
+            "triadAllTime": 0.9205000000000039
+          },
+          "conversion": {
+            "baselineNcSec": 0.85,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.85,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 20.15,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song": {
+          "ncShare": 0.040241874527588775,
+          "metrics": {
+            "root": 0.9804999999999973,
+            "triad": 0.9204999999999889,
+            "core": null,
+            "rootAllTime": 0.9805000000000132,
+            "triadAllTime": 0.9205000000000039
+          },
+          "conversion": {
+            "baselineNcSec": 0.85,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.85,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 20.15,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        }
+      }
+    },
+    {
+      "suite": "synthetic",
+      "id": "song-g",
+      "title": "Song G — add9 layers (Am(add9)/C# / Cadd9 / G / Am(add9) / Fadd9 / Em)",
+      "durationSec": 26.714285714285715,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.033453866395042914,
+          "metrics": {
+            "root": 0.8098016336055802,
+            "triad": 0.7596266044340462,
+            "core": null,
+            "rootAllTime": 0.8096756630629407,
+            "triadAllTime": 0.7595084389826653
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 25.8,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song": {
+          "ncShare": 0.033453866395042914,
+          "metrics": {
+            "root": 0.8098016336055802,
+            "triad": 0.7596266044340462,
+            "core": null,
+            "rootAllTime": 0.8096756630629407,
+            "triadAllTime": 0.7595084389826653
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 25.8,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        }
+      }
+    },
+    {
+      "suite": "synthetic",
+      "id": "song-h",
+      "title": "Song H — 12-bar blues in A (A7–D7–E7)",
+      "durationSec": 31,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.027758027942359757,
+          "metrics": {
+            "root": 0.967999999999997,
+            "triad": 0.804333333333315,
+            "core": null,
+            "rootAllTime": 0.968000000000058,
+            "triadAllTime": 0.8043333333333658
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 30.15,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song": {
+          "ncShare": 0.027758027942359757,
+          "metrics": {
+            "root": 0.967999999999997,
+            "triad": 0.804333333333315,
+            "core": null,
+            "rootAllTime": 0.968000000000058,
+            "triadAllTime": 0.8043333333333658
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 30.15,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        }
+      }
+    },
+    {
+      "suite": "synthetic",
+      "id": "song-i",
+      "title": "Song I — rock with ♭VII (G–F–C–G / G–F–C–D)",
+      "durationSec": 15.54546485260771,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.05599404861754342,
+          "metrics": {
+            "root": 0.9491408934707906,
+            "triad": 0.8790378006872855,
+            "core": null,
+            "rootAllTime": 0.9494671708490718,
+            "triadAllTime": 0.8793399793743397
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 14.7,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song": {
+          "ncShare": 0.05599404861754342,
+          "metrics": {
+            "root": 0.9491408934707906,
+            "triad": 0.8790378006872855,
+            "core": null,
+            "rootAllTime": 0.9494671708490718,
+            "triadAllTime": 0.8793399793743397
+          },
+          "conversion": {
+            "baselineNcSec": 0.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.9,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 14.7,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        }
+      }
+    },
+    {
+      "suite": "real-mixture",
+      "id": "put-your-records-on",
+      "title": "Put Your Records On — Corinne Bailey Rae",
+      "durationSec": 212.67156462585035,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.03395567201659574,
+          "metrics": {
+            "root": 0.5407591482728763,
+            "triad": 0.6419534113751175,
+            "core": 0.3110392839382843
+          },
+          "conversion": {
+            "baselineNcSec": 7.25,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 7.25,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 205.5,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song": {
+          "ncShare": 0.03395567201659574,
+          "metrics": {
+            "root": 0.5407591482728763,
+            "triad": 0.6419534113751175,
+            "core": 0.3110392839382843
+          },
+          "conversion": {
+            "baselineNcSec": 7.25,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 7.25,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 205.5,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        }
+      }
+    },
+    {
+      "suite": "real-mixture",
+      "id": "everything",
+      "title": "Everything — MISIA",
+      "durationSec": 428.9886621315193,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.04389715832205679,
+          "metrics": {
+            "root": 0.22712524334862347,
+            "triad": 0.3159404888416397,
+            "core": 0.13860255741133437
+          },
+          "conversion": {
+            "baselineNcSec": 18.95,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 18.85,
+            "filledUnverifiableSec": 0.05
+          },
+          "churn": {
+            "judgedSec": 410.15,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song": {
+          "ncShare": 0.04389715832205679,
+          "metrics": {
+            "root": 0.22712524334862347,
+            "triad": 0.3159404888416397,
+            "core": 0.13860255741133437
+          },
+          "conversion": {
+            "baselineNcSec": 18.95,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 18.85,
+            "filledUnverifiableSec": 0.05
+          },
+          "churn": {
+            "judgedSec": 410.15,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        }
+      }
+    },
+    {
+      "suite": "real-mixture",
+      "id": "a-hard-days-night",
+      "title": "A Hard Day's Night — The Beatles",
+      "durationSec": 154.2138775510204,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.04809764452349362,
+          "metrics": {
+            "root": 0.28085831062668354,
+            "triad": 0.22559166244479784,
+            "core": 0.3603707995365038
+          },
+          "conversion": {
+            "baselineNcSec": 7.45,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 7.4,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 146.8,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": 0,
+          "silenceWindowStartsNc": true
+        },
+        "song": {
+          "ncShare": 0.04809764452349362,
+          "metrics": {
+            "root": 0.28085831062668354,
+            "triad": 0.22559166244479784,
+            "core": 0.3603707995365038
+          },
+          "conversion": {
+            "baselineNcSec": 7.45,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 7.4,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 146.8,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": 0,
+          "silenceWindowStartsNc": true
+        }
+      }
+    },
+    {
+      "suite": "real-stems",
+      "id": "put-your-records-on",
+      "title": "Put Your Records On — Corinne Bailey Rae",
+      "durationSec": 212.71510204081633,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.06930287772729136,
+          "metrics": {
+            "root": 0.6139064475350018,
+            "triad": 0.8169508525575884,
+            "core": 0.38333757098051174
+          },
+          "conversion": {
+            "baselineNcSec": 15.05,
+            "convertedCorrectSec": 0.1,
+            "convertedWrongSec": 0.25,
+            "stillNcSec": 14.7,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 198,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song": {
+          "ncShare": 0.011666461991894935,
+          "metrics": {
+            "root": 0.6103042712254487,
+            "triad": 0.8086019012287612,
+            "core": 0.3812525252524373
+          },
+          "conversion": {
+            "baselineNcSec": 15.05,
+            "convertedCorrectSec": 6.75,
+            "convertedWrongSec": 5.8,
+            "stillNcSec": 2.5,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 198,
+            "labelChangedSec": 1.7,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0.1,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 1.6
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "r03": {
+          "ncShare": 0.03633659448469724,
+          "metrics": {
+            "root": 0.610568470404631,
+            "triad": 0.8096368383573816,
+            "core": 0.3799999999999175
+          },
+          "conversion": {
+            "baselineNcSec": 15.05,
+            "convertedCorrectSec": 3.85,
+            "convertedWrongSec": 3.5,
+            "stillNcSec": 7.7,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 198,
+            "labelChangedSec": 0.2,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0.1,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0.1
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "r05": {
+          "ncShare": 0.04659762304365023,
+          "metrics": {
+            "root": 0.6141771152139938,
+            "triad": 0.8215283683634238,
+            "core": 0.3807266982621608
+          },
+          "conversion": {
+            "baselineNcSec": 15.05,
+            "convertedCorrectSec": 3.25,
+            "convertedWrongSec": 1.9,
+            "stillNcSec": 9.9,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 198,
+            "labelChangedSec": 0.2,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0.1,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0.1
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "r10": {
+          "ncShare": 0.06428152332610153,
+          "metrics": {
+            "root": 0.6120108640984171,
+            "triad": 0.8170548459803813,
+            "core": 0.3818090114323334
+          },
+          "conversion": {
+            "baselineNcSec": 15.05,
+            "convertedCorrectSec": 0.4,
+            "convertedWrongSec": 1,
+            "stillNcSec": 13.65,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 198,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song-rematch": {
+          "ncShare": 0.011666461991894935,
+          "metrics": {
+            "root": 0.6103042712254487,
+            "triad": 0.8086019012287612,
+            "core": 0.3812525252524373
+          },
+          "conversion": {
+            "baselineNcSec": 15.05,
+            "convertedCorrectSec": 6.75,
+            "convertedWrongSec": 5.8,
+            "stillNcSec": 2.5,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 198,
+            "labelChangedSec": 1.7,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0.1,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 1.6
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song-rematch-gapfill": {
+          "ncShare": 0.011666461991894935,
+          "metrics": {
+            "root": 0.6103042712254487,
+            "triad": 0.8086019012287612,
+            "core": 0.3812525252524373
+          },
+          "conversion": {
+            "baselineNcSec": 15.05,
+            "convertedCorrectSec": 6.75,
+            "convertedWrongSec": 5.8,
+            "stillNcSec": 2.5,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 198,
+            "labelChangedSec": 1.7,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0.1,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 1.6
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        }
+      }
+    },
+    {
+      "suite": "real-stems",
+      "id": "everything",
+      "title": "Everything — MISIA",
+      "durationSec": 429.03510204081635,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.05688152838664307,
+          "metrics": {
+            "root": 0.2710270874627112,
+            "triad": 0.37086535248912567,
+            "core": 0.20740740740748398
+          },
+          "conversion": {
+            "baselineNcSec": 24.5,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 24.45,
+            "filledUnverifiableSec": 0.05
+          },
+          "churn": {
+            "judgedSec": 404.65,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song": {
+          "ncShare": 0.03793905937111006,
+          "metrics": {
+            "root": 0.27294908502447235,
+            "triad": 0.3815747529486466,
+            "core": 0.20468882096645516
+          },
+          "conversion": {
+            "baselineNcSec": 24.5,
+            "convertedCorrectSec": 2.65,
+            "convertedWrongSec": 5.5,
+            "stillNcSec": 16.3,
+            "filledUnverifiableSec": 0.05
+          },
+          "churn": {
+            "judgedSec": 404.65,
+            "labelChangedSec": 0.2,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0.05,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0.15
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "r03": {
+          "ncShare": 0.055149645505222895,
+          "metrics": {
+            "root": 0.27050677218098573,
+            "triad": 0.37114549704996747,
+            "core": 0.20677988371718725
+          },
+          "conversion": {
+            "baselineNcSec": 24.5,
+            "convertedCorrectSec": 0.05,
+            "convertedWrongSec": 0.7,
+            "stillNcSec": 23.7,
+            "filledUnverifiableSec": 0.05
+          },
+          "churn": {
+            "judgedSec": 404.65,
+            "labelChangedSec": 0.2,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0.05,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0.15
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "r05": {
+          "ncShare": 0.055257888185311715,
+          "metrics": {
+            "root": 0.2705342194715525,
+            "triad": 0.37114549704996747,
+            "core": 0.20680705673650024
+          },
+          "conversion": {
+            "baselineNcSec": 24.5,
+            "convertedCorrectSec": 0.05,
+            "convertedWrongSec": 0.65,
+            "stillNcSec": 23.75,
+            "filledUnverifiableSec": 0.05
+          },
+          "churn": {
+            "judgedSec": 404.65,
+            "labelChangedSec": 0.2,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0.05,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0.15
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "r10": {
+          "ncShare": 0.056340314986199375,
+          "metrics": {
+            "root": 0.27074180359112004,
+            "triad": 0.37086535248912567,
+            "core": 0.2070859924995831
+          },
+          "conversion": {
+            "baselineNcSec": 24.5,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.25,
+            "stillNcSec": 24.2,
+            "filledUnverifiableSec": 0.05
+          },
+          "churn": {
+            "judgedSec": 404.65,
+            "labelChangedSec": 0.05,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0.05,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song-rematch": {
+          "ncShare": 0.025274665800725238,
+          "metrics": {
+            "root": 0.27292190495177704,
+            "triad": 0.3815747529486466,
+            "core": 0.20466220170369862
+          },
+          "conversion": {
+            "baselineNcSec": 24.5,
+            "convertedCorrectSec": 2.65,
+            "convertedWrongSec": 5.55,
+            "stillNcSec": 10.85,
+            "filledUnverifiableSec": 5.45
+          },
+          "churn": {
+            "judgedSec": 404.65,
+            "labelChangedSec": 0.2,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0.05,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0.15
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song-rematch-gapfill": {
+          "ncShare": 0.025274665800725238,
+          "metrics": {
+            "root": 0.27292190495177704,
+            "triad": 0.3815747529486466,
+            "core": 0.20466220170369862
+          },
+          "conversion": {
+            "baselineNcSec": 24.5,
+            "convertedCorrectSec": 2.65,
+            "convertedWrongSec": 5.55,
+            "stillNcSec": 10.85,
+            "filledUnverifiableSec": 5.45
+          },
+          "churn": {
+            "judgedSec": 404.65,
+            "labelChangedSec": 0.2,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0.05,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0.15
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        }
+      }
+    },
+    {
+      "suite": "real-stems",
+      "id": "a-hard-days-night",
+      "title": "A Hard Day's Night — The Beatles",
+      "durationSec": 154.25306122448978,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.0435224386113462,
+          "metrics": {
+            "root": 0.5063033753558076,
+            "triad": 0.5171165954982243,
+            "core": 0.34685165421558467
+          },
+          "conversion": {
+            "baselineNcSec": 6.75,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 6.7,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 147.55,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": 0,
+          "silenceWindowStartsNc": true
+        },
+        "song": {
+          "ncShare": 0.0435224386113462,
+          "metrics": {
+            "root": 0.5063033753558076,
+            "triad": 0.5171165954982243,
+            "core": 0.34685165421558467
+          },
+          "conversion": {
+            "baselineNcSec": 6.75,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 6.7,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 147.55,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": 0,
+          "silenceWindowStartsNc": true
+        },
+        "r03": {
+          "ncShare": 0.0435224386113462,
+          "metrics": {
+            "root": 0.5063033753558076,
+            "triad": 0.5171165954982243,
+            "core": 0.34685165421558467
+          },
+          "conversion": {
+            "baselineNcSec": 6.75,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 6.7,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 147.55,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": 0,
+          "silenceWindowStartsNc": true
+        },
+        "r05": {
+          "ncShare": 0.0435224386113462,
+          "metrics": {
+            "root": 0.5063033753558076,
+            "triad": 0.5171165954982243,
+            "core": 0.34685165421558467
+          },
+          "conversion": {
+            "baselineNcSec": 6.75,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 6.7,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 147.55,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": 0,
+          "silenceWindowStartsNc": true
+        },
+        "r10": {
+          "ncShare": 0.0435224386113462,
+          "metrics": {
+            "root": 0.5063033753558076,
+            "triad": 0.5171165954982243,
+            "core": 0.34685165421558467
+          },
+          "conversion": {
+            "baselineNcSec": 6.75,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 6.7,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 147.55,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": 0,
+          "silenceWindowStartsNc": true
+        },
+        "song-rematch": {
+          "ncShare": 0.0435224386113462,
+          "metrics": {
+            "root": 0.5063033753558076,
+            "triad": 0.5171165954982243,
+            "core": 0.34685165421558467
+          },
+          "conversion": {
+            "baselineNcSec": 6.75,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 6.7,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 147.55,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": 0,
+          "silenceWindowStartsNc": true
+        },
+        "song-rematch-gapfill": {
+          "ncShare": 0.0435224386113462,
+          "metrics": {
+            "root": 0.5063033753558076,
+            "triad": 0.5171165954982243,
+            "core": 0.34685165421558467
+          },
+          "conversion": {
+            "baselineNcSec": 6.75,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0.05,
+            "stillNcSec": 6.7,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 147.55,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": 0,
+          "silenceWindowStartsNc": true
+        }
+      }
+    },
+    {
+      "suite": "real-stems",
+      "id": "song-d",
+      "title": "Song D — 合成分数コード（C/E–F/A–G/B–Am/E）",
+      "durationSec": 18.142857142857142,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.04523934508186476,
+          "metrics": {
+            "root": 0.9859976662777107,
+            "triad": 0.9859976662777107,
+            "core": null
+          },
+          "conversion": {
+            "baselineNcSec": 0.85,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.85,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 17.3,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song": {
+          "ncShare": 0.04523934508186476,
+          "metrics": {
+            "root": 0.9859976662777107,
+            "triad": 0.9859976662777107,
+            "core": null
+          },
+          "conversion": {
+            "baselineNcSec": 0.85,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.85,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 17.3,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "r03": {
+          "ncShare": 0.04523934508186476,
+          "metrics": {
+            "root": 0.9859976662777107,
+            "triad": 0.9859976662777107,
+            "core": null
+          },
+          "conversion": {
+            "baselineNcSec": 0.85,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.85,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 17.3,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "r05": {
+          "ncShare": 0.04523934508186476,
+          "metrics": {
+            "root": 0.9859976662777107,
+            "triad": 0.9859976662777107,
+            "core": null
+          },
+          "conversion": {
+            "baselineNcSec": 0.85,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.85,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 17.3,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "r10": {
+          "ncShare": 0.04523934508186476,
+          "metrics": {
+            "root": 0.9859976662777107,
+            "triad": 0.9859976662777107,
+            "core": null
+          },
+          "conversion": {
+            "baselineNcSec": 0.85,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.85,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 17.3,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song-rematch": {
+          "ncShare": 0.04523934508186476,
+          "metrics": {
+            "root": 0.9859976662777107,
+            "triad": 0.9859976662777107,
+            "core": null
+          },
+          "conversion": {
+            "baselineNcSec": 0.85,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.85,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 17.3,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        },
+        "song-rematch-gapfill": {
+          "ncShare": 0.04523934508186476,
+          "metrics": {
+            "root": 0.9859976662777107,
+            "triad": 0.9859976662777107,
+            "core": null
+          },
+          "conversion": {
+            "baselineNcSec": 0.85,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 0.85,
+            "filledUnverifiableSec": 0
+          },
+          "churn": {
+            "judgedSec": 17.3,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": 0,
+            "correctToNcSec": 0,
+            "wrongToCorrectSec": 0,
+            "wrongToWrongDiffSec": 0
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": null,
+          "silenceWindowStartsNc": null
+        }
+      }
+    },
+    {
+      "suite": "suno-mixture",
+      "id": "suno-05",
+      "title": "Suno 05（混合音）",
+      "durationSec": 205.1395918367347,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.05236498436549372,
+          "metrics": null,
+          "conversion": {
+            "baselineNcSec": 10.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 10.75,
+            "filledUnverifiableSec": 0.15
+          },
+          "churn": {
+            "judgedSec": 194.4,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": null,
+            "correctToNcSec": null,
+            "wrongToCorrectSec": null,
+            "wrongToWrongDiffSec": null
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": 0,
+          "silenceWindowStartsNc": true
+        },
+        "song": {
+          "ncShare": 0.05236498436549372,
+          "metrics": null,
+          "conversion": {
+            "baselineNcSec": 10.9,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 10.75,
+            "filledUnverifiableSec": 0.15
+          },
+          "churn": {
+            "judgedSec": 194.4,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": null,
+            "correctToNcSec": null,
+            "wrongToCorrectSec": null,
+            "wrongToWrongDiffSec": null
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": 0,
+          "silenceWindowStartsNc": true
+        }
+      }
+    },
+    {
+      "suite": "suno-stems",
+      "id": "suno-05",
+      "title": "Suno 05（ステム）",
+      "durationSec": 205.1395918367347,
+      "arms": {
+        "legacy": {
+          "ncShare": 0.227584645641439,
+          "metrics": null,
+          "conversion": {
+            "baselineNcSec": 47.4,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 46.8,
+            "filledUnverifiableSec": 0.6
+          },
+          "churn": {
+            "judgedSec": 158.45,
+            "labelChangedSec": 0,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": null,
+            "correctToNcSec": null,
+            "wrongToCorrectSec": null,
+            "wrongToWrongDiffSec": null
+          },
+          "segmentsIdenticalToLegacy": true,
+          "judgedSecInSilenceWindow": 0.13,
+          "silenceWindowStartsNc": true
+        },
+        "song": {
+          "ncShare": 0.0331225151039234,
+          "metrics": null,
+          "conversion": {
+            "baselineNcSec": 47.4,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 6.8,
+            "filledUnverifiableSec": 40.6
+          },
+          "churn": {
+            "judgedSec": 158.45,
+            "labelChangedSec": 9.2,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": null,
+            "correctToNcSec": null,
+            "wrongToCorrectSec": null,
+            "wrongToWrongDiffSec": null
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": 0.13,
+          "silenceWindowStartsNc": true
+        },
+        "r03": {
+          "ncShare": 0.10488560635001476,
+          "metrics": null,
+          "conversion": {
+            "baselineNcSec": 47.4,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 21.55,
+            "filledUnverifiableSec": 25.85
+          },
+          "churn": {
+            "judgedSec": 158.45,
+            "labelChangedSec": 8.25,
+            "judgedToNcSec": 0.05,
+            "correctToWrongSec": null,
+            "correctToNcSec": null,
+            "wrongToCorrectSec": null,
+            "wrongToWrongDiffSec": null
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": 0.13,
+          "silenceWindowStartsNc": true
+        },
+        "r05": {
+          "ncShare": 0.15197306054303353,
+          "metrics": null,
+          "conversion": {
+            "baselineNcSec": 47.4,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 31.2,
+            "filledUnverifiableSec": 16.2
+          },
+          "churn": {
+            "judgedSec": 158.45,
+            "labelChangedSec": 9,
+            "judgedToNcSec": 0.05,
+            "correctToWrongSec": null,
+            "correctToNcSec": null,
+            "wrongToCorrectSec": null,
+            "wrongToWrongDiffSec": null
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": 0.13,
+          "silenceWindowStartsNc": true
+        },
+        "r10": {
+          "ncShare": 0.18887332512698574,
+          "metrics": null,
+          "conversion": {
+            "baselineNcSec": 47.4,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 38.9,
+            "filledUnverifiableSec": 8.5
+          },
+          "churn": {
+            "judgedSec": 158.45,
+            "labelChangedSec": 6.3,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": null,
+            "correctToNcSec": null,
+            "wrongToCorrectSec": null,
+            "wrongToWrongDiffSec": null
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": 0.13,
+          "silenceWindowStartsNc": true
+        },
+        "song-rematch": {
+          "ncShare": 0.0331225151039234,
+          "metrics": null,
+          "conversion": {
+            "baselineNcSec": 47.4,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 6.8,
+            "filledUnverifiableSec": 40.6
+          },
+          "churn": {
+            "judgedSec": 158.45,
+            "labelChangedSec": 9.2,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": null,
+            "correctToNcSec": null,
+            "wrongToCorrectSec": null,
+            "wrongToWrongDiffSec": null
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": 0.13,
+          "silenceWindowStartsNc": true
+        },
+        "song-rematch-gapfill": {
+          "ncShare": 0.0331225151039234,
+          "metrics": null,
+          "conversion": {
+            "baselineNcSec": 47.4,
+            "convertedCorrectSec": 0,
+            "convertedWrongSec": 0,
+            "stillNcSec": 6.8,
+            "filledUnverifiableSec": 40.6
+          },
+          "churn": {
+            "judgedSec": 158.45,
+            "labelChangedSec": 9.2,
+            "judgedToNcSec": 0,
+            "correctToWrongSec": null,
+            "correctToNcSec": null,
+            "wrongToCorrectSec": null,
+            "wrongToWrongDiffSec": null
+          },
+          "segmentsIdenticalToLegacy": false,
+          "judgedSecInSilenceWindow": 0.13,
+          "silenceWindowStartsNc": true
+        }
+      }
+    }
+  ],
+  "sunoFixturesLegacy": {
+    "q3": {
+      "slices": [
+        {
+          "range": [
+            85,
+            87
+          ],
+          "expected": "C",
+          "stemsOn": "C",
+          "mixOn": "Bm"
+        },
+        {
+          "range": [
+            87,
+            89
+          ],
+          "expected": "B7",
+          "stemsOn": "B7",
+          "mixOn": "Am"
+        },
+        {
+          "range": [
+            89,
+            91
+          ],
+          "expected": "E7",
+          "stemsOn": "E7",
+          "mixOn": "Em7"
+        },
+        {
+          "range": [
+            91,
+            93
+          ],
+          "expected": "Am",
+          "stemsOn": "Am7",
+          "mixOn": "CM7"
+        }
+      ],
+      "pass": true
+    },
+    "q2": {
+      "window": [
+        153,
+        168
+      ],
+      "stemsCmSecOff": 4.749999999999991,
+      "stemsCmSecOn": 4.749999999999991,
+      "mixCmSecOff": 1.1000000000000003,
+      "mixCmSecOn": 1.1000000000000003,
+      "strictPass": false,
+      "stage2Pass": false
+    },
+    "q1": {
+      "windows": [
+        {
+          "range": [
+            51,
+            56
+          ],
+          "stemsDominantOff": {
+            "chord": "Dm",
+            "bassPc": 2,
+            "sec": 1.7647165532879825
+          },
+          "stemsDominantOn": {
+            "chord": "Dm",
+            "extension": "m7",
+            "bassPc": 2,
+            "sec": 1.7647165532879825
+          }
+        },
+        {
+          "range": [
+            93,
+            98
+          ],
+          "stemsDominantOff": {
+            "chord": "Dm",
+            "bassPc": 2,
+            "sec": 1.8575963718820816
+          },
+          "stemsDominantOn": {
+            "chord": "Dm",
+            "extension": "m7",
+            "bassPc": 2,
+            "sec": 1.8575963718820816
+          }
+        }
+      ],
+      "pass": false
+    }
+  },
+  "sunoFixturesSong": {
+    "q3": {
+      "slices": [
+        {
+          "range": [
+            85,
+            87
+          ],
+          "expected": "C",
+          "stemsOn": "C",
+          "mixOn": "Bm"
+        },
+        {
+          "range": [
+            87,
+            89
+          ],
+          "expected": "B7",
+          "stemsOn": "B7",
+          "mixOn": "Am"
+        },
+        {
+          "range": [
+            89,
+            91
+          ],
+          "expected": "E7",
+          "stemsOn": "E7",
+          "mixOn": "Em7"
+        },
+        {
+          "range": [
+            91,
+            93
+          ],
+          "expected": "Am",
+          "stemsOn": "Am7",
+          "mixOn": "CM7"
+        }
+      ],
+      "pass": true
+    },
+    "q2": {
+      "window": [
+        153,
+        168
+      ],
+      "stemsCmSecOff": 4.799999999999991,
+      "stemsCmSecOn": 4.799999999999991,
+      "mixCmSecOff": 1.1000000000000003,
+      "mixCmSecOn": 1.1000000000000003,
+      "strictPass": false,
+      "stage2Pass": false
+    },
+    "q1": {
+      "windows": [
+        {
+          "range": [
+            51,
+            56
+          ],
+          "stemsDominantOff": {
+            "chord": "Dm",
+            "bassPc": 2,
+            "sec": 1.7647165532879825
+          },
+          "stemsDominantOn": {
+            "chord": "Dm",
+            "extension": "m7",
+            "bassPc": 2,
+            "sec": 1.7647165532879825
+          }
+        },
+        {
+          "range": [
+            93,
+            98
+          ],
+          "stemsDominantOff": {
+            "chord": "Dm",
+            "bassPc": 2,
+            "sec": 1.8575963718820816
+          },
+          "stemsDominantOn": {
+            "chord": "Dm",
+            "extension": "m7",
+            "bassPc": 2,
+            "sec": 1.8575963718820816
+          }
+        }
+      ],
+      "pass": false
+    }
+  }
+}

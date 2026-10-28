@@ -230,3 +230,47 @@ describe("Phase 3.2: 層フィールドの書き出し", () => {
     expect(text).toContain("Am(add9)/C#");
   });
 });
+
+describe("拍子・小節推定の書き出し（Phase 3 §5）", () => {
+  const meterEstimate: AnalysisResult["meterEstimate"] = {
+    beatsPerBar: 3,
+    notation: "3/4",
+    barPhaseSec: 0.1234,
+    barSec: 1.6667,
+    tempoBpm: 108,
+    detectedBpm: 108,
+    tempoScale: 1,
+    score: 0.8123,
+    margin: 0.1234,
+    onsetSource: "drums",
+    evidence: { pulse: 0.27, barAutocorr: 0.11, boundary: 0.5, boundaryAutocorr: 0.4 },
+    runnerUp: { beatsPerBar: 6, tempoBpm: 108, score: 0.6889 },
+  };
+
+  it("JSON には meterEstimate（拍子・位相・仲裁の内訳）が含まれる", () => {
+    const json = JSON.parse(resultToJson(baseResult({ meterEstimate })));
+    expect(json.meterEstimate.notation).toBe("3/4");
+    expect(json.meterEstimate.beatsPerBar).toBe(3);
+    expect(json.meterEstimate.barPhaseSec).toBe(0.123);
+    expect(json.meterEstimate.barSec).toBe(1.667);
+    expect(json.meterEstimate.tempoBpm).toBe(108);
+    expect(json.meterEstimate.detectedBpm).toBe(108);
+    expect(json.meterEstimate.onsetSource).toBe("drums");
+    expect(json.meterEstimate.runnerUp.beatsPerBar).toBe(6);
+  });
+
+  it("JSON は記録が無ければ meterEstimate を含まない（後方互換）", () => {
+    const json = JSON.parse(resultToJson(baseResult()));
+    expect(json).not.toHaveProperty("meterEstimate");
+  });
+
+  it("テキスト書き出しに拍子の1行が入る", () => {
+    const text = resultToText(baseResult({ meterEstimate }));
+    expect(text).toContain("# 拍子: 3/4 · テンポ 108");
+  });
+
+  it("テキスト書き出しは記録が無ければ拍子の行を含まない", () => {
+    const text = resultToText(baseResult());
+    expect(text).not.toContain("# 拍子:");
+  });
+});

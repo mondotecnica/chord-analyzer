@@ -1,0 +1,2815 @@
+[
+  {
+    "suite": "synthetic",
+    "id": "song-a",
+    "title": "Song A — C major (I–vi–IV–V)",
+    "durationSec": 17,
+    "ncShare": 0.0520794984660531,
+    "totals": {
+      "totalSec": 0.89,
+      "segmentCount": 1,
+      "byCause": {
+        "routing": {
+          "sec": 0,
+          "segments": 0
+        },
+        "low-energy": {
+          "sec": 0.89,
+          "segments": 1
+        },
+        "short": {
+          "sec": 0,
+          "segments": 0
+        },
+        "score-gate": {
+          "sec": 0,
+          "segments": 0
+        }
+      },
+      "recoverableSecByCause": {
+        "routing": 0,
+        "low-energy": 0,
+        "short": 0,
+        "score-gate": 0
+      },
+      "recoverableSec": 0
+    },
+    "records": [
+      {
+        "start": 16.115,
+        "end": 17,
+        "duration": 0.885,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 18,
+          "gatedShare": 1,
+          "meanBestScore": null,
+          "modalChord": null,
+          "modalShare": 0,
+          "aggChord": "Gm",
+          "aggScore": 0.719,
+          "aggMargin": 0.008
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "G",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": 0,
+        "truthDominantChord": null,
+        "truthDominantShare": 0,
+        "recoverable": false
+      }
+    ]
+  },
+  {
+    "suite": "synthetic",
+    "id": "song-b",
+    "title": "Song B — G major (I–ii–vi–IV / I–ii–IV–V)",
+    "durationSec": 18.77777777777778,
+    "ncShare": 0.045371331964738526,
+    "totals": {
+      "totalSec": 0.85,
+      "segmentCount": 1,
+      "byCause": {
+        "routing": {
+          "sec": 0,
+          "segments": 0
+        },
+        "low-energy": {
+          "sec": 0.85,
+          "segments": 1
+        },
+        "short": {
+          "sec": 0,
+          "segments": 0
+        },
+        "score-gate": {
+          "sec": 0,
+          "segments": 0
+        }
+      },
+      "recoverableSecByCause": {
+        "routing": 0,
+        "low-energy": 0,
+        "short": 0,
+        "score-gate": 0
+      },
+      "recoverableSec": 0
+    },
+    "records": [
+      {
+        "start": 17.926,
+        "end": 18.778,
+        "duration": 0.852,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 17,
+          "gatedShare": 1,
+          "meanBestScore": null,
+          "modalChord": null,
+          "modalShare": 0,
+          "aggChord": "Dm",
+          "aggScore": 0.697,
+          "aggMargin": 0.02
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "D",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": 0,
+        "truthDominantChord": null,
+        "truthDominantShare": 0,
+        "recoverable": false
+      }
+    ]
+  },
+  {
+    "suite": "synthetic",
+    "id": "song-c",
+    "title": "Song C — A minor (i–VI–III–VII / i–iv–v–i)",
+    "durationSec": 20.2,
+    "ncShare": 0.04361374913001494,
+    "totals": {
+      "totalSec": 0.88,
+      "segmentCount": 1,
+      "byCause": {
+        "routing": {
+          "sec": 0,
+          "segments": 0
+        },
+        "low-energy": {
+          "sec": 0.88,
+          "segments": 1
+        },
+        "short": {
+          "sec": 0,
+          "segments": 0
+        },
+        "score-gate": {
+          "sec": 0,
+          "segments": 0
+        }
+      },
+      "recoverableSecByCause": {
+        "routing": 0,
+        "low-energy": 0,
+        "short": 0,
+        "score-gate": 0
+      },
+      "recoverableSec": 0
+    },
+    "records": [
+      {
+        "start": 19.319,
+        "end": 20.2,
+        "duration": 0.881,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 17,
+          "gatedShare": 1,
+          "meanBestScore": null,
+          "modalChord": null,
+          "modalShare": 0,
+          "aggChord": "Am",
+          "aggScore": 0.744,
+          "aggMargin": 0.016
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "Am",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": 0,
+        "truthDominantChord": null,
+        "truthDominantShare": 0,
+        "recoverable": false
+      }
+    ]
+  },
+  {
+    "suite": "synthetic",
+    "id": "song-d",
+    "title": "Song D — C major slash chords (C/E–F/A–G/B–Am/E)",
+    "durationSec": 18.142857142857142,
+    "ncShare": 0.04779902512185981,
+    "totals": {
+      "totalSec": 0.87,
+      "segmentCount": 1,
+      "byCause": {
+        "routing": {
+          "sec": 0,
+          "segments": 0
+        },
+        "low-energy": {
+          "sec": 0.87,
+          "segments": 1
+        },
+        "short": {
+          "sec": 0,
+          "segments": 0
+        },
+        "score-gate": {
+          "sec": 0,
+          "segments": 0
+        }
+      },
+      "recoverableSecByCause": {
+        "routing": 0,
+        "low-energy": 0,
+        "short": 0,
+        "score-gate": 0
+      },
+      "recoverableSec": 0
+    },
+    "records": [
+      {
+        "start": 17.276,
+        "end": 18.143,
+        "duration": 0.867,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 18,
+          "gatedShare": 0.944,
+          "meanBestScore": 0.728,
+          "modalChord": "Am",
+          "modalShare": 1,
+          "aggChord": "Am",
+          "aggScore": 0.742,
+          "aggMargin": 0.011
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "Em",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": 0,
+        "truthDominantChord": null,
+        "truthDominantShare": 0,
+        "recoverable": false
+      }
+    ]
+  },
+  {
+    "suite": "synthetic",
+    "id": "song-e",
+    "title": "Song E — 7th chords (CM7–B7–E7–Am7 / Dm7–G7–CM7–Am7)",
+    "durationSec": 18.77777777777778,
+    "ncShare": 0.07257577587247913,
+    "totals": {
+      "totalSec": 1.36,
+      "segmentCount": 2,
+      "byCause": {
+        "routing": {
+          "sec": 0,
+          "segments": 0
+        },
+        "low-energy": {
+          "sec": 0.85,
+          "segments": 1
+        },
+        "short": {
+          "sec": 0.51,
+          "segments": 1
+        },
+        "score-gate": {
+          "sec": 0,
+          "segments": 0
+        }
+      },
+      "recoverableSecByCause": {
+        "routing": 0,
+        "low-energy": 0,
+        "short": 0.51,
+        "score-gate": 0
+      },
+      "recoverableSec": 0.51
+    },
+    "records": [
+      {
+        "start": 3.344,
+        "end": 3.855,
+        "duration": 0.511,
+        "cause": "short",
+        "segmentConfidence": 0.436,
+        "judge": {
+          "frameCount": 11,
+          "gatedShare": 0,
+          "meanBestScore": 0.502,
+          "modalChord": "Bm",
+          "modalShare": 0.636,
+          "aggChord": "Bm",
+          "aggScore": 0.494,
+          "aggMargin": 0.009
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "B",
+        "nextChord": "B",
+        "flankedSameChord": "B",
+        "truthCoverShare": 1,
+        "truthDominantChord": "B",
+        "truthDominantShare": 1,
+        "recoverable": true
+      },
+      {
+        "start": 17.926,
+        "end": 18.778,
+        "duration": 0.852,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 17,
+          "gatedShare": 1,
+          "meanBestScore": null,
+          "modalChord": null,
+          "modalShare": 0,
+          "aggChord": "Em",
+          "aggScore": 0.662,
+          "aggMargin": 0.024
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "Am",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": 0,
+        "truthDominantChord": null,
+        "truthDominantShare": 0,
+        "recoverable": false
+      }
+    ]
+  },
+  {
+    "suite": "synthetic",
+    "id": "song-f",
+    "title": "Song F — secondary dominants (CM7–A7–Dm7–G7 / C–F–G7–Am7)",
+    "durationSec": 21,
+    "ncShare": 0.040241874527588775,
+    "totals": {
+      "totalSec": 0.84,
+      "segmentCount": 1,
+      "byCause": {
+        "routing": {
+          "sec": 0,
+          "segments": 0
+        },
+        "low-energy": {
+          "sec": 0.84,
+          "segments": 1
+        },
+        "short": {
+          "sec": 0,
+          "segments": 0
+        },
+        "score-gate": {
+          "sec": 0,
+          "segments": 0
+        }
+      },
+      "recoverableSecByCause": {
+        "routing": 0,
+        "low-energy": 0,
+        "short": 0,
+        "score-gate": 0
+      },
+      "recoverableSec": 0
+    },
+    "records": [
+      {
+        "start": 20.155,
+        "end": 21,
+        "duration": 0.845,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 17,
+          "gatedShare": 1,
+          "meanBestScore": null,
+          "modalChord": null,
+          "modalShare": 0,
+          "aggChord": "Em",
+          "aggScore": 0.717,
+          "aggMargin": 0.007
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "Am",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": 0,
+        "truthDominantChord": null,
+        "truthDominantShare": 0,
+        "recoverable": false
+      }
+    ]
+  },
+  {
+    "suite": "synthetic",
+    "id": "song-g",
+    "title": "Song G — add9 layers (Am(add9)/C# / Cadd9 / G / Am(add9) / Fadd9 / Em)",
+    "durationSec": 26.714285714285715,
+    "ncShare": 0.033453866395042914,
+    "totals": {
+      "totalSec": 0.89,
+      "segmentCount": 1,
+      "byCause": {
+        "routing": {
+          "sec": 0,
+          "segments": 0
+        },
+        "low-energy": {
+          "sec": 0.89,
+          "segments": 1
+        },
+        "short": {
+          "sec": 0,
+          "segments": 0
+        },
+        "score-gate": {
+          "sec": 0,
+          "segments": 0
+        }
+      },
+      "recoverableSecByCause": {
+        "routing": 0,
+        "low-energy": 0,
+        "short": 0,
+        "score-gate": 0
+      },
+      "recoverableSec": 0
+    },
+    "records": [
+      {
+        "start": 25.821,
+        "end": 26.714,
+        "duration": 0.894,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 18,
+          "gatedShare": 1,
+          "meanBestScore": null,
+          "modalChord": null,
+          "modalShare": 0,
+          "aggChord": "Em",
+          "aggScore": 0.733,
+          "aggMargin": 0.007
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "E",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": 0,
+        "truthDominantChord": null,
+        "truthDominantShare": 0,
+        "recoverable": false
+      }
+    ]
+  },
+  {
+    "suite": "synthetic",
+    "id": "song-h",
+    "title": "Song H — 12-bar blues in A (A7–D7–E7)",
+    "durationSec": 31,
+    "ncShare": 0.027758027942359757,
+    "totals": {
+      "totalSec": 0.86,
+      "segmentCount": 1,
+      "byCause": {
+        "routing": {
+          "sec": 0,
+          "segments": 0
+        },
+        "low-energy": {
+          "sec": 0.86,
+          "segments": 1
+        },
+        "short": {
+          "sec": 0,
+          "segments": 0
+        },
+        "score-gate": {
+          "sec": 0,
+          "segments": 0
+        }
+      },
+      "recoverableSecByCause": {
+        "routing": 0,
+        "low-energy": 0,
+        "short": 0,
+        "score-gate": 0
+      },
+      "recoverableSec": 0
+    },
+    "records": [
+      {
+        "start": 30.14,
+        "end": 31,
+        "duration": 0.86,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 17,
+          "gatedShare": 1,
+          "meanBestScore": null,
+          "modalChord": null,
+          "modalShare": 0,
+          "aggChord": "Bm",
+          "aggScore": 0.738,
+          "aggMargin": 0.045
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "E",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": 0,
+        "truthDominantChord": null,
+        "truthDominantShare": 0,
+        "recoverable": false
+      }
+    ]
+  },
+  {
+    "suite": "synthetic",
+    "id": "song-i",
+    "title": "Song I — rock with ♭VII (G–F–C–G / G–F–C–D)",
+    "durationSec": 15.54546485260771,
+    "ncShare": 0.05599404861754342,
+    "totals": {
+      "totalSec": 0.87,
+      "segmentCount": 1,
+      "byCause": {
+        "routing": {
+          "sec": 0,
+          "segments": 0
+        },
+        "low-energy": {
+          "sec": 0.87,
+          "segments": 1
+        },
+        "short": {
+          "sec": 0,
+          "segments": 0
+        },
+        "score-gate": {
+          "sec": 0,
+          "segments": 0
+        }
+      },
+      "recoverableSecByCause": {
+        "routing": 0,
+        "low-energy": 0,
+        "short": 0,
+        "score-gate": 0
+      },
+      "recoverableSec": 0
+    },
+    "records": [
+      {
+        "start": 14.675,
+        "end": 15.545,
+        "duration": 0.87,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 17,
+          "gatedShare": 1,
+          "meanBestScore": null,
+          "modalChord": null,
+          "modalShare": 0,
+          "aggChord": "Dm",
+          "aggScore": 0.592,
+          "aggMargin": 0.008
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "D",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": 0,
+        "truthDominantChord": null,
+        "truthDominantShare": 0,
+        "recoverable": false
+      }
+    ]
+  },
+  {
+    "suite": "real-mixture",
+    "id": "put-your-records-on",
+    "title": "Put Your Records On — Corinne Bailey Rae",
+    "durationSec": 212.67156462585035,
+    "ncShare": 0.03395567201659574,
+    "totals": {
+      "totalSec": 7.22,
+      "segmentCount": 3,
+      "byCause": {
+        "routing": {
+          "sec": 0,
+          "segments": 0
+        },
+        "low-energy": {
+          "sec": 3.13,
+          "segments": 1
+        },
+        "short": {
+          "sec": 0,
+          "segments": 0
+        },
+        "score-gate": {
+          "sec": 4.09,
+          "segments": 2
+        }
+      },
+      "recoverableSecByCause": {
+        "routing": 0,
+        "low-energy": 3.13,
+        "short": 0,
+        "score-gate": 4.09
+      },
+      "recoverableSec": 7.22
+    },
+    "records": [
+      {
+        "start": 1.718,
+        "end": 3.715,
+        "duration": 1.997,
+        "cause": "score-gate",
+        "segmentConfidence": 0.169,
+        "judge": {
+          "frameCount": 43,
+          "gatedShare": 0.698,
+          "meanBestScore": 0.634,
+          "modalChord": "C#",
+          "modalShare": 0.385,
+          "aggChord": "A",
+          "aggScore": 0.661,
+          "aggMargin": 0.046
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "A",
+        "nextChord": "C#",
+        "flankedSameChord": null,
+        "truthCoverShare": 1,
+        "truthDominantChord": "F#m6",
+        "truthDominantShare": 0.5,
+        "recoverable": true
+      },
+      {
+        "start": 4.133,
+        "end": 6.223,
+        "duration": 2.09,
+        "cause": "score-gate",
+        "segmentConfidence": 0.203,
+        "judge": {
+          "frameCount": 45,
+          "gatedShare": 0.644,
+          "meanBestScore": 0.658,
+          "modalChord": "Am",
+          "modalShare": 0.313,
+          "aggChord": "A",
+          "aggScore": 0.696,
+          "aggMargin": 0.034
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "C#",
+        "nextChord": "D",
+        "flankedSameChord": null,
+        "truthCoverShare": 1,
+        "truthDominantChord": "F#m6",
+        "truthDominantShare": 0.518,
+        "recoverable": true
+      },
+      {
+        "start": 209.537,
+        "end": 212.672,
+        "duration": 3.135,
+        "cause": "low-energy",
+        "segmentConfidence": 0.011,
+        "judge": {
+          "frameCount": 66,
+          "gatedShare": 0.985,
+          "meanBestScore": 0.8,
+          "modalChord": "Am",
+          "modalShare": 1,
+          "aggChord": "Am",
+          "aggScore": 0.817,
+          "aggMargin": 0.087
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "A",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": 1,
+        "truthDominantChord": "A",
+        "truthDominantShare": 1,
+        "recoverable": true
+      }
+    ]
+  },
+  {
+    "suite": "real-mixture",
+    "id": "everything",
+    "title": "Everything — MISIA",
+    "durationSec": 428.9886621315193,
+    "ncShare": 0.04389715832205679,
+    "totals": {
+      "totalSec": 18.83,
+      "segmentCount": 4,
+      "byCause": {
+        "routing": {
+          "sec": 0,
+          "segments": 0
+        },
+        "low-energy": {
+          "sec": 18.83,
+          "segments": 4
+        },
+        "short": {
+          "sec": 0,
+          "segments": 0
+        },
+        "score-gate": {
+          "sec": 0,
+          "segments": 0
+        }
+      },
+      "recoverableSecByCause": {
+        "routing": 0,
+        "low-energy": 1.02,
+        "short": 0,
+        "score-gate": 0
+      },
+      "recoverableSec": 1.02
+    },
+    "records": [
+      {
+        "start": 0,
+        "end": 8.127,
+        "duration": 8.127,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 175,
+          "gatedShare": 1,
+          "meanBestScore": null,
+          "modalChord": null,
+          "modalShare": 0,
+          "aggChord": "Am",
+          "aggScore": 0.645,
+          "aggMargin": 0.003
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": null,
+        "nextChord": "G#",
+        "flankedSameChord": null,
+        "truthCoverShare": 0,
+        "truthDominantChord": null,
+        "truthDominantShare": 0,
+        "recoverable": false
+      },
+      {
+        "start": 17.183,
+        "end": 18.204,
+        "duration": 1.022,
+        "cause": "low-energy",
+        "segmentConfidence": 0.051,
+        "judge": {
+          "frameCount": 22,
+          "gatedShare": 0.909,
+          "meanBestScore": 0.649,
+          "modalChord": "Fm",
+          "modalShare": 0.5,
+          "aggChord": "A#m",
+          "aggScore": 0.672,
+          "aggMargin": 0.021
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "G#",
+        "nextChord": "D#",
+        "flankedSameChord": null,
+        "truthCoverShare": 1,
+        "truthDominantChord": "Bb7",
+        "truthDominantShare": 1,
+        "recoverable": true
+      },
+      {
+        "start": 413.594,
+        "end": 420.653,
+        "duration": 7.059,
+        "cause": "low-energy",
+        "segmentConfidence": 0.124,
+        "judge": {
+          "frameCount": 152,
+          "gatedShare": 0.809,
+          "meanBestScore": 0.729,
+          "modalChord": "Dm",
+          "modalShare": 0.586,
+          "aggChord": "Dm",
+          "aggScore": 0.749,
+          "aggMargin": 0.052
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "D",
+        "nextChord": "Dm",
+        "flankedSameChord": null,
+        "truthCoverShare": 0.001,
+        "truthDominantChord": "D",
+        "truthDominantShare": 0.001,
+        "recoverable": false
+      },
+      {
+        "start": 426.365,
+        "end": 428.989,
+        "duration": 2.624,
+        "cause": "low-energy",
+        "segmentConfidence": 0.01,
+        "judge": {
+          "frameCount": 55,
+          "gatedShare": 0.982,
+          "meanBestScore": 0.671,
+          "modalChord": "Am",
+          "modalShare": 1,
+          "aggChord": "F",
+          "aggScore": 0.67,
+          "aggMargin": 0.014
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "Dm",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": 0.013,
+        "truthDominantChord": "D",
+        "truthDominantShare": 0.013,
+        "recoverable": false
+      }
+    ]
+  },
+  {
+    "suite": "real-mixture",
+    "id": "a-hard-days-night",
+    "title": "A Hard Day's Night — The Beatles",
+    "durationSec": 154.2138775510204,
+    "ncShare": 0.04809764452349362,
+    "totals": {
+      "totalSec": 7.42,
+      "segmentCount": 2,
+      "byCause": {
+        "routing": {
+          "sec": 0,
+          "segments": 0
+        },
+        "low-energy": {
+          "sec": 7.42,
+          "segments": 2
+        },
+        "short": {
+          "sec": 0,
+          "segments": 0
+        },
+        "score-gate": {
+          "sec": 0,
+          "segments": 0
+        }
+      },
+      "recoverableSecByCause": {
+        "routing": 0,
+        "low-energy": 0,
+        "short": 0,
+        "score-gate": 0
+      },
+      "recoverableSec": 0
+    },
+    "records": [
+      {
+        "start": 0,
+        "end": 1.022,
+        "duration": 1.022,
+        "cause": "low-energy",
+        "segmentConfidence": 0.025,
+        "judge": {
+          "frameCount": 22,
+          "gatedShare": 0.955,
+          "meanBestScore": 0.623,
+          "modalChord": "Am",
+          "modalShare": 1,
+          "aggChord": "Am",
+          "aggScore": 0.624,
+          "aggMargin": 0.016
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": null,
+        "nextChord": "Dm",
+        "flankedSameChord": null,
+        "truthCoverShare": 0.119,
+        "truthDominantChord": "Fadd9",
+        "truthDominantShare": 0.119,
+        "recoverable": false
+      },
+      {
+        "start": 147.818,
+        "end": 154.214,
+        "duration": 6.396,
+        "cause": "low-energy",
+        "segmentConfidence": 0.015,
+        "judge": {
+          "frameCount": 137,
+          "gatedShare": 0.978,
+          "meanBestScore": 0.724,
+          "modalChord": "G",
+          "modalShare": 0.667,
+          "aggChord": "Dm",
+          "aggScore": 0.661,
+          "aggMargin": 0.007
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "C",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": 0.358,
+        "truthDominantChord": "Dsus4",
+        "truthDominantShare": 0.273,
+        "recoverable": false
+      }
+    ]
+  },
+  {
+    "suite": "real-stems",
+    "id": "put-your-records-on",
+    "title": "Put Your Records On — Corinne Bailey Rae",
+    "durationSec": 212.71510204081633,
+    "ncShare": 0.06930287772729136,
+    "totals": {
+      "totalSec": 14.74,
+      "segmentCount": 10,
+      "byCause": {
+        "routing": {
+          "sec": 3.34,
+          "segments": 4
+        },
+        "low-energy": {
+          "sec": 5.04,
+          "segments": 3
+        },
+        "short": {
+          "sec": 0,
+          "segments": 0
+        },
+        "score-gate": {
+          "sec": 6.36,
+          "segments": 3
+        }
+      },
+      "recoverableSecByCause": {
+        "routing": 3.34,
+        "low-energy": 5.04,
+        "short": 0,
+        "score-gate": 6.36
+      },
+      "recoverableSec": 14.74
+    },
+    "records": [
+      {
+        "start": 9.752,
+        "end": 11.61,
+        "duration": 1.858,
+        "cause": "score-gate",
+        "segmentConfidence": 0.366,
+        "judge": {
+          "frameCount": 40,
+          "gatedShare": 0.325,
+          "meanBestScore": 0.61,
+          "modalChord": "C#m",
+          "modalShare": 0.444,
+          "aggChord": "C#m",
+          "aggScore": 0.57,
+          "aggMargin": 0.005
+        },
+        "mixAggChord": "F",
+        "mixAggScore": 0.693,
+        "mixModalChord": "F",
+        "mixModalShare": 0.324,
+        "mixGatedShare": 0.075,
+        "bassTopPc": 6,
+        "bassTopShare": 0.547,
+        "prevChord": "Am",
+        "nextChord": "C#m",
+        "flankedSameChord": null,
+        "truthCoverShare": 1,
+        "truthDominantChord": "F#m6",
+        "truthDominantShare": 0.75,
+        "recoverable": true
+      },
+      {
+        "start": 14.814,
+        "end": 15.232,
+        "duration": 0.418,
+        "cause": "routing",
+        "segmentConfidence": 0.125,
+        "judge": {
+          "frameCount": 9,
+          "gatedShare": 0.778,
+          "meanBestScore": 0.653,
+          "modalChord": "Em",
+          "modalShare": 0.5,
+          "aggChord": "Am",
+          "aggScore": 0.692,
+          "aggMargin": 0.055
+        },
+        "mixAggChord": "F",
+        "mixAggScore": 0.685,
+        "mixModalChord": "F",
+        "mixModalShare": 0.556,
+        "mixGatedShare": 0,
+        "bassTopPc": 6,
+        "bassTopShare": 0.891,
+        "prevChord": "Em",
+        "nextChord": "A",
+        "flankedSameChord": null,
+        "truthCoverShare": 1,
+        "truthDominantChord": "Dmaj7",
+        "truthDominantShare": 0.961,
+        "recoverable": true
+      },
+      {
+        "start": 17.276,
+        "end": 17.74,
+        "duration": 0.464,
+        "cause": "routing",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 11,
+          "gatedShare": 0.909,
+          "meanBestScore": 0.645,
+          "modalChord": "A",
+          "modalShare": 1,
+          "aggChord": "Am",
+          "aggScore": 0.682,
+          "aggMargin": 0.022
+        },
+        "mixAggChord": "Dm",
+        "mixAggScore": 0.766,
+        "mixModalChord": "F",
+        "mixModalShare": 0.5,
+        "mixGatedShare": 0.273,
+        "bassTopPc": 6,
+        "bassTopShare": 0.428,
+        "prevChord": "A",
+        "nextChord": "A",
+        "flankedSameChord": "A",
+        "truthCoverShare": 1,
+        "truthDominantChord": "A",
+        "truthDominantShare": 1,
+        "recoverable": true
+      },
+      {
+        "start": 19.737,
+        "end": 20.573,
+        "duration": 0.836,
+        "cause": "score-gate",
+        "segmentConfidence": 0.236,
+        "judge": {
+          "frameCount": 19,
+          "gatedShare": 0.526,
+          "meanBestScore": 0.597,
+          "modalChord": "Dm",
+          "modalShare": 0.444,
+          "aggChord": "Dm",
+          "aggScore": 0.603,
+          "aggMargin": 0.045
+        },
+        "mixAggChord": "F#m",
+        "mixAggScore": 0.68,
+        "mixModalChord": "F#m",
+        "mixModalShare": 0.211,
+        "mixGatedShare": 0,
+        "bassTopPc": 6,
+        "bassTopShare": 0.507,
+        "prevChord": "A",
+        "nextChord": "C#m",
+        "flankedSameChord": null,
+        "truthCoverShare": 1,
+        "truthDominantChord": "A",
+        "truthDominantShare": 0.573,
+        "recoverable": true
+      },
+      {
+        "start": 27.214,
+        "end": 27.632,
+        "duration": 0.418,
+        "cause": "routing",
+        "segmentConfidence": 0.237,
+        "judge": {
+          "frameCount": 9,
+          "gatedShare": 0.556,
+          "meanBestScore": 0.607,
+          "modalChord": "Gm",
+          "modalShare": 0.5,
+          "aggChord": "Gm",
+          "aggScore": 0.615,
+          "aggMargin": 0.055
+        },
+        "mixAggChord": "Dm",
+        "mixAggScore": 0.612,
+        "mixModalChord": "Dm",
+        "mixModalShare": 0.5,
+        "mixGatedShare": 0.556,
+        "bassTopPc": 9,
+        "bassTopShare": 0.377,
+        "prevChord": "A",
+        "nextChord": "F#m",
+        "flankedSameChord": null,
+        "truthCoverShare": 1,
+        "truthDominantChord": "A",
+        "truthDominantShare": 1,
+        "recoverable": true
+      },
+      {
+        "start": 45.743,
+        "end": 47.787,
+        "duration": 2.043,
+        "cause": "routing",
+        "segmentConfidence": 0.303,
+        "judge": {
+          "frameCount": 44,
+          "gatedShare": 0.5,
+          "meanBestScore": 0.689,
+          "modalChord": "A",
+          "modalShare": 0.5,
+          "aggChord": "A",
+          "aggScore": 0.701,
+          "aggMargin": 0.056
+        },
+        "mixAggChord": "Am",
+        "mixAggScore": 0.747,
+        "mixModalChord": "Am",
+        "mixModalShare": 0.545,
+        "mixGatedShare": 0,
+        "bassTopPc": 2,
+        "bassTopShare": 0.357,
+        "prevChord": "Dm",
+        "nextChord": "A",
+        "flankedSameChord": null,
+        "truthCoverShare": 1,
+        "truthDominantChord": "A",
+        "truthDominantShare": 0.646,
+        "recoverable": true
+      },
+      {
+        "start": 82.245,
+        "end": 82.663,
+        "duration": 0.418,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 9,
+          "gatedShare": 1,
+          "meanBestScore": null,
+          "modalChord": null,
+          "modalShare": 0,
+          "aggChord": "Am",
+          "aggScore": 0.713,
+          "aggMargin": 0.032
+        },
+        "mixAggChord": "F",
+        "mixAggScore": 0.735,
+        "mixModalChord": "F",
+        "mixModalShare": 0.444,
+        "mixGatedShare": 0,
+        "bassTopPc": 6,
+        "bassTopShare": 0.717,
+        "prevChord": "E",
+        "nextChord": "A",
+        "flankedSameChord": null,
+        "truthCoverShare": 1,
+        "truthDominantChord": "Dmaj7",
+        "truthDominantShare": 1,
+        "recoverable": true
+      },
+      {
+        "start": 147.632,
+        "end": 150.187,
+        "duration": 2.554,
+        "cause": "low-energy",
+        "segmentConfidence": 0.1,
+        "judge": {
+          "frameCount": 55,
+          "gatedShare": 0.855,
+          "meanBestScore": 0.748,
+          "modalChord": "F#m",
+          "modalShare": 0.75,
+          "aggChord": "F#m",
+          "aggScore": 0.709,
+          "aggMargin": 0.056
+        },
+        "mixAggChord": "Am",
+        "mixAggScore": 0.658,
+        "mixModalChord": "Am",
+        "mixModalShare": 0.236,
+        "mixGatedShare": 0,
+        "bassTopPc": 6,
+        "bassTopShare": 0.667,
+        "prevChord": "A",
+        "nextChord": "D",
+        "flankedSameChord": null,
+        "truthCoverShare": 1,
+        "truthDominantChord": "Bm7",
+        "truthDominantShare": 0.967,
+        "recoverable": true
+      },
+      {
+        "start": 160.403,
+        "end": 164.072,
+        "duration": 3.669,
+        "cause": "score-gate",
+        "segmentConfidence": 0.244,
+        "judge": {
+          "frameCount": 79,
+          "gatedShare": 0.557,
+          "meanBestScore": 0.628,
+          "modalChord": "B",
+          "modalShare": 0.257,
+          "aggChord": "Bm",
+          "aggScore": 0.633,
+          "aggMargin": 0.016
+        },
+        "mixAggChord": "Am",
+        "mixAggScore": 0.618,
+        "mixModalChord": "Am",
+        "mixModalShare": 0.215,
+        "mixGatedShare": 0,
+        "bassTopPc": 6,
+        "bassTopShare": 0.437,
+        "prevChord": "A",
+        "nextChord": "Bm",
+        "flankedSameChord": null,
+        "truthCoverShare": 1,
+        "truthDominantChord": "A",
+        "truthDominantShare": 0.63,
+        "recoverable": true
+      },
+      {
+        "start": 210.651,
+        "end": 212.715,
+        "duration": 2.064,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 43,
+          "gatedShare": 1,
+          "meanBestScore": null,
+          "modalChord": null,
+          "modalShare": 0,
+          "aggChord": "A",
+          "aggScore": 0.802,
+          "aggMargin": 0.082
+        },
+        "mixAggChord": "Am",
+        "mixAggScore": 0.824,
+        "mixModalChord": null,
+        "mixModalShare": 0,
+        "mixGatedShare": 1,
+        "bassTopPc": 9,
+        "bassTopShare": 1,
+        "prevChord": "A",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": 0.978,
+        "truthDominantChord": "A",
+        "truthDominantShare": 0.978,
+        "recoverable": true
+      }
+    ]
+  },
+  {
+    "suite": "real-stems",
+    "id": "everything",
+    "title": "Everything — MISIA",
+    "durationSec": 429.03510204081635,
+    "ncShare": 0.05688152838664307,
+    "totals": {
+      "totalSec": 24.4,
+      "segmentCount": 4,
+      "byCause": {
+        "routing": {
+          "sec": 8.17,
+          "segments": 1
+        },
+        "low-energy": {
+          "sec": 16.23,
+          "segments": 3
+        },
+        "short": {
+          "sec": 0,
+          "segments": 0
+        },
+        "score-gate": {
+          "sec": 0,
+          "segments": 0
+        }
+      },
+      "recoverableSecByCause": {
+        "routing": 0,
+        "low-energy": 3.2,
+        "short": 0,
+        "score-gate": 0
+      },
+      "recoverableSec": 3.2
+    },
+    "records": [
+      {
+        "start": 0,
+        "end": 8.173,
+        "duration": 8.173,
+        "cause": "routing",
+        "segmentConfidence": 0.003,
+        "judge": {
+          "frameCount": 176,
+          "gatedShare": 0.994,
+          "meanBestScore": 0.585,
+          "modalChord": "D",
+          "modalShare": 1,
+          "aggChord": "D",
+          "aggScore": 0.588,
+          "aggMargin": 0.029
+        },
+        "mixAggChord": "G#",
+        "mixAggScore": 0.555,
+        "mixModalChord": "G#",
+        "mixModalShare": 1,
+        "mixGatedShare": 0.994,
+        "bassTopPc": 5,
+        "bassTopShare": 0.859,
+        "prevChord": null,
+        "nextChord": "G#",
+        "flankedSameChord": null,
+        "truthCoverShare": 0,
+        "truthDominantChord": null,
+        "truthDominantShare": 0,
+        "recoverable": false
+      },
+      {
+        "start": 329.956,
+        "end": 331.535,
+        "duration": 1.579,
+        "cause": "low-energy",
+        "segmentConfidence": 0.064,
+        "judge": {
+          "frameCount": 35,
+          "gatedShare": 0.886,
+          "meanBestScore": 0.773,
+          "modalChord": "A",
+          "modalShare": 0.75,
+          "aggChord": "A",
+          "aggScore": 0.674,
+          "aggMargin": 0.018
+        },
+        "mixAggChord": "F",
+        "mixAggScore": 0.72,
+        "mixModalChord": "F",
+        "mixModalShare": 0.314,
+        "mixGatedShare": 0,
+        "bassTopPc": 9,
+        "bassTopShare": 0.176,
+        "prevChord": "Bm",
+        "nextChord": "Fm",
+        "flankedSameChord": null,
+        "truthCoverShare": 1,
+        "truthDominantChord": "A7",
+        "truthDominantShare": 0.775,
+        "recoverable": true
+      },
+      {
+        "start": 334.228,
+        "end": 335.853,
+        "duration": 1.625,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 36,
+          "gatedShare": 0.972,
+          "meanBestScore": 0.724,
+          "modalChord": "D",
+          "modalShare": 1,
+          "aggChord": "D",
+          "aggScore": 0.765,
+          "aggMargin": 0.067
+        },
+        "mixAggChord": "Dm",
+        "mixAggScore": 0.628,
+        "mixModalChord": "D",
+        "mixModalShare": 0.324,
+        "mixGatedShare": 0.056,
+        "bassTopPc": 10,
+        "bassTopShare": 0.28,
+        "prevChord": "D",
+        "nextChord": "D",
+        "flankedSameChord": "D",
+        "truthCoverShare": 1,
+        "truthDominantChord": "D",
+        "truthDominantShare": 0.777,
+        "recoverable": true
+      },
+      {
+        "start": 416.009,
+        "end": 429.035,
+        "duration": 13.026,
+        "cause": "low-energy",
+        "segmentConfidence": 0.003,
+        "judge": {
+          "frameCount": 279,
+          "gatedShare": 0.996,
+          "meanBestScore": 0.772,
+          "modalChord": "D",
+          "modalShare": 1,
+          "aggChord": "D",
+          "aggScore": 0.695,
+          "aggMargin": 0.023
+        },
+        "mixAggChord": "F",
+        "mixAggScore": 0.694,
+        "mixModalChord": "Dm",
+        "mixModalShare": 0.388,
+        "mixGatedShare": 0.5,
+        "bassTopPc": 2,
+        "bassTopShare": 0.793,
+        "prevChord": "D",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": 0.384,
+        "truthDominantChord": "D",
+        "truthDominantShare": 0.238,
+        "recoverable": false
+      }
+    ]
+  },
+  {
+    "suite": "real-stems",
+    "id": "a-hard-days-night",
+    "title": "A Hard Day's Night — The Beatles",
+    "durationSec": 154.25306122448978,
+    "ncShare": 0.0435224386113462,
+    "totals": {
+      "totalSec": 6.71,
+      "segmentCount": 2,
+      "byCause": {
+        "routing": {
+          "sec": 1.02,
+          "segments": 1
+        },
+        "low-energy": {
+          "sec": 5.69,
+          "segments": 1
+        },
+        "short": {
+          "sec": 0,
+          "segments": 0
+        },
+        "score-gate": {
+          "sec": 0,
+          "segments": 0
+        }
+      },
+      "recoverableSecByCause": {
+        "routing": 0,
+        "low-energy": 0,
+        "short": 0,
+        "score-gate": 0
+      },
+      "recoverableSec": 0
+    },
+    "records": [
+      {
+        "start": 0,
+        "end": 1.022,
+        "duration": 1.022,
+        "cause": "routing",
+        "segmentConfidence": 0.023,
+        "judge": {
+          "frameCount": 22,
+          "gatedShare": 0.955,
+          "meanBestScore": 0.584,
+          "modalChord": "Am",
+          "modalShare": 1,
+          "aggChord": "Am",
+          "aggScore": 0.583,
+          "aggMargin": 0.014
+        },
+        "mixAggChord": "Am",
+        "mixAggScore": 0.624,
+        "mixModalChord": "Am",
+        "mixModalShare": 1,
+        "mixGatedShare": 0.955,
+        "bassTopPc": 5,
+        "bassTopShare": 0.728,
+        "prevChord": null,
+        "nextChord": "D",
+        "flankedSameChord": null,
+        "truthCoverShare": 0.119,
+        "truthDominantChord": "Fadd9",
+        "truthDominantShare": 0.119,
+        "recoverable": false
+      },
+      {
+        "start": 148.561,
+        "end": 154.253,
+        "duration": 5.692,
+        "cause": "low-energy",
+        "segmentConfidence": 0.021,
+        "judge": {
+          "frameCount": 121,
+          "gatedShare": 0.967,
+          "meanBestScore": 0.7,
+          "modalChord": "C",
+          "modalShare": 0.5,
+          "aggChord": "C",
+          "aggScore": 0.692,
+          "aggMargin": 0.059
+        },
+        "mixAggChord": "C",
+        "mixAggScore": 0.689,
+        "mixModalChord": null,
+        "mixModalShare": 0,
+        "mixGatedShare": 1,
+        "bassTopPc": 8,
+        "bassTopShare": 0.783,
+        "prevChord": "C",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": 0.271,
+        "truthDominantChord": "Dsus4",
+        "truthDominantShare": 0.271,
+        "recoverable": false
+      }
+    ]
+  },
+  {
+    "suite": "real-stems",
+    "id": "song-d",
+    "title": "Song D — 合成分数コード（C/E–F/A–G/B–Am/E）",
+    "durationSec": 18.142857142857142,
+    "ncShare": 0.04523934508186476,
+    "totals": {
+      "totalSec": 0.82,
+      "segmentCount": 1,
+      "byCause": {
+        "routing": {
+          "sec": 0,
+          "segments": 0
+        },
+        "low-energy": {
+          "sec": 0.82,
+          "segments": 1
+        },
+        "short": {
+          "sec": 0,
+          "segments": 0
+        },
+        "score-gate": {
+          "sec": 0,
+          "segments": 0
+        }
+      },
+      "recoverableSecByCause": {
+        "routing": 0,
+        "low-energy": 0,
+        "short": 0,
+        "score-gate": 0
+      },
+      "recoverableSec": 0
+    },
+    "records": [
+      {
+        "start": 17.322,
+        "end": 18.143,
+        "duration": 0.821,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 16,
+          "gatedShare": 1,
+          "meanBestScore": null,
+          "modalChord": null,
+          "modalShare": 0,
+          "aggChord": "F",
+          "aggScore": 0.705,
+          "aggMargin": 0.006
+        },
+        "mixAggChord": null,
+        "mixAggScore": 0,
+        "mixModalChord": null,
+        "mixModalShare": 0,
+        "mixGatedShare": 1,
+        "bassTopPc": 0,
+        "bassTopShare": 1,
+        "prevChord": "Am",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": 0,
+        "truthDominantChord": null,
+        "truthDominantShare": 0,
+        "recoverable": false
+      }
+    ]
+  },
+  {
+    "suite": "suno-mixture",
+    "id": "suno-05",
+    "title": "Suno 05（混合音）",
+    "durationSec": 205.1395918367347,
+    "ncShare": 0.05236498436549372,
+    "totals": {
+      "totalSec": 10.74,
+      "segmentCount": 6,
+      "byCause": {
+        "routing": {
+          "sec": 0,
+          "segments": 0
+        },
+        "low-energy": {
+          "sec": 8.23,
+          "segments": 5
+        },
+        "short": {
+          "sec": 0,
+          "segments": 0
+        },
+        "score-gate": {
+          "sec": 2.51,
+          "segments": 1
+        }
+      },
+      "recoverableSecByCause": null,
+      "recoverableSec": null
+    },
+    "records": [
+      {
+        "start": 0,
+        "end": 2.508,
+        "duration": 2.508,
+        "cause": "score-gate",
+        "segmentConfidence": 0.413,
+        "judge": {
+          "frameCount": 55,
+          "gatedShare": 0.364,
+          "meanBestScore": 0.72,
+          "modalChord": "Am",
+          "modalShare": 0.229,
+          "aggChord": "Gm",
+          "aggScore": 0.642,
+          "aggMargin": 0.005
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": null,
+        "nextChord": "G",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 14.489,
+        "end": 15.325,
+        "duration": 0.836,
+        "cause": "low-energy",
+        "segmentConfidence": 0.086,
+        "judge": {
+          "frameCount": 18,
+          "gatedShare": 0.833,
+          "meanBestScore": 0.597,
+          "modalChord": "F",
+          "modalShare": 0.333,
+          "aggChord": "Dm",
+          "aggScore": 0.669,
+          "aggMargin": 0.029
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "Dm",
+        "nextChord": "C",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 19.83,
+        "end": 21.037,
+        "duration": 1.207,
+        "cause": "low-energy",
+        "segmentConfidence": 0.091,
+        "judge": {
+          "frameCount": 26,
+          "gatedShare": 0.846,
+          "meanBestScore": 0.651,
+          "modalChord": "Bm",
+          "modalShare": 0.75,
+          "aggChord": "Bm",
+          "aggScore": 0.604,
+          "aggMargin": 0.024
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "Am",
+        "nextChord": "Dm",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 21.548,
+        "end": 22.756,
+        "duration": 1.207,
+        "cause": "low-energy",
+        "segmentConfidence": 0.09,
+        "judge": {
+          "frameCount": 26,
+          "gatedShare": 0.846,
+          "meanBestScore": 0.662,
+          "modalChord": "C#m",
+          "modalShare": 0.25,
+          "aggChord": "Dm",
+          "aggScore": 0.745,
+          "aggMargin": 0.056
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "Dm",
+        "nextChord": "Am",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 103.097,
+        "end": 103.84,
+        "duration": 0.743,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 16,
+          "gatedShare": 1,
+          "meanBestScore": null,
+          "modalChord": null,
+          "modalShare": 0,
+          "aggChord": "Am",
+          "aggScore": 0.676,
+          "aggMargin": 0.082
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "Bm",
+        "nextChord": "Am",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 200.899,
+        "end": 205.14,
+        "duration": 4.241,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 90,
+          "gatedShare": 1,
+          "meanBestScore": null,
+          "modalChord": null,
+          "modalShare": 0,
+          "aggChord": "Dm",
+          "aggScore": 0.855,
+          "aggMargin": 0.096
+        },
+        "mixAggChord": null,
+        "mixAggScore": null,
+        "mixModalChord": null,
+        "mixModalShare": null,
+        "mixGatedShare": null,
+        "bassTopPc": null,
+        "bassTopShare": null,
+        "prevChord": "Em",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      }
+    ]
+  },
+  {
+    "suite": "suno-stems",
+    "id": "suno-05",
+    "title": "Suno 05（ステム）",
+    "durationSec": 205.1395918367347,
+    "ncShare": 0.227584645641439,
+    "totals": {
+      "totalSec": 46.68,
+      "segmentCount": 27,
+      "byCause": {
+        "routing": {
+          "sec": 6.97,
+          "segments": 5
+        },
+        "low-energy": {
+          "sec": 35.63,
+          "segments": 19
+        },
+        "short": {
+          "sec": 0,
+          "segments": 0
+        },
+        "score-gate": {
+          "sec": 4.09,
+          "segments": 3
+        }
+      },
+      "recoverableSecByCause": null,
+      "recoverableSec": null
+    },
+    "records": [
+      {
+        "start": 0,
+        "end": 2.229,
+        "duration": 2.229,
+        "cause": "low-energy",
+        "segmentConfidence": 0.097,
+        "judge": {
+          "frameCount": 48,
+          "gatedShare": 0.833,
+          "meanBestScore": 0.653,
+          "modalChord": "Am",
+          "modalShare": 0.5,
+          "aggChord": "Gm",
+          "aggScore": 0.629,
+          "aggMargin": 0.047
+        },
+        "mixAggChord": "Gm",
+        "mixAggScore": 0.633,
+        "mixModalChord": "Gm",
+        "mixModalShare": 0.214,
+        "mixGatedShare": 0.417,
+        "bassTopPc": 10,
+        "bassTopShare": 0.977,
+        "prevChord": null,
+        "nextChord": "C",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 15.372,
+        "end": 19.551,
+        "duration": 4.18,
+        "cause": "low-energy",
+        "segmentConfidence": 0.156,
+        "judge": {
+          "frameCount": 91,
+          "gatedShare": 0.758,
+          "meanBestScore": 0.75,
+          "modalChord": "Am",
+          "modalShare": 0.227,
+          "aggChord": "Am",
+          "aggScore": 0.767,
+          "aggMargin": 0.09
+        },
+        "mixAggChord": "Dm",
+        "mixAggScore": 0.701,
+        "mixModalChord": "Am",
+        "mixModalShare": 0.337,
+        "mixGatedShare": 0.055,
+        "bassTopPc": 0,
+        "bassTopShare": 0.419,
+        "prevChord": "Am",
+        "nextChord": "Bm",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 19.923,
+        "end": 20.991,
+        "duration": 1.068,
+        "cause": "routing",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 23,
+          "gatedShare": 1,
+          "meanBestScore": null,
+          "modalChord": null,
+          "modalShare": 0,
+          "aggChord": "Am",
+          "aggScore": 0.769,
+          "aggMargin": 0.083
+        },
+        "mixAggChord": "Am",
+        "mixAggScore": 0.647,
+        "mixModalChord": "Bm",
+        "mixModalShare": 1,
+        "mixGatedShare": 0.957,
+        "bassTopPc": 0,
+        "bassTopShare": 0.676,
+        "prevChord": "Bm",
+        "nextChord": "Dm",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 23.266,
+        "end": 24.427,
+        "duration": 1.161,
+        "cause": "low-energy",
+        "segmentConfidence": 0.128,
+        "judge": {
+          "frameCount": 26,
+          "gatedShare": 0.769,
+          "meanBestScore": 0.721,
+          "modalChord": "Dm",
+          "modalShare": 0.667,
+          "aggChord": "Dm",
+          "aggScore": 0.734,
+          "aggMargin": 0.025
+        },
+        "mixAggChord": "D",
+        "mixAggScore": 0.729,
+        "mixModalChord": "D",
+        "mixModalShare": 0.44,
+        "mixGatedShare": 0.038,
+        "bassTopPc": 7,
+        "bassTopShare": 0.551,
+        "prevChord": "Am",
+        "nextChord": "Am",
+        "flankedSameChord": "Am",
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 24.985,
+        "end": 26.471,
+        "duration": 1.486,
+        "cause": "low-energy",
+        "segmentConfidence": 0.141,
+        "judge": {
+          "frameCount": 32,
+          "gatedShare": 0.781,
+          "meanBestScore": 0.738,
+          "modalChord": "Am",
+          "modalShare": 1,
+          "aggChord": "Am",
+          "aggScore": 0.764,
+          "aggMargin": 0.025
+        },
+        "mixAggChord": "Am",
+        "mixAggScore": 0.678,
+        "mixModalChord": "Am",
+        "mixModalShare": 0.323,
+        "mixGatedShare": 0.031,
+        "bassTopPc": 7,
+        "bassTopShare": 0.502,
+        "prevChord": "Am",
+        "nextChord": "Em",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 28.328,
+        "end": 29.675,
+        "duration": 1.347,
+        "cause": "low-energy",
+        "segmentConfidence": 0.065,
+        "judge": {
+          "frameCount": 29,
+          "gatedShare": 0.897,
+          "meanBestScore": 0.695,
+          "modalChord": "Am",
+          "modalShare": 0.667,
+          "aggChord": "Am",
+          "aggScore": 0.61,
+          "aggMargin": 0
+        },
+        "mixAggChord": "G",
+        "mixAggScore": 0.676,
+        "mixModalChord": "F",
+        "mixModalShare": 0.207,
+        "mixGatedShare": 0,
+        "bassTopPc": 7,
+        "bassTopShare": 0.768,
+        "prevChord": "Em",
+        "nextChord": "C",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 30.975,
+        "end": 33.715,
+        "duration": 2.74,
+        "cause": "routing",
+        "segmentConfidence": 0.149,
+        "judge": {
+          "frameCount": 59,
+          "gatedShare": 0.746,
+          "meanBestScore": 0.684,
+          "modalChord": "Am",
+          "modalShare": 0.533,
+          "aggChord": "Am",
+          "aggScore": 0.705,
+          "aggMargin": 0.011
+        },
+        "mixAggChord": "Am",
+        "mixAggScore": 0.711,
+        "mixModalChord": "Am",
+        "mixModalShare": 0.517,
+        "mixGatedShare": 0.017,
+        "bassTopPc": 11,
+        "bassTopShare": 0.391,
+        "prevChord": "C",
+        "nextChord": "Bm",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 34.273,
+        "end": 36.502,
+        "duration": 2.229,
+        "cause": "low-energy",
+        "segmentConfidence": 0.01,
+        "judge": {
+          "frameCount": 48,
+          "gatedShare": 0.979,
+          "meanBestScore": 0.555,
+          "modalChord": "F",
+          "modalShare": 1,
+          "aggChord": "Dm",
+          "aggScore": 0.62,
+          "aggMargin": 0.014
+        },
+        "mixAggChord": "Am",
+        "mixAggScore": 0.661,
+        "mixModalChord": "Am",
+        "mixModalShare": 0.404,
+        "mixGatedShare": 0.021,
+        "bassTopPc": 11,
+        "bassTopShare": 0.704,
+        "prevChord": "Bm",
+        "nextChord": "Am",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 39.427,
+        "end": 39.892,
+        "duration": 0.464,
+        "cause": "routing",
+        "segmentConfidence": 0.058,
+        "judge": {
+          "frameCount": 10,
+          "gatedShare": 0.9,
+          "meanBestScore": 0.637,
+          "modalChord": "Am",
+          "modalShare": 1,
+          "aggChord": "C",
+          "aggScore": 0.734,
+          "aggMargin": 0.025
+        },
+        "mixAggChord": "Dm",
+        "mixAggScore": 0.743,
+        "mixModalChord": "Dm",
+        "mixModalShare": 0.9,
+        "mixGatedShare": 0,
+        "bassTopPc": 2,
+        "bassTopShare": 0.927,
+        "prevChord": "C",
+        "nextChord": "Em",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 41.61,
+        "end": 43.282,
+        "duration": 1.672,
+        "cause": "low-energy",
+        "segmentConfidence": 0.015,
+        "judge": {
+          "frameCount": 36,
+          "gatedShare": 0.972,
+          "meanBestScore": 0.635,
+          "modalChord": "Dm",
+          "modalShare": 1,
+          "aggChord": "Em",
+          "aggScore": 0.622,
+          "aggMargin": 0.01
+        },
+        "mixAggChord": "G",
+        "mixAggScore": 0.68,
+        "mixModalChord": "Gm",
+        "mixModalShare": 0.361,
+        "mixGatedShare": 0,
+        "bassTopPc": 7,
+        "bassTopShare": 0.926,
+        "prevChord": "Em",
+        "nextChord": "C",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 45.186,
+        "end": 46.672,
+        "duration": 1.486,
+        "cause": "low-energy",
+        "segmentConfidence": 0.177,
+        "judge": {
+          "frameCount": 32,
+          "gatedShare": 0.75,
+          "meanBestScore": 0.768,
+          "modalChord": "C",
+          "modalShare": 0.5,
+          "aggChord": "Am",
+          "aggScore": 0.823,
+          "aggMargin": 0.115
+        },
+        "mixAggChord": "Dm",
+        "mixAggScore": 0.678,
+        "mixModalChord": "Am",
+        "mixModalShare": 0.25,
+        "mixGatedShare": 0,
+        "bassTopPc": 6,
+        "bassTopShare": 0.489,
+        "prevChord": "Em",
+        "nextChord": "Bm",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 48.437,
+        "end": 50.062,
+        "duration": 1.625,
+        "cause": "low-energy",
+        "segmentConfidence": 0.138,
+        "judge": {
+          "frameCount": 35,
+          "gatedShare": 0.771,
+          "meanBestScore": 0.697,
+          "modalChord": "Dm",
+          "modalShare": 0.625,
+          "aggChord": "Am",
+          "aggScore": 0.702,
+          "aggMargin": 0.021
+        },
+        "mixAggChord": "Gm",
+        "mixAggScore": 0.662,
+        "mixModalChord": "Gm",
+        "mixModalShare": 0.343,
+        "mixGatedShare": 0,
+        "bassTopPc": 11,
+        "bassTopShare": 0.39,
+        "prevChord": "D",
+        "nextChord": "Am",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 84.753,
+        "end": 85.775,
+        "duration": 1.022,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 22,
+          "gatedShare": 1,
+          "meanBestScore": null,
+          "modalChord": null,
+          "modalShare": 0,
+          "aggChord": "Am",
+          "aggScore": 0.695,
+          "aggMargin": 0.078
+        },
+        "mixAggChord": "G",
+        "mixAggScore": 0.808,
+        "mixModalChord": "Bm",
+        "mixModalShare": 0.429,
+        "mixGatedShare": 0.045,
+        "bassTopPc": 6,
+        "bassTopShare": 0.38,
+        "prevChord": "G",
+        "nextChord": "C",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 86.146,
+        "end": 87.632,
+        "duration": 1.486,
+        "cause": "low-energy",
+        "segmentConfidence": 0.121,
+        "judge": {
+          "frameCount": 32,
+          "gatedShare": 0.813,
+          "meanBestScore": 0.725,
+          "modalChord": "Bm",
+          "modalShare": 0.5,
+          "aggChord": "D",
+          "aggScore": 0.714,
+          "aggMargin": 0.074
+        },
+        "mixAggChord": "G",
+        "mixAggScore": 0.692,
+        "mixModalChord": "G",
+        "mixModalShare": 0.438,
+        "mixGatedShare": 0,
+        "bassTopPc": 0,
+        "bassTopShare": 0.986,
+        "prevChord": "C",
+        "nextChord": "A",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 98.453,
+        "end": 101.518,
+        "duration": 3.065,
+        "cause": "low-energy",
+        "segmentConfidence": 0.09,
+        "judge": {
+          "frameCount": 66,
+          "gatedShare": 0.864,
+          "meanBestScore": 0.754,
+          "modalChord": "C",
+          "modalShare": 0.444,
+          "aggChord": "C",
+          "aggScore": 0.75,
+          "aggMargin": 0.037
+        },
+        "mixAggChord": "Am",
+        "mixAggScore": 0.607,
+        "mixModalChord": "Am",
+        "mixModalShare": 0.345,
+        "mixGatedShare": 0.121,
+        "bassTopPc": 0,
+        "bassTopShare": 0.637,
+        "prevChord": "C",
+        "nextChord": "Em",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 102.446,
+        "end": 104.676,
+        "duration": 2.229,
+        "cause": "routing",
+        "segmentConfidence": 0.213,
+        "judge": {
+          "frameCount": 48,
+          "gatedShare": 0.667,
+          "meanBestScore": 0.726,
+          "modalChord": "Am",
+          "modalShare": 0.5,
+          "aggChord": "Am",
+          "aggScore": 0.799,
+          "aggMargin": 0.02
+        },
+        "mixAggChord": "Am",
+        "mixAggScore": 0.759,
+        "mixModalChord": "Am",
+        "mixModalShare": 0.75,
+        "mixGatedShare": 0.333,
+        "bassTopPc": 10,
+        "bassTopShare": 0.596,
+        "prevChord": "Em",
+        "nextChord": "Am",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 106.672,
+        "end": 107.555,
+        "duration": 0.882,
+        "cause": "score-gate",
+        "segmentConfidence": 0.263,
+        "judge": {
+          "frameCount": 19,
+          "gatedShare": 0.632,
+          "meanBestScore": 0.786,
+          "modalChord": "C",
+          "modalShare": 0.714,
+          "aggChord": "C",
+          "aggScore": 0.828,
+          "aggMargin": 0.09
+        },
+        "mixAggChord": "Gm",
+        "mixAggScore": 0.623,
+        "mixModalChord": "Am",
+        "mixModalShare": 0.412,
+        "mixGatedShare": 0.105,
+        "bassTopPc": 9,
+        "bassTopShare": 0.902,
+        "prevChord": "Am",
+        "nextChord": "Em",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 110.759,
+        "end": 112.013,
+        "duration": 1.254,
+        "cause": "score-gate",
+        "segmentConfidence": 0.473,
+        "judge": {
+          "frameCount": 27,
+          "gatedShare": 0.296,
+          "meanBestScore": 0.735,
+          "modalChord": "G",
+          "modalShare": 0.316,
+          "aggChord": "Em",
+          "aggScore": 0.701,
+          "aggMargin": 0.034
+        },
+        "mixAggChord": "Am",
+        "mixAggScore": 0.637,
+        "mixModalChord": "C",
+        "mixModalShare": 0.481,
+        "mixGatedShare": 0,
+        "bassTopPc": 0,
+        "bassTopShare": 0.941,
+        "prevChord": "Em",
+        "nextChord": "C",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 113.406,
+        "end": 114.614,
+        "duration": 1.207,
+        "cause": "low-energy",
+        "segmentConfidence": 0.156,
+        "judge": {
+          "frameCount": 26,
+          "gatedShare": 0.769,
+          "meanBestScore": 0.753,
+          "modalChord": "D",
+          "modalShare": 0.833,
+          "aggChord": "D",
+          "aggScore": 0.71,
+          "aggMargin": 0.039
+        },
+        "mixAggChord": "G",
+        "mixAggScore": 0.656,
+        "mixModalChord": "Am",
+        "mixModalShare": 0.423,
+        "mixGatedShare": 0,
+        "bassTopPc": 11,
+        "bassTopShare": 0.871,
+        "prevChord": "C",
+        "nextChord": "G",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 116.193,
+        "end": 117.911,
+        "duration": 1.718,
+        "cause": "low-energy",
+        "segmentConfidence": 0.067,
+        "judge": {
+          "frameCount": 37,
+          "gatedShare": 0.892,
+          "meanBestScore": 0.701,
+          "modalChord": "Dm",
+          "modalShare": 0.75,
+          "aggChord": "Dm",
+          "aggScore": 0.7,
+          "aggMargin": 0.035
+        },
+        "mixAggChord": "Am",
+        "mixAggScore": 0.692,
+        "mixModalChord": "Am",
+        "mixModalShare": 0.324,
+        "mixGatedShare": 0,
+        "bassTopPc": 10,
+        "bassTopShare": 0.819,
+        "prevChord": "G",
+        "nextChord": "Am",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 119.769,
+        "end": 121.208,
+        "duration": 1.44,
+        "cause": "low-energy",
+        "segmentConfidence": 0.153,
+        "judge": {
+          "frameCount": 31,
+          "gatedShare": 0.742,
+          "meanBestScore": 0.681,
+          "modalChord": "C",
+          "modalShare": 1,
+          "aggChord": "C",
+          "aggScore": 0.756,
+          "aggMargin": 0.048
+        },
+        "mixAggChord": "Gm",
+        "mixAggScore": 0.711,
+        "mixModalChord": "A#",
+        "mixModalShare": 0.179,
+        "mixGatedShare": 0.097,
+        "bassTopPc": 4,
+        "bassTopShare": 0.573,
+        "prevChord": "Am",
+        "nextChord": "Em",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 126.363,
+        "end": 128.313,
+        "duration": 1.95,
+        "cause": "score-gate",
+        "segmentConfidence": 0.29,
+        "judge": {
+          "frameCount": 42,
+          "gatedShare": 0.548,
+          "meanBestScore": 0.706,
+          "modalChord": "Am",
+          "modalShare": 0.368,
+          "aggChord": "Am",
+          "aggScore": 0.691,
+          "aggMargin": 0.049
+        },
+        "mixAggChord": "Am",
+        "mixAggScore": 0.643,
+        "mixModalChord": "Bm",
+        "mixModalShare": 0.31,
+        "mixGatedShare": 0,
+        "bassTopPc": 11,
+        "bassTopShare": 0.966,
+        "prevChord": "C",
+        "nextChord": "Bm",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 138.205,
+        "end": 141.038,
+        "duration": 2.833,
+        "cause": "low-energy",
+        "segmentConfidence": 0.053,
+        "judge": {
+          "frameCount": 62,
+          "gatedShare": 0.903,
+          "meanBestScore": 0.763,
+          "modalChord": "C",
+          "modalShare": 0.5,
+          "aggChord": "G",
+          "aggScore": 0.658,
+          "aggMargin": 0.02
+        },
+        "mixAggChord": "G",
+        "mixAggScore": 0.685,
+        "mixModalChord": "Bm",
+        "mixModalShare": 0.274,
+        "mixGatedShare": 0,
+        "bassTopPc": 0,
+        "bassTopShare": 0.98,
+        "prevChord": "C",
+        "nextChord": "Bm",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 150.001,
+        "end": 150.883,
+        "duration": 0.882,
+        "cause": "low-energy",
+        "segmentConfidence": 0.067,
+        "judge": {
+          "frameCount": 19,
+          "gatedShare": 0.895,
+          "meanBestScore": 0.715,
+          "modalChord": "Bm",
+          "modalShare": 0.5,
+          "aggChord": "C",
+          "aggScore": 0.765,
+          "aggMargin": 0.044
+        },
+        "mixAggChord": "G",
+        "mixAggScore": 0.731,
+        "mixModalChord": "G",
+        "mixModalShare": 0.368,
+        "mixGatedShare": 0,
+        "bassTopPc": 3,
+        "bassTopShare": 0.518,
+        "prevChord": "Am",
+        "nextChord": "C",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 165.14,
+        "end": 165.698,
+        "duration": 0.557,
+        "cause": "low-energy",
+        "segmentConfidence": 0.143,
+        "judge": {
+          "frameCount": 12,
+          "gatedShare": 0.75,
+          "meanBestScore": 0.662,
+          "modalChord": "G",
+          "modalShare": 0.333,
+          "aggChord": "Gm",
+          "aggScore": 0.683,
+          "aggMargin": 0.024
+        },
+        "mixAggChord": "Bm",
+        "mixAggScore": 0.684,
+        "mixModalChord": "Am",
+        "mixModalShare": 0.273,
+        "mixGatedShare": 0.083,
+        "bassTopPc": 10,
+        "bassTopShare": 0.595,
+        "prevChord": "C",
+        "nextChord": "Cm",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 193.98,
+        "end": 194.444,
+        "duration": 0.464,
+        "cause": "routing",
+        "segmentConfidence": 0.256,
+        "judge": {
+          "frameCount": 10,
+          "gatedShare": 0.6,
+          "meanBestScore": 0.723,
+          "modalChord": "Em",
+          "modalShare": 0.75,
+          "aggChord": "Em",
+          "aggScore": 0.761,
+          "aggMargin": 0.033
+        },
+        "mixAggChord": "Dm",
+        "mixAggScore": 0.767,
+        "mixModalChord": "Dm",
+        "mixModalShare": 0.9,
+        "mixGatedShare": 0,
+        "bassTopPc": 2,
+        "bassTopShare": 0.826,
+        "prevChord": "D",
+        "nextChord": "C",
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      },
+      {
+        "start": 201.131,
+        "end": 205.14,
+        "duration": 4.008,
+        "cause": "low-energy",
+        "segmentConfidence": 0,
+        "judge": {
+          "frameCount": 85,
+          "gatedShare": 1,
+          "meanBestScore": null,
+          "modalChord": null,
+          "modalShare": 0,
+          "aggChord": "Em",
+          "aggScore": 0.65,
+          "aggMargin": 0.068
+        },
+        "mixAggChord": "Dm",
+        "mixAggScore": 0.848,
+        "mixModalChord": null,
+        "mixModalShare": 0,
+        "mixGatedShare": 1,
+        "bassTopPc": 0,
+        "bassTopShare": 0.874,
+        "prevChord": "Em",
+        "nextChord": null,
+        "flankedSameChord": null,
+        "truthCoverShare": null,
+        "truthDominantChord": null,
+        "truthDominantShare": null,
+        "recoverable": null
+      }
+    ]
+  }
+]

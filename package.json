@@ -19,9 +19,14 @@
     "measure:stems": "vitest run scripts/measure-stems.test.ts",
     "measure:phase3": "vitest run scripts/measure-phase3.test.ts",
     "measure:phase32": "vitest run scripts/measure-phase3-2.test.ts",
+    "measure:nc": "vitest run scripts/measure-nc.test.ts",
+    "measure:nc-recovery": "vitest run scripts/measure-nc-recovery.test.ts",
+    "measure:gate": "vitest run scripts/measure-gate.test.ts",
+    "measure:genre": "vitest run scripts/measure-phase-genre.test.ts",
     "test:app-stems": "vitest run scripts/analyze-stems-app-path.test.ts",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "measure:meter": "vitest run scripts/measure-phase-meter.test.ts"
   },
   "dependencies": {
     "onnxruntime-web": "^1.31.1",

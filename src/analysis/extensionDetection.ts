@@ -118,6 +118,15 @@ export interface ExtensionContext {
    * 呼び出し側が直接指定するものではない）。
    */
   contextBackground?: number;
+  /**
+   * Phase 3 後半: ジャンル文脈（genreProfile.ts の消費部）。
+   * 曲単位のスタイル分布から導いた、拡張クラスごとのシェア
+   * しきい値への乗数（0.88–1.11 にクランプ済みの柔らかい prior）。
+   * 呼び出し側が消費部（オプション genre）を有効にした場合だけ
+   * 渡る。候補の除外には使わず、しきい値の小さな移動だけに使う
+   * （PHASE3_PLAN.md §2、ダイアトニック緩和と同じ桁の効果）。
+   */
+  genreFactors?: Record<ChordExtension, number>;
 }
 
 export interface SegmentEvidence {
@@ -339,6 +348,12 @@ export function judgeExtension(
       ext === "maj7" ? EXTENSION_CONFIG.minMaj7Share : EXTENSION_CONFIG.minSeventhShare;
     if (ctx && isDiatonicExtension(root, ext, ctx)) {
       shareThreshold *= EXTENSION_CONFIG.diatonicShareFactor;
+    }
+    // Phase 3 後半: ジャンル文脈。その曲のスタイル傾向として
+    // その拡張クラスが常套なら僅かに緩め、稀なら僅かに厳しくする。
+    // ダイアトニック緩和とは独立に掛かる（両方とも柔らかい prior）。
+    if (ctx?.genreFactors) {
+      shareThreshold *= ctx.genreFactors[ext];
     }
     // Phase 3.3: maj7 文脈 prior。その音が曲の他のコード区間でも
     // 同程度に鳴っている（背景シェアが高い）場合、その音はこの

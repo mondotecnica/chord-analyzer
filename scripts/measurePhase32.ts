@@ -17,11 +17,39 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { analyzeAudio } from "../src/analysis/analyze";
+import { analyzeAudio as analyzeAudioImpl } from "../src/analysis/analyze";
 import {
-  analyzeStemsWithStrategy,
+  analyzeStemsWithStrategy as analyzeStemsWithStrategyImpl,
   prepareStemChromas,
 } from "../src/analysis/analyzeStems";
+
+// 本ハーネスは legacy ゲート時代の記録ベースラインを再現する測定。
+// アプリ既定が曲参照ゲート（measurements/nc/FRAME_GATE.md で採用）に
+// 変わった後も記録を再現できるよう、全呼び出しで
+// frameGate: "legacy" を固定する（measureNc.ts と同じ方針）。
+const analyzeAudio: typeof analyzeAudioImpl = (
+  samples,
+  sampleRate,
+  fileName,
+  onProgress,
+  options,
+) =>
+  analyzeAudioImpl(samples, sampleRate, fileName, onProgress, {
+    frameGate: "legacy",
+    ...options,
+  });
+const analyzeStemsWithStrategy: typeof analyzeStemsWithStrategyImpl = (
+  chromas,
+  sampleRate,
+  fileName,
+  strategy,
+  opts,
+) =>
+  analyzeStemsWithStrategyImpl(chromas, sampleRate, fileName, strategy, {
+    frameGate: "legacy",
+    ...opts,
+  });
+
 import { displayChordName, displaySegmentChord } from "../src/lib/chordDisplay";
 import { NO_CHORD } from "../src/lib/notes";
 import type { AnalysisResult, ChordSegment } from "../src/types";

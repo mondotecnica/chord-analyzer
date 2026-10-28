@@ -1,0 +1,262 @@
+{
+  "mixArms": {
+    "off": {
+      "resultBpm": 108,
+      "meter": null
+    },
+    "rec": {
+      "resultBpm": 108,
+      "meter": {
+        "beatsPerBar": 3,
+        "notation": "3/4",
+        "barPhaseSec": 0.18575963718820862,
+        "barSec": 1.6718367346938776,
+        "tempoBpm": 108,
+        "detectedBpm": 108,
+        "tempoScale": 1,
+        "score": 0.7175615662930921,
+        "margin": 0.08274233036063583,
+        "onsetSource": "mixture",
+        "evidence": {
+          "pulse": 0.1694168199397578,
+          "barAutocorr": 0.18093414340037556,
+          "boundary": 0.10004806261872613,
+          "boundaryAutocorr": -0.009218194192618934
+        },
+        "runnerUp": {
+          "beatsPerBar": 6,
+          "tempoBpm": 108,
+          "score": 0.6705048185226152
+        }
+      }
+    },
+    "def": {
+      "resultBpm": 108,
+      "meter": null
+    }
+  },
+  "stemsArms": {
+    "off": {
+      "resultBpm": 108,
+      "meter": null
+    },
+    "rec": {
+      "resultBpm": 108,
+      "meter": {
+        "beatsPerBar": 3,
+        "notation": "3/4",
+        "barPhaseSec": 0.5572789115646258,
+        "barSec": 1.6718367346938776,
+        "tempoBpm": 108,
+        "detectedBpm": 108,
+        "tempoScale": 1,
+        "score": 0.7289191045468708,
+        "margin": 0.06635619383857205,
+        "onsetSource": "drums",
+        "evidence": {
+          "pulse": 0.14320042645764527,
+          "barAutocorr": 0.18226449067648617,
+          "boundary": 0.07346557816696758,
+          "boundaryAutocorr": 0.08388431317873733
+        },
+        "runnerUp": {
+          "beatsPerBar": 6,
+          "tempoBpm": 108,
+          "score": 0.6941519591679417
+        }
+      }
+    },
+    "def": {
+      "resultBpm": 108,
+      "meter": null
+    }
+  },
+  "fixturesDefault": {
+    "q3": {
+      "slices": [
+        {
+          "range": [
+            85,
+            87
+          ],
+          "expected": "C",
+          "stemsOn": "C",
+          "mixOn": "Bm"
+        },
+        {
+          "range": [
+            87,
+            89
+          ],
+          "expected": "B7",
+          "stemsOn": "B7",
+          "mixOn": "Am"
+        },
+        {
+          "range": [
+            89,
+            91
+          ],
+          "expected": "E7",
+          "stemsOn": "E7",
+          "mixOn": "Em7"
+        },
+        {
+          "range": [
+            91,
+            93
+          ],
+          "expected": "Am",
+          "stemsOn": "Am7",
+          "mixOn": "CM7"
+        }
+      ],
+      "pass": true
+    },
+    "q2": {
+      "window": [
+        153,
+        168
+      ],
+      "stemsCmSecOff": 4.749999999999991,
+      "stemsCmSecOn": 4.749999999999991,
+      "mixCmSecOff": 1.1000000000000003,
+      "mixCmSecOn": 1.1000000000000003,
+      "strictPass": false,
+      "stage2Pass": false
+    },
+    "q1": {
+      "windows": [
+        {
+          "range": [
+            51,
+            56
+          ],
+          "stemsDominantOff": {
+            "chord": "Dm",
+            "bassPc": 2,
+            "sec": 1.7647165532879825
+          },
+          "stemsDominantOn": {
+            "chord": "Dm",
+            "extension": "m7",
+            "bassPc": 2,
+            "sec": 1.7647165532879825
+          }
+        },
+        {
+          "range": [
+            93,
+            98
+          ],
+          "stemsDominantOff": {
+            "chord": "Dm",
+            "bassPc": 2,
+            "sec": 1.8575963718820816
+          },
+          "stemsDominantOn": {
+            "chord": "Dm",
+            "extension": "m7",
+            "bassPc": 2,
+            "sec": 1.8575963718820816
+          }
+        }
+      ],
+      "pass": false
+    }
+  },
+  "fixturesMeterOff": {
+    "q3": {
+      "slices": [
+        {
+          "range": [
+            85,
+            87
+          ],
+          "expected": "C",
+          "stemsOn": "C",
+          "mixOn": "Bm"
+        },
+        {
+          "range": [
+            87,
+            89
+          ],
+          "expected": "B7",
+          "stemsOn": "B7",
+          "mixOn": "Am"
+        },
+        {
+          "range": [
+            89,
+            91
+          ],
+          "expected": "E7",
+          "stemsOn": "E7",
+          "mixOn": "Em7"
+        },
+        {
+          "range": [
+            91,
+            93
+          ],
+          "expected": "Am",
+          "stemsOn": "Am7",
+          "mixOn": "CM7"
+        }
+      ],
+      "pass": true
+    },
+    "q2": {
+      "window": [
+        153,
+        168
+      ],
+      "stemsCmSecOff": 4.749999999999991,
+      "stemsCmSecOn": 4.749999999999991,
+      "mixCmSecOff": 1.1000000000000003,
+      "mixCmSecOn": 1.1000000000000003,
+      "strictPass": false,
+      "stage2Pass": false
+    },
+    "q1": {
+      "windows": [
+        {
+          "range": [
+            51,
+            56
+          ],
+          "stemsDominantOff": {
+            "chord": "Dm",
+            "bassPc": 2,
+            "sec": 1.7647165532879825
+          },
+          "stemsDominantOn": {
+            "chord": "Dm",
+            "extension": "m7",
+            "bassPc": 2,
+            "sec": 1.7647165532879825
+          }
+        },
+        {
+          "range": [
+            93,
+            98
+          ],
+          "stemsDominantOff": {
+            "chord": "Dm",
+            "bassPc": 2,
+            "sec": 1.8575963718820816
+          },
+          "stemsDominantOn": {
+            "chord": "Dm",
+            "extension": "m7",
+            "bassPc": 2,
+            "sec": 1.8575963718820816
+          }
+        }
+      ],
+      "pass": false
+    }
+  }
+}

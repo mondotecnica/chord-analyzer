@@ -1,16 +1,25 @@
 import { computeChromagram, type ChromaBandOptions } from "../dsp/chroma";
 import { applyBassCorrection } from "./bassCorrection";
 import { applyConditionalUpperRoot } from "./conditionalBand";
-import { estimateChordFrames } from "./chordEstimation";
+import {
+  estimateChordFrames,
+  type FrameGateMode,
+} from "./chordEstimation";
 import { applyExtensions } from "./extensionDetection";
 import { applyAddTones } from "./addToneDetection";
 import { applyUpperLayerReRead } from "./layerChord";
+import {
+  estimateGenreProfile,
+  genreExtensionFactors,
+} from "./genreProfile";
 import { estimateKey, estimateTempo } from "./keyTempo";
 import { estimateLocalKeys, type LocalKeyContext } from "./localKey";
+import { estimateMeter } from "./meterEstimate";
+import { applyNcGapFill, applyNcSegmentRematch } from "./ncRecovery";
 import { applyLocalKeyModeNudge } from "./localKeyMode";
 import { framesToSegments } from "./segmentation";
 import { applyUpperBandMode } from "./splitBand";
-import type { AnalysisResult } from "../types";
+import type { AnalysisResult, GenreProfile, MeterEstimate } from "../types";
 
 /**
  * 解析パイプラインの統括（オーケストレータ）。
@@ -125,6 +134,79 @@ export interface AnalyzeOptions {
    * localKeyRecord（既定 true）が担う。
    */
   localKey?: boolean;
+  /**
+   * Phase 3 後半: ジャンル傾向（genreProfile.ts）の「記録」を
+   * 有効化するか。既定は false（明示オプトイン）: true の場合に
+   * ジャンル傾向を推定して結果の genreProfile に相加的に格納
+   * するだけで、コードラベルには一切触れない。消費部（genre
+   * オプション）が有効な場合は記録も自動的に有効。当初は記録
+   * 既定 ON＋消費 OFF の分割採用を提案したが、推定の考察要素を
+   * 検討し直す（v2）ことを優先するユーザー判断（2026-10-28）
+   * で分割採用は取らず、記録も既定 OFF として公開する。拍子
+   * （meterRecord）と同じ「記録も消費も明示オプトイン」の形。
+   */
+  genreRecord?: boolean;
+  /**
+   * Phase 3 後半: ジャンル傾向の「消費部」を有効化するか:
+   * 第2段（extensions と併用時）に、スタイル分布から導いた
+   * 曲単位の係数を拡張クラスごとのシェアしきい値への柔らかい
+   * prior として渡す。既定は false。採用は測定
+   * （measurements/phase3/PHASE3_GENRE_RESULTS.md の事前登録
+   * 基準）を見てユーザーが判断する。
+   */
+  genre?: boolean;
+  /**
+   * Phase 3 §5: 拍子・小節推定（meterEstimate.ts）の「記録」を
+   * 有効化するか。有効な場合、拍子・小節位相・仲裁後テンポの
+   * 候補を推定して結果の meterEstimate に加算的に格納する
+   * だけで、コードラベルにも結果の bpm にも触れない。
+   * 既定は false（明示オプトイン）: 採用判定（PHASE3_METER_
+   * RESULTS.md）で事前登録基準 C2（実曲の陰性ケース）が
+   * 不合格だったため、記録・表示とも既定 ON にはしなかった。
+   * 消費部（meterArbitrate）が有効な場合は記録も自動的に有効。
+   * 局所キー・ジャンル傾向と同じ記録／消費の分離。
+   */
+  meterRecord?: boolean;
+  /**
+   * Phase 3 §5: 拍子・小節推定の「消費部」= BPM 仲裁を有効化
+   * するか。有効な場合、勝者のテンポスケール（倍取り・3:2 の
+   * 裁定結果）を結果の bpm に反映する。コードラベルは変えない
+   * （§5 の非目標）。検出 BPM の生値は meterEstimate.detectedBpm
+   * に残る。既定は false: 採用判定で仲裁の基準（C3–C5）が
+   * 合格しなかったため（PHASE3_METER_RESULTS.md）。
+   */
+  meterArbitrate?: boolean;
+  /**
+   * N.C. 回復 1: セグメント再照合（ncRecovery.ts）を有効化するか。
+   * N.C. 区間の集計クロマを、第2の視点（上帯域クロマ）の集計と
+   * ルートが一致する場合に限り再判定して充填する。充填ラベルには
+   * ncFill: "segment-rematch" と低く抑えた信頼度が付く。
+   * 既定は false（明示オプトイン）。採用判定は
+   * measurements/nc/NC_ANALYSIS.md の事前登録基準で行う。
+   */
+  ncSegmentRematch?: boolean;
+  /**
+   * N.C. 回復 3: 短い欠落の充填（ncRecovery.ts）を有効化するか。
+   * 両隣が同一コードの短い（<= 1.0 秒）N.C. だけをそのコードで
+   * 充填する（ncFill: "gap-fill"）。既定は false。
+   */
+  ncGapFill?: boolean;
+  /**
+   * フレーム無音ゲートの方式（chordEstimation.ts の FrameGateMode）。
+   * 既定は "song-referenced"（曲参照ゲート）: フレームが落ちる条件に
+   * 「混合音もその瞬間 静かであること」を追加する再設計で、
+   * measurements/nc/FRAME_GATE.md §3 の事前登録基準による採用判定を
+   * 経て既定化した。"legacy" は旧方式の明示オプトアウト
+   * （履歴測定の再現用）。混合音経路では参照エネルギー ≡ 判定
+   * エネルギーになるため、どちらの方式でも出力はビット一致する
+   * （帰着）。
+   */
+  frameGate?: FrameGateMode;
+  /**
+   * 曲参照ゲートの救済フロア比率（FRAME_GATE.md §2 のフロンティア
+   * 測定用）。既定 0 = 絶対下限のみ（原則点）。
+   */
+  frameGateRescueFloorRatio?: number;
 }
 
 /**
@@ -193,6 +275,13 @@ export async function analyzeAudio(
     splitMode ? chroma.frames : chroma.chordFrames,
     chroma.energies,
     chroma.frameDuration,
+    {
+      mode: options?.frameGate ?? "song-referenced",
+      // 混合音経路では参照 = 判定経路そのもの（曲参照ゲートは
+      // 現行規則に帰着する。FRAME_GATE.md §2）
+      referenceEnergies: chroma.energies,
+      rescueFloorRatio: options?.frameGateRescueFloorRatio,
+    },
   );
 
   onProgress?.({ stage: "キーとテンポを推定中…", ratio: 0.8 });
@@ -291,6 +380,93 @@ export async function analyzeAudio(
     chroma.frameDuration,
   );
 
+  // Phase 3 後半: ジャンル傾向の推定。第1段の確定セグメント列
+  // （第2段がこれから見る列そのもの）と全体キー、上帯域クロマの
+  // 証拠から、曲単位のスタイル分布を推定する。「記録」は明示
+  // オプトイン（genreRecord: true。既定 OFF）で、有効な場合に
+  // 結果の genreProfile に格納するだけで、ラベルには触れない。
+  // 「消費」（第2段への係数供給）は既定 OFF の明示オプション
+  // （genre）のときだけ、拡張音検出の文脈に渡す（記録も自動で
+  // 有効になる）。記録だけのプロファイルは判定に使わない。
+  const consumeGenre = options?.genre === true;
+  const recordGenre = consumeGenre || options?.genreRecord === true;
+  let genreCtx: GenreProfile | undefined;
+  if (recordGenre) {
+    onProgress?.({ stage: "ジャンル傾向を推定中…", ratio: 0.979 });
+    await yieldToUi();
+    genreCtx = estimateGenreProfile(
+      segments,
+      chroma.chordFrames,
+      chroma.energies,
+      chroma.frameDuration,
+      key.root,
+      key.mode,
+      duration,
+      // 混合音経路で実在するチャンネルはリズム（混合音の
+      // オンセット包絡）のみ。メロディ／音色は分離されていない
+      // ため欠落として扱う（genreProfile.ts の冒頭コメント参照）
+      {
+        onsetEnvelope: chroma.onsetEnvelope,
+        onsetFrameDuration: chroma.frameDuration,
+      },
+    );
+  }
+
+  // Phase 3 §5: 拍子・小節推定。第1段の確定セグメント境界と
+  // オンセット包絡、検出 BPM から「テンポスケール × 拍子」の
+  // 候補を裁定する。「記録」は明示オプトイン（meterRecord。
+  // 採用判定で既定 ON にしなかった: PHASE3_METER_RESULTS.md）で、
+  // 結果の meterEstimate に格納するだけであり、ラベルにも
+  // bpm にも触れない。「消費」（BPM 仲裁）は meterArbitrate の
+  // ときだけ、勝者のスケールを bpm に反映する。ジャンル傾向と
+  // 同じく、推定は第2段が見るのと同じ第1段の確定列に対して行う。
+  const consumeMeter = options?.meterArbitrate === true;
+  const recordMeter = consumeMeter || options?.meterRecord === true;
+  let meterCtx: MeterEstimate | undefined;
+  if (recordMeter) {
+    onProgress?.({ stage: "拍子を推定中…", ratio: 0.9795 });
+    await yieldToUi();
+    meterCtx =
+      estimateMeter({
+        onsetEnvelope: chroma.onsetEnvelope,
+        frameDuration: chroma.frameDuration,
+        segments,
+        detectedBpm: bpm,
+        durationSec: duration,
+        onsetSource: "mixture",
+      }) ?? undefined;
+  }
+  const finalBpm =
+    consumeMeter && meterCtx?.tempoBpm != null ? meterCtx.tempoBpm : bpm;
+
+  // N.C. 回復（明示オプトイン、既定 OFF。ncRecovery.ts）。
+  // 局所キー／ジャンル／拍子の推定が見るセグメント列は回復前の
+  // 第1段の確定列のままにするため、それらの後段・第2段の直前に置く。
+  // 判定経路のクロマはフレーム判定に使われたもの（split なら全帯域、
+  // unified なら上帯域）と同一にする。
+  const judgeFrames = splitMode ? chroma.frames : chroma.chordFrames;
+  if (options?.ncSegmentRematch) {
+    onProgress?.({ stage: "無判定区間を再照合中…", ratio: 0.9797 });
+    await yieldToUi();
+    segments = applyNcSegmentRematch(segments, {
+      judgeFrames,
+      judgeEnergies: chroma.energies,
+      secondFrames: chroma.chordFrames,
+      secondEnergies: chroma.energies,
+      frameDuration: chroma.frameDuration,
+      modeFrames: splitMode ? chroma.chordFrames : null,
+      bassFrames: null,
+    });
+  }
+  if (options?.ncGapFill) {
+    segments = applyNcGapFill(
+      segments,
+      judgeFrames,
+      chroma.energies,
+      chroma.frameDuration,
+    );
+  }
+
   // Phase 3.1: 二段判定の第2段（拡張音検出）。全ての後段処理の後に、
   // 上帯域クロマを証拠としてセグメント単位で 7th を判定する
   // （証拠帯域の根拠は extensionDetection.ts の冒頭コメント）。
@@ -314,6 +490,9 @@ export async function analyzeAudio(
         ...(consumeLocalKey && localKeyCtx
           ? { localKeys: localKeyCtx, contextPrior: true }
           : {}),
+        ...(consumeGenre && genreCtx
+          ? { genreFactors: genreExtensionFactors(genreCtx) }
+          : {}),
       },
     );
     segments = applyAddTones(
@@ -333,9 +512,11 @@ export async function analyzeAudio(
     keyName: key.keyName,
     keyRoot: key.root,
     keyMode: key.mode,
-    bpm,
+    bpm: finalBpm,
     segments,
     analyzedInMs: Math.round(performance.now() - started),
     ...(localKeyCtx ? { localKeys: localKeyCtx.windows } : {}),
+    ...(genreCtx ? { genreProfile: genreCtx } : {}),
+    ...(meterCtx ? { meterEstimate: meterCtx } : {}),
   };
 }

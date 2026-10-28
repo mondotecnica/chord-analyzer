@@ -1,0 +1,128 @@
+[
+  {
+    "suite": "synthetic-song-a",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  },
+  {
+    "suite": "synthetic-song-b",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  },
+  {
+    "suite": "synthetic-song-c",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  },
+  {
+    "suite": "synthetic-song-d",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  },
+  {
+    "suite": "synthetic-song-e",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  },
+  {
+    "suite": "synthetic-song-f",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  },
+  {
+    "suite": "synthetic-song-g",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  },
+  {
+    "suite": "synthetic-song-h",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  },
+  {
+    "suite": "synthetic-song-i",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  },
+  {
+    "suite": "real-mixture-put-your-records-on",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  },
+  {
+    "suite": "real-mixture-everything",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  },
+  {
+    "suite": "real-mixture-a-hard-days-night",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  },
+  {
+    "suite": "real-stems-put-your-records-on",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  },
+  {
+    "suite": "real-stems-everything",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  },
+  {
+    "suite": "real-stems-a-hard-days-night",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  },
+  {
+    "suite": "real-stems-song-d",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  },
+  {
+    "suite": "suno-mixture",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  },
+  {
+    "suite": "suno-stems",
+    "diffs": 0,
+    "bpmDiff": false,
+    "bpmDiffExplainedByArbitration": true,
+    "meterPresentInRecordArm": true
+  }
+]

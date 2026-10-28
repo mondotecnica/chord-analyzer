@@ -33,7 +33,9 @@ import {
 } from "./stems/separationCalibration";
 import { SeparationCancelledError } from "./stems/types";
 import { displaySegmentChord } from "./lib/chordDisplay";
+import { summarizeGenre } from "./lib/genreSummary";
 import { summarizeLocalKeys } from "./lib/localKeySummary";
+import { meterSummaryText } from "./lib/meterSummary";
 import { modelFetchSummaryLine } from "./lib/modelFetchSummary";
 import { formatTime, noteName } from "./lib/notes";
 import type { AnalysisResult, ChordSegment } from "./types";
@@ -371,6 +373,22 @@ export default function App() {
   const localKeyLabel = (root: number, mode: "major" | "minor") =>
     `${noteName(root)} ${mode === "major" ? "メジャー" : "マイナー"}`;
 
+  // 様式プロファイル（Phase 3 後半、記録・表示のみ既定 ON）の表示。
+  // 混合比率（特徴空間での様式プロトタイプへの類似度）の記録であり、
+  // ラベル判定への消費は既定 OFF のまま。
+  const genreSummary = useMemo(
+    () => summarizeGenre(effectiveResult?.genreProfile),
+    [effectiveResult?.genreProfile],
+  );
+
+  // 拍子（Phase 3 §5、記録・表示のみ既定 ON）の要約表示。
+  // 拍子は文脈情報の記録であり、ラベル判定には使われていない
+  // （BPM 仲裁が有効な場合のみ、表示される BPM が仲裁後の値になる）。
+  const meterSummary = useMemo(
+    () => meterSummaryText(effectiveResult?.meterEstimate),
+    [effectiveResult?.meterEstimate],
+  );
+
   // 高精度モードのモデル取得の記録（ダウンロードか、キャッシュか、
   // 保存できたか）を結果サマリに1行で正直に伝える。
   const modelFetchLine = useMemo(
@@ -653,6 +671,18 @@ export default function App() {
                       )
                       .join(" · ")}`}
                 </span>
+              </p>
+            )}
+            {genreSummary && (
+              <p className="local-key-summary">
+                <span className="summary-label">様式（推定）</span>
+                <span>{genreSummary.blendText}</span>
+              </p>
+            )}
+            {meterSummary && (
+              <p className="local-key-summary">
+                <span className="summary-label">拍子（推定）</span>
+                <span>{meterSummary}</span>
               </p>
             )}
             {effectiveResult.mode === "high-accuracy" &&

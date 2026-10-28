@@ -1,8 +1,16 @@
 import { computeChromagram } from "../dsp/chroma";
-import type { AnalysisResult, ModelFetchSummary } from "../types";
+import type {
+  AnalysisResult,
+  GenreProfile,
+  MeterEstimate,
+  ModelFetchSummary,
+} from "../types";
 import { DEFAULT_CHORD_BAND, type AnalyzeProgress } from "./analyze";
 import { applyBassCorrection } from "./bassCorrection";
-import { estimateChordFrames } from "./chordEstimation";
+import {
+  estimateChordFrames,
+  type FrameGateMode,
+} from "./chordEstimation";
 import { estimateKey, estimateTempo } from "./keyTempo";
 import { framesToSegments } from "./segmentation";
 import { applyUpperBandMode } from "./splitBand";
@@ -10,8 +18,18 @@ import { applyConditionalUpperRoot } from "./conditionalBand";
 import { applyExtensions } from "./extensionDetection";
 import { applyAddTones } from "./addToneDetection";
 import { applyUpperLayerReRead } from "./layerChord";
+import {
+  estimateGenreProfile,
+  genreExtensionFactors,
+} from "./genreProfile";
 import { estimateLocalKeys, type LocalKeyContext } from "./localKey";
 import { applyLocalKeyModeNudge } from "./localKeyMode";
+import { estimateMeter } from "./meterEstimate";
+import {
+  applyNcGapFill,
+  applyNcSegmentRematch,
+  applyNcStemsFallback,
+} from "./ncRecovery";
 
 /**
  * Phase 2: ステム入力の解析パイプライン（アプリ本体側）。
@@ -68,6 +86,21 @@ export interface StemChromas {
   otherChroma: ReturnType<typeof computeChromagram>;
   bassChroma: ReturnType<typeof computeChromagram>;
   duration: number;
+  /**
+   * Phase 3 後半（ジャンル傾向の追加チャンネル用）: drums／vocals
+   * ステムが渡された場合のみ計算する。コード判定には一切使わず、
+   * genreProfile のリズム（ドラム包絡）／メロディ（ボーカル
+   * クロマ）／音色（ステム RMS）の材料にだけ使う。
+   */
+  drumsChroma?: ReturnType<typeof computeChromagram>;
+  vocalsChroma?: ReturnType<typeof computeChromagram>;
+  stemRms?: { vocals: number; drums: number; bass: number; other: number };
+}
+
+function rmsOf(samples: Float32Array): number {
+  let acc = 0;
+  for (const v of samples) acc += v * v;
+  return samples.length > 0 ? Math.sqrt(acc / samples.length) : 0;
 }
 
 export function prepareStemChromas(
@@ -75,8 +108,9 @@ export function prepareStemChromas(
   otherSamples: Float32Array,
   bassSamples: Float32Array,
   sampleRate: number,
+  extraStems?: { drums?: Float32Array; vocals?: Float32Array },
 ): StemChromas {
-  return {
+  const base: StemChromas = {
     // キー／テンポは混合音から（Phase 1 と比較条件を揃える）
     mixChroma: computeChromagram(mixSamples, sampleRate),
     // コード判定クロマは other ステムのみ。chordFrames は上帯域
@@ -88,6 +122,22 @@ export function prepareStemChromas(
     bassChroma: computeChromagram(bassSamples, sampleRate),
     duration: otherSamples.length / sampleRate,
   };
+  // ジャンル傾向の追加チャンネル（任意）。drums と vocals が
+  // 両方ある場合だけ用意する（音色チャンネルは4ステム前提）。
+  // アプリの高精度モード入口は現状この引数を渡さないため、
+  // アプリ側では追加チャンネルは欠落として記録される
+  // （配線は将来の拡張点として残す）。
+  if (extraStems?.drums && extraStems?.vocals) {
+    base.drumsChroma = computeChromagram(extraStems.drums, sampleRate);
+    base.vocalsChroma = computeChromagram(extraStems.vocals, sampleRate);
+    base.stemRms = {
+      vocals: rmsOf(extraStems.vocals),
+      drums: rmsOf(extraStems.drums),
+      bass: rmsOf(bassSamples),
+      other: rmsOf(otherSamples),
+    };
+  }
+  return base;
 }
 
 export interface StemAnalysisOptions {
@@ -116,6 +166,91 @@ export interface StemAnalysisOptions {
    * AnalyzeOptions.localKey と同じ扱い）。
    */
   localKey?: boolean;
+  /**
+   * Phase 3 後半: ジャンル傾向（genreProfile.ts）の「記録」を
+   * 有効化するか。既定は false（明示オプトイン）: true の場合に
+   * ジャンル傾向（other ステムの上帯域クロマを証拠に推定。
+   * 全体キーは混合音由来の従来値をそのまま使う）を推定して
+   * 結果の genreProfile に格納するだけで、コードラベルには
+   * 一切触れない。消費部（genre）が有効な場合は記録も自動的に
+   * 有効（混合音経路の AnalyzeOptions.genreRecord と同じ扱い。
+   * 既定 OFF の経緯はそちらのコメント参照）。
+   */
+  genreRecord?: boolean;
+  /**
+   * Phase 3 後半: ジャンル傾向の「消費部」（第2段への曲単位の
+   * 係数供給、extensions と併用時）を有効化するか。既定 false
+   * （採用は measurements/phase3/PHASE3_GENRE_RESULTS.md の
+   * 事前登録基準を見てユーザーが判断する。混合音経路の
+   * AnalyzeOptions.genre と同じ扱い）。
+   */
+  genre?: boolean;
+  /**
+   * Phase 3 §5: 拍子・小節推定（meterEstimate.ts）の「記録」を
+   * 有効化するか。有効な場合、拍子・小節位相・仲裁後テンポの
+   * 候補を推定して結果の meterEstimate に加算的に格納する
+   * だけで、コードラベルにも結果の bpm にも触れない。
+   * オンセット包絡の出所は drums ステムを優先し、無ければ
+   * 混合音を使う（SUNO_05 の拍子訂正で drums のアクセント周期が
+   * 決め手の一つになったため）。既定は false（明示オプトイン）:
+   * 採用判定で事前登録基準 C2 が不合格だったため
+   * （PHASE3_METER_RESULTS.md）。消費部（meterArbitrate）が
+   * 有効な場合は記録も自動的に有効（混合音経路の
+   * AnalyzeOptions.meterRecord と同じ扱い）。
+   */
+  meterRecord?: boolean;
+  /**
+   * Phase 3 §5: 拍子・小節推定の「消費部」= BPM 仲裁を有効化
+   * するか。有効な場合、勝者のテンポスケールを結果の bpm に
+   * 反映する。コードラベルは変えない。既定は false: 採用判定で
+   * 仲裁の基準（C3–C5）が合格しなかったため
+   * （PHASE3_METER_RESULTS.md。混合音経路の
+   * AnalyzeOptions.meterArbitrate と同じ扱い）。
+   */
+  meterArbitrate?: boolean;
+  /**
+   * N.C. 回復 1: セグメント再照合（ncRecovery.ts）を有効化するか。
+   * N.C. 区間の other 集計クロマを、混合音クロマの集計とルートが
+   * 一致する場合に限り再判定して充填する。強いベース証拠が候補の
+   * 構成音と矛盾する場合は充填しない。充填ラベルには
+   * ncFill: "segment-rematch" と低く抑えた信頼度が付く。
+   * 既定は false（明示オプトイン。混合音経路の
+   * AnalyzeOptions.ncSegmentRematch と同じ扱い）。
+   */
+  ncSegmentRematch?: boolean;
+  /**
+   * N.C. 回復 2: ステム副次証拠フォールバック（ncRecovery.ts）を
+   * 有効化するか。other ステムの証拠が薄い（ゲート率 >= 50%）
+   * N.C. 区間を、混合音の集計＋フレーム最頻が明瞭で、強いベース
+   * 証拠と矛盾しない場合に混合音側の読みで充填する
+   * （ncFill: "stems-fallback"）。既定は false。
+   */
+  ncStemsFallback?: boolean;
+  /**
+   * N.C. 回復 3: 短い欠落の充填（ncRecovery.ts）を有効化するか。
+   * 両隣が同一コードの短い（<= 1.0 秒）N.C. だけをそのコードで
+   * 充填する（ncFill: "gap-fill"）。既定は false
+   * （混合音経路の AnalyzeOptions.ncGapFill と同じ扱い）。
+   */
+  ncGapFill?: boolean;
+  /**
+   * フレーム無音ゲートの方式（chordEstimation.ts の FrameGateMode）。
+   * 既定は "song-referenced"（曲参照ゲート）: フレームが落ちるのは
+   * 「other が相対的に静か」かつ「混合音もその瞬間は静か」な
+   * ときだけになる（参照 = 混合音のエネルギー列）。
+   * measurements/nc/FRAME_GATE.md §3 の事前登録基準による採用判定を
+   * 経て既定化した。"legacy" は旧方式の明示オプトアウト: other
+   * ステム自身のエネルギー中央値比だけで落とすため、静かな和声
+   * 区間が区間ごと N.C. になる（NC_ANALYSIS.md §3 の診断対象。
+   * 履歴測定の再現用に残す。混合音経路の AnalyzeOptions.frameGate
+   * と同じ扱い）。
+   */
+  frameGate?: FrameGateMode;
+  /**
+   * 曲参照ゲートの救済フロア比率（FRAME_GATE.md §2 のフロンティア
+   * 測定用）。既定 0 = 絶対下限のみ（原則点）。
+   */
+  frameGateRescueFloorRatio?: number;
 }
 
 /** 計算済みクロマから、指定した帯域戦略でステム解析を行う */
@@ -132,7 +267,12 @@ export function analyzeStemsWithStrategy(
   // s-unified だけフレーム判定も上帯域クロマ。それ以外は全帯域
   const frameChroma =
     strategy === "s-unified" ? otherChroma.chordFrames : otherChroma.frames;
-  const frames = estimateChordFrames(frameChroma, otherChroma.energies, fd);
+  const frames = estimateChordFrames(frameChroma, otherChroma.energies, fd, {
+    mode: opts?.frameGate ?? "song-referenced",
+    // 曲参照ゲートの参照は混合音のエネルギー列（FRAME_GATE.md §2）
+    referenceEnergies: mixChroma.energies,
+    rescueFloorRatio: opts?.frameGateRescueFloorRatio,
+  });
   const key = estimateKey(mixChroma.frames);
   const bpm = estimateTempo(mixChroma.onsetEnvelope, mixChroma.frameDuration);
 
@@ -207,6 +347,101 @@ export function analyzeStemsWithStrategy(
     fd,
   );
 
+  // Phase 3 後半: ジャンル傾向の推定。第1段の確定セグメント列と
+  // 全体キー（混合音由来）、other ステムの上帯域クロマの証拠から
+  // 曲単位のスタイル分布を推定する。「記録」は明示オプトイン
+  // （genreRecord: true。既定 OFF。結果への格納のみでラベルに
+  // 触れない）。「消費」（第2段への係数供給）は既定 OFF の明示
+  // オプション（genre）のときだけ効かせる（その場合、記録も
+  // 自動で有効になる。混合音経路と同じ規律）。
+  const consumeGenre = opts?.genre === true;
+  const recordGenre = consumeGenre || opts?.genreRecord === true;
+  let genreCtx: GenreProfile | undefined;
+  if (recordGenre) {
+    // 追加チャンネル: リズムはドラムステムの包絡を優先（無ければ
+    // 混合音）、メロディはボーカルクロマ、音色はステム RMS。
+    // 用意されていないチャンネルは欠落として記録される。
+    const rhythmChroma = chromas.drumsChroma ?? mixChroma;
+    genreCtx = estimateGenreProfile(
+      segments,
+      otherChroma.chordFrames,
+      otherChroma.energies,
+      fd,
+      key.root,
+      key.mode,
+      duration,
+      {
+        onsetEnvelope: rhythmChroma.onsetEnvelope,
+        onsetFrameDuration: rhythmChroma.frameDuration,
+        ...(chromas.vocalsChroma
+          ? {
+              melodyChroma: {
+                frames: chromas.vocalsChroma.frames,
+                energies: chromas.vocalsChroma.energies,
+                frameDuration: chromas.vocalsChroma.frameDuration,
+              },
+            }
+          : {}),
+        ...(chromas.stemRms ? { stemRms: chromas.stemRms } : {}),
+      },
+    );
+  }
+
+  // Phase 3 §5: 拍子・小節推定。第1段の確定セグメント境界と
+  // オンセット包絡、検出 BPM（混合音由来）から候補を裁定する。
+  // 包絡の出所は drums ステムを優先する（ジャンル傾向のリズム
+  // チャンネルと同じ選択。SUNO_05 の拍子訂正で drums の
+  // アクセント周期が決め手の一つになった）。「記録」は明示
+  // オプトイン（meterRecord。採用判定で既定 ON にしなかった:
+  // PHASE3_METER_RESULTS.md。結果への格納のみでラベルにも
+  // bpm にも触れない）。「消費」（BPM 仲裁）は meterArbitrate
+  // のときだけ。
+  const consumeMeter = opts?.meterArbitrate === true;
+  const recordMeter = consumeMeter || opts?.meterRecord === true;
+  let meterCtx: MeterEstimate | undefined;
+  if (recordMeter) {
+    const rhythmChroma = chromas.drumsChroma ?? mixChroma;
+    meterCtx =
+      estimateMeter({
+        onsetEnvelope: rhythmChroma.onsetEnvelope,
+        frameDuration: rhythmChroma.frameDuration,
+        segments,
+        detectedBpm: bpm,
+        durationSec: duration,
+        onsetSource: chromas.drumsChroma ? "drums" : "mixture",
+      }) ?? undefined;
+  }
+  const finalBpm =
+    consumeMeter && meterCtx?.tempoBpm != null ? meterCtx.tempoBpm : bpm;
+
+  // N.C. 回復（明示オプトイン、既定 OFF。ncRecovery.ts）。
+  // 局所キー／ジャンル／拍子の推定が見るセグメント列は回復前の
+  // 第1段の確定列のままにするため、それらの後段・第2段の直前に置く。
+  // 判定経路のクロマはフレーム判定に使われたもの（frameChroma）と同一。
+  if (opts?.ncSegmentRematch) {
+    segments = applyNcSegmentRematch(segments, {
+      judgeFrames: frameChroma,
+      judgeEnergies: otherChroma.energies,
+      secondFrames: mixChroma.frames,
+      secondEnergies: mixChroma.energies,
+      frameDuration: fd,
+      modeFrames: strategy === "s-unified" ? null : otherChroma.chordFrames,
+      bassFrames: bassChroma.bassFrames,
+    });
+  }
+  if (opts?.ncStemsFallback) {
+    segments = applyNcStemsFallback(segments, {
+      judgeEnergies: otherChroma.energies,
+      mixFrames: mixChroma.frames,
+      mixEnergies: mixChroma.energies,
+      bassFrames: bassChroma.bassFrames,
+      frameDuration: fd,
+    });
+  }
+  if (opts?.ncGapFill) {
+    segments = applyNcGapFill(segments, frameChroma, otherChroma.energies, fd);
+  }
+
   // Phase 3.1: 二段判定の第2段（拡張音検出、既定 OFF）。
   // 証拠は other ステムの上帯域クロマ（extensionDetection.ts 冒頭参照）。
   // 文脈 prior は消費部（opts.localKey）が有効な場合にだけ渡す。
@@ -222,6 +457,9 @@ export function analyzeStemsWithStrategy(
         keyMode: key.mode,
         ...(consumeLocalKey && localKeyCtx
           ? { localKeys: localKeyCtx, contextPrior: true }
+          : {}),
+        ...(consumeGenre && genreCtx
+          ? { genreFactors: genreExtensionFactors(genreCtx) }
           : {}),
       },
     );
@@ -240,10 +478,12 @@ export function analyzeStemsWithStrategy(
     keyName: key.keyName,
     keyRoot: key.root,
     keyMode: key.mode,
-    bpm,
+    bpm: finalBpm,
     segments,
     analyzedInMs: Math.round(performance.now() - started),
     ...(localKeyCtx ? { localKeys: localKeyCtx.windows } : {}),
+    ...(genreCtx ? { genreProfile: genreCtx } : {}),
+    ...(meterCtx ? { meterEstimate: meterCtx } : {}),
   };
 }
 
