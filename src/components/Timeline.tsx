@@ -1,4 +1,4 @@
-import { displayChordName } from "../lib/chordDisplay";
+import { displaySegmentChord } from "../lib/chordDisplay";
 import type { ChordSegment } from "../types";
 
 interface Props {
@@ -16,7 +16,7 @@ export default function Timeline({ segments, duration, currentTime, onSeek }: Pr
       {segments.map((seg) => {
         const widthPct = ((seg.end - seg.start) / duration) * 100;
         const active = currentTime >= seg.start && currentTime < seg.end;
-        const label = displayChordName(seg.chord, seg.bassPc, seg.extension);
+        const label = displaySegmentChord(seg);
         return (
           <button
             key={seg.id}

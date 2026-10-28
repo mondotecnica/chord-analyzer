@@ -210,3 +210,44 @@ describe("applyConditionalUpperRoot（Phase 1.5b 条件分岐）", () => {
     expect(out.chord).toBe("N.C.");
   });
 });
+
+describe("applyConditionalUpperRoot と Phase 3.2 層フィールドの整合", () => {
+  it("決め直した候補が upperChord と一致すれば層を保持する", () => {
+    const input = seg("Bm", { bassPc: 11, upperChord: "G" });
+    const [out] = applyConditionalUpperRoot(
+      [input],
+      upperG,
+      bassFramesOn(11),
+      energies,
+      FRAME_DURATION,
+    );
+    expect(out.chord).toBe("G");
+    expect(out.upperChord).toBe("G");
+  });
+
+  it("決め直した候補が upperChord と食い違えば層を落とす", () => {
+    const input = seg("Bm", { bassPc: 11, upperChord: "D" });
+    const [out] = applyConditionalUpperRoot(
+      [input],
+      upperG,
+      bassFramesOn(11),
+      energies,
+      FRAME_DURATION,
+    );
+    expect(out.chord).toBe("G");
+    expect(out.upperChord).toBeUndefined();
+    expect(out.upperExtension).toBeUndefined();
+  });
+
+  it("発火しないセグメントの層フィールドには触れない", () => {
+    const input = seg("G", { bassPc: 7, upperChord: "Em" });
+    const [out] = applyConditionalUpperRoot(
+      [input],
+      upperG,
+      bassFramesOn(7),
+      energies,
+      FRAME_DURATION,
+    );
+    expect(out.upperChord).toBe("Em");
+  });
+});

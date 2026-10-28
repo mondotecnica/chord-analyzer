@@ -1,5 +1,5 @@
 import { NOTE_NAMES, noteName, NO_CHORD } from "./notes";
-import type { ChordExtension } from "../types";
+import type { ChordExtension, ChordSegment } from "../types";
 
 /**
  * コード表示名の組み立て（Phase 1 Step 2: 分数コード表示）。
@@ -60,20 +60,64 @@ export function fullChordName(chord: string, extension?: ChordExtension): string
 /**
  * コード名とベース音ピッチクラスから表示名を組み立てる。
  * extension がある場合は完全名（例: "B7"）を組み立ててから分数判定をする。
- * 分数表示の条件は従来通り三和音コアの構成音（3rd / 5th）で判定する
- * （7th 音をベースにする転回形の層表示は Phase 3.2 の範囲）。
+ * 分数表示の条件は従来通り三和音コアの構成音（3rd / 5th）で判定する。
+ * 層表示（Phase 3.2）を含む組み立ては displaySegmentChord が担い、
+ * 本関数は層フィールドを持たない呼び出し（履歴測定・単体テスト）用に
+ * displaySegmentChord へ委譲する薄いラッパとして残す。
  */
 export function displayChordName(
   chord: string,
   bassPc?: number,
   extension?: ChordExtension,
 ): string {
-  const full = fullChordName(chord, extension);
-  if (bassPc === undefined) return full;
-  const parsed = parseChord(chord);
+  return displaySegmentChord({
+    id: 0,
+    start: 0,
+    end: 0,
+    chord,
+    confidence: 0,
+    ...(bassPc !== undefined ? { bassPc } : {}),
+    ...(extension !== undefined ? { extension } : {}),
+  });
+}
+
+/**
+ * セグメントから表示名を組み立てる（Phase 3.2: 分数コードの層表示）。
+ *
+ * 層の考え方（PHASE3_PLAN.md §3.2）: 響きは「上層の和声」と「ベース音」
+ * の2層であり、ベース補正が強いベース証拠でルートを潰したセグメント
+ * では、潰れる前の和声（upperChord）が上層として別フィールドに残る。
+ * 表示はその2層をそのまま X/Y の形で出す。
+ *
+ * ルール:
+ * - upperChord があり bassPc もある場合、上層を土台にする:
+ *   upperChord＋upperExtension で完全名を作り、addTones があれば
+ *   "(add9)" を付け、ベースが上層ルートと異なれば（補正の定義上
+ *   常に異なる） "/ベース" を付ける。ベースが三和音の構成音か
+ *   どうかは問わない — ベースの証拠は補正級（強い）であることが
+ *   upperChord の存在自体で担保されている。
+ * - upperChord が無い場合は従来規則（Phase 1 Step 2）: 土台は chord
+ *   ＋extension、分数表示はベースが三和音コアの構成音（3rd / 5th）
+ *   の場合のみ。addTones があれば土台に "(add9)" を付ける。
+ * - ベース音が無い／土台のルートと同じ場合は通常表示。
+ * - 層フィールドを持たないセグメントでは従来表示と完全に一致する。
+ */
+export function displaySegmentChord(seg: ChordSegment): string {
+  const useUpper = seg.upperChord !== undefined && seg.bassPc !== undefined;
+  const base = useUpper ? seg.upperChord! : seg.chord;
+  const baseExt = useUpper ? seg.upperExtension : seg.extension;
+  let full = fullChordName(base, baseExt);
+  if (seg.addTones?.includes("add9")) {
+    // add9 の表記は慣行に従う: メジャーは "Cadd9"、マイナーは "Am(add9)"
+    full =
+      parseChord(base)?.mode === "minor" ? `${full}(add9)` : `${full}add9`;
+  }
+  if (seg.bassPc === undefined) return full;
+  const parsed = parseChord(base);
   if (!parsed) return full;
-  const bass = ((bassPc % 12) + 12) % 12;
+  const bass = ((seg.bassPc % 12) + 12) % 12;
   if (bass === parsed.root) return full;
+  if (useUpper) return `${full}/${noteName(bass)}`;
   if (!isChordToneBass(parsed.root, parsed.mode, bass)) return full;
   return `${full}/${noteName(bass)}`;
 }

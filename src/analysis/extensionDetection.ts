@@ -120,7 +120,7 @@ export interface ExtensionContext {
   contextBackground?: number;
 }
 
-interface SegmentEvidence {
+export interface SegmentEvidence {
   /** セグメント平均クロマのピッチクラスシェア（L1、合計 ≒ 1） */
   shares: Float32Array;
   /** ピッチクラスごとの持続性（シェアが床以上のフレーム割合） */
@@ -217,6 +217,68 @@ function seventhTemplate(
 
 const seventhPc = (root: number, extension: ChordExtension): number =>
   (root + (extension === "maj7" ? 11 : 10)) % 12;
+
+/** 拡張音のピッチクラス（Phase 3.2 の層の再読からも使う） */
+export const seventhPcOf = seventhPc;
+
+/** 三和音テンプレートへの適合度（Phase 3.2 の層の再読用に公開） */
+export function triadTemplateFit(
+  shares: Float32Array,
+  root: number,
+  mode: "major" | "minor",
+): number {
+  return cosine(shares, triadTemplate(root, mode));
+}
+
+/** 7th テンプレートへの適合度（Phase 3.2 の層の再読用に公開） */
+export function seventhTemplateFit(
+  shares: Float32Array,
+  root: number,
+  extension: ChordExtension,
+): number {
+  return cosine(shares, seventhTemplate(root, extension));
+}
+
+export interface TemplateCandidate {
+  root: number;
+  mode: "major" | "minor";
+  /** 7th テンプレートが選ばれた場合のみ（maj7 / 7 / m7） */
+  extension?: ChordExtension;
+  fit: number;
+}
+
+/**
+ * 三和音＋7th テンプレート群の中での最良候補を返す（Phase 3.2 の
+ * 層の再読専用。第2段の判定には使わない）。語彙は第2段と同じ:
+ * major ルートには maj7 / dom7、minor ルートには m7。
+ * bestTriad は三和音だけでの最良（7th 採用の比較基準）。
+ */
+export function bestTemplateCandidate(shares: Float32Array): {
+  best: TemplateCandidate;
+  bestTriad: TemplateCandidate;
+} {
+  let best: TemplateCandidate | null = null;
+  let bestTriad: TemplateCandidate | null = null;
+  for (let root = 0; root < 12; root++) {
+    const triads: TemplateCandidate[] = [
+      { root, mode: "major", fit: cosine(shares, triadTemplate(root, "major")) },
+      { root, mode: "minor", fit: cosine(shares, triadTemplate(root, "minor")) },
+    ];
+    const sevenths: TemplateCandidate[] = [
+      { root, mode: "major", extension: "maj7", fit: cosine(shares, seventhTemplate(root, "maj7")) },
+      { root, mode: "major", extension: "7", fit: cosine(shares, seventhTemplate(root, "7")) },
+      { root, mode: "minor", extension: "m7", fit: cosine(shares, seventhTemplate(root, "m7")) },
+    ];
+    for (const c of triads) {
+      if (!bestTriad || c.fit > bestTriad.fit) bestTriad = c;
+      if (!best || c.fit > best.fit) best = c;
+    }
+    for (const c of sevenths) {
+      if (!best || c.fit > best.fit) best = c;
+    }
+  }
+  return { best: best!, bestTriad: bestTriad! };
+}
 
 /**
  * 候補が推定キーの中でダイアトニックな機能を持つか（柔らかい prior 用）。

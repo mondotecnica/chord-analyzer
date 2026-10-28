@@ -1,4 +1,4 @@
-import { displayChordName } from "../lib/chordDisplay";
+import { displaySegmentChord } from "../lib/chordDisplay";
 import { summarizeLocalKeys } from "../lib/localKeySummary";
 import { formatTime, formatTimePrecise, noteName } from "../lib/notes";
 import type { AnalysisResult } from "../types";
@@ -82,6 +82,13 @@ export function resultToJson(result: AnalysisResult): string {
         ...(s.bassPc !== undefined ? { bass: noteName(s.bassPc) } : {}),
         // Phase 3.1: 拡張音（chord とは別フィールド）。付いた場合のみ含む
         ...(s.extension !== undefined ? { extension: s.extension } : {}),
+        // Phase 3.2: 分数コードの上層（chord がベースで潰れた場合の
+        // 和声側の読み）と、その 7th・付加音。付いた場合のみ含む
+        ...(s.upperChord !== undefined ? { upperChord: s.upperChord } : {}),
+        ...(s.upperExtension !== undefined
+          ? { upperExtension: s.upperExtension }
+          : {}),
+        ...(s.addTones !== undefined ? { addTones: [...s.addTones] } : {}),
       })),
     },
     null,
@@ -125,7 +132,7 @@ export function resultToText(result: AnalysisResult): string {
     // テキスト譜では分数コード表示（C/E 等）を使う。JSON 側は
     // chord と bass を別フィールドのまま保持する（resultToJson 参照）。
     lines.push(
-      `${formatTimePrecise(s.start)} - ${formatTimePrecise(s.end)}  ${displayChordName(s.chord, s.bassPc, s.extension)}  (${Math.round(s.confidence * 100)}%)${s.edited ? " [修正済み]" : ""}`,
+      `${formatTimePrecise(s.start)} - ${formatTimePrecise(s.end)}  ${displaySegmentChord(s)}  (${Math.round(s.confidence * 100)}%)${s.edited ? " [修正済み]" : ""}`,
     );
   }
   return lines.join("\n");

@@ -32,7 +32,7 @@ import {
   type SeparationCalibration,
 } from "./stems/separationCalibration";
 import { SeparationCancelledError } from "./stems/types";
-import { displayChordName } from "./lib/chordDisplay";
+import { displaySegmentChord } from "./lib/chordDisplay";
 import { summarizeLocalKeys } from "./lib/localKeySummary";
 import { modelFetchSummaryLine } from "./lib/modelFetchSummary";
 import { formatTime, noteName } from "./lib/notes";
@@ -344,7 +344,17 @@ export default function App() {
 
   const editSegment = useCallback((id: number, chord: string) => {
     setSegments((prev) =>
-      prev.map((s) => (s.id === id ? { ...s, chord, edited: true } : s)),
+      prev.map((s) => {
+        if (s.id !== id) return s;
+        // Phase 3.2: ユーザーがコードを決めたセグメントでは、機械の
+        // 読み由来の層（upperChord / upperExtension / addTones）は
+        // 根拠を失うため落とす（表示はユーザーのコードが土台になる）
+        const next = { ...s, chord, edited: true };
+        delete next.upperChord;
+        delete next.upperExtension;
+        delete next.addTones;
+        return next;
+      }),
     );
   }, []);
 
@@ -581,7 +591,7 @@ export default function App() {
               <div className="playback-meta">
                 <span className="playback-chord">
                   {currentChord
-                    ? displayChordName(currentChord.chord, currentChord.bassPc, currentChord.extension)
+                    ? displaySegmentChord(currentChord)
                     : "—"}
                 </span>
                 <span className="playback-file">

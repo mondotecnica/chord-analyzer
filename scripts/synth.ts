@@ -20,6 +20,8 @@ export interface ProgressionChord {
   bassPc?: number;
   /** 7th の種類（Phase 3 用。省略時は三和音）。maj7=長7度、m7/dom7=短7度 */
   seventh?: "maj7" | "m7" | "dom7";
+  /** add9（9th の付加音、Phase 3.2 用。省略時はなし）。7th とは併用しない */
+  add9?: boolean;
 }
 
 export interface SongSpec {
@@ -91,6 +93,18 @@ const dom7 = (root: string, bass?: string): ProgressionChord => ({
   root: pc(root),
   mode: "major",
   seventh: "dom7",
+  ...(bass !== undefined ? { bassPc: pc(bass) } : {}),
+});
+const Madd9 = (root: string, bass?: string): ProgressionChord => ({
+  root: pc(root),
+  mode: "major",
+  add9: true,
+  ...(bass !== undefined ? { bassPc: pc(bass) } : {}),
+});
+const madd9 = (root: string, bass?: string): ProgressionChord => ({
+  root: pc(root),
+  mode: "minor",
+  add9: true,
   ...(bass !== undefined ? { bassPc: pc(bass) } : {}),
 });
 
@@ -194,6 +208,35 @@ export const SECONDARY_DOMINANT_SONGS: SongSpec[] = [
   },
 ];
 
+/**
+ * Song G: add9 と分数層のテスト曲（Phase 3.2 の測定土台）。
+ * 先頭小節は Suno 05 の Q4（上層 Am＋9th／ベース C#）の合成ミラー。
+ * add9 のルート位置（Cadd9／Am(add9)／Fadd9）と三和音の対照
+ * （G／Em）を同じ曲に入れ、付加音検出の真陽性と誤発火を同時に測る。
+ * Cadd9 と Am(add9) は構成音が近いため、第1段のセグメント分割が
+ * 小節を跨いで結合しないよう、間に対照の G を挟む配列にしてある
+ * （分割自体は Phase 0 の守備範囲で、3.2 の測定対象ではない）。
+ * SEVENTH_SONGS 等とは分けて持ち、既存の測定の対象範囲を変えない。
+ */
+export const ADD9_SONGS: SongSpec[] = [
+  {
+    id: "song-g",
+    title: "Song G — add9 layers (Am(add9)/C# / Cadd9 / G / Am(add9) / Fadd9 / Em)",
+    trueKey: "A minor",
+    bpm: 112,
+    beatsPerBar: 4,
+    progression: [
+      madd9("A", "C#"),
+      Madd9("C"),
+      M("G"),
+      madd9("A"),
+      Madd9("F"),
+      m("E"),
+    ],
+    repeats: 2,
+  },
+];
+
 const midiToFreq = (midi: number) => 440 * Math.pow(2, (midi - 69) / 12);
 
 /** 8分音符ごとのベロシティパターン（固定、再現性のため） */
@@ -272,6 +315,10 @@ export function synthSong(spec: SongSpec, sampleRate: number): {
     const seventhInterval =
       ch.seventh === "maj7" ? 11 : ch.seventh === undefined ? null : 10;
     if (seventhInterval !== null) tones.splice(3, 0, rootMidi + seventhInterval);
+    // add9 がある場合は 9th 音（ルートの1オクターブ＋長2度）も同じ位置に入れる
+    if (ch.add9) tones.splice(3, 0, rootMidi + 14);
+    const colorCount =
+      (seventhInterval !== null ? 1 : 0) + (ch.add9 ? 1 : 0);
     // ベース音はルートと別指定が可能（分数コード）。未指定ならルートを鳴らす
     const bassMidi = 36 + (ch.bassPc ?? ch.root); // C2..B2
 
@@ -280,8 +327,8 @@ export function synthSong(spec: SongSpec, sampleRate: number): {
     addPluck(buf, sampleRate, barStart + beatSec * 2, beatSec * 1.9, bassMidi, 0.85, bassOpts);
 
     // ストラム: 小節頭に構成音をほぼ同時に（10ms ずつずらす）
-    // 三和音は 3 音、7th コードは 7th 音まで 4 音
-    tones.slice(0, seventhInterval !== null ? 4 : 3).forEach((mt, i) => {
+    // 三和音は 3 音、色付け音（7th / add9）がある場合はその音まで
+    tones.slice(0, 3 + colorCount).forEach((mt, i) => {
       addPluck(buf, sampleRate, barStart + i * 0.011, beatSec * 1.1, mt, 0.9, chordOpts);
     });
 
@@ -312,7 +359,11 @@ export function synthSong(spec: SongSpec, sampleRate: number): {
           ? `${noteName(ch.root)}7`
           : ch.seventh === "m7"
             ? `${noteName(ch.root)}m7`
-            : undefined;
+            : ch.add9
+              ? ch.mode === "major"
+                ? `${noteName(ch.root)}add9`
+                : `${noteName(ch.root)}m(add9)`
+              : undefined;
     return {
       startSec: Number((i * barSec).toFixed(3)),
       endSec: Number(((i + 1) * barSec).toFixed(3)),

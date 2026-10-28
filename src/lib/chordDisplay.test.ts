@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { displayChordName, fullChordName, isChordToneBass } from "./chordDisplay";
+import {
+  displayChordName,
+  displaySegmentChord,
+  fullChordName,
+  isChordToneBass,
+} from "./chordDisplay";
+import type { ChordSegment } from "../types";
 
 describe("displayChordName（分数コード表示）", () => {
   it("ベース音が未指定なら通常表示", () => {
@@ -80,5 +86,65 @@ describe("isChordToneBass", () => {
     expect(isChordToneBass(9, "minor", 0)).toBe(true);
     expect(isChordToneBass(9, "minor", 4)).toBe(true); // 5th
     expect(isChordToneBass(9, "minor", 1)).toBe(false);
+  });
+});
+
+describe("displaySegmentChord（Phase 3.2: 層表示）", () => {
+  const seg = (extra: Partial<ChordSegment>): ChordSegment => ({
+    id: 0,
+    start: 0,
+    end: 1,
+    chord: "C",
+    confidence: 0.7,
+    ...extra,
+  });
+
+  it("層フィールドが無ければ従来表示と一致する", () => {
+    expect(displaySegmentChord(seg({ chord: "C", bassPc: 4 }))).toBe("C/E");
+    expect(displaySegmentChord(seg({ chord: "C", bassPc: 9 }))).toBe("C");
+    expect(displaySegmentChord(seg({ chord: "Am", bassPc: 9 }))).toBe("Am");
+  });
+
+  it("上層＋ベースで分数表示になる（ベースが構成音でなくても）", () => {
+    // Suno Q1 型: 上層 C、ベース D（C の構成音ではない）
+    expect(
+      displaySegmentChord(seg({ chord: "Dm", upperChord: "C", bassPc: 2 })),
+    ).toBe("C/D");
+  });
+
+  it("上層の 7th 拡張が表示に乗る", () => {
+    expect(
+      displaySegmentChord(
+        seg({ chord: "Dm", upperChord: "Am", upperExtension: "m7", bassPc: 2 }),
+      ),
+    ).toBe("Am7/D");
+    // Suno Q4 型: 上層 CM7、ベース C#
+    expect(
+      displaySegmentChord(
+        seg({ chord: "C#m", upperChord: "C", upperExtension: "maj7", bassPc: 1 }),
+      ),
+    ).toBe("CM7/C#");
+  });
+
+  it("add9 の表記はメジャー Cadd9 / マイナー Am(add9)", () => {
+    expect(displaySegmentChord(seg({ chord: "C", addTones: ["add9"] }))).toBe("Cadd9");
+    expect(displaySegmentChord(seg({ chord: "Am", addTones: ["add9"] }))).toBe("Am(add9)");
+    expect(
+      displaySegmentChord(
+        seg({ chord: "C#m", upperChord: "Am", addTones: ["add9"], bassPc: 1 }),
+      ),
+    ).toBe("Am(add9)/C#");
+  });
+
+  it("ベースが上層ルートと同じなら分数表示にしない", () => {
+    expect(
+      displaySegmentChord(seg({ chord: "Dm", upperChord: "D", bassPc: 2 })),
+    ).toBe("D");
+  });
+
+  it("bassPc が無ければ層は表示されず chord 側の表示になる", () => {
+    expect(
+      displaySegmentChord(seg({ chord: "Dm", upperChord: "Am", upperExtension: "7" })),
+    ).toBe("Dm");
   });
 });

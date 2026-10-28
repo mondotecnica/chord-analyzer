@@ -16,6 +16,9 @@ import { CHORD_TEMPLATES } from "./chordEstimation";
  *   Phase 0 の結果をそのまま残す（悪化防止が最優先）。
  * - ベース音は ChordSegment.bassPc に「ルートとは別フィールド」で記録する。
  *   ルートを黙って上書きすることはしない。補正した場合も bassPc は残る。
+ *   あわせて Phase 3.2 では、補正で潰れる前の和声側の読みを
+ *   ChordSegment.upperChord に残す（分数コードの層表示用。
+ *   PHASE3_PLAN.md §3.2）。
  * - モード（major/minor）はベースからは決めない。補正後のルートに対して、
  *   セグメント平均の全帯域クロマとテンプレートの一致度で決める。
  * - 分数コード表示（C/E 等）自体は表示側（lib/chordDisplay.ts）の担当で、
@@ -268,6 +271,11 @@ export function applyBassCorrection(
       }
     }
 
+    // Phase 3.2: ルートを潰す前に、和声側の読み（補正前のコード）を
+    // 上層として別フィールドに残す。表示側はこの層と bassPc を
+    // 組み合わせて Am7/D のような分数表示を組み立てる
+    // （PHASE3_PLAN.md §3.2）。補正しなかったセグメントには付けない。
+    next.upperChord = seg.chord;
     next.chord = chordName(ev.topPc, mode);
     return next;
   });

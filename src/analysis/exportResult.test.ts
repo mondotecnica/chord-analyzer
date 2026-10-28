@@ -177,3 +177,56 @@ describe("局所キーの書き出し（Phase 3.3 分割採用）", () => {
     expect(text).not.toContain("局所キー");
   });
 });
+
+describe("Phase 3.2: 層フィールドの書き出し", () => {
+  it("JSON に upperChord / upperExtension / addTones が相加的に含まれる", () => {
+    const json = JSON.parse(
+      resultToJson(
+        baseResult({
+          segments: [
+            {
+              id: 0,
+              start: 0,
+              end: 2,
+              chord: "C#m",
+              confidence: 0.9,
+              bassPc: 1,
+              upperChord: "Am",
+              addTones: ["add9"],
+            },
+          ],
+        }),
+      ),
+    );
+    expect(json.segments[0].upperChord).toBe("Am");
+    expect(json.segments[0].addTones).toEqual(["add9"]);
+    expect(json.segments[0]).not.toHaveProperty("upperExtension");
+  });
+
+  it("層フィールドの無いセグメントの JSON には現れない", () => {
+    const json = JSON.parse(resultToJson(baseResult()));
+    expect(json.segments[0]).not.toHaveProperty("upperChord");
+    expect(json.segments[0]).not.toHaveProperty("upperExtension");
+    expect(json.segments[0]).not.toHaveProperty("addTones");
+  });
+
+  it("テキスト書き出しは層表示（Am(add9)/C#）になる", () => {
+    const text = resultToText(
+      baseResult({
+        segments: [
+          {
+            id: 0,
+            start: 0,
+            end: 2,
+            chord: "C#m",
+            confidence: 0.9,
+            bassPc: 1,
+            upperChord: "Am",
+            addTones: ["add9"],
+          },
+        ],
+      }),
+    );
+    expect(text).toContain("Am(add9)/C#");
+  });
+});

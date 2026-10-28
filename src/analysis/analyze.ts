@@ -3,6 +3,8 @@ import { applyBassCorrection } from "./bassCorrection";
 import { applyConditionalUpperRoot } from "./conditionalBand";
 import { estimateChordFrames } from "./chordEstimation";
 import { applyExtensions } from "./extensionDetection";
+import { applyAddTones } from "./addToneDetection";
+import { applyUpperLayerReRead } from "./layerChord";
 import { estimateKey, estimateTempo } from "./keyTempo";
 import { estimateLocalKeys, type LocalKeyContext } from "./localKey";
 import { applyLocalKeyModeNudge } from "./localKeyMode";
@@ -272,6 +274,23 @@ export async function analyzeAudio(
     }
   }
 
+  // Phase 3.2: 分数コードの上層の再読（層表示用）。ベース補正で
+  // 潰れたセグメント（upperChord を持つもの）だけを対象に、層の
+  // 実在を判定し、上層をセグメント集計（ベース音を除く）で再読する。
+  // 証拠は上帯域クロマ（chordFrames）: 混合音の全帯域は低域の
+  // ビン分解能不足でベース基音が ±1 半音へ滲み、適合度が歪むため
+  // （layerChord.ts の冒頭コメント参照）。触るのは upperChord /
+  // upperExtension のみで、chord / extension / bassPc は変えない
+  // ため、既定ラベルは従来と完全一致する。
+  onProgress?.({ stage: "分数コードの層を整理中…", ratio: 0.978 });
+  await yieldToUi();
+  segments = applyUpperLayerReRead(
+    segments,
+    chroma.chordFrames,
+    chroma.energies,
+    chroma.frameDuration,
+  );
+
   // Phase 3.1: 二段判定の第2段（拡張音検出）。全ての後段処理の後に、
   // 上帯域クロマを証拠としてセグメント単位で 7th を判定する
   // （証拠帯域の根拠は extensionDetection.ts の冒頭コメント）。
@@ -279,6 +298,8 @@ export async function analyzeAudio(
   // （局所キー＋背景シェア割り引き）は、消費部（options.localKey）
   // が有効な場合にだけ渡す。記録だけの局所キー（既定で算出される）
   // は第2段の判定には使わない（分割採用、2026-10-28）。
+  // Phase 3.2 の付加音（add9）検出も同じオプトインの中で、
+  // 第2段の直後に行う（addToneDetection.ts）。
   if (options?.extensions) {
     onProgress?.({ stage: "7th（拡張音）を検出中…", ratio: 0.98 });
     await yieldToUi();
@@ -294,6 +315,12 @@ export async function analyzeAudio(
           ? { localKeys: localKeyCtx, contextPrior: true }
           : {}),
       },
+    );
+    segments = applyAddTones(
+      segments,
+      chroma.chordFrames,
+      chroma.energies,
+      chroma.frameDuration,
     );
   }
 

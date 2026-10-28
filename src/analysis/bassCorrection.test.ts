@@ -117,3 +117,40 @@ describe("applyBassCorrection", () => {
     expect(seg.chord).toBe("N.C.");
   });
 });
+
+describe("applyBassCorrection の Phase 3.2 層記録（upperChord）", () => {
+  it("ルートを潰す補正が発火したら、補正前の読みを upperChord に残す", () => {
+    const bass = oneHotBass(9, 100); // A
+    const chroma = chromaFrames({ 9: 0.55, 0: 0.5, 4: 0.45 });
+    const segIn: ChordSegment = {
+      id: 0,
+      start: 0,
+      end: 1,
+      chord: "C",
+      confidence: 0.7,
+    };
+    const [seg] = applyBassCorrection([segIn], chroma, bass, energies, FRAME_DURATION);
+    expect(seg.chord).toBe("Am");
+    expect(seg.upperChord).toBe("C");
+    expect(seg.bassPc).toBe(9);
+  });
+
+  it("補正が発火しなければ upperChord は付かない", () => {
+    const bass = spreadBass([
+      [9, 40],
+      [0, 35],
+      [4, 25],
+    ]);
+    const chroma = chromaFrames({ 9: 0.55, 0: 0.5, 4: 0.45 });
+    const segIn: ChordSegment = {
+      id: 0,
+      start: 0,
+      end: 1,
+      chord: "C",
+      confidence: 0.7,
+    };
+    const [seg] = applyBassCorrection([segIn], chroma, bass, energies, FRAME_DURATION);
+    expect(seg.chord).toBe("C");
+    expect(seg.upperChord).toBeUndefined();
+  });
+});

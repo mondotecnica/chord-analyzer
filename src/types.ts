@@ -19,6 +19,13 @@ export interface ChordFrame {
  */
 export type ChordExtension = "maj7" | "7" | "m7";
 
+/**
+ * Phase 3.2: 付加音（カラートーン）の種類。7th を伴わない付加音だけを
+ * 語彙にする（7th がある場合は 9th 等の別表記になるため対象外）。
+ * extension と同じく、コードの三和音コアとは別フィールドで持つ。
+ */
+export type AddTone = "add9";
+
 export interface ChordSegment {
   id: number;
   start: number; // 秒
@@ -40,6 +47,30 @@ export interface ChordSegment {
    * 表示名の組み立て（例: C/E）は UI 側の責務。証拠が乏しいセグメントでは未設定。
    */
   bassPc?: number;
+  /**
+   * Phase 3.2: 分数コードの「上層」のコード名（ルート＋モードの三和音
+   * コア文字列。chord と同じ形式）。ベース補正が強いベース証拠で
+   * ルートを潰した（chord のルートをベース音へ書き換えた）セグメント
+   * でのみ、潰される前の和声側の読みとして bassCorrection が記録し、
+   * layerChord がベース音を除いた集計証拠で再読する場合がある。
+   * 表示側は bassPc と組み合わせて Am7/D のような層表示を組み立てる。
+   * 未設定は「層の分離なし＝従来表示」という意味（従来の書き出しと互換）。
+   */
+  upperChord?: string;
+  /**
+   * Phase 3.2: 上層コードに対する 7th 拡張（layerChord の再読が
+   * テンプレート群の中で 7th 候補を選んだ場合のみ）。extension
+   * （第2段が chord に対して付けるもの）とは別フィールドで、
+   * 表示側は upperChord がある場合はこちらを使う。
+   */
+  upperExtension?: ChordExtension;
+  /**
+   * Phase 3.2: 付加音の証拠（addToneDetection.ts が付ける）。
+   * 対象コード（upperChord があれば上層、無ければ chord）に 7th が
+   * 無く、9th 音のシェア・持続性が床を超えた場合のみ。表示側が
+   * "(add9)" を組み立てる。拡張音検出（extensions）有効時のみ付く。
+   */
+  addTones?: AddTone[];
 }
 
 /**

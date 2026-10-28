@@ -18,6 +18,7 @@
     "measure:step3": "vitest run scripts/measure-step3.test.ts",
     "measure:stems": "vitest run scripts/measure-stems.test.ts",
     "measure:phase3": "vitest run scripts/measure-phase3.test.ts",
+    "measure:phase32": "vitest run scripts/measure-phase3-2.test.ts",
     "test:app-stems": "vitest run scripts/analyze-stems-app-path.test.ts",
     "lint": "oxlint",
     "preview": "vite preview"

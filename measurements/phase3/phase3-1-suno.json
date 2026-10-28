@@ -107,7 +107,8 @@
       "end": 3.947392290249433,
       "chord": "C",
       "confidence": 0.7038264098723798,
-      "bassPc": 0
+      "bassPc": 0,
+      "upperChord": "G"
     },
     {
       "id": 2,
@@ -115,7 +116,8 @@
       "end": 4.318911564625851,
       "chord": "C",
       "confidence": 0.6027270722069662,
-      "bassPc": 0
+      "bassPc": 0,
+      "upperChord": "Dm"
     },
     {
       "id": 3,
@@ -133,6 +135,7 @@
       "chord": "Bm",
       "confidence": 0.5880525323420204,
       "bassPc": 11,
+      "upperChord": "A",
       "extension": "m7"
     },
     {
@@ -150,7 +153,9 @@
       "end": 11.935056689342403,
       "chord": "Am",
       "confidence": 0.6384399551731839,
-      "bassPc": 9
+      "bassPc": 9,
+      "upperChord": "C",
+      "upperExtension": "maj7"
     },
     {
       "id": 7,
@@ -175,14 +180,21 @@
       "end": 14.210612244897959,
       "chord": "F",
       "confidence": 0.6130173393536271,
-      "bassPc": 5
+      "bassPc": 5,
+      "upperChord": "C",
+      "addTones": [
+        "add9"
+      ]
     },
     {
       "id": 10,
       "start": 14.210612244897959,
       "end": 14.953650793650793,
       "chord": "Gm",
-      "confidence": 0.5743770829548106
+      "confidence": 0.5743770829548106,
+      "addTones": [
+        "add9"
+      ]
     },
     {
       "id": 11,
@@ -207,6 +219,7 @@
       "chord": "Bm",
       "confidence": 0.7510166571377572,
       "bassPc": 11,
+      "upperChord": "Am",
       "extension": "m7"
     },
     {
@@ -294,6 +307,8 @@
       "chord": "Bm",
       "confidence": 0.6227771066426357,
       "bassPc": 11,
+      "upperChord": "Dm",
+      "upperExtension": "m7",
       "extension": "m7"
     },
     {
@@ -377,6 +392,7 @@
       "chord": "Bm",
       "confidence": 0.6763533129377587,
       "bassPc": 11,
+      "upperChord": "Am",
       "extension": "m7"
     },
     {
@@ -410,6 +426,7 @@
       "chord": "Dm",
       "confidence": 0.87887520132763,
       "bassPc": 2,
+      "upperChord": "C",
       "extension": "m7"
     },
     {
@@ -468,6 +485,8 @@
       "chord": "C#m",
       "confidence": 0.6716369204083553,
       "bassPc": 1,
+      "upperChord": "C",
+      "upperExtension": "maj7",
       "extension": "m7"
     },
     {
@@ -564,6 +583,7 @@
       "chord": "D",
       "confidence": 0.6652422270403905,
       "bassPc": 2,
+      "upperChord": "C",
       "extension": "7"
     },
     {
@@ -630,7 +650,10 @@
       "end": 91.99746031746032,
       "chord": "Am",
       "confidence": 0.7131645410899153,
-      "bassPc": 9
+      "bassPc": 9,
+      "addTones": [
+        "add9"
+      ]
     },
     {
       "id": 65,
@@ -664,6 +687,7 @@
       "chord": "Dm",
       "confidence": 0.7554691326053916,
       "bassPc": 2,
+      "upperChord": "C",
       "extension": "m7"
     },
     {
@@ -695,7 +719,10 @@
       "start": 97.47736961451247,
       "end": 98.45260770975057,
       "chord": "C",
-      "confidence": 0.6845604990466556
+      "confidence": 0.6845604990466556,
+      "addTones": [
+        "add9"
+      ]
     },
     {
       "id": 73,
@@ -779,6 +806,8 @@
       "chord": "C",
       "confidence": 0.693531628249395,
       "bassPc": 0,
+      "upperChord": "Em",
+      "upperExtension": "m7",
       "extension": "maj7"
     },
     {
@@ -853,7 +882,10 @@
       "end": 126.36299319727891,
       "chord": "C",
       "confidence": 0.6872354959851017,
-      "bassPc": 0
+      "bassPc": 0,
+      "addTones": [
+        "add9"
+      ]
     },
     {
       "id": 92,
@@ -869,7 +901,9 @@
       "end": 129.79954648526078,
       "chord": "Bm",
       "confidence": 0.6093613132699034,
-      "bassPc": 11
+      "bassPc": 11,
+      "upperChord": "A#",
+      "upperExtension": "maj7"
     },
     {
       "id": 94,
@@ -937,7 +971,9 @@
       "end": 142.84916099773244,
       "chord": "Bm",
       "confidence": 0.6254922465439717,
-      "bassPc": 11
+      "bassPc": 11,
+      "upperChord": "D",
+      "upperExtension": "7"
     },
     {
       "id": 102,
@@ -972,6 +1008,8 @@
       "chord": "Am",
       "confidence": 0.7328837994298282,
       "bassPc": 9,
+      "upperChord": "C",
+      "upperExtension": "maj7",
       "extension": "m7"
     },
     {
@@ -981,6 +1019,7 @@
       "chord": "Dm",
       "confidence": 0.8279330469364545,
       "bassPc": 2,
+      "upperChord": "Am",
       "extension": "m7"
     },
     {
@@ -990,6 +1029,8 @@
       "chord": "Am",
       "confidence": 0.6207528395210068,
       "bassPc": 9,
+      "upperChord": "C",
+      "upperExtension": "maj7",
       "extension": "m7"
     },
     {
@@ -1013,7 +1054,10 @@
       "end": 156.13097505668935,
       "chord": "Cm",
       "confidence": 0.6801466706505787,
-      "bassPc": 0
+      "bassPc": 0,
+      "addTones": [
+        "add9"
+      ]
     },
     {
       "id": 111,
@@ -1087,7 +1131,9 @@
       "end": 167.78739229024944,
       "chord": "Bm",
       "confidence": 0.6581194009760855,
-      "bassPc": 11
+      "bassPc": 11,
+      "upperChord": "D",
+      "upperExtension": "7"
     },
     {
       "id": 120,
@@ -1095,7 +1141,9 @@
       "end": 168.9948299319728,
       "chord": "Bm",
       "confidence": 0.6477490712098908,
-      "bassPc": 11
+      "bassPc": 11,
+      "upperChord": "D",
+      "upperExtension": "7"
     },
     {
       "id": 121,
@@ -1121,6 +1169,8 @@
       "chord": "Am",
       "confidence": 0.7345415154540169,
       "bassPc": 9,
+      "upperChord": "Em",
+      "upperExtension": "m7",
       "extension": "m7"
     },
     {
@@ -1130,6 +1180,7 @@
       "chord": "D",
       "confidence": 0.7761205566132768,
       "bassPc": 2,
+      "upperChord": "C",
       "extension": "7"
     },
     {
@@ -1139,6 +1190,8 @@
       "chord": "D",
       "confidence": 0.6955968251255983,
       "bassPc": 2,
+      "upperChord": "Am",
+      "upperExtension": "m7",
       "extension": "7"
     },
     {
@@ -1180,7 +1233,8 @@
       "end": 180.1404081632653,
       "chord": "Bm",
       "confidence": 0.806273925755544,
-      "bassPc": 11
+      "bassPc": 11,
+      "upperChord": "D"
     },
     {
       "id": 131,
@@ -1197,7 +1251,10 @@
       "end": 182.50884353741498,
       "chord": "D",
       "confidence": 0.5582257197144993,
-      "bassPc": 2
+      "bassPc": 2,
+      "addTones": [
+        "add9"
+      ]
     },
     {
       "id": 133,
@@ -1232,6 +1289,8 @@
       "chord": "Em",
       "confidence": 0.727698096596828,
       "bassPc": 4,
+      "upperChord": "G",
+      "upperExtension": "maj7",
       "extension": "m7"
     },
     {
@@ -1392,7 +1451,8 @@
       "end": 16.486167800453515,
       "chord": "C",
       "confidence": 0.6038407751773215,
-      "bassPc": 0
+      "bassPc": 0,
+      "upperChord": "Dm"
     },
     {
       "id": 9,
@@ -1454,7 +1514,9 @@
       "end": 26.563628117913833,
       "chord": "G",
       "confidence": 0.5765455017493482,
-      "bassPc": 7
+      "bassPc": 7,
+      "upperChord": "E",
+      "upperExtension": "7"
     },
     {
       "id": 17,
@@ -1462,7 +1524,9 @@
       "end": 26.981587301587304,
       "chord": "G",
       "confidence": 0.6268494477543973,
-      "bassPc": 7
+      "bassPc": 7,
+      "upperChord": "E",
+      "upperExtension": "7"
     },
     {
       "id": 18,
@@ -1478,7 +1542,9 @@
       "end": 29.953741496598642,
       "chord": "G",
       "confidence": 0.6102018473575826,
-      "bassPc": 7
+      "bassPc": 7,
+      "upperChord": "E",
+      "upperExtension": "7"
     },
     {
       "id": 20,
@@ -1504,7 +1570,9 @@
       "end": 41.56371882086167,
       "chord": "G",
       "confidence": 0.6011628781970781,
-      "bassPc": 7
+      "bassPc": 7,
+      "upperChord": "E",
+      "upperExtension": "7"
     },
     {
       "id": 23,
@@ -1520,7 +1588,9 @@
       "end": 43.885714285714286,
       "chord": "C",
       "confidence": 0.6910910701142661,
-      "bassPc": 0
+      "bassPc": 0,
+      "upperChord": "Em",
+      "upperExtension": "m7"
     },
     {
       "id": 25,
@@ -1590,6 +1660,8 @@
       "chord": "Bm",
       "confidence": 0.7350780152569965,
       "bassPc": 11,
+      "upperChord": "D",
+      "upperExtension": "7",
       "extension": "m7"
     },
     {
@@ -1607,7 +1679,8 @@
       "end": 61.48643990929705,
       "chord": "D",
       "confidence": 0.6157936814788252,
-      "bassPc": 2
+      "bassPc": 2,
+      "upperChord": "Em"
     },
     {
       "id": 35,
@@ -1625,6 +1698,8 @@
       "chord": "C#m",
       "confidence": 0.4965399865210103,
       "bassPc": 1,
+      "upperChord": "Em",
+      "upperExtension": "m7",
       "extension": "m7"
     },
     {
@@ -1642,6 +1717,7 @@
       "chord": "Am",
       "confidence": 0.617356169187476,
       "bassPc": 9,
+      "upperChord": "G",
       "extension": "m7"
     },
     {
@@ -1667,7 +1743,9 @@
       "end": 67.662947845805,
       "chord": "G",
       "confidence": 0.6058423338079025,
-      "bassPc": 7
+      "bassPc": 7,
+      "upperChord": "E",
+      "upperExtension": "7"
     },
     {
       "id": 42,
@@ -1700,7 +1778,10 @@
       "end": 73.51437641723356,
       "chord": "G",
       "confidence": 0.6897177335801794,
-      "bassPc": 7
+      "bassPc": 7,
+      "addTones": [
+        "add9"
+      ]
     },
     {
       "id": 46,
@@ -1708,7 +1789,8 @@
       "end": 73.88589569160997,
       "chord": "F#m",
       "confidence": 0.7236055418254914,
-      "bassPc": 6
+      "bassPc": 6,
+      "upperChord": "Dm"
     },
     {
       "id": 47,
@@ -1892,7 +1974,9 @@
       "end": 110.52698412698413,
       "chord": "G",
       "confidence": 0.6287437155357146,
-      "bassPc": 7
+      "bassPc": 7,
+      "upperChord": "E",
+      "upperExtension": "7"
     },
     {
       "id": 69,
@@ -1900,7 +1984,10 @@
       "end": 111.2235827664399,
       "chord": "Am",
       "confidence": 0.6848582651378724,
-      "bassPc": 9
+      "bassPc": 9,
+      "addTones": [
+        "add9"
+      ]
     },
     {
       "id": 70,
@@ -1958,7 +2045,10 @@
       "end": 122.04408163265306,
       "chord": "D",
       "confidence": 0.6058095344954011,
-      "bassPc": 2
+      "bassPc": 2,
+      "addTones": [
+        "add9"
+      ]
     },
     {
       "id": 77,
@@ -1975,6 +2065,7 @@
       "chord": "C#m",
       "confidence": 0.6261206018347321,
       "bassPc": 1,
+      "upperChord": "G",
       "extension": "m7"
     },
     {
@@ -1983,7 +2074,10 @@
       "end": 126.40943310657596,
       "chord": "A",
       "confidence": 0.6764918050635356,
-      "bassPc": 0
+      "bassPc": 0,
+      "addTones": [
+        "add9"
+      ]
     },
     {
       "id": 80,
@@ -2001,6 +2095,8 @@
       "chord": "Bm",
       "confidence": 0.6771006525821737,
       "bassPc": 11,
+      "upperChord": "D#",
+      "upperExtension": "maj7",
       "extension": "m7"
     },
     {
@@ -2010,6 +2106,8 @@
       "chord": "Em",
       "confidence": 0.7062142933421591,
       "bassPc": 4,
+      "upperChord": "G",
+      "upperExtension": "maj7",
       "extension": "m7"
     },
     {
@@ -2019,6 +2117,7 @@
       "chord": "A#m",
       "confidence": 0.7165813890469446,
       "bassPc": 10,
+      "upperChord": "C#",
       "extension": "m7"
     },
     {
@@ -2113,6 +2212,7 @@
       "chord": "Am",
       "confidence": 0.5674053699604693,
       "bassPc": 9,
+      "upperChord": "G",
       "extension": "m7"
     },
     {
@@ -2257,6 +2357,7 @@
       "chord": "D",
       "confidence": 0.6675397609308323,
       "bassPc": 2,
+      "upperChord": "Em",
       "extension": "7"
     },
     {
@@ -2274,6 +2375,8 @@
       "chord": "G",
       "confidence": 0.6107825326400401,
       "bassPc": 7,
+      "upperChord": "F",
+      "upperExtension": "maj7",
       "extension": "7"
     },
     {
@@ -2283,6 +2386,8 @@
       "chord": "G",
       "confidence": 0.6566473248672,
       "bassPc": 7,
+      "upperChord": "F",
+      "upperExtension": "maj7",
       "extension": "7"
     },
     {
@@ -2394,7 +2499,11 @@
       "chord": "Bm",
       "confidence": 0.6757118249751205,
       "bassPc": 11,
-      "extension": "m7"
+      "upperChord": "D",
+      "extension": "m7",
+      "addTones": [
+        "add9"
+      ]
     },
     {
       "id": 128,

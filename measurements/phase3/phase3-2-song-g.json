@@ -1,0 +1,82 @@
+[
+  {
+    "bar": 1,
+    "truth": "Am(add9)/C#",
+    "range": [
+      0,
+      2.143
+    ],
+    "displayDefault": "Am/C#",
+    "displayExt": "Am(add9)/C#",
+    "expectDefault": "Am/C#",
+    "expectExt": "Am(add9)/C#",
+    "pass": true
+  },
+  {
+    "bar": 2,
+    "truth": "Cadd9",
+    "range": [
+      2.143,
+      4.286
+    ],
+    "displayDefault": "C",
+    "displayExt": "C",
+    "expectDefault": "C",
+    "expectExt": "Cadd9",
+    "extCoverage": 0.49,
+    "pass": true
+  },
+  {
+    "bar": 3,
+    "truth": "G",
+    "range": [
+      4.286,
+      6.429
+    ],
+    "displayDefault": "G",
+    "displayExt": "G",
+    "expectDefault": "G",
+    "expectExt": "G",
+    "pass": true
+  },
+  {
+    "bar": 4,
+    "truth": "Am(add9)",
+    "range": [
+      6.429,
+      8.571
+    ],
+    "displayDefault": "Am",
+    "displayExt": "Am(add9)",
+    "expectDefault": "Am",
+    "expectExt": "Am(add9)",
+    "pass": true
+  },
+  {
+    "bar": 5,
+    "truth": "Fadd9",
+    "range": [
+      8.571,
+      10.714
+    ],
+    "displayDefault": "F",
+    "displayExt": "Fadd9",
+    "expectDefault": "F",
+    "expectExt": "Fadd9",
+    "extCoverage": 1,
+    "pass": true
+  },
+  {
+    "bar": 6,
+    "truth": "Em",
+    "range": [
+      10.714,
+      12.857
+    ],
+    "displayDefault": "Em",
+    "displayExt": "Em",
+    "expectDefault": "Em",
+    "expectExt": "Em",
+    "pass": true
+  }
+]

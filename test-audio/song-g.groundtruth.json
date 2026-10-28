@@ -1,0 +1,102 @@
+{
+  "songId": "song-g",
+  "title": "Song G — add9 layers (Am(add9)/C# / Cadd9 / G / Am(add9) / Fadd9 / Em)",
+  "key": "A minor",
+  "bpm": 112,
+  "sampleRate": 44100,
+  "durationSec": 25.714,
+  "segments": [
+    {
+      "startSec": 0,
+      "endSec": 2.143,
+      "chord": "Am",
+      "fullChord": "Am(add9)",
+      "bass": "C#",
+      "bassPc": 1
+    },
+    {
+      "startSec": 2.143,
+      "endSec": 4.286,
+      "chord": "C",
+      "fullChord": "Cadd9",
+      "bass": "C",
+      "bassPc": 0
+    },
+    {
+      "startSec": 4.286,
+      "endSec": 6.429,
+      "chord": "G",
+      "bass": "G",
+      "bassPc": 7
+    },
+    {
+      "startSec": 6.429,
+      "endSec": 8.571,
+      "chord": "Am",
+      "fullChord": "Am(add9)",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 8.571,
+      "endSec": 10.714,
+      "chord": "F",
+      "fullChord": "Fadd9",
+      "bass": "F",
+      "bassPc": 5
+    },
+    {
+      "startSec": 10.714,
+      "endSec": 12.857,
+      "chord": "Em",
+      "bass": "E",
+      "bassPc": 4
+    },
+    {
+      "startSec": 12.857,
+      "endSec": 15,
+      "chord": "Am",
+      "fullChord": "Am(add9)",
+      "bass": "C#",
+      "bassPc": 1
+    },
+    {
+      "startSec": 15,
+      "endSec": 17.143,
+      "chord": "C",
+      "fullChord": "Cadd9",
+      "bass": "C",
+      "bassPc": 0
+    },
+    {
+      "startSec": 17.143,
+      "endSec": 19.286,
+      "chord": "G",
+      "bass": "G",
+      "bassPc": 7
+    },
+    {
+      "startSec": 19.286,
+      "endSec": 21.429,
+      "chord": "Am",
+      "fullChord": "Am(add9)",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 21.429,
+      "endSec": 23.571,
+      "chord": "F",
+      "fullChord": "Fadd9",
+      "bass": "F",
+      "bassPc": 5
+    },
+    {
+      "startSec": 23.571,
+      "endSec": 25.714,
+      "chord": "Em",
+      "bass": "E",
+      "bassPc": 4
+    }
+  ]
+}

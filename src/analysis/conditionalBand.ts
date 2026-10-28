@@ -201,6 +201,26 @@ export function applyConditionalUpperRoot(
       frameDuration,
     );
     if (!a || !a.fires || !a.candidate) return seg;
-    return { ...seg, chord: chordName(a.candidate.root, a.candidate.mode) };
+    const next: ChordSegment = {
+      ...seg,
+      chord: chordName(a.candidate.root, a.candidate.mode),
+    };
+    // Phase 3.2: 上層（upperChord）が記録されたセグメントを本ステップが
+    // 決め直す場合、決め直し先が上層と一致すれば層はそのまま使えるが、
+    // 異なれば上層は古い読みになるため落とす（本ステップ自身が上帯域
+    // からの再読であり、そちらを優先する）。upperChord を持たない
+    // セグメントの動作は従来と同一。
+    if (next.upperChord !== undefined) {
+      const upper = parseChordName(next.upperChord);
+      if (
+        !upper ||
+        upper.root !== a.candidate.root ||
+        upper.mode !== a.candidate.mode
+      ) {
+        delete next.upperChord;
+        delete next.upperExtension;
+      }
+    }
+    return next;
   });
 }

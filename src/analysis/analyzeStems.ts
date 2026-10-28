@@ -8,6 +8,8 @@ import { framesToSegments } from "./segmentation";
 import { applyUpperBandMode } from "./splitBand";
 import { applyConditionalUpperRoot } from "./conditionalBand";
 import { applyExtensions } from "./extensionDetection";
+import { applyAddTones } from "./addToneDetection";
+import { applyUpperLayerReRead } from "./layerChord";
 import { estimateLocalKeys, type LocalKeyContext } from "./localKey";
 import { applyLocalKeyModeNudge } from "./localKeyMode";
 
@@ -191,9 +193,24 @@ export function analyzeStemsWithStrategy(
       );
     }
   }
+  // Phase 3.2: 分数コードの上層の再読（層表示用）。潰れたセグメント
+  // （upperChord を持つもの）だけが対象で、証拠は other ステムの
+  // 全帯域クロマ（ベース音を除いたセグメント集計）。分離後の
+  // other の低域は実在の情報であり、混合音経路（上帯域を使う）と
+  // 証拠帯域が異なるのは帯域事情の違いによる（layerChord.ts の
+  // 冒頭コメント参照）。upperChord / upperExtension のみを触り、
+  // 既定ラベルは変えない。
+  segments = applyUpperLayerReRead(
+    segments,
+    otherChroma.frames,
+    otherChroma.energies,
+    fd,
+  );
+
   // Phase 3.1: 二段判定の第2段（拡張音検出、既定 OFF）。
   // 証拠は other ステムの上帯域クロマ（extensionDetection.ts 冒頭参照）。
   // 文脈 prior は消費部（opts.localKey）が有効な場合にだけ渡す。
+  // Phase 3.2 の付加音（add9）検出も同じオプトインの中で直後に行う。
   if (opts?.extensions) {
     segments = applyExtensions(
       segments,
@@ -207,6 +224,12 @@ export function analyzeStemsWithStrategy(
           ? { localKeys: localKeyCtx, contextPrior: true }
           : {}),
       },
+    );
+    segments = applyAddTones(
+      segments,
+      otherChroma.chordFrames,
+      otherChroma.energies,
+      fd,
     );
   }
 
