@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { resultToJson } from "./exportResult";
-import type { AnalysisResult } from "../types";
+import { resultToJson, resultToText } from "./exportResult";
+import type { AnalysisResult, LocalKeyWindow } from "../types";
 
 function baseResult(overrides: Partial<AnalysisResult> = {}): AnalysisResult {
   return {
@@ -57,5 +57,55 @@ describe("resultToJson のモード記録", () => {
     );
     expect(json.mode).toBe("high-accuracy");
     expect(json).not.toHaveProperty("separationSeconds");
+  });
+});
+
+describe("局所キーの書き出し（Phase 3.3 分割採用）", () => {
+  const localKeys: LocalKeyWindow[] = [
+    ...Array.from({ length: 8 }, (_, i) => ({
+      start: i * 4,
+      end: i * 4 + 12,
+      root: 1,
+      mode: "major" as const,
+      correlation: 0.85,
+      margin: 0.1,
+      runnerUpRoot: 10,
+      runnerUpMode: "minor" as const,
+    })),
+    ...Array.from({ length: 4 }, (_, i) => ({
+      start: (8 + i) * 4,
+      end: (8 + i) * 4 + 12,
+      root: 2,
+      mode: "major" as const,
+      correlation: 0.9,
+      margin: 0.12,
+      runnerUpRoot: 11,
+      runnerUpMode: "minor" as const,
+    })),
+  ];
+
+  it("JSON には localKeys（窓列）が含まれる", () => {
+    const json = JSON.parse(resultToJson(baseResult({ localKeys })));
+    expect(json.localKeys).toHaveLength(12);
+    expect(json.localKeys[0].key).toBe("C# major");
+    expect(json.localKeys[0].runnerUpKey).toBe("A# minor");
+  });
+
+  it("JSON は記録が無ければ localKeys を含まない（後方互換）", () => {
+    const json = JSON.parse(resultToJson(baseResult()));
+    expect(json).not.toHaveProperty("localKeys");
+  });
+
+  it("テキストには局所キーの要約行が1行入る", () => {
+    const text = resultToText(baseResult({ localKeys }));
+    const lines = text.split("\n").filter((l) => l.includes("局所キー"));
+    expect(lines).toHaveLength(1);
+    expect(lines[0]).toContain("C# major が中心");
+    expect(lines[0]).toContain("D major");
+  });
+
+  it("テキストは記録が無ければ局所キー行を出さない", () => {
+    const text = resultToText(baseResult());
+    expect(text).not.toContain("局所キー");
   });
 });

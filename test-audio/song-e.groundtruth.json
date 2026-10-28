@@ -1,0 +1,74 @@
+{
+  "songId": "song-e",
+  "title": "Song E — 7th chords (CM7–B7–E7–Am7 / Dm7–G7–CM7–Am7)",
+  "key": "A minor",
+  "bpm": 108,
+  "sampleRate": 44100,
+  "durationSec": 17.778,
+  "segments": [
+    {
+      "startSec": 0,
+      "endSec": 2.222,
+      "chord": "C",
+      "fullChord": "CM7",
+      "bass": "C",
+      "bassPc": 0
+    },
+    {
+      "startSec": 2.222,
+      "endSec": 4.444,
+      "chord": "B",
+      "fullChord": "B7",
+      "bass": "B",
+      "bassPc": 11
+    },
+    {
+      "startSec": 4.444,
+      "endSec": 6.667,
+      "chord": "E",
+      "fullChord": "E7",
+      "bass": "E",
+      "bassPc": 4
+    },
+    {
+      "startSec": 6.667,
+      "endSec": 8.889,
+      "chord": "Am",
+      "fullChord": "Am7",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 8.889,
+      "endSec": 11.111,
+      "chord": "Dm",
+      "fullChord": "Dm7",
+      "bass": "D",
+      "bassPc": 2
+    },
+    {
+      "startSec": 11.111,
+      "endSec": 13.333,
+      "chord": "G",
+      "fullChord": "G7",
+      "bass": "G",
+      "bassPc": 7
+    },
+    {
+      "startSec": 13.333,
+      "endSec": 15.556,
+      "chord": "C",
+      "fullChord": "CM7",
+      "bass": "C",
+      "bassPc": 0
+    },
+    {
+      "startSec": 15.556,
+      "endSec": 17.778,
+      "chord": "Am",
+      "fullChord": "Am7",
+      "bass": "A",
+      "bassPc": 9
+    }
+  ]
+}

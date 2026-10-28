@@ -2,7 +2,10 @@ import { computeChromagram, type ChromaBandOptions } from "../dsp/chroma";
 import { applyBassCorrection } from "./bassCorrection";
 import { applyConditionalUpperRoot } from "./conditionalBand";
 import { estimateChordFrames } from "./chordEstimation";
+import { applyExtensions } from "./extensionDetection";
 import { estimateKey, estimateTempo } from "./keyTempo";
+import { estimateLocalKeys, type LocalKeyContext } from "./localKey";
+import { applyLocalKeyModeNudge } from "./localKeyMode";
 import { framesToSegments } from "./segmentation";
 import { applyUpperBandMode } from "./splitBand";
 import type { AnalysisResult } from "../types";
@@ -85,6 +88,41 @@ export interface AnalyzeOptions {
    *   シグネチャの無いセグメントは "split" と完全に同一の結果になる。
    */
   bandStrategy?: "unified" | "split" | "split-conditional";
+  /**
+   * Phase 3.1: 二段判定の第2段（拡張音検出、extensionDetection.ts）を
+   * 適用するか。true の場合、全ての後段処理が終わったセグメントに
+   * 対して maj7 / 7 / m7 の証拠判定を行い、ChordSegment.extension を
+   * 付ける（コアの chord 文字列は原則そのまま。再解釈が発火した
+   * セグメントだけルートが変わる）。
+   * 既定は false（2026-10-28 時点）。Phase 3.1 の採用判定
+   * （measurements/phase3/PHASE3_1_RESULTS.md）で合格基準の一部
+   * （Suno Q2 の否定テスト）が第1段由来で未達だったため、既定化は
+   * ユーザーの再判断待ちとし、明示指定時のみ有効になる。
+   */
+  extensions?: boolean;
+  /**
+   * Phase 3.3: 局所キー文脈（localKey.ts）の「記録」を有効化するか。
+   * true（既定）の場合、局所キーを推定して結果の localKeys（窓列）に
+   * 加算的に格納するだけで、コードラベルには一切触れない。
+   * false は記録自体を止めるオプトアウト（履歴測定の固定やテスト用）。
+   * 消費部（localKey オプション）が有効な場合は記録も自動的に有効。
+   * 2026-10-28 の分割採用（ユーザー判断、PHASE3_PLAN.md §6 追記）で
+   * 「記録・表示は既定 ON、消費部は既定 OFF」が決まった。
+   */
+  localKeyRecord?: boolean;
+  /**
+   * Phase 3.3: 局所キー文脈の「消費部」を有効化するか:
+   * - 第1段のモード決定への柔らかい prior（localKeyMode.ts の
+   *   nudge。接戦のモードだけを局所キーの尤もらしさで nudging する）
+   * - 第2段への文脈供給（局所キーによるダイアトニック緩和の
+   *   差し替えと、maj7 の背景シェア割り引き。extensions と併用時）
+   * 既定は false。Phase 3.3 との共同採用判定（2026-10-28、
+   * measurements/phase3/PHASE3_3_RESULTS.md）で Q2 基準は合格
+   * したが、基準3（実曲の三和音スコア）と曲3完全ラベルの回復が
+   * 合格水準に届かず、既定 OFF を維持する。記録だけの有効化は
+   * localKeyRecord（既定 true）が担う。
+   */
+  localKey?: boolean;
 }
 
 /**
@@ -205,6 +243,60 @@ export async function analyzeAudio(
     );
   }
 
+  // Phase 3.3: 局所キー文脈の推定。全帯域クロマ（全体キーと同じ出所）
+  // から窓ごとのキー候補を推定する。「記録」は既定で有効
+  // （localKeyRecord）で、結果の localKeys に格納するだけであり、
+  // ラベルには触れない。「消費」（モード nudge）は既定 OFF の
+  // 明示オプション（localKey）のときだけ、モード決め直しの後に
+  // 柔らかい prior として効かせる（分割採用、2026-10-28）。
+  const consumeLocalKey = options?.localKey === true;
+  const recordLocalKey = consumeLocalKey || options?.localKeyRecord !== false;
+  let localKeyCtx: LocalKeyContext | undefined;
+  if (recordLocalKey) {
+    onProgress?.({ stage: "局所キーを推定中…", ratio: 0.975 });
+    await yieldToUi();
+    localKeyCtx = estimateLocalKeys(
+      chroma.frames,
+      chroma.energies,
+      chroma.frameDuration,
+      duration,
+    );
+    if (consumeLocalKey) {
+      segments = applyLocalKeyModeNudge(
+        segments,
+        chroma.chordFrames,
+        chroma.energies,
+        chroma.frameDuration,
+        localKeyCtx,
+      );
+    }
+  }
+
+  // Phase 3.1: 二段判定の第2段（拡張音検出）。全ての後段処理の後に、
+  // 上帯域クロマを証拠としてセグメント単位で 7th を判定する
+  // （証拠帯域の根拠は extensionDetection.ts の冒頭コメント）。
+  // 既定 OFF（options.extensions のコメント参照）。文脈 prior
+  // （局所キー＋背景シェア割り引き）は、消費部（options.localKey）
+  // が有効な場合にだけ渡す。記録だけの局所キー（既定で算出される）
+  // は第2段の判定には使わない（分割採用、2026-10-28）。
+  if (options?.extensions) {
+    onProgress?.({ stage: "7th（拡張音）を検出中…", ratio: 0.98 });
+    await yieldToUi();
+    segments = applyExtensions(
+      segments,
+      chroma.chordFrames,
+      chroma.energies,
+      chroma.frameDuration,
+      {
+        keyRoot: key.root,
+        keyMode: key.mode,
+        ...(consumeLocalKey && localKeyCtx
+          ? { localKeys: localKeyCtx, contextPrior: true }
+          : {}),
+      },
+    );
+  }
+
   onProgress?.({ stage: "完了", ratio: 1 });
 
   return {
@@ -217,5 +309,6 @@ export async function analyzeAudio(
     bpm,
     segments,
     analyzedInMs: Math.round(performance.now() - started),
+    ...(localKeyCtx ? { localKeys: localKeyCtx.windows } : {}),
   };
 }

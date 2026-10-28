@@ -1,6 +1,6 @@
 # Phase 1 Step 2 測定結果 — 分数コード（スラッシュコード）対応
 
-測定日: 2026-10-27 / ハーネス: scripts/measurePhase1Step2.ts（`npm run measure:phase1-step2` で再実行可能）
+測定日: 2026-10-28 / ハーネス: scripts/measurePhase1Step2.ts（`npm run measure:phase1-step2` で再実行可能）
 
 ## 実施内容
 

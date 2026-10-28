@@ -17,7 +17,7 @@ export default function SegmentList({ segments, currentTime, onSeek, onEdit }: P
     <ul className="segment-list">
       {segments.map((seg) => {
         const active = currentTime >= seg.start && currentTime < seg.end;
-        const display = displayChordName(seg.chord, seg.bassPc);
+        const display = displayChordName(seg.chord, seg.bassPc, seg.extension);
         return (
           <li key={seg.id} className={`segment-row${active ? " active" : ""}`}>
             <button

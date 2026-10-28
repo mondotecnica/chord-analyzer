@@ -33,6 +33,7 @@ import {
 } from "./stems/separationCalibration";
 import { SeparationCancelledError } from "./stems/types";
 import { displayChordName } from "./lib/chordDisplay";
+import { summarizeLocalKeys } from "./lib/localKeySummary";
 import { formatTime, noteName } from "./lib/notes";
 import type { AnalysisResult, ChordSegment } from "./types";
 import Timeline from "./components/Timeline";
@@ -326,6 +327,15 @@ export default function App() {
     ? { ...result, segments }
     : null;
 
+  // 局所キー（Phase 3.3、記録・表示のみ既定 ON）の要約表示。
+  // 窓列は記録専用で、ラベル判定には使われていない。
+  const localKeySummary = useMemo(
+    () => summarizeLocalKeys(effectiveResult?.localKeys),
+    [effectiveResult?.localKeys],
+  );
+  const localKeyLabel = (root: number, mode: "major" | "minor") =>
+    `${noteName(root)} ${mode === "major" ? "メジャー" : "マイナー"}`;
+
   const currentChord = segments.find(
     (s) => currentTime >= s.start && currentTime < s.end,
   );
@@ -539,7 +549,7 @@ export default function App() {
               <div className="playback-meta">
                 <span className="playback-chord">
                   {currentChord
-                    ? displayChordName(currentChord.chord, currentChord.bassPc)
+                    ? displayChordName(currentChord.chord, currentChord.bassPc, currentChord.extension)
                     : "—"}
                 </span>
                 <span className="playback-file">
@@ -584,6 +594,25 @@ export default function App() {
                 </span>
               </div>
             </div>
+            {localKeySummary && (
+              <p className="local-key-summary">
+                <span className="summary-label">局所キー（推定）</span>
+                <span>
+                  {localKeyLabel(
+                    localKeySummary.dominantRoot,
+                    localKeySummary.dominantMode,
+                  )}
+                  を中心に推移
+                  {localKeySummary.changes.length > 0 &&
+                    ` · ${localKeySummary.changes
+                      .map(
+                        (c) =>
+                          `${formatTime(c.atSec)} ${localKeyLabel(c.root, c.mode)}`,
+                      )
+                      .join(" · ")}`}
+                </span>
+              </p>
+            )}
             {effectiveResult.mode === "high-accuracy" &&
               typeof effectiveResult.separationSeconds === "number" && (
                 <p className="hint">

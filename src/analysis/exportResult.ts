@@ -1,5 +1,6 @@
 import { displayChordName } from "../lib/chordDisplay";
-import { formatTimePrecise, noteName } from "../lib/notes";
+import { summarizeLocalKeys } from "../lib/localKeySummary";
+import { formatTime, formatTimePrecise, noteName } from "../lib/notes";
 import type { AnalysisResult } from "../types";
 
 /**
@@ -29,6 +30,20 @@ export function resultToJson(result: AnalysisResult): string {
       fileName: result.fileName,
       durationSec: Number(result.duration.toFixed(3)),
       key: `${noteName(result.keyRoot)} ${result.keyMode}`,
+      // Phase 3.3: 局所キー窓列（推定した場合のみ。全体キーとは別に、
+      // 時間で滑るキー候補とその曖昧さを記録として残す）
+      ...(result.localKeys
+        ? {
+            localKeys: result.localKeys.map((w) => ({
+              startSec: Number(w.start.toFixed(3)),
+              endSec: Number(w.end.toFixed(3)),
+              key: `${noteName(w.root)} ${w.mode}`,
+              correlation: Number(w.correlation.toFixed(3)),
+              margin: Number(w.margin.toFixed(3)),
+              runnerUpKey: `${noteName(w.runnerUpRoot)} ${w.runnerUpMode}`,
+            })),
+          }
+        : {}),
       bpmEstimate: result.bpm,
       note: "bpm は推定値です。音声データは含まれません。",
       segments: result.segments.map((s) => ({
@@ -39,11 +54,30 @@ export function resultToJson(result: AnalysisResult): string {
         edited: Boolean(s.edited),
         // Phase 1: ベース音（ルートとは別フィールド）。推定できた場合のみ含む
         ...(s.bassPc !== undefined ? { bass: noteName(s.bassPc) } : {}),
+        // Phase 3.1: 拡張音（chord とは別フィールド）。付いた場合のみ含む
+        ...(s.extension !== undefined ? { extension: s.extension } : {}),
       })),
     },
     null,
     2,
   );
+}
+
+/** 局所キーの要約行（テキスト書き出し用）。記録が無ければ空配列 */
+function localKeySummaryLines(result: AnalysisResult): string[] {
+  const summary = summarizeLocalKeys(result.localKeys);
+  if (!summary) return [];
+  const label = (root: number, mode: "major" | "minor") =>
+    `${noteName(root)} ${mode}`;
+  const changes =
+    summary.changes.length > 0
+      ? `（変化点: ${summary.changes
+          .map((c) => `${formatTime(c.atSec)} ${label(c.root, c.mode)}`)
+          .join("、")}）`
+      : "（目立った変化なし）";
+  return [
+    `# 局所キー: ${label(summary.dominantRoot, summary.dominantMode)} が中心${changes}`,
+  ];
 }
 
 export function resultToText(result: AnalysisResult): string {
@@ -54,6 +88,9 @@ export function resultToText(result: AnalysisResult): string {
       ? `# モード: 高精度モード（分離モデル: ${result.separationModel ?? "不明"} / ステム戦略: ${result.stemStrategy ?? "不明"}）`
       : `# モード: 簡易モード`,
     `# キー: ${noteName(result.keyRoot)} ${result.keyMode === "major" ? "メジャー" : "マイナー"}`,
+    // Phase 3.3（分割採用）: 局所キーの要約を1行だけ添える。
+    // 窓列の全量は JSON 書き出し側に残る（resultToJson 参照）。
+    ...localKeySummaryLines(result),
     `# 推定BPM: ${result.bpm ?? "不明"}`,
     `# 形式: 開始 - 終了  コード（信頼度）`,
     "",
@@ -62,7 +99,7 @@ export function resultToText(result: AnalysisResult): string {
     // テキスト譜では分数コード表示（C/E 等）を使う。JSON 側は
     // chord と bass を別フィールドのまま保持する（resultToJson 参照）。
     lines.push(
-      `${formatTimePrecise(s.start)} - ${formatTimePrecise(s.end)}  ${displayChordName(s.chord, s.bassPc)}  (${Math.round(s.confidence * 100)}%)${s.edited ? " [修正済み]" : ""}`,
+      `${formatTimePrecise(s.start)} - ${formatTimePrecise(s.end)}  ${displayChordName(s.chord, s.bassPc, s.extension)}  (${Math.round(s.confidence * 100)}%)${s.edited ? " [修正済み]" : ""}`,
     );
   }
   return lines.join("\n");

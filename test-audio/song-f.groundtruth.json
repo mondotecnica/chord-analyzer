@@ -1,0 +1,72 @@
+{
+  "songId": "song-f",
+  "title": "Song F — secondary dominants (CM7–A7–Dm7–G7 / C–F–G7–Am7)",
+  "key": "C major",
+  "bpm": 96,
+  "sampleRate": 44100,
+  "durationSec": 20,
+  "segments": [
+    {
+      "startSec": 0,
+      "endSec": 2.5,
+      "chord": "C",
+      "fullChord": "CM7",
+      "bass": "C",
+      "bassPc": 0
+    },
+    {
+      "startSec": 2.5,
+      "endSec": 5,
+      "chord": "A",
+      "fullChord": "A7",
+      "bass": "A",
+      "bassPc": 9
+    },
+    {
+      "startSec": 5,
+      "endSec": 7.5,
+      "chord": "Dm",
+      "fullChord": "Dm7",
+      "bass": "D",
+      "bassPc": 2
+    },
+    {
+      "startSec": 7.5,
+      "endSec": 10,
+      "chord": "G",
+      "fullChord": "G7",
+      "bass": "G",
+      "bassPc": 7
+    },
+    {
+      "startSec": 10,
+      "endSec": 12.5,
+      "chord": "C",
+      "bass": "C",
+      "bassPc": 0
+    },
+    {
+      "startSec": 12.5,
+      "endSec": 15,
+      "chord": "F",
+      "bass": "F",
+      "bassPc": 5
+    },
+    {
+      "startSec": 15,
+      "endSec": 17.5,
+      "chord": "G",
+      "fullChord": "G7",
+      "bass": "G",
+      "bassPc": 7
+    },
+    {
+      "startSec": 17.5,
+      "endSec": 20,
+      "chord": "Am",
+      "fullChord": "Am7",
+      "bass": "A",
+      "bassPc": 9
+    }
+  ]
+}

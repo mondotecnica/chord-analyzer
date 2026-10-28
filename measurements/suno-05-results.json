@@ -1,0 +1,3944 @@
+{
+ "song": "05.mp3 (Suno, user original)",
+ "groundTruth": null,
+ "note": "正解譜なし。2モードの出力とベース証拠からの候補再構成であり、正解率ではない。",
+ "file": {
+  "durationSec": 205.14,
+  "sampleRate": 44100,
+  "channels": 2,
+  "codec": "mp3 256kbps"
+ },
+ "gitHead": "dc34709",
+ "mixture": {
+  "keyRoot": 9,
+  "keyMode": "minor",
+  "bpm": 108,
+  "duration": 205.1395918367347,
+  "mode": null,
+  "stemStrategy": null,
+  "segments": [
+   {
+    "start": 0,
+    "end": 2.508,
+    "chord": "N.C.",
+    "bassPc": 0,
+    "confidence": 0.413
+   },
+   {
+    "start": 2.508,
+    "end": 4.133,
+    "chord": "G",
+    "bassPc": 0,
+    "confidence": 0.616
+   },
+   {
+    "start": 4.133,
+    "end": 4.83,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.582
+   },
+   {
+    "start": 4.83,
+    "end": 5.48,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.597
+   },
+   {
+    "start": 5.48,
+    "end": 11.935,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.682
+   },
+   {
+    "start": 11.935,
+    "end": 12.446,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.64
+   },
+   {
+    "start": 12.446,
+    "end": 14.489,
+    "chord": "Dm",
+    "bassPc": 5,
+    "confidence": 0.696
+   },
+   {
+    "start": 14.489,
+    "end": 15.325,
+    "chord": "N.C.",
+    "bassPc": null,
+    "confidence": 0.086
+   },
+   {
+    "start": 15.325,
+    "end": 16.486,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.604
+   },
+   {
+    "start": 16.486,
+    "end": 19.319,
+    "chord": "D",
+    "bassPc": 9,
+    "confidence": 0.548
+   },
+   {
+    "start": 19.319,
+    "end": 19.83,
+    "chord": "Am",
+    "bassPc": 11,
+    "confidence": 0.747
+   },
+   {
+    "start": 19.83,
+    "end": 21.037,
+    "chord": "N.C.",
+    "bassPc": null,
+    "confidence": 0.091
+   },
+   {
+    "start": 21.037,
+    "end": 21.548,
+    "chord": "Dm",
+    "bassPc": null,
+    "confidence": 0.601
+   },
+   {
+    "start": 21.548,
+    "end": 22.756,
+    "chord": "N.C.",
+    "bassPc": null,
+    "confidence": 0.09
+   },
+   {
+    "start": 22.756,
+    "end": 23.359,
+    "chord": "Am",
+    "bassPc": 0,
+    "confidence": 0.707
+   },
+   {
+    "start": 23.359,
+    "end": 24.706,
+    "chord": "D",
+    "bassPc": 9,
+    "confidence": 0.572
+   },
+   {
+    "start": 24.706,
+    "end": 26.564,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.577
+   },
+   {
+    "start": 26.564,
+    "end": 26.982,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.627
+   },
+   {
+    "start": 26.982,
+    "end": 27.91,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.578
+   },
+   {
+    "start": 27.91,
+    "end": 29.954,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.61
+   },
+   {
+    "start": 29.954,
+    "end": 39.335,
+    "chord": "Am",
+    "bassPc": 11,
+    "confidence": 0.622
+   },
+   {
+    "start": 39.335,
+    "end": 39.938,
+    "chord": "D",
+    "bassPc": 2,
+    "confidence": 0.655
+   },
+   {
+    "start": 39.938,
+    "end": 41.564,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.601
+   },
+   {
+    "start": 41.564,
+    "end": 42.539,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.596
+   },
+   {
+    "start": 42.539,
+    "end": 43.886,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.691
+   },
+   {
+    "start": 43.886,
+    "end": 45.372,
+    "chord": "Am",
+    "bassPc": 0,
+    "confidence": 0.658
+   },
+   {
+    "start": 45.372,
+    "end": 46.393,
+    "chord": "Dm",
+    "bassPc": 6,
+    "confidence": 0.625
+   },
+   {
+    "start": 46.393,
+    "end": 48.715,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.673
+   },
+   {
+    "start": 48.715,
+    "end": 49.923,
+    "chord": "G",
+    "bassPc": 10,
+    "confidence": 0.675
+   },
+   {
+    "start": 49.923,
+    "end": 51.966,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.672
+   },
+   {
+    "start": 51.966,
+    "end": 53.592,
+    "chord": "D",
+    "bassPc": 2,
+    "confidence": 0.591
+   },
+   {
+    "start": 53.592,
+    "end": 56.239,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.668
+   },
+   {
+    "start": 56.239,
+    "end": 56.982,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.735
+   },
+   {
+    "start": 56.982,
+    "end": 60.836,
+    "chord": "D",
+    "bassPc": 4,
+    "confidence": 0.725
+   },
+   {
+    "start": 60.836,
+    "end": 61.486,
+    "chord": "D",
+    "bassPc": 2,
+    "confidence": 0.616
+   },
+   {
+    "start": 61.486,
+    "end": 62.09,
+    "chord": "D",
+    "bassPc": 2,
+    "confidence": 0.622
+   },
+   {
+    "start": 62.09,
+    "end": 62.926,
+    "chord": "C#m",
+    "bassPc": 1,
+    "confidence": 0.497
+   },
+   {
+    "start": 62.926,
+    "end": 64.319,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.619
+   },
+   {
+    "start": 64.319,
+    "end": 65.202,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.617
+   },
+   {
+    "start": 65.202,
+    "end": 66.548,
+    "chord": "D",
+    "bassPc": 2,
+    "confidence": 0.636
+   },
+   {
+    "start": 66.548,
+    "end": 67.106,
+    "chord": "G",
+    "bassPc": 11,
+    "confidence": 0.655
+   },
+   {
+    "start": 67.106,
+    "end": 67.663,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.606
+   },
+   {
+    "start": 67.663,
+    "end": 69.335,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.608
+   },
+   {
+    "start": 69.335,
+    "end": 70.449,
+    "chord": "Am",
+    "bassPc": 11,
+    "confidence": 0.699
+   },
+   {
+    "start": 70.449,
+    "end": 72.586,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.654
+   },
+   {
+    "start": 72.586,
+    "end": 73.514,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.69
+   },
+   {
+    "start": 73.514,
+    "end": 73.886,
+    "chord": "F#m",
+    "bassPc": 6,
+    "confidence": 0.724
+   },
+   {
+    "start": 73.886,
+    "end": 75.558,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.686
+   },
+   {
+    "start": 75.558,
+    "end": 78.437,
+    "chord": "Em",
+    "bassPc": 4,
+    "confidence": 0.716
+   },
+   {
+    "start": 78.437,
+    "end": 80.527,
+    "chord": "Am",
+    "bassPc": 2,
+    "confidence": 0.636
+   },
+   {
+    "start": 80.527,
+    "end": 84.985,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.678
+   },
+   {
+    "start": 84.985,
+    "end": 85.821,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.563
+   },
+   {
+    "start": 85.821,
+    "end": 86.192,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.606
+   },
+   {
+    "start": 86.192,
+    "end": 86.61,
+    "chord": "Am",
+    "bassPc": 0,
+    "confidence": 0.782
+   },
+   {
+    "start": 86.61,
+    "end": 87.028,
+    "chord": "Bm",
+    "bassPc": 0,
+    "confidence": 0.697
+   },
+   {
+    "start": 87.028,
+    "end": 87.632,
+    "chord": "G",
+    "bassPc": null,
+    "confidence": 0.908
+   },
+   {
+    "start": 87.632,
+    "end": 89.675,
+    "chord": "Am",
+    "bassPc": 11,
+    "confidence": 0.714
+   },
+   {
+    "start": 89.675,
+    "end": 90.558,
+    "chord": "Em",
+    "bassPc": 4,
+    "confidence": 0.705
+   },
+   {
+    "start": 90.558,
+    "end": 91.022,
+    "chord": "A#m",
+    "bassPc": 10,
+    "confidence": 0.693
+   },
+   {
+    "start": 91.022,
+    "end": 91.626,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.699
+   },
+   {
+    "start": 91.626,
+    "end": 94.645,
+    "chord": "C",
+    "bassPc": 9,
+    "confidence": 0.643
+   },
+   {
+    "start": 94.645,
+    "end": 95.248,
+    "chord": "Bm",
+    "bassPc": 2,
+    "confidence": 0.669
+   },
+   {
+    "start": 95.248,
+    "end": 96.967,
+    "chord": "G",
+    "bassPc": 2,
+    "confidence": 0.66
+   },
+   {
+    "start": 96.967,
+    "end": 100.078,
+    "chord": "G",
+    "bassPc": 11,
+    "confidence": 0.565
+   },
+   {
+    "start": 100.078,
+    "end": 100.496,
+    "chord": "D",
+    "bassPc": null,
+    "confidence": 0.585
+   },
+   {
+    "start": 100.496,
+    "end": 103.097,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.662
+   },
+   {
+    "start": 103.097,
+    "end": 103.84,
+    "chord": "N.C.",
+    "bassPc": null,
+    "confidence": 0
+   },
+   {
+    "start": 103.84,
+    "end": 108.437,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.647
+   },
+   {
+    "start": 108.437,
+    "end": 110.527,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.629
+   },
+   {
+    "start": 110.527,
+    "end": 111.224,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.685
+   },
+   {
+    "start": 111.224,
+    "end": 112.06,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.611
+   },
+   {
+    "start": 112.06,
+    "end": 114.196,
+    "chord": "Am",
+    "bassPc": 0,
+    "confidence": 0.623
+   },
+   {
+    "start": 114.196,
+    "end": 114.567,
+    "chord": "G",
+    "bassPc": null,
+    "confidence": 0.766
+   },
+   {
+    "start": 114.567,
+    "end": 116.796,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.654
+   },
+   {
+    "start": 116.796,
+    "end": 117.354,
+    "chord": "D",
+    "bassPc": null,
+    "confidence": 0.632
+   },
+   {
+    "start": 117.354,
+    "end": 121.208,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.645
+   },
+   {
+    "start": 121.208,
+    "end": 122.044,
+    "chord": "D",
+    "bassPc": 2,
+    "confidence": 0.606
+   },
+   {
+    "start": 122.044,
+    "end": 123.391,
+    "chord": "G",
+    "bassPc": 2,
+    "confidence": 0.605
+   },
+   {
+    "start": 123.391,
+    "end": 124.413,
+    "chord": "C#m",
+    "bassPc": 1,
+    "confidence": 0.626
+   },
+   {
+    "start": 124.413,
+    "end": 126.409,
+    "chord": "A",
+    "bassPc": 0,
+    "confidence": 0.676
+   },
+   {
+    "start": 126.409,
+    "end": 127.896,
+    "chord": "Bm",
+    "bassPc": 9,
+    "confidence": 0.604
+   },
+   {
+    "start": 127.896,
+    "end": 129.474,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.677
+   },
+   {
+    "start": 129.474,
+    "end": 130.589,
+    "chord": "Em",
+    "bassPc": 4,
+    "confidence": 0.706
+   },
+   {
+    "start": 130.589,
+    "end": 131.146,
+    "chord": "A#m",
+    "bassPc": 10,
+    "confidence": 0.717
+   },
+   {
+    "start": 131.146,
+    "end": 132.725,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.79
+   },
+   {
+    "start": 132.725,
+    "end": 133.654,
+    "chord": "D",
+    "bassPc": 2,
+    "confidence": 0.627
+   },
+   {
+    "start": 133.654,
+    "end": 135.047,
+    "chord": "Am",
+    "bassPc": 7,
+    "confidence": 0.738
+   },
+   {
+    "start": 135.047,
+    "end": 136.766,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.643
+   },
+   {
+    "start": 136.766,
+    "end": 137.137,
+    "chord": "Em",
+    "bassPc": 7,
+    "confidence": 0.658
+   },
+   {
+    "start": 137.137,
+    "end": 138.298,
+    "chord": "D",
+    "bassPc": 0,
+    "confidence": 0.658
+   },
+   {
+    "start": 138.298,
+    "end": 139.227,
+    "chord": "Bm",
+    "bassPc": null,
+    "confidence": 0.64
+   },
+   {
+    "start": 139.227,
+    "end": 140.527,
+    "chord": "Am",
+    "bassPc": 0,
+    "confidence": 0.596
+   },
+   {
+    "start": 140.527,
+    "end": 141.038,
+    "chord": "G",
+    "bassPc": 9,
+    "confidence": 0.796
+   },
+   {
+    "start": 141.038,
+    "end": 146.518,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.682
+   },
+   {
+    "start": 146.518,
+    "end": 146.889,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.567
+   },
+   {
+    "start": 146.889,
+    "end": 147.632,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.692
+   },
+   {
+    "start": 147.632,
+    "end": 148.933,
+    "chord": "D",
+    "bassPc": 2,
+    "confidence": 0.613
+   },
+   {
+    "start": 148.933,
+    "end": 149.815,
+    "chord": "F",
+    "bassPc": null,
+    "confidence": 0.611
+   },
+   {
+    "start": 149.815,
+    "end": 150.883,
+    "chord": "G",
+    "bassPc": null,
+    "confidence": 0.653
+   },
+   {
+    "start": 150.883,
+    "end": 151.255,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.753
+   },
+   {
+    "start": 151.255,
+    "end": 155.713,
+    "chord": "Am",
+    "bassPc": 0,
+    "confidence": 0.66
+   },
+   {
+    "start": 155.713,
+    "end": 156.967,
+    "chord": "Em",
+    "bassPc": 4,
+    "confidence": 0.692
+   },
+   {
+    "start": 156.967,
+    "end": 160.914,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.681
+   },
+   {
+    "start": 160.914,
+    "end": 161.89,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.704
+   },
+   {
+    "start": 161.89,
+    "end": 162.911,
+    "chord": "A",
+    "bassPc": 7,
+    "confidence": 0.666
+   },
+   {
+    "start": 162.911,
+    "end": 164.119,
+    "chord": "G",
+    "bassPc": 2,
+    "confidence": 0.648
+   },
+   {
+    "start": 164.119,
+    "end": 165.698,
+    "chord": "Am",
+    "bassPc": 0,
+    "confidence": 0.614
+   },
+   {
+    "start": 165.698,
+    "end": 166.812,
+    "chord": "Cm",
+    "bassPc": 0,
+    "confidence": 0.665
+   },
+   {
+    "start": 166.812,
+    "end": 167.369,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.633
+   },
+   {
+    "start": 167.369,
+    "end": 170.434,
+    "chord": "Am",
+    "bassPc": 11,
+    "confidence": 0.711
+   },
+   {
+    "start": 170.434,
+    "end": 171.178,
+    "chord": "D",
+    "bassPc": 9,
+    "confidence": 0.691
+   },
+   {
+    "start": 171.178,
+    "end": 173.36,
+    "chord": "D",
+    "bassPc": 2,
+    "confidence": 0.668
+   },
+   {
+    "start": 173.36,
+    "end": 174.243,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.647
+   },
+   {
+    "start": 174.243,
+    "end": 174.753,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.611
+   },
+   {
+    "start": 174.753,
+    "end": 175.589,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.657
+   },
+   {
+    "start": 175.589,
+    "end": 176.1,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.626
+   },
+   {
+    "start": 176.1,
+    "end": 176.704,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.719
+   },
+   {
+    "start": 176.704,
+    "end": 178.376,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.672
+   },
+   {
+    "start": 178.376,
+    "end": 179.49,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.665
+   },
+   {
+    "start": 179.49,
+    "end": 179.862,
+    "chord": "D",
+    "bassPc": 9,
+    "confidence": 0.738
+   },
+   {
+    "start": 179.862,
+    "end": 183.67,
+    "chord": "D",
+    "bassPc": null,
+    "confidence": 0.655
+   },
+   {
+    "start": 183.67,
+    "end": 187.571,
+    "chord": "A",
+    "bassPc": 11,
+    "confidence": 0.649
+   },
+   {
+    "start": 187.571,
+    "end": 189.428,
+    "chord": "Dm",
+    "bassPc": 2,
+    "confidence": 0.66
+   },
+   {
+    "start": 189.428,
+    "end": 192.447,
+    "chord": "A",
+    "bassPc": 0,
+    "confidence": 0.668
+   },
+   {
+    "start": 192.447,
+    "end": 194.49,
+    "chord": "D",
+    "bassPc": 4,
+    "confidence": 0.683
+   },
+   {
+    "start": 194.49,
+    "end": 196.394,
+    "chord": "Am",
+    "bassPc": 0,
+    "confidence": 0.665
+   },
+   {
+    "start": 196.394,
+    "end": 196.952,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.698
+   },
+   {
+    "start": 196.952,
+    "end": 198.67,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.676
+   },
+   {
+    "start": 198.67,
+    "end": 199.227,
+    "chord": "Em",
+    "bassPc": 4,
+    "confidence": 0.647
+   },
+   {
+    "start": 199.227,
+    "end": 200.899,
+    "chord": "Em",
+    "bassPc": 4,
+    "confidence": 0.749
+   },
+   {
+    "start": 200.899,
+    "end": 205.14,
+    "chord": "N.C.",
+    "bassPc": null,
+    "confidence": 0
+   }
+  ]
+ },
+ "stems": {
+  "keyRoot": 9,
+  "keyMode": "minor",
+  "bpm": 108,
+  "duration": 205.1395918367347,
+  "mode": "high-accuracy",
+  "stemStrategy": "s-conditional",
+  "segments": [
+   {
+    "start": 0,
+    "end": 2.229,
+    "chord": "N.C.",
+    "bassPc": null,
+    "confidence": 0.097
+   },
+   {
+    "start": 2.229,
+    "end": 3.947,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.704
+   },
+   {
+    "start": 3.947,
+    "end": 4.319,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.603
+   },
+   {
+    "start": 4.319,
+    "end": 6.641,
+    "chord": "G",
+    "bassPc": 11,
+    "confidence": 0.709
+   },
+   {
+    "start": 6.641,
+    "end": 7.848,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.588
+   },
+   {
+    "start": 7.848,
+    "end": 11.471,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.656
+   },
+   {
+    "start": 11.471,
+    "end": 11.935,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.638
+   },
+   {
+    "start": 11.935,
+    "end": 12.353,
+    "chord": "G",
+    "bassPc": 9,
+    "confidence": 0.605
+   },
+   {
+    "start": 12.353,
+    "end": 13.328,
+    "chord": "Dm",
+    "bassPc": 5,
+    "confidence": 0.688
+   },
+   {
+    "start": 13.328,
+    "end": 14.211,
+    "chord": "F",
+    "bassPc": 5,
+    "confidence": 0.613
+   },
+   {
+    "start": 14.211,
+    "end": 14.954,
+    "chord": "Gm",
+    "bassPc": null,
+    "confidence": 0.574
+   },
+   {
+    "start": 14.954,
+    "end": 15.372,
+    "chord": "Am",
+    "bassPc": null,
+    "confidence": 0.572
+   },
+   {
+    "start": 15.372,
+    "end": 19.551,
+    "chord": "N.C.",
+    "bassPc": 0,
+    "confidence": 0.156
+   },
+   {
+    "start": 19.551,
+    "end": 19.923,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.751
+   },
+   {
+    "start": 19.923,
+    "end": 20.991,
+    "chord": "N.C.",
+    "bassPc": null,
+    "confidence": 0
+   },
+   {
+    "start": 20.991,
+    "end": 22.756,
+    "chord": "Dm",
+    "bassPc": null,
+    "confidence": 0.509
+   },
+   {
+    "start": 22.756,
+    "end": 23.266,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.796
+   },
+   {
+    "start": 23.266,
+    "end": 24.427,
+    "chord": "N.C.",
+    "bassPc": null,
+    "confidence": 0.128
+   },
+   {
+    "start": 24.427,
+    "end": 24.985,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.768
+   },
+   {
+    "start": 24.985,
+    "end": 26.471,
+    "chord": "N.C.",
+    "bassPc": 7,
+    "confidence": 0.141
+   },
+   {
+    "start": 26.471,
+    "end": 28.328,
+    "chord": "Em",
+    "bassPc": 7,
+    "confidence": 0.711
+   },
+   {
+    "start": 28.328,
+    "end": 29.675,
+    "chord": "N.C.",
+    "bassPc": 7,
+    "confidence": 0.065
+   },
+   {
+    "start": 29.675,
+    "end": 30.975,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.832
+   },
+   {
+    "start": 30.975,
+    "end": 33.715,
+    "chord": "N.C.",
+    "bassPc": 11,
+    "confidence": 0.149
+   },
+   {
+    "start": 33.715,
+    "end": 34.273,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.623
+   },
+   {
+    "start": 34.273,
+    "end": 36.502,
+    "chord": "N.C.",
+    "bassPc": 11,
+    "confidence": 0.01
+   },
+   {
+    "start": 36.502,
+    "end": 37.013,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.749
+   },
+   {
+    "start": 37.013,
+    "end": 39.427,
+    "chord": "C",
+    "bassPc": 2,
+    "confidence": 0.656
+   },
+   {
+    "start": 39.427,
+    "end": 39.892,
+    "chord": "N.C.",
+    "bassPc": 2,
+    "confidence": 0.058
+   },
+   {
+    "start": 39.892,
+    "end": 41.61,
+    "chord": "Em",
+    "bassPc": 7,
+    "confidence": 0.742
+   },
+   {
+    "start": 41.61,
+    "end": 43.282,
+    "chord": "N.C.",
+    "bassPc": 7,
+    "confidence": 0.015
+   },
+   {
+    "start": 43.282,
+    "end": 44.629,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.726
+   },
+   {
+    "start": 44.629,
+    "end": 45.186,
+    "chord": "Em",
+    "bassPc": 0,
+    "confidence": 0.771
+   },
+   {
+    "start": 45.186,
+    "end": 46.672,
+    "chord": "N.C.",
+    "bassPc": 6,
+    "confidence": 0.177
+   },
+   {
+    "start": 46.672,
+    "end": 47.462,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.676
+   },
+   {
+    "start": 47.462,
+    "end": 48.437,
+    "chord": "D",
+    "bassPc": 11,
+    "confidence": 0.662
+   },
+   {
+    "start": 48.437,
+    "end": 50.062,
+    "chord": "N.C.",
+    "bassPc": 11,
+    "confidence": 0.138
+   },
+   {
+    "start": 50.062,
+    "end": 51.78,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.815
+   },
+   {
+    "start": 51.78,
+    "end": 53.545,
+    "chord": "Dm",
+    "bassPc": 2,
+    "confidence": 0.879
+   },
+   {
+    "start": 53.545,
+    "end": 55.217,
+    "chord": "Em",
+    "bassPc": 7,
+    "confidence": 0.742
+   },
+   {
+    "start": 55.217,
+    "end": 56.889,
+    "chord": "Bm",
+    "bassPc": 6,
+    "confidence": 0.705
+   },
+   {
+    "start": 56.889,
+    "end": 58.607,
+    "chord": "Em",
+    "bassPc": 4,
+    "confidence": 0.762
+   },
+   {
+    "start": 58.607,
+    "end": 59.072,
+    "chord": "B",
+    "bassPc": 3,
+    "confidence": 0.711
+   },
+   {
+    "start": 59.072,
+    "end": 61.208,
+    "chord": "Bm",
+    "bassPc": 2,
+    "confidence": 0.659
+   },
+   {
+    "start": 61.208,
+    "end": 61.997,
+    "chord": "G",
+    "bassPc": 2,
+    "confidence": 0.669
+   },
+   {
+    "start": 61.997,
+    "end": 63.669,
+    "chord": "C#m",
+    "bassPc": 1,
+    "confidence": 0.672
+   },
+   {
+    "start": 63.669,
+    "end": 67.059,
+    "chord": "C",
+    "bassPc": 9,
+    "confidence": 0.745
+   },
+   {
+    "start": 67.059,
+    "end": 67.895,
+    "chord": "Em",
+    "bassPc": 7,
+    "confidence": 0.77
+   },
+   {
+    "start": 67.895,
+    "end": 69.335,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.714
+   },
+   {
+    "start": 69.335,
+    "end": 69.939,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.797
+   },
+   {
+    "start": 69.939,
+    "end": 72.493,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.614
+   },
+   {
+    "start": 72.493,
+    "end": 73.886,
+    "chord": "C",
+    "bassPc": 7,
+    "confidence": 0.687
+   },
+   {
+    "start": 73.886,
+    "end": 74.257,
+    "chord": "B",
+    "bassPc": 11,
+    "confidence": 0.68
+   },
+   {
+    "start": 74.257,
+    "end": 75.604,
+    "chord": "D",
+    "bassPc": 11,
+    "confidence": 0.662
+   },
+   {
+    "start": 75.604,
+    "end": 77.276,
+    "chord": "E",
+    "bassPc": 4,
+    "confidence": 0.727
+   },
+   {
+    "start": 77.276,
+    "end": 78.994,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.741
+   },
+   {
+    "start": 78.994,
+    "end": 80.713,
+    "chord": "D",
+    "bassPc": 2,
+    "confidence": 0.665
+   },
+   {
+    "start": 80.713,
+    "end": 82.988,
+    "chord": "Em",
+    "bassPc": 7,
+    "confidence": 0.687
+   },
+   {
+    "start": 82.988,
+    "end": 84.753,
+    "chord": "G",
+    "bassPc": 0,
+    "confidence": 0.637
+   },
+   {
+    "start": 84.753,
+    "end": 85.775,
+    "chord": "N.C.",
+    "bassPc": null,
+    "confidence": 0
+   },
+   {
+    "start": 85.775,
+    "end": 86.146,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.733
+   },
+   {
+    "start": 86.146,
+    "end": 87.632,
+    "chord": "N.C.",
+    "bassPc": 0,
+    "confidence": 0.121
+   },
+   {
+    "start": 87.632,
+    "end": 89.304,
+    "chord": "A",
+    "bassPc": 11,
+    "confidence": 0.611
+   },
+   {
+    "start": 89.304,
+    "end": 91.347,
+    "chord": "E",
+    "bassPc": 4,
+    "confidence": 0.668
+   },
+   {
+    "start": 91.347,
+    "end": 91.997,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.713
+   },
+   {
+    "start": 91.997,
+    "end": 92.787,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.636
+   },
+   {
+    "start": 92.787,
+    "end": 93.298,
+    "chord": "C",
+    "bassPc": 9,
+    "confidence": 0.61
+   },
+   {
+    "start": 93.298,
+    "end": 93.716,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.626
+   },
+   {
+    "start": 93.716,
+    "end": 95.573,
+    "chord": "Dm",
+    "bassPc": 2,
+    "confidence": 0.755
+   },
+   {
+    "start": 95.573,
+    "end": 95.945,
+    "chord": "G",
+    "bassPc": 2,
+    "confidence": 0.655
+   },
+   {
+    "start": 95.945,
+    "end": 96.874,
+    "chord": "C",
+    "bassPc": null,
+    "confidence": 0.632
+   },
+   {
+    "start": 96.874,
+    "end": 97.477,
+    "chord": "Dm",
+    "bassPc": null,
+    "confidence": 0.604
+   },
+   {
+    "start": 97.477,
+    "end": 98.453,
+    "chord": "C",
+    "bassPc": null,
+    "confidence": 0.685
+   },
+   {
+    "start": 98.453,
+    "end": 101.518,
+    "chord": "N.C.",
+    "bassPc": 0,
+    "confidence": 0.09
+   },
+   {
+    "start": 101.518,
+    "end": 102.446,
+    "chord": "Em",
+    "bassPc": 11,
+    "confidence": 0.741
+   },
+   {
+    "start": 102.446,
+    "end": 104.676,
+    "chord": "N.C.",
+    "bassPc": 10,
+    "confidence": 0.213
+   },
+   {
+    "start": 104.676,
+    "end": 106.672,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.755
+   },
+   {
+    "start": 106.672,
+    "end": 107.555,
+    "chord": "N.C.",
+    "bassPc": 9,
+    "confidence": 0.263
+   },
+   {
+    "start": 107.555,
+    "end": 108.159,
+    "chord": "Em",
+    "bassPc": 4,
+    "confidence": 0.6
+   },
+   {
+    "start": 108.159,
+    "end": 109.645,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.659
+   },
+   {
+    "start": 109.645,
+    "end": 110.759,
+    "chord": "Em",
+    "bassPc": 7,
+    "confidence": 0.666
+   },
+   {
+    "start": 110.759,
+    "end": 112.013,
+    "chord": "N.C.",
+    "bassPc": 0,
+    "confidence": 0.473
+   },
+   {
+    "start": 112.013,
+    "end": 112.617,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.694
+   },
+   {
+    "start": 112.617,
+    "end": 113.406,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.599
+   },
+   {
+    "start": 113.406,
+    "end": 114.614,
+    "chord": "N.C.",
+    "bassPc": null,
+    "confidence": 0.156
+   },
+   {
+    "start": 114.614,
+    "end": 115.821,
+    "chord": "G",
+    "bassPc": 11,
+    "confidence": 0.646
+   },
+   {
+    "start": 115.821,
+    "end": 116.193,
+    "chord": "G",
+    "bassPc": 11,
+    "confidence": 0.596
+   },
+   {
+    "start": 116.193,
+    "end": 117.911,
+    "chord": "N.C.",
+    "bassPc": 10,
+    "confidence": 0.067
+   },
+   {
+    "start": 117.911,
+    "end": 119.769,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.828
+   },
+   {
+    "start": 119.769,
+    "end": 121.208,
+    "chord": "N.C.",
+    "bassPc": 4,
+    "confidence": 0.153
+   },
+   {
+    "start": 121.208,
+    "end": 125.341,
+    "chord": "Em",
+    "bassPc": 2,
+    "confidence": 0.632
+   },
+   {
+    "start": 125.341,
+    "end": 126.363,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.687
+   },
+   {
+    "start": 126.363,
+    "end": 128.313,
+    "chord": "N.C.",
+    "bassPc": 11,
+    "confidence": 0.29
+   },
+   {
+    "start": 128.313,
+    "end": 129.8,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.609
+   },
+   {
+    "start": 129.8,
+    "end": 130.543,
+    "chord": "E",
+    "bassPc": 4,
+    "confidence": 0.609
+   },
+   {
+    "start": 130.543,
+    "end": 131.053,
+    "chord": "A#m",
+    "bassPc": 10,
+    "confidence": 0.671
+   },
+   {
+    "start": 131.053,
+    "end": 135.279,
+    "chord": "C",
+    "bassPc": 9,
+    "confidence": 0.768
+   },
+   {
+    "start": 135.279,
+    "end": 135.93,
+    "chord": "C",
+    "bassPc": 7,
+    "confidence": 0.626
+   },
+   {
+    "start": 135.93,
+    "end": 137.741,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.6
+   },
+   {
+    "start": 137.741,
+    "end": 138.205,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.72
+   },
+   {
+    "start": 138.205,
+    "end": 141.038,
+    "chord": "N.C.",
+    "bassPc": 0,
+    "confidence": 0.053
+   },
+   {
+    "start": 141.038,
+    "end": 142.849,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.625
+   },
+   {
+    "start": 142.849,
+    "end": 145.078,
+    "chord": "Em",
+    "bassPc": 9,
+    "confidence": 0.594
+   },
+   {
+    "start": 145.078,
+    "end": 145.496,
+    "chord": "Dm",
+    "bassPc": 9,
+    "confidence": 0.597
+   },
+   {
+    "start": 145.496,
+    "end": 145.914,
+    "chord": "Bm",
+    "bassPc": 4,
+    "confidence": 0.708
+   },
+   {
+    "start": 145.914,
+    "end": 147.818,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.733
+   },
+   {
+    "start": 147.818,
+    "end": 148.515,
+    "chord": "Dm",
+    "bassPc": 2,
+    "confidence": 0.828
+   },
+   {
+    "start": 148.515,
+    "end": 150.001,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.621
+   },
+   {
+    "start": 150.001,
+    "end": 150.883,
+    "chord": "N.C.",
+    "bassPc": null,
+    "confidence": 0.067
+   },
+   {
+    "start": 150.883,
+    "end": 152.648,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.75
+   },
+   {
+    "start": 152.648,
+    "end": 156.131,
+    "chord": "Cm",
+    "bassPc": 0,
+    "confidence": 0.68
+   },
+   {
+    "start": 156.131,
+    "end": 157.478,
+    "chord": "G",
+    "bassPc": 4,
+    "confidence": 0.709
+   },
+   {
+    "start": 157.478,
+    "end": 158.314,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.808
+   },
+   {
+    "start": 158.314,
+    "end": 159.521,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.691
+   },
+   {
+    "start": 159.521,
+    "end": 162.679,
+    "chord": "C",
+    "bassPc": 2,
+    "confidence": 0.792
+   },
+   {
+    "start": 162.679,
+    "end": 164.072,
+    "chord": "Dm",
+    "bassPc": 7,
+    "confidence": 0.556
+   },
+   {
+    "start": 164.072,
+    "end": 165.14,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.696
+   },
+   {
+    "start": 165.14,
+    "end": 165.698,
+    "chord": "N.C.",
+    "bassPc": null,
+    "confidence": 0.143
+   },
+   {
+    "start": 165.698,
+    "end": 167.323,
+    "chord": "Cm",
+    "bassPc": 0,
+    "confidence": 0.652
+   },
+   {
+    "start": 167.323,
+    "end": 167.787,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.658
+   },
+   {
+    "start": 167.787,
+    "end": 168.995,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.648
+   },
+   {
+    "start": 168.995,
+    "end": 170.017,
+    "chord": "Em",
+    "bassPc": 4,
+    "confidence": 0.615
+   },
+   {
+    "start": 170.017,
+    "end": 170.527,
+    "chord": "G",
+    "bassPc": 7,
+    "confidence": 0.794
+   },
+   {
+    "start": 170.527,
+    "end": 172.199,
+    "chord": "Am",
+    "bassPc": 9,
+    "confidence": 0.735
+   },
+   {
+    "start": 172.199,
+    "end": 172.849,
+    "chord": "D",
+    "bassPc": 2,
+    "confidence": 0.776
+   },
+   {
+    "start": 172.849,
+    "end": 173.732,
+    "chord": "D",
+    "bassPc": 2,
+    "confidence": 0.696
+   },
+   {
+    "start": 173.732,
+    "end": 174.986,
+    "chord": "C",
+    "bassPc": 7,
+    "confidence": 0.723
+   },
+   {
+    "start": 174.986,
+    "end": 176.472,
+    "chord": "C",
+    "bassPc": 7,
+    "confidence": 0.639
+   },
+   {
+    "start": 176.472,
+    "end": 177.029,
+    "chord": "G",
+    "bassPc": null,
+    "confidence": 0.705
+   },
+   {
+    "start": 177.029,
+    "end": 178.608,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.697
+   },
+   {
+    "start": 178.608,
+    "end": 180.14,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.806
+   },
+   {
+    "start": 180.14,
+    "end": 181.162,
+    "chord": "Em",
+    "bassPc": 4,
+    "confidence": 0.68
+   },
+   {
+    "start": 181.162,
+    "end": 182.509,
+    "chord": "D",
+    "bassPc": 2,
+    "confidence": 0.558
+   },
+   {
+    "start": 182.509,
+    "end": 183.205,
+    "chord": "C",
+    "bassPc": 1,
+    "confidence": 0.673
+   },
+   {
+    "start": 183.205,
+    "end": 184.831,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.746
+   },
+   {
+    "start": 184.831,
+    "end": 186.41,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.793
+   },
+   {
+    "start": 186.41,
+    "end": 187.571,
+    "chord": "Em",
+    "bassPc": 4,
+    "confidence": 0.728
+   },
+   {
+    "start": 187.571,
+    "end": 187.989,
+    "chord": "D",
+    "bassPc": 4,
+    "confidence": 0.702
+   },
+   {
+    "start": 187.989,
+    "end": 190.218,
+    "chord": "C",
+    "bassPc": 2,
+    "confidence": 0.543
+   },
+   {
+    "start": 190.218,
+    "end": 190.868,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.812
+   },
+   {
+    "start": 190.868,
+    "end": 193.98,
+    "chord": "D",
+    "bassPc": 11,
+    "confidence": 0.737
+   },
+   {
+    "start": 193.98,
+    "end": 194.444,
+    "chord": "N.C.",
+    "bassPc": 2,
+    "confidence": 0.256
+   },
+   {
+    "start": 194.444,
+    "end": 195.884,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.623
+   },
+   {
+    "start": 195.884,
+    "end": 197.091,
+    "chord": "C",
+    "bassPc": 0,
+    "confidence": 0.763
+   },
+   {
+    "start": 197.091,
+    "end": 198.67,
+    "chord": "Bm",
+    "bassPc": 11,
+    "confidence": 0.815
+   },
+   {
+    "start": 198.67,
+    "end": 201.131,
+    "chord": "Em",
+    "bassPc": 4,
+    "confidence": 0.747
+   },
+   {
+    "start": 201.131,
+    "end": 205.14,
+    "chord": "N.C.",
+    "bassPc": null,
+    "confidence": 0
+   }
+  ]
+ },
+ "bassWindows5s": [
+  {
+   "start": 0,
+   "end": 5,
+   "topPc": 0,
+   "topShare": 0.712,
+   "margin": 0.607,
+   "total": 26714
+  },
+  {
+   "start": 5,
+   "end": 10,
+   "topPc": 11,
+   "topShare": 0.446,
+   "margin": 0.232,
+   "total": 40163.6
+  },
+  {
+   "start": 10,
+   "end": 15,
+   "topPc": 5,
+   "topShare": 0.458,
+   "margin": 0.105,
+   "total": 32169
+  },
+  {
+   "start": 15,
+   "end": 20,
+   "topPc": 11,
+   "topShare": 0.446,
+   "margin": 0.093,
+   "total": 14600.2
+  },
+  {
+   "start": 20,
+   "end": 25,
+   "topPc": 9,
+   "topShare": 0.685,
+   "margin": 0.553,
+   "total": 15164.3
+  },
+  {
+   "start": 25,
+   "end": 30,
+   "topPc": 7,
+   "topShare": 0.669,
+   "margin": 0.519,
+   "total": 41076.4
+  },
+  {
+   "start": 30,
+   "end": 35,
+   "topPc": 11,
+   "topShare": 0.434,
+   "margin": 0.114,
+   "total": 47240.6
+  },
+  {
+   "start": 35,
+   "end": 40,
+   "topPc": 2,
+   "topShare": 0.367,
+   "margin": 0.04,
+   "total": 52636.1
+  },
+  {
+   "start": 40,
+   "end": 45,
+   "topPc": 7,
+   "topShare": 0.55,
+   "margin": 0.329,
+   "total": 63198.2
+  },
+  {
+   "start": 45,
+   "end": 50,
+   "topPc": 11,
+   "topShare": 0.463,
+   "margin": 0.248,
+   "total": 58597.6
+  },
+  {
+   "start": 50,
+   "end": 55,
+   "topPc": 2,
+   "topShare": 0.323,
+   "margin": 0.009,
+   "total": 68195.9
+  },
+  {
+   "start": 55,
+   "end": 60,
+   "topPc": 4,
+   "topShare": 0.311,
+   "margin": 0.011,
+   "total": 86058
+  },
+  {
+   "start": 60,
+   "end": 65,
+   "topPc": 2,
+   "topShare": 0.371,
+   "margin": 0.085,
+   "total": 65765.5
+  },
+  {
+   "start": 65,
+   "end": 70,
+   "topPc": 7,
+   "topShare": 0.444,
+   "margin": 0.19,
+   "total": 59586.4
+  },
+  {
+   "start": 70,
+   "end": 75,
+   "topPc": 0,
+   "topShare": 0.375,
+   "margin": 0.105,
+   "total": 74788.5
+  },
+  {
+   "start": 75,
+   "end": 80,
+   "topPc": 4,
+   "topShare": 0.317,
+   "margin": 0.079,
+   "total": 100976.6
+  },
+  {
+   "start": 80,
+   "end": 85,
+   "topPc": 7,
+   "topShare": 0.501,
+   "margin": 0.286,
+   "total": 99939.8
+  },
+  {
+   "start": 85,
+   "end": 90,
+   "topPc": 0,
+   "topShare": 0.496,
+   "margin": 0.184,
+   "total": 23188.7
+  },
+  {
+   "start": 90,
+   "end": 95,
+   "topPc": 9,
+   "topShare": 0.479,
+   "margin": 0.299,
+   "total": 39945
+  },
+  {
+   "start": 95,
+   "end": 100,
+   "topPc": 2,
+   "topShare": 0.93,
+   "margin": 0.913,
+   "total": 7080.8
+  },
+  {
+   "start": 100,
+   "end": 105,
+   "topPc": 11,
+   "topShare": 0.484,
+   "margin": 0.239,
+   "total": 39078.4
+  },
+  {
+   "start": 105,
+   "end": 110,
+   "topPc": 7,
+   "topShare": 0.478,
+   "margin": 0.222,
+   "total": 41996.8
+  },
+  {
+   "start": 110,
+   "end": 115,
+   "topPc": 0,
+   "topShare": 0.559,
+   "margin": 0.318,
+   "total": 40885.9
+  },
+  {
+   "start": 115,
+   "end": 120,
+   "topPc": 9,
+   "topShare": 0.419,
+   "margin": 0.098,
+   "total": 40200.8
+  },
+  {
+   "start": 120,
+   "end": 125,
+   "topPc": 2,
+   "topShare": 0.389,
+   "margin": 0.197,
+   "total": 51765.4
+  },
+  {
+   "start": 125,
+   "end": 130,
+   "topPc": 11,
+   "topShare": 0.454,
+   "margin": 0.177,
+   "total": 41722.9
+  },
+  {
+   "start": 130,
+   "end": 135,
+   "topPc": 9,
+   "topShare": 0.316,
+   "margin": 0.117,
+   "total": 76976.5
+  },
+  {
+   "start": 135,
+   "end": 140,
+   "topPc": 7,
+   "topShare": 0.458,
+   "margin": 0.177,
+   "total": 54250.1
+  },
+  {
+   "start": 140,
+   "end": 145,
+   "topPc": 11,
+   "topShare": 0.295,
+   "margin": 0.027,
+   "total": 62179
+  },
+  {
+   "start": 145,
+   "end": 150,
+   "topPc": 9,
+   "topShare": 0.533,
+   "margin": 0.282,
+   "total": 75426.9
+  },
+  {
+   "start": 150,
+   "end": 155,
+   "topPc": 0,
+   "topShare": 0.648,
+   "margin": 0.465,
+   "total": 67612
+  },
+  {
+   "start": 155,
+   "end": 160,
+   "topPc": 9,
+   "topShare": 0.291,
+   "margin": 0.065,
+   "total": 86789.8
+  },
+  {
+   "start": 160,
+   "end": 165,
+   "topPc": 7,
+   "topShare": 0.348,
+   "margin": 0.086,
+   "total": 73463.2
+  },
+  {
+   "start": 165,
+   "end": 170,
+   "topPc": 11,
+   "topShare": 0.304,
+   "margin": 0.001,
+   "total": 88988.6
+  },
+  {
+   "start": 170,
+   "end": 175,
+   "topPc": 2,
+   "topShare": 0.393,
+   "margin": 0.11,
+   "total": 64860
+  },
+  {
+   "start": 175,
+   "end": 180,
+   "topPc": 0,
+   "topShare": 0.503,
+   "margin": 0.287,
+   "total": 54378.2
+  },
+  {
+   "start": 180,
+   "end": 185,
+   "topPc": 0,
+   "topShare": 0.274,
+   "margin": 0.061,
+   "total": 83166.1
+  },
+  {
+   "start": 185,
+   "end": 190,
+   "topPc": 2,
+   "topShare": 0.233,
+   "margin": 0.025,
+   "total": 76147.6
+  },
+  {
+   "start": 190,
+   "end": 195,
+   "topPc": 11,
+   "topShare": 0.305,
+   "margin": 0.097,
+   "total": 66132.3
+  },
+  {
+   "start": 195,
+   "end": 200,
+   "topPc": 0,
+   "topShare": 0.302,
+   "margin": 0.064,
+   "total": 71496.5
+  },
+  {
+   "start": 200,
+   "end": 205,
+   "topPc": 4,
+   "topShare": 0.724,
+   "margin": 0.523,
+   "total": 3919.6
+  },
+  {
+   "start": 205,
+   "end": 205.1,
+   "topPc": 0,
+   "topShare": 1,
+   "margin": 1,
+   "total": 0
+  }
+ ],
+ "grid": {
+  "cellSec": 1.667,
+  "phaseSec": 1.26,
+  "reading": "検出BPM108。ただし和声変化の周期は1.667秒が最も整合的で、実テンポ72の半小節（または144の1小節）相当と解釈。候補表は2セル=1小節（72 BPM）で提示。"
+ },
+ "agreement": {
+  "sampleExactRootMode": 25.3,
+  "sampleRootOnly": 25.2,
+  "sampleRootOnlyBothNonNC": 33.3,
+  "cellExact": 20.0,
+  "cellExactPlusRelativePair": 39.0,
+  "ncShareMixture": 5.2,
+  "ncShareStems": 22.8
+ },
+ "cells": [
+  {
+   "i": 0,
+   "a": 0.0,
+   "b": 1.26,
+   "stems": "N.C.",
+   "sw": 1.0,
+   "mix": "N.C.",
+   "mw": 1.0,
+   "bass": null,
+   "bw": 0,
+   "cand": "N.C.",
+   "conf": "low"
+  },
+  {
+   "i": 1,
+   "a": 1.26,
+   "b": 2.93,
+   "stems": "N.C.",
+   "sw": 0.58,
+   "mix": "N.C.",
+   "mw": 0.75,
+   "bass": "C",
+   "bw": 0.42,
+   "cand": "N.C.",
+   "conf": "low"
+  },
+  {
+   "i": 2,
+   "a": 2.93,
+   "b": 4.59,
+   "stems": "C",
+   "sw": 0.84,
+   "mix": "G",
+   "mw": 0.72,
+   "bass": "C",
+   "bw": 0.84,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 3,
+   "a": 4.59,
+   "b": 6.26,
+   "stems": "G",
+   "sw": 1.0,
+   "mix": "Am",
+   "mw": 0.47,
+   "bass": "B",
+   "bw": 1.0,
+   "cand": "G",
+   "conf": "mid"
+  },
+  {
+   "i": 4,
+   "a": 6.26,
+   "b": 7.93,
+   "stems": "Bm",
+   "sw": 0.72,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "B",
+   "bw": 0.95,
+   "cand": "Bm",
+   "conf": "mid"
+  },
+  {
+   "i": 5,
+   "a": 7.93,
+   "b": 9.6,
+   "stems": "Am",
+   "sw": 1.0,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "A",
+   "bw": 1.0,
+   "cand": "Am",
+   "conf": "high"
+  },
+  {
+   "i": 6,
+   "a": 9.6,
+   "b": 11.26,
+   "stems": "Am",
+   "sw": 1.0,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "A",
+   "bw": 1.0,
+   "cand": "Am",
+   "conf": "high"
+  },
+  {
+   "i": 7,
+   "a": 11.26,
+   "b": 12.93,
+   "stems": "Am",
+   "sw": 0.4,
+   "mix": "Am",
+   "mw": 0.71,
+   "bass": "A",
+   "bw": 0.65,
+   "cand": "Am",
+   "conf": "high"
+  },
+  {
+   "i": 8,
+   "a": 12.93,
+   "b": 14.6,
+   "stems": "F",
+   "sw": 0.53,
+   "mix": "Dm",
+   "mw": 0.93,
+   "bass": "F",
+   "bw": 0.77,
+   "cand": "F",
+   "conf": "mid"
+  },
+  {
+   "i": 9,
+   "a": 14.6,
+   "b": 16.26,
+   "stems": "N.C.",
+   "sw": 0.53,
+   "mix": "C",
+   "mw": 0.56,
+   "bass": "C",
+   "bw": 0.53,
+   "cand": "C",
+   "conf": "low"
+  },
+  {
+   "i": 10,
+   "a": 16.26,
+   "b": 17.93,
+   "stems": "N.C.",
+   "sw": 1.0,
+   "mix": "D",
+   "mw": 0.86,
+   "bass": "C",
+   "bw": 1.0,
+   "cand": "D",
+   "conf": "low"
+  },
+  {
+   "i": 11,
+   "a": 17.93,
+   "b": 19.6,
+   "stems": "N.C.",
+   "sw": 0.97,
+   "mix": "D",
+   "mw": 0.83,
+   "bass": "C",
+   "bw": 0.97,
+   "cand": "D",
+   "conf": "low"
+  },
+  {
+   "i": 12,
+   "a": 19.6,
+   "b": 21.26,
+   "stems": "N.C.",
+   "sw": 0.64,
+   "mix": "N.C.",
+   "mw": 0.73,
+   "bass": "B",
+   "bw": 0.19,
+   "cand": "N.C.",
+   "conf": "low"
+  },
+  {
+   "i": 13,
+   "a": 21.26,
+   "b": 22.93,
+   "stems": "Dm",
+   "sw": 0.9,
+   "mix": "N.C.",
+   "mw": 0.72,
+   "bass": "A",
+   "bw": 0.1,
+   "cand": "Dm",
+   "conf": "mid"
+  },
+  {
+   "i": 14,
+   "a": 22.93,
+   "b": 24.6,
+   "stems": "N.C.",
+   "sw": 0.7,
+   "mix": "D",
+   "mw": 0.74,
+   "bass": "A",
+   "bw": 0.3,
+   "cand": "D",
+   "conf": "low"
+  },
+  {
+   "i": 15,
+   "a": 24.6,
+   "b": 26.27,
+   "stems": "N.C.",
+   "sw": 0.77,
+   "mix": "G",
+   "mw": 0.94,
+   "bass": "G",
+   "bw": 0.77,
+   "cand": "G",
+   "conf": "low"
+  },
+  {
+   "i": 16,
+   "a": 26.27,
+   "b": 27.93,
+   "stems": "Em",
+   "sw": 0.88,
+   "mix": "G",
+   "mw": 1.0,
+   "bass": "G",
+   "bw": 1.0,
+   "cand": "Em",
+   "conf": "mid"
+  },
+  {
+   "i": 17,
+   "a": 27.93,
+   "b": 29.6,
+   "stems": "N.C.",
+   "sw": 0.76,
+   "mix": "G",
+   "mw": 1.0,
+   "bass": "G",
+   "bw": 1.0,
+   "cand": "G",
+   "conf": "low"
+  },
+  {
+   "i": 18,
+   "a": 29.6,
+   "b": 31.27,
+   "stems": "C",
+   "sw": 0.78,
+   "mix": "Am",
+   "mw": 0.79,
+   "bass": "C",
+   "bw": 0.78,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 19,
+   "a": 31.27,
+   "b": 32.93,
+   "stems": "N.C.",
+   "sw": 1.0,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "B",
+   "bw": 1.0,
+   "cand": "Am",
+   "conf": "low"
+  },
+  {
+   "i": 20,
+   "a": 32.93,
+   "b": 34.6,
+   "stems": "N.C.",
+   "sw": 0.67,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "B",
+   "bw": 1.0,
+   "cand": "Am",
+   "conf": "low"
+  },
+  {
+   "i": 21,
+   "a": 34.6,
+   "b": 36.27,
+   "stems": "N.C.",
+   "sw": 1.0,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "B",
+   "bw": 1.0,
+   "cand": "Am",
+   "conf": "low"
+  },
+  {
+   "i": 22,
+   "a": 36.27,
+   "b": 37.93,
+   "stems": "C",
+   "sw": 0.55,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "D",
+   "bw": 0.55,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 23,
+   "a": 37.93,
+   "b": 39.6,
+   "stems": "C",
+   "sw": 0.9,
+   "mix": "Am",
+   "mw": 0.84,
+   "bass": "D",
+   "bw": 1.0,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 24,
+   "a": 39.6,
+   "b": 41.27,
+   "stems": "Em",
+   "sw": 0.83,
+   "mix": "G",
+   "mw": 0.8,
+   "bass": "G",
+   "bw": 0.83,
+   "cand": "Em",
+   "conf": "mid"
+  },
+  {
+   "i": 25,
+   "a": 41.27,
+   "b": 42.94,
+   "stems": "N.C.",
+   "sw": 0.8,
+   "mix": "G",
+   "mw": 0.76,
+   "bass": "G",
+   "bw": 1.0,
+   "cand": "G",
+   "conf": "low"
+  },
+  {
+   "i": 26,
+   "a": 42.94,
+   "b": 44.6,
+   "stems": "C",
+   "sw": 0.79,
+   "mix": "C",
+   "mw": 0.57,
+   "bass": "C",
+   "bw": 0.79,
+   "cand": "C",
+   "conf": "high"
+  },
+  {
+   "i": 27,
+   "a": 44.6,
+   "b": 46.27,
+   "stems": "N.C.",
+   "sw": 0.65,
+   "mix": "Dm",
+   "mw": 0.54,
+   "bass": "F#",
+   "bw": 0.65,
+   "cand": "Dm",
+   "conf": "low"
+  },
+  {
+   "i": 28,
+   "a": 46.27,
+   "b": 47.94,
+   "stems": "Bm",
+   "sw": 0.47,
+   "mix": "Bm",
+   "mw": 0.93,
+   "bass": "B",
+   "bw": 0.76,
+   "cand": "Bm",
+   "conf": "high"
+  },
+  {
+   "i": 29,
+   "a": 47.94,
+   "b": 49.6,
+   "stems": "N.C.",
+   "sw": 0.7,
+   "mix": "G",
+   "mw": 0.53,
+   "bass": "B",
+   "bw": 1.0,
+   "cand": "G",
+   "conf": "low"
+  },
+  {
+   "i": 30,
+   "a": 49.6,
+   "b": 51.27,
+   "stems": "Am",
+   "sw": 0.72,
+   "mix": "Am",
+   "mw": 0.81,
+   "bass": "A",
+   "bw": 0.72,
+   "cand": "Am",
+   "conf": "high"
+  },
+  {
+   "i": 31,
+   "a": 51.27,
+   "b": 52.94,
+   "stems": "Dm",
+   "sw": 0.69,
+   "mix": "D",
+   "mw": 0.58,
+   "bass": "D",
+   "bw": 0.69,
+   "cand": "Dm",
+   "conf": "mid"
+  },
+  {
+   "i": 32,
+   "a": 52.94,
+   "b": 54.6,
+   "stems": "Em",
+   "sw": 0.64,
+   "mix": "G",
+   "mw": 0.61,
+   "bass": "G",
+   "bw": 0.64,
+   "cand": "Em",
+   "conf": "mid"
+  },
+  {
+   "i": 33,
+   "a": 54.6,
+   "b": 56.27,
+   "stems": "Bm",
+   "sw": 0.63,
+   "mix": "G",
+   "mw": 0.98,
+   "bass": "F#",
+   "bw": 0.63,
+   "cand": "Bm",
+   "conf": "mid"
+  },
+  {
+   "i": 34,
+   "a": 56.27,
+   "b": 57.94,
+   "stems": "Em",
+   "sw": 0.63,
+   "mix": "D",
+   "mw": 0.57,
+   "bass": "E",
+   "bw": 0.63,
+   "cand": "Em",
+   "conf": "mid"
+  },
+  {
+   "i": 35,
+   "a": 57.94,
+   "b": 59.61,
+   "stems": "Em",
+   "sw": 0.4,
+   "mix": "D",
+   "mw": 1.0,
+   "bass": "E",
+   "bw": 0.4,
+   "cand": "Em",
+   "conf": "mid"
+  },
+  {
+   "i": 36,
+   "a": 59.61,
+   "b": 61.27,
+   "stems": "Bm",
+   "sw": 0.96,
+   "mix": "D",
+   "mw": 1.0,
+   "bass": "D",
+   "bw": 1.0,
+   "cand": "Bm",
+   "conf": "mid"
+  },
+  {
+   "i": 37,
+   "a": 61.27,
+   "b": 62.94,
+   "stems": "C#m",
+   "sw": 0.56,
+   "mix": "C#m",
+   "mw": 0.5,
+   "bass": "C#",
+   "bw": 0.56,
+   "cand": "C#m",
+   "conf": "high"
+  },
+  {
+   "i": 38,
+   "a": 62.94,
+   "b": 64.61,
+   "stems": "C",
+   "sw": 0.56,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "A",
+   "bw": 0.56,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 39,
+   "a": 64.61,
+   "b": 66.27,
+   "stems": "C",
+   "sw": 1.0,
+   "mix": "D",
+   "mw": 0.64,
+   "bass": "A",
+   "bw": 1.0,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 40,
+   "a": 66.27,
+   "b": 67.94,
+   "stems": "Em",
+   "sw": 0.5,
+   "mix": "G",
+   "mw": 0.83,
+   "bass": "G",
+   "bw": 0.53,
+   "cand": "Em",
+   "conf": "mid"
+  },
+  {
+   "i": 41,
+   "a": 67.94,
+   "b": 69.61,
+   "stems": "G",
+   "sw": 0.84,
+   "mix": "G",
+   "mw": 0.84,
+   "bass": "G",
+   "bw": 0.84,
+   "cand": "G",
+   "conf": "high"
+  },
+  {
+   "i": 42,
+   "a": 69.61,
+   "b": 71.27,
+   "stems": "C",
+   "sw": 0.8,
+   "mix": "Am",
+   "mw": 0.51,
+   "bass": "C",
+   "bw": 0.8,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 43,
+   "a": 71.27,
+   "b": 72.94,
+   "stems": "C",
+   "sw": 1.0,
+   "mix": "C",
+   "mw": 0.79,
+   "bass": "C",
+   "bw": 0.73,
+   "cand": "C",
+   "conf": "high"
+  },
+  {
+   "i": 44,
+   "a": 72.94,
+   "b": 74.61,
+   "stems": "C",
+   "sw": 0.57,
+   "mix": "Bm",
+   "mw": 0.43,
+   "bass": "G",
+   "bw": 0.57,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 45,
+   "a": 74.61,
+   "b": 76.28,
+   "stems": "D",
+   "sw": 0.6,
+   "mix": "Bm",
+   "mw": 0.57,
+   "bass": "B",
+   "bw": 0.6,
+   "cand": "D",
+   "conf": "mid"
+  },
+  {
+   "i": 46,
+   "a": 76.28,
+   "b": 77.94,
+   "stems": "E",
+   "sw": 0.6,
+   "mix": "Em",
+   "mw": 1.0,
+   "bass": "E",
+   "bw": 0.6,
+   "cand": "E",
+   "conf": "mid"
+  },
+  {
+   "i": 47,
+   "a": 77.94,
+   "b": 79.61,
+   "stems": "Am",
+   "sw": 0.63,
+   "mix": "Am",
+   "mw": 0.7,
+   "bass": "A",
+   "bw": 0.63,
+   "cand": "Am",
+   "conf": "high"
+  },
+  {
+   "i": 48,
+   "a": 79.61,
+   "b": 81.28,
+   "stems": "D",
+   "sw": 0.66,
+   "mix": "Am",
+   "mw": 0.55,
+   "bass": "D",
+   "bw": 0.66,
+   "cand": "D",
+   "conf": "mid"
+  },
+  {
+   "i": 49,
+   "a": 81.28,
+   "b": 82.94,
+   "stems": "Em",
+   "sw": 1.0,
+   "mix": "G",
+   "mw": 1.0,
+   "bass": "G",
+   "bw": 1.0,
+   "cand": "Em",
+   "conf": "mid"
+  },
+  {
+   "i": 50,
+   "a": 82.94,
+   "b": 84.61,
+   "stems": "G",
+   "sw": 0.97,
+   "mix": "G",
+   "mw": 1.0,
+   "bass": "C",
+   "bw": 0.97,
+   "cand": "G",
+   "conf": "high"
+  },
+  {
+   "i": 51,
+   "a": 84.61,
+   "b": 86.28,
+   "stems": "N.C.",
+   "sw": 0.69,
+   "mix": "Bm",
+   "mw": 0.5,
+   "bass": "C",
+   "bw": 0.39,
+   "cand": "Bm",
+   "conf": "low"
+  },
+  {
+   "i": 52,
+   "a": 86.28,
+   "b": 87.94,
+   "stems": "N.C.",
+   "sw": 0.81,
+   "mix": "Am",
+   "mw": 0.38,
+   "bass": "C",
+   "bw": 0.81,
+   "cand": "Am",
+   "conf": "low"
+  },
+  {
+   "i": 53,
+   "a": 87.94,
+   "b": 89.61,
+   "stems": "A",
+   "sw": 0.82,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "B",
+   "bw": 0.82,
+   "cand": "A",
+   "conf": "mid"
+  },
+  {
+   "i": 54,
+   "a": 89.61,
+   "b": 91.28,
+   "stems": "E",
+   "sw": 1.0,
+   "mix": "Em",
+   "mw": 0.53,
+   "bass": "E",
+   "bw": 1.0,
+   "cand": "E",
+   "conf": "mid"
+  },
+  {
+   "i": 55,
+   "a": 91.28,
+   "b": 92.95,
+   "stems": "Am",
+   "sw": 0.86,
+   "mix": "C",
+   "mw": 0.79,
+   "bass": "A",
+   "bw": 0.96,
+   "cand": "Am",
+   "conf": "mid"
+  },
+  {
+   "i": 56,
+   "a": 92.95,
+   "b": 94.61,
+   "stems": "Dm",
+   "sw": 0.54,
+   "mix": "C",
+   "mw": 1.0,
+   "bass": "D",
+   "bw": 0.54,
+   "cand": "Dm",
+   "conf": "mid"
+  },
+  {
+   "i": 57,
+   "a": 94.61,
+   "b": 96.28,
+   "stems": "Dm",
+   "sw": 0.58,
+   "mix": "G",
+   "mw": 0.62,
+   "bass": "D",
+   "bw": 0.8,
+   "cand": "Dm",
+   "conf": "mid"
+  },
+  {
+   "i": 58,
+   "a": 96.28,
+   "b": 97.95,
+   "stems": "C",
+   "sw": 0.64,
+   "mix": "G",
+   "mw": 1.0,
+   "bass": null,
+   "bw": 0,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 59,
+   "a": 97.95,
+   "b": 99.61,
+   "stems": "N.C.",
+   "sw": 0.7,
+   "mix": "G",
+   "mw": 1.0,
+   "bass": "C",
+   "bw": 0.7,
+   "cand": "G",
+   "conf": "low"
+  },
+  {
+   "i": 60,
+   "a": 99.61,
+   "b": 101.28,
+   "stems": "N.C.",
+   "sw": 1.0,
+   "mix": "Bm",
+   "mw": 0.47,
+   "bass": "C",
+   "bw": 1.0,
+   "cand": "Bm",
+   "conf": "low"
+  },
+  {
+   "i": 61,
+   "a": 101.28,
+   "b": 102.95,
+   "stems": "Em",
+   "sw": 0.56,
+   "mix": "Bm",
+   "mw": 1.0,
+   "bass": "B",
+   "bw": 0.56,
+   "cand": "Em",
+   "conf": "mid"
+  },
+  {
+   "i": 62,
+   "a": 102.95,
+   "b": 104.61,
+   "stems": "N.C.",
+   "sw": 1.0,
+   "mix": "Am",
+   "mw": 0.46,
+   "bass": "Bb",
+   "bw": 1.0,
+   "cand": "Am",
+   "conf": "low"
+  },
+  {
+   "i": 63,
+   "a": 104.61,
+   "b": 106.28,
+   "stems": "Am",
+   "sw": 0.96,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "A",
+   "bw": 0.96,
+   "cand": "Am",
+   "conf": "high"
+  },
+  {
+   "i": 64,
+   "a": 106.28,
+   "b": 107.95,
+   "stems": "N.C.",
+   "sw": 0.53,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "A",
+   "bw": 0.76,
+   "cand": "Am",
+   "conf": "low"
+  },
+  {
+   "i": 65,
+   "a": 107.95,
+   "b": 109.62,
+   "stems": "G",
+   "sw": 0.87,
+   "mix": "G",
+   "mw": 0.71,
+   "bass": "G",
+   "bw": 0.87,
+   "cand": "G",
+   "conf": "high"
+  },
+  {
+   "i": 66,
+   "a": 109.62,
+   "b": 111.28,
+   "stems": "Em",
+   "sw": 0.67,
+   "mix": "G",
+   "mw": 0.55,
+   "bass": "G",
+   "bw": 0.69,
+   "cand": "Em",
+   "conf": "mid"
+  },
+  {
+   "i": 67,
+   "a": 111.28,
+   "b": 112.95,
+   "stems": "C",
+   "sw": 0.56,
+   "mix": "Am",
+   "mw": 0.53,
+   "bass": "C",
+   "bw": 1.0,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 68,
+   "a": 112.95,
+   "b": 114.62,
+   "stems": "N.C.",
+   "sw": 0.72,
+   "mix": "Am",
+   "mw": 0.75,
+   "bass": "C",
+   "bw": 0.27,
+   "cand": "Am",
+   "conf": "low"
+  },
+  {
+   "i": 69,
+   "a": 114.62,
+   "b": 116.28,
+   "stems": "G",
+   "sw": 0.95,
+   "mix": "Bm",
+   "mw": 1.0,
+   "bass": "B",
+   "bw": 0.95,
+   "cand": "G",
+   "conf": "mid"
+  },
+  {
+   "i": 70,
+   "a": 116.28,
+   "b": 117.95,
+   "stems": "N.C.",
+   "sw": 0.98,
+   "mix": "Am",
+   "mw": 0.36,
+   "bass": "Bb",
+   "bw": 0.98,
+   "cand": "Am",
+   "conf": "low"
+  },
+  {
+   "i": 71,
+   "a": 117.95,
+   "b": 119.62,
+   "stems": "Am",
+   "sw": 1.0,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "A",
+   "bw": 1.0,
+   "cand": "Am",
+   "conf": "high"
+  },
+  {
+   "i": 72,
+   "a": 119.62,
+   "b": 121.28,
+   "stems": "N.C.",
+   "sw": 0.87,
+   "mix": "Am",
+   "mw": 0.96,
+   "bass": "E",
+   "bw": 0.87,
+   "cand": "Am",
+   "conf": "low"
+  },
+  {
+   "i": 73,
+   "a": 121.28,
+   "b": 122.95,
+   "stems": "Em",
+   "sw": 1.0,
+   "mix": "G",
+   "mw": 0.54,
+   "bass": "D",
+   "bw": 1.0,
+   "cand": "Em",
+   "conf": "mid"
+  },
+  {
+   "i": 74,
+   "a": 122.95,
+   "b": 124.62,
+   "stems": "Em",
+   "sw": 1.0,
+   "mix": "C#m",
+   "mw": 0.61,
+   "bass": "D",
+   "bw": 1.0,
+   "cand": "Em",
+   "conf": "mid"
+  },
+  {
+   "i": 75,
+   "a": 124.62,
+   "b": 126.29,
+   "stems": "C",
+   "sw": 0.57,
+   "mix": "A",
+   "mw": 1.0,
+   "bass": "C",
+   "bw": 0.57,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 76,
+   "a": 126.29,
+   "b": 127.95,
+   "stems": "N.C.",
+   "sw": 0.96,
+   "mix": "Bm",
+   "mw": 0.93,
+   "bass": "B",
+   "bw": 0.96,
+   "cand": "Bm",
+   "conf": "low"
+  },
+  {
+   "i": 77,
+   "a": 127.95,
+   "b": 129.62,
+   "stems": "Bm",
+   "sw": 0.78,
+   "mix": "Bm",
+   "mw": 0.91,
+   "bass": "B",
+   "bw": 1.0,
+   "cand": "Bm",
+   "conf": "high"
+  },
+  {
+   "i": 78,
+   "a": 129.62,
+   "b": 131.29,
+   "stems": "E",
+   "sw": 0.44,
+   "mix": "Em",
+   "mw": 0.58,
+   "bass": "E",
+   "bw": 0.44,
+   "cand": "E",
+   "conf": "mid"
+  },
+  {
+   "i": 79,
+   "a": 131.29,
+   "b": 132.95,
+   "stems": "C",
+   "sw": 1.0,
+   "mix": "Am",
+   "mw": 0.86,
+   "bass": "A",
+   "bw": 1.0,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 80,
+   "a": 132.95,
+   "b": 134.62,
+   "stems": "C",
+   "sw": 1.0,
+   "mix": "Am",
+   "mw": 0.58,
+   "bass": "A",
+   "bw": 1.0,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 81,
+   "a": 134.62,
+   "b": 136.29,
+   "stems": "C",
+   "sw": 0.78,
+   "mix": "G",
+   "mw": 0.74,
+   "bass": "G",
+   "bw": 0.61,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 82,
+   "a": 136.29,
+   "b": 137.95,
+   "stems": "G",
+   "sw": 0.87,
+   "mix": "D",
+   "mw": 0.49,
+   "bass": "G",
+   "bw": 0.87,
+   "cand": "G",
+   "conf": "mid"
+  },
+  {
+   "i": 83,
+   "a": 137.95,
+   "b": 139.62,
+   "stems": "N.C.",
+   "sw": 0.85,
+   "mix": "Bm",
+   "mw": 0.56,
+   "bass": "C",
+   "bw": 1.0,
+   "cand": "Bm",
+   "conf": "low"
+  },
+  {
+   "i": 84,
+   "a": 139.62,
+   "b": 141.29,
+   "stems": "N.C.",
+   "sw": 0.85,
+   "mix": "Am",
+   "mw": 0.69,
+   "bass": "C",
+   "bw": 0.85,
+   "cand": "Am",
+   "conf": "low"
+  },
+  {
+   "i": 85,
+   "a": 141.29,
+   "b": 142.96,
+   "stems": "Bm",
+   "sw": 0.93,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "B",
+   "bw": 0.93,
+   "cand": "Bm",
+   "conf": "mid"
+  },
+  {
+   "i": 86,
+   "a": 142.96,
+   "b": 144.62,
+   "stems": "Em",
+   "sw": 1.0,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "A",
+   "bw": 1.0,
+   "cand": "Em",
+   "conf": "mid"
+  },
+  {
+   "i": 87,
+   "a": 144.62,
+   "b": 146.29,
+   "stems": "Em",
+   "sw": 0.27,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "A",
+   "bw": 0.75,
+   "cand": "Em",
+   "conf": "mid"
+  },
+  {
+   "i": 88,
+   "a": 146.29,
+   "b": 147.96,
+   "stems": "Am",
+   "sw": 0.91,
+   "mix": "Am",
+   "mw": 0.8,
+   "bass": "A",
+   "bw": 0.91,
+   "cand": "Am",
+   "conf": "high"
+  },
+  {
+   "i": 89,
+   "a": 147.96,
+   "b": 149.62,
+   "stems": "Am",
+   "sw": 0.67,
+   "mix": "D",
+   "mw": 0.59,
+   "bass": "A",
+   "bw": 0.67,
+   "cand": "Am",
+   "conf": "mid"
+  },
+  {
+   "i": 90,
+   "a": 149.62,
+   "b": 151.29,
+   "stems": "N.C.",
+   "sw": 0.53,
+   "mix": "G",
+   "mw": 0.64,
+   "bass": "C",
+   "bw": 0.24,
+   "cand": "G",
+   "conf": "low"
+  },
+  {
+   "i": 91,
+   "a": 151.29,
+   "b": 152.96,
+   "stems": "C",
+   "sw": 0.81,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "C",
+   "bw": 1.0,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 92,
+   "a": 152.96,
+   "b": 154.62,
+   "stems": "Cm",
+   "sw": 1.0,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "C",
+   "bw": 1.0,
+   "cand": "Cm",
+   "conf": "mid"
+  },
+  {
+   "i": 93,
+   "a": 154.62,
+   "b": 156.29,
+   "stems": "Cm",
+   "sw": 0.9,
+   "mix": "Am",
+   "mw": 0.65,
+   "bass": "C",
+   "bw": 0.9,
+   "cand": "Cm",
+   "conf": "mid"
+  },
+  {
+   "i": 94,
+   "a": 156.29,
+   "b": 157.96,
+   "stems": "G",
+   "sw": 0.71,
+   "mix": "Am",
+   "mw": 0.59,
+   "bass": "E",
+   "bw": 0.71,
+   "cand": "G",
+   "conf": "mid"
+  },
+  {
+   "i": 95,
+   "a": 157.96,
+   "b": 159.63,
+   "stems": "Am",
+   "sw": 0.93,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "A",
+   "bw": 0.93,
+   "cand": "Am",
+   "conf": "high"
+  },
+  {
+   "i": 96,
+   "a": 159.63,
+   "b": 161.29,
+   "stems": "C",
+   "sw": 1.0,
+   "mix": "Am",
+   "mw": 0.77,
+   "bass": "D",
+   "bw": 1.0,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 97,
+   "a": 161.29,
+   "b": 162.96,
+   "stems": "C",
+   "sw": 0.83,
+   "mix": "A",
+   "mw": 0.61,
+   "bass": "D",
+   "bw": 0.83,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 98,
+   "a": 162.96,
+   "b": 164.63,
+   "stems": "Dm",
+   "sw": 0.67,
+   "mix": "G",
+   "mw": 0.69,
+   "bass": "G",
+   "bw": 0.67,
+   "cand": "Dm",
+   "conf": "mid"
+  },
+  {
+   "i": 99,
+   "a": 164.63,
+   "b": 166.29,
+   "stems": "Cm",
+   "sw": 0.36,
+   "mix": "Am",
+   "mw": 0.64,
+   "bass": "C",
+   "bw": 0.66,
+   "cand": "Cm",
+   "conf": "mid"
+  },
+  {
+   "i": 100,
+   "a": 166.29,
+   "b": 167.96,
+   "stems": "Cm",
+   "sw": 0.62,
+   "mix": "Am",
+   "mw": 0.35,
+   "bass": "C",
+   "bw": 0.62,
+   "cand": "Cm",
+   "conf": "mid"
+  },
+  {
+   "i": 101,
+   "a": 167.96,
+   "b": 169.63,
+   "stems": "Bm",
+   "sw": 0.62,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "B",
+   "bw": 0.62,
+   "cand": "Bm",
+   "conf": "mid"
+  },
+  {
+   "i": 102,
+   "a": 169.63,
+   "b": 171.29,
+   "stems": "Am",
+   "sw": 0.46,
+   "mix": "D",
+   "mw": 0.52,
+   "bass": "A",
+   "bw": 0.46,
+   "cand": "Am",
+   "conf": "mid"
+  },
+  {
+   "i": 103,
+   "a": 171.29,
+   "b": 172.96,
+   "stems": "Am",
+   "sw": 0.54,
+   "mix": "D",
+   "mw": 1.0,
+   "bass": "A",
+   "bw": 0.54,
+   "cand": "Am",
+   "conf": "mid"
+  },
+  {
+   "i": 104,
+   "a": 172.96,
+   "b": 174.63,
+   "stems": "C",
+   "sw": 0.54,
+   "mix": "G",
+   "mw": 0.76,
+   "bass": "G",
+   "bw": 0.54,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 105,
+   "a": 174.63,
+   "b": 176.3,
+   "stems": "C",
+   "sw": 1.0,
+   "mix": "G",
+   "mw": 1.0,
+   "bass": "G",
+   "bw": 1.0,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 106,
+   "a": 176.3,
+   "b": 177.96,
+   "stems": "C",
+   "sw": 0.66,
+   "mix": "C",
+   "mw": 0.76,
+   "bass": "C",
+   "bw": 0.56,
+   "cand": "C",
+   "conf": "high"
+  },
+  {
+   "i": 107,
+   "a": 177.96,
+   "b": 179.63,
+   "stems": "Bm",
+   "sw": 0.61,
+   "mix": "Bm",
+   "mw": 0.67,
+   "bass": "B",
+   "bw": 0.61,
+   "cand": "Bm",
+   "conf": "high"
+  },
+  {
+   "i": 108,
+   "a": 179.63,
+   "b": 181.3,
+   "stems": "Em",
+   "sw": 0.61,
+   "mix": "D",
+   "mw": 1.0,
+   "bass": "E",
+   "bw": 0.61,
+   "cand": "Em",
+   "conf": "mid"
+  },
+  {
+   "i": 109,
+   "a": 181.3,
+   "b": 182.96,
+   "stems": "D",
+   "sw": 0.73,
+   "mix": "D",
+   "mw": 1.0,
+   "bass": "D",
+   "bw": 0.73,
+   "cand": "D",
+   "conf": "high"
+  },
+  {
+   "i": 110,
+   "a": 182.96,
+   "b": 184.63,
+   "stems": "C",
+   "sw": 1.0,
+   "mix": "A",
+   "mw": 0.57,
+   "bass": "C",
+   "bw": 0.85,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 111,
+   "a": 184.63,
+   "b": 186.3,
+   "stems": "Bm",
+   "sw": 0.88,
+   "mix": "A",
+   "mw": 1.0,
+   "bass": "B",
+   "bw": 0.88,
+   "cand": "Bm",
+   "conf": "mid"
+  },
+  {
+   "i": 112,
+   "a": 186.3,
+   "b": 187.96,
+   "stems": "Em",
+   "sw": 0.7,
+   "mix": "A",
+   "mw": 0.77,
+   "bass": "E",
+   "bw": 0.93,
+   "cand": "Em",
+   "conf": "mid"
+  },
+  {
+   "i": 113,
+   "a": 187.96,
+   "b": 189.63,
+   "stems": "C",
+   "sw": 0.98,
+   "mix": "Dm",
+   "mw": 0.88,
+   "bass": "D",
+   "bw": 0.98,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 114,
+   "a": 189.63,
+   "b": 191.3,
+   "stems": "C",
+   "sw": 0.74,
+   "mix": "A",
+   "mw": 1.0,
+   "bass": "C",
+   "bw": 0.39,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 115,
+   "a": 191.3,
+   "b": 192.97,
+   "stems": "D",
+   "sw": 1.0,
+   "mix": "A",
+   "mw": 0.69,
+   "bass": "B",
+   "bw": 1.0,
+   "cand": "D",
+   "conf": "mid"
+  },
+  {
+   "i": 116,
+   "a": 192.97,
+   "b": 194.63,
+   "stems": "D",
+   "sw": 0.61,
+   "mix": "D",
+   "mw": 0.92,
+   "bass": "B",
+   "bw": 0.61,
+   "cand": "D",
+   "conf": "high"
+  },
+  {
+   "i": 117,
+   "a": 194.63,
+   "b": 196.3,
+   "stems": "C",
+   "sw": 1.0,
+   "mix": "Am",
+   "mw": 1.0,
+   "bass": "C",
+   "bw": 1.0,
+   "cand": "C",
+   "conf": "mid"
+  },
+  {
+   "i": 118,
+   "a": 196.3,
+   "b": 197.97,
+   "stems": "Bm",
+   "sw": 0.53,
+   "mix": "Bm",
+   "mw": 0.61,
+   "bass": "B",
+   "bw": 0.53,
+   "cand": "Bm",
+   "conf": "high"
+  },
+  {
+   "i": 119,
+   "a": 197.97,
+   "b": 199.63,
+   "stems": "Em",
+   "sw": 0.58,
+   "mix": "Em",
+   "mw": 0.58,
+   "bass": "E",
+   "bw": 0.58,
+   "cand": "Em",
+   "conf": "high"
+  },
+  {
+   "i": 120,
+   "a": 199.63,
+   "b": 201.3,
+   "stems": "Em",
+   "sw": 0.9,
+   "mix": "Em",
+   "mw": 0.76,
+   "bass": "E",
+   "bw": 0.9,
+   "cand": "Em",
+   "conf": "high"
+  },
+  {
+   "i": 121,
+   "a": 201.3,
+   "b": 202.97,
+   "stems": "N.C.",
+   "sw": 1.0,
+   "mix": "N.C.",
+   "mw": 1.0,
+   "bass": null,
+   "bw": 0,
+   "cand": "N.C.",
+   "conf": "low"
+  },
+  {
+   "i": 122,
+   "a": 202.97,
+   "b": 204.63,
+   "stems": "N.C.",
+   "sw": 1.0,
+   "mix": "N.C.",
+   "mw": 1.0,
+   "bass": null,
+   "bw": 0,
+   "cand": "N.C.",
+   "conf": "low"
+  },
+  {
+   "i": 123,
+   "a": 204.63,
+   "b": 205.14,
+   "stems": "N.C.",
+   "sw": 1.0,
+   "mix": "N.C.",
+   "mw": 1.0,
+   "bass": null,
+   "bw": 0,
+   "cand": "N.C.",
+   "conf": "low"
+  }
+ ]
+}

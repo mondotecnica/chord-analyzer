@@ -37,35 +37,46 @@ export interface KeyEstimate {
   correlation: number;
 }
 
+/** 集計クロマに対するキー候補1件のスコア（Phase 3.3 の局所キー用） */
+export interface KeyScore {
+  root: number;
+  mode: "major" | "minor";
+  correlation: number;
+}
+
+/**
+ * 集計済みクロマ（12 ピッチクラスの合計）に対して全 24 キーの
+ * Krumhansl プロファイル相関を計算し、降順に並べて返す。
+ * estimateKey と Phase 3.3 の局所キー推定（localKey.ts）で共用する
+ * （プロファイルと相関の定義はここが唯一の出所）。
+ * 同点の場合は走査順（root 昇順、major → minor）を保つ（安定ソート）。
+ */
+export function rankKeys(aggChroma: ArrayLike<number>): KeyScore[] {
+  const scores: KeyScore[] = [];
+  for (let root = 0; root < 12; root++) {
+    const rotated = Array.from({ length: 12 }, (_, i) => aggChroma[(root + i) % 12]);
+    for (const [mode, profile] of [
+      ["major", MAJOR_PROFILE],
+      ["minor", MINOR_PROFILE],
+    ] as const) {
+      scores.push({ root, mode, correlation: pearson(rotated, profile) });
+    }
+  }
+  return scores.sort((a, b) => b.correlation - a.correlation);
+}
+
 export function estimateKey(chromaFrames: Float32Array[]): KeyEstimate {
   const agg = new Array(12).fill(0);
   for (const f of chromaFrames) {
     for (let p = 0; p < 12; p++) agg[p] += f[p];
   }
-  let best: KeyEstimate = {
-    root: 0,
-    mode: "major",
-    keyName: "C major",
-    correlation: -Infinity,
+  const best = rankKeys(agg)[0];
+  return {
+    root: best.root,
+    mode: best.mode,
+    keyName: `${noteName(best.root)} ${best.mode}`,
+    correlation: best.correlation,
   };
-  for (let root = 0; root < 12; root++) {
-    const rotated = Array.from({ length: 12 }, (_, i) => agg[(root + i) % 12]);
-    for (const [mode, profile] of [
-      ["major", MAJOR_PROFILE],
-      ["minor", MINOR_PROFILE],
-    ] as const) {
-      const corr = pearson(rotated, profile);
-      if (corr > best.correlation) {
-        best = {
-          root,
-          mode,
-          keyName: `${noteName(root)} ${mode}`,
-          correlation: corr,
-        };
-      }
-    }
-  }
-  return best;
 }
 
 /**

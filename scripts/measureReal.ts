@@ -21,7 +21,7 @@ import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "nod
 import { tmpdir } from "node:os";
 import { basename, extname, join } from "node:path";
 import { analyzeAudio, type AnalyzeOptions } from "../src/analysis/analyze";
-import { displayChordName } from "../src/lib/chordDisplay";
+import { displayChordName, fullChordName } from "../src/lib/chordDisplay";
 import { NO_CHORD } from "../src/lib/notes";
 import type { AnalysisResult } from "../src/types";
 import { parseChord } from "./measureSynthetic";
@@ -60,6 +60,8 @@ interface RawSegment {
   bass?: string;
   edited?: boolean;
   confidence?: number;
+  /** Phase 3.1: アプリ書き出しの拡張音（別フィールド）。正解として取り込む際に完全名へ合成する */
+  extension?: string;
 }
 
 interface RawTruth {
@@ -99,10 +101,16 @@ export function parseTruthJson(raw: unknown, fallbackTitle: string): RealTruth {
       ) {
         throw new Error("正解セグメントの形式が不正です（startSec/endSec/chord が必要）");
       }
+      // Phase 3.1: extension が別フィールドで来た場合は完全名に合成して
+      // 正解ラベルとして保持する（書き出し→正解の往復で 7th が落ちないように）
+      const chord =
+        s.extension === "maj7" || s.extension === "7" || s.extension === "m7"
+          ? fullChordName(s.chord, s.extension)
+          : s.chord;
       return {
         startSec: s.startSec,
         endSec: s.endSec,
-        chord: s.chord,
+        chord,
         ...(s.bass !== undefined ? { bass: s.bass } : {}),
       };
     })
@@ -386,7 +394,7 @@ export function measureRealSong(
         startSec: Number(s.start.toFixed(2)),
         endSec: Number(Math.min(s.end, total).toFixed(2)),
         chord: s.chord,
-        display: displayChordName(s.chord, s.bassPc),
+        display: displayChordName(s.chord, s.bassPc, s.extension),
         confidence: Number(s.confidence.toFixed(2)),
       })),
   };

@@ -342,6 +342,15 @@
   font-variant-numeric: tabular-nums;
 }
 
+.local-key-summary {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin: 16px 0 0;
+  font-size: 14px;
+}
+
 .summary-actions {
   display: flex;
   gap: 8px;

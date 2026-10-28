@@ -11,6 +11,14 @@ export interface ChordFrame {
   energy: number;
 }
 
+/**
+ * Phase 3.1: 二段判定の第2段が付ける拡張音の種類（初期語彙はこの3種のみ）。
+ * コードの三和音コア（chord フィールド）とは別フィールドで持つ
+ * （bassPc と同じ「別フィールド」方針、DESIGN_NOTES.md）。
+ * 表示名（例: "B7"）の組み立ては表示側（lib/chordDisplay.ts）の責務。
+ */
+export type ChordExtension = "maj7" | "7" | "m7";
+
 export interface ChordSegment {
   id: number;
   start: number; // 秒
@@ -21,11 +29,38 @@ export interface ChordSegment {
   /** ユーザーが手動修正したかどうか */
   edited?: boolean;
   /**
+   * Phase 3.1: 7th の拡張音（maj7 / 7 / m7）。二段判定の第2段
+   * （analysis/extensionDetection.ts）が証拠のあるセグメントにだけ付ける。
+   * 未設定は三和音のまま、という意味（従来の書き出しと互換）。
+   */
+  extension?: ChordExtension;
+  /**
    * Phase 1: 低域から推定したベース音のピッチクラス（0=C .. 11=B）。
    * コードのルートとは別フィールドで持つ（分数コード方針、DESIGN_NOTES.md）。
    * 表示名の組み立て（例: C/E）は UI 側の責務。証拠が乏しいセグメントでは未設定。
    */
   bassPc?: number;
+}
+
+/**
+ * Phase 3.3: 局所キー推定（analysis/localKey.ts）の窓1件。
+ * 曲全体キー（AnalysisResult.keyRoot/keyMode）とは別に、時間で
+ * 滑らせた窓ごとのキー候補を持つための型（共有プロファイルへの
+ * 加算的な格納。未設定の結果は従来どおり動作する）。
+ */
+export interface LocalKeyWindow {
+  start: number; // 秒
+  end: number; // 秒
+  /** 窓内の最有力キー */
+  root: number; // 0=C .. 11=B
+  mode: "major" | "minor";
+  /** 最有力キーの Krumhansl プロファイル相関 */
+  correlation: number;
+  /** 最有力 − 次点（別キー）の相関差。小さいほどキーが曖昧 */
+  margin: number;
+  /** 次点キーのルート／モード（相関が最有力に近い場合の第二解釈） */
+  runnerUpRoot: number;
+  runnerUpMode: "major" | "minor";
 }
 
 export interface AnalysisResult {
@@ -57,4 +92,13 @@ export interface AnalysisResult {
    * 分離器が実測した場合のみ設定される。待ち時間の較正と書き出し用。
    */
   separationSeconds?: number;
+  /**
+   * Phase 3.3: 局所キー推定の窓列（analysis/localKey.ts）。
+   * 2026-10-28 の分割採用以降は既定で設定される加算的フィールド
+   * （localKeyRecord: false のオプトアウト時と、消費部 OFF の
+   * ハーネス固定時などを除く）。転調の有無や相対調の揺れはこの
+   * 窓列に残り、コードラベル自体は変えない
+   * （PHASE3_PLAN.md §2: 解釈の判定は出さない）。
+   */
+  localKeys?: LocalKeyWindow[];
 }

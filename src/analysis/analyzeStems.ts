@@ -7,6 +7,9 @@ import { estimateKey, estimateTempo } from "./keyTempo";
 import { framesToSegments } from "./segmentation";
 import { applyUpperBandMode } from "./splitBand";
 import { applyConditionalUpperRoot } from "./conditionalBand";
+import { applyExtensions } from "./extensionDetection";
+import { estimateLocalKeys, type LocalKeyContext } from "./localKey";
+import { applyLocalKeyModeNudge } from "./localKeyMode";
 
 /**
  * Phase 2: ステム入力の解析パイプライン（アプリ本体側）。
@@ -85,12 +88,41 @@ export function prepareStemChromas(
   };
 }
 
+export interface StemAnalysisOptions {
+  /**
+   * Phase 3.1: 二段判定の第2段（拡張音検出）を適用するか。
+   * 証拠クロマは other ステムの全帯域クロマ。既定 false
+   * （採用判定は measurements/phase3/PHASE3_1_RESULTS.md。
+   * 混合音経路の AnalyzeOptions.extensions と同じ扱い）。
+   */
+  extensions?: boolean;
+  /**
+   * Phase 3.3: 局所キー文脈の「記録」を有効化するか。true（既定）の
+   * 場合、局所キー（other ステムのクロマから推定。全体キー表示の
+   * 出所＝混合音とは別に、和声を担う other を使う）を推定して結果の
+   * localKeys に格納するだけで、コードラベルには一切触れない。
+   * false は記録自体を止めるオプトアウト。消費部（localKey）が
+   * 有効な場合は記録も自動的に有効。2026-10-28 の分割採用で
+   * 「記録・表示は既定 ON、消費部は既定 OFF」が決まった
+   * （混合音経路の AnalyzeOptions.localKeyRecord と同じ扱い）。
+   */
+  localKeyRecord?: boolean;
+  /**
+   * Phase 3.3: 局所キー文脈の「消費部」（モード nudge と第2段への
+   * 文脈供給）を有効化するか。既定 false（共同採用判定の結果は
+   * measurements/phase3/PHASE3_3_RESULTS.md。混合音経路の
+   * AnalyzeOptions.localKey と同じ扱い）。
+   */
+  localKey?: boolean;
+}
+
 /** 計算済みクロマから、指定した帯域戦略でステム解析を行う */
 export function analyzeStemsWithStrategy(
   chromas: StemChromas,
   sampleRate: number,
   fileName: string,
   strategy: StemBandStrategy,
+  opts?: StemAnalysisOptions,
 ): AnalysisResult {
   const started = performance.now();
   const { mixChroma, otherChroma, bassChroma, duration } = chromas;
@@ -128,6 +160,55 @@ export function analyzeStemsWithStrategy(
       fd,
     );
   }
+  // Phase 3.3: 局所キー文脈。局所キーの出所は other ステムの全帯域
+  // クロマにする（全体キー表示は従来どおり混合音由来で変えない）。
+  // 混合音から推定すると、実曲1のようにボーカル等の影響で平行短調へ
+  // 倒れたキー（A major の曲を A minor と誤る）がそのまま prior に
+  // なり誤反転を量産したため、和声そのものを担う other を出所とする
+  // （実測根拠は PHASE3_3_RESULTS.md: other 由来では同曲の窓は
+  // A major に戻る）。証拠クロマはモード決め直しと同じ other 上帯域。
+  // 「記録」は既定で有効（localKeyRecord。結果への格納のみでラベルに
+  // 触れない）。「消費」（モード nudge＋第2段への文脈供給）は既定
+  // OFF の明示オプション（localKey）のときだけ効かせる（分割採用、
+  // 2026-10-28）。
+  const consumeLocalKey = opts?.localKey === true;
+  const recordLocalKey = consumeLocalKey || opts?.localKeyRecord !== false;
+  let localKeyCtx: LocalKeyContext | undefined;
+  if (recordLocalKey) {
+    localKeyCtx = estimateLocalKeys(
+      otherChroma.frames,
+      otherChroma.energies,
+      otherChroma.frameDuration,
+      duration,
+    );
+    if (consumeLocalKey) {
+      segments = applyLocalKeyModeNudge(
+        segments,
+        otherChroma.chordFrames,
+        otherChroma.energies,
+        fd,
+        localKeyCtx,
+      );
+    }
+  }
+  // Phase 3.1: 二段判定の第2段（拡張音検出、既定 OFF）。
+  // 証拠は other ステムの上帯域クロマ（extensionDetection.ts 冒頭参照）。
+  // 文脈 prior は消費部（opts.localKey）が有効な場合にだけ渡す。
+  if (opts?.extensions) {
+    segments = applyExtensions(
+      segments,
+      otherChroma.chordFrames,
+      otherChroma.energies,
+      fd,
+      {
+        keyRoot: key.root,
+        keyMode: key.mode,
+        ...(consumeLocalKey && localKeyCtx
+          ? { localKeys: localKeyCtx, contextPrior: true }
+          : {}),
+      },
+    );
+  }
 
   return {
     fileName,
@@ -139,6 +220,7 @@ export function analyzeStemsWithStrategy(
     bpm,
     segments,
     analyzedInMs: Math.round(performance.now() - started),
+    ...(localKeyCtx ? { localKeys: localKeyCtx.windows } : {}),
   };
 }
 

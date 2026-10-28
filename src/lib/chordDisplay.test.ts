@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { displayChordName, isChordToneBass } from "./chordDisplay";
+import { displayChordName, fullChordName, isChordToneBass } from "./chordDisplay";
 
 describe("displayChordName（分数コード表示）", () => {
   it("ベース音が未指定なら通常表示", () => {
@@ -43,6 +43,29 @@ describe("displayChordName（分数コード表示）", () => {
 
   it("シャープを含むルートでも組み立てられる", () => {
     expect(displayChordName("F#", 10)).toBe("F#/A#"); // 3rd
+  });
+});
+
+describe("fullChordName / displayChordName（Phase 3.1 拡張音）", () => {
+  it("完全名を組み立てる: CM7 / C7 / Am7", () => {
+    expect(fullChordName("C", "maj7")).toBe("CM7");
+    expect(fullChordName("B", "7")).toBe("B7");
+    expect(fullChordName("E", "7")).toBe("E7");
+    expect(fullChordName("Am", "m7")).toBe("Am7");
+    expect(fullChordName("F#", "maj7")).toBe("F#M7");
+  });
+
+  it("拡張なし・語彙外の組み合わせはコアのまま", () => {
+    expect(fullChordName("C")).toBe("C");
+    expect(fullChordName("C", "m7")).toBe("C"); // major + m7 は出さない
+    expect(fullChordName("Am", "maj7")).toBe("Am"); // mMaj7 は初期語彙外
+    expect(fullChordName("N.C.", "7")).toBe("N.C.");
+  });
+
+  it("表示名は完全名＋分数を組み立てる", () => {
+    expect(displayChordName("B", 11, "7")).toBe("B7");
+    expect(displayChordName("C", 4, "maj7")).toBe("CM7/E");
+    expect(displayChordName("Am", 9, "m7")).toBe("Am7");
   });
 });
 

@@ -18,6 +18,8 @@ export interface ProgressionChord {
   mode: "major" | "minor";
   /** ベース音のピッチクラス（省略時はルートと同じ） */
   bassPc?: number;
+  /** 7th の種類（Phase 3 用。省略時は三和音）。maj7=長7度、m7/dom7=短7度 */
+  seventh?: "maj7" | "m7" | "dom7";
 }
 
 export interface SongSpec {
@@ -39,6 +41,8 @@ export interface GroundTruthSegment {
   endSec: number;
   /** コード名（ルート＋モードのみ。分数表記は含まない） */
   chord: string;
+  /** 7th を含む完全なコード名（Phase 3 用。三和音の場合は省略） */
+  fullChord?: string;
   /** ベース音の音名（ルートと別フィールドで保持する） */
   bass: string;
   /** ベース音のピッチクラス */
@@ -69,6 +73,24 @@ const M = (root: string, bass?: string): ProgressionChord => ({
 const m = (root: string, bass?: string): ProgressionChord => ({
   root: pc(root),
   mode: "minor",
+  ...(bass !== undefined ? { bassPc: pc(bass) } : {}),
+});
+const M7 = (root: string, bass?: string): ProgressionChord => ({
+  root: pc(root),
+  mode: "major",
+  seventh: "maj7",
+  ...(bass !== undefined ? { bassPc: pc(bass) } : {}),
+});
+const m7 = (root: string, bass?: string): ProgressionChord => ({
+  root: pc(root),
+  mode: "minor",
+  seventh: "m7",
+  ...(bass !== undefined ? { bassPc: pc(bass) } : {}),
+});
+const dom7 = (root: string, bass?: string): ProgressionChord => ({
+  root: pc(root),
+  mode: "major",
+  seventh: "dom7",
   ...(bass !== undefined ? { bassPc: pc(bass) } : {}),
 });
 
@@ -124,6 +146,51 @@ export const SLASH_SONGS: SongSpec[] = [
     beatsPerBar: 4,
     progression: [M("C", "E"), M("F", "A"), M("G", "B"), m("A", "E")],
     repeats: 2,
+  },
+];
+
+/**
+ * 7th コード用のテスト曲（Phase 3.1 の測定土台）。
+ * SONGS（A–C）・SLASH_SONGS（D）とは分けて持ち、既存の測定の対象範囲を変えない。
+ * 前半は Suno 05 の Q3 窓（CM7–B7–E7–Am7）そのもの、後半は ii–V–I 型
+ * （Dm7–G7–CM7–Am7）。テンポ 108 は Suno 05 と同じ。
+ * 正解セグメントの chord は三和音コア（既存ハーネスの「コア正解」と一致）、
+ * fullChord が 7th を含む完全な正解。
+ */
+export const SEVENTH_SONGS: SongSpec[] = [
+  {
+    id: "song-e",
+    title: "Song E — 7th chords (CM7–B7–E7–Am7 / Dm7–G7–CM7–Am7)",
+    trueKey: "A minor",
+    bpm: 108,
+    beatsPerBar: 4,
+    progression: [
+      M7("C"), dom7("B"), dom7("E"), m7("A"),
+      m7("D"), dom7("G"), M7("C"), m7("A"),
+    ],
+    repeats: 1,
+  },
+];
+
+/**
+ * Song F: 二次ドミナント中心の 7th 曲（Phase 3.1 の測定土台、Song E と対）。
+ * C major で A7（V/V）を含む。前半は全小節 7th、後半に三和音の
+ * 小節（C／F）を混ぜ、第2段の誤発火（false-fire）を同じ曲の中で
+ * 測れるようにしてある。SEVENTH_SONGS とは分けて持ち、
+ * measureSeventh.ts のベースライン対象（Song E のみ）を変えない。
+ */
+export const SECONDARY_DOMINANT_SONGS: SongSpec[] = [
+  {
+    id: "song-f",
+    title: "Song F — secondary dominants (CM7–A7–Dm7–G7 / C–F–G7–Am7)",
+    trueKey: "C major",
+    bpm: 96,
+    beatsPerBar: 4,
+    progression: [
+      M7("C"), dom7("A"), m7("D"), dom7("G"),
+      M("C"), M("F"), dom7("G"), m7("A"),
+    ],
+    repeats: 1,
   },
 ];
 
@@ -201,6 +268,10 @@ export function synthSong(spec: SongSpec, sampleRate: number): {
     const third = ch.mode === "major" ? 4 : 3;
     const rootMidi = 60 + ch.root; // C4..B4
     const tones = [rootMidi, rootMidi + third, rootMidi + 7, rootMidi + 12];
+    // 7th がある場合は 5th の後ろに 7th 音を挿入する（アルペジオにも回る）
+    const seventhInterval =
+      ch.seventh === "maj7" ? 11 : ch.seventh === undefined ? null : 10;
+    if (seventhInterval !== null) tones.splice(3, 0, rootMidi + seventhInterval);
     // ベース音はルートと別指定が可能（分数コード）。未指定ならルートを鳴らす
     const bassMidi = 36 + (ch.bassPc ?? ch.root); // C2..B2
 
@@ -209,7 +280,8 @@ export function synthSong(spec: SongSpec, sampleRate: number): {
     addPluck(buf, sampleRate, barStart + beatSec * 2, beatSec * 1.9, bassMidi, 0.85, bassOpts);
 
     // ストラム: 小節頭に構成音をほぼ同時に（10ms ずつずらす）
-    tones.slice(0, 3).forEach((mt, i) => {
+    // 三和音は 3 音、7th コードは 7th 音まで 4 音
+    tones.slice(0, seventhInterval !== null ? 4 : 3).forEach((mt, i) => {
       addPluck(buf, sampleRate, barStart + i * 0.011, beatSec * 1.1, mt, 0.9, chordOpts);
     });
 
@@ -232,10 +304,20 @@ export function synthSong(spec: SongSpec, sampleRate: number): {
 
   const segments: GroundTruthSegment[] = chords.map((ch, i) => {
     const bassPc = ch.bassPc ?? ch.root;
+    const core = chordName(ch.root, ch.mode);
+    const fullChord =
+      ch.seventh === "maj7"
+        ? `${noteName(ch.root)}M7`
+        : ch.seventh === "dom7"
+          ? `${noteName(ch.root)}7`
+          : ch.seventh === "m7"
+            ? `${noteName(ch.root)}m7`
+            : undefined;
     return {
       startSec: Number((i * barSec).toFixed(3)),
       endSec: Number(((i + 1) * barSec).toFixed(3)),
-      chord: chordName(ch.root, ch.mode),
+      chord: core,
+      ...(fullChord !== undefined ? { fullChord } : {}),
       bass: noteName(bassPc),
       bassPc,
     };

@@ -1,0 +1,300 @@
+{
+  "fixtures": {
+    "q3": {
+      "slices": [
+        {
+          "range": [
+            85,
+            87
+          ],
+          "expected": "C",
+          "stemsOn": "C",
+          "mixOn": "Bm"
+        },
+        {
+          "range": [
+            87,
+            89
+          ],
+          "expected": "B7",
+          "stemsOn": "B7",
+          "mixOn": "Am"
+        },
+        {
+          "range": [
+            89,
+            91
+          ],
+          "expected": "E7",
+          "stemsOn": "E7",
+          "mixOn": "Em7"
+        },
+        {
+          "range": [
+            91,
+            93
+          ],
+          "expected": "Am",
+          "stemsOn": "Am7",
+          "mixOn": "CM7"
+        }
+      ],
+      "pass": true
+    },
+    "q2": {
+      "window": [
+        153,
+        168
+      ],
+      "stemsCmSecOff": 4.749999999999991,
+      "stemsCmSecOn": 4.749999999999991,
+      "mixCmSecOff": 1.1000000000000003,
+      "mixCmSecOn": 1.1000000000000003,
+      "strictPass": false,
+      "stage2Pass": false
+    },
+    "q1": {
+      "windows": [
+        {
+          "range": [
+            51,
+            56
+          ],
+          "stemsDominantOff": {
+            "chord": "Dm",
+            "bassPc": 2,
+            "sec": 1.7647165532879825
+          },
+          "stemsDominantOn": {
+            "chord": "Dm",
+            "extension": "m7",
+            "bassPc": 2,
+            "sec": 1.7647165532879825
+          }
+        },
+        {
+          "range": [
+            93,
+            98
+          ],
+          "stemsDominantOff": {
+            "chord": "Dm",
+            "bassPc": 2,
+            "sec": 1.8575963718820816
+          },
+          "stemsDominantOn": {
+            "chord": "Dm",
+            "extension": "m7",
+            "bassPc": 2,
+            "sec": 1.8575963718820816
+          }
+        }
+      ],
+      "pass": false
+    }
+  },
+  "fixtures33": {
+    "q3": {
+      "slices": [
+        {
+          "range": [
+            85,
+            87
+          ],
+          "expected": "C",
+          "stemsOn": "C",
+          "mixOn": "Bm"
+        },
+        {
+          "range": [
+            87,
+            89
+          ],
+          "expected": "B7",
+          "stemsOn": "B7",
+          "mixOn": "Am"
+        },
+        {
+          "range": [
+            89,
+            91
+          ],
+          "expected": "E7",
+          "stemsOn": "E7",
+          "mixOn": "Em7"
+        },
+        {
+          "range": [
+            91,
+            93
+          ],
+          "expected": "Am",
+          "stemsOn": "Am7",
+          "mixOn": "C"
+        }
+      ],
+      "pass": true
+    },
+    "q2": {
+      "window": [
+        153,
+        168
+      ],
+      "stemsCmSecOff": 4.749999999999991,
+      "stemsCmSecOn": 0,
+      "mixCmSecOff": 1.1000000000000003,
+      "mixCmSecOn": 0,
+      "strictPass": true,
+      "stage2Pass": true
+    },
+    "q1": {
+      "windows": [
+        {
+          "range": [
+            51,
+            56
+          ],
+          "stemsDominantOff": {
+            "chord": "Dm",
+            "bassPc": 2,
+            "sec": 1.7647165532879825
+          },
+          "stemsDominantOn": {
+            "chord": "Dm",
+            "extension": "m7",
+            "bassPc": 2,
+            "sec": 1.7647165532879825
+          }
+        },
+        {
+          "range": [
+            93,
+            98
+          ],
+          "stemsDominantOff": {
+            "chord": "Dm",
+            "bassPc": 2,
+            "sec": 1.8575963718820816
+          },
+          "stemsDominantOn": {
+            "chord": "Dm",
+            "extension": "m7",
+            "bassPc": 2,
+            "sec": 1.8575963718820816
+          }
+        }
+      ],
+      "pass": false
+    }
+  },
+  "stemsLocalKeys": [
+    "0–12:D major (r=0.69, m=0.03, 次点 G major)",
+    "4–16:A minor (r=0.80, m=0.17, 次点 D major)",
+    "8–20:A minor (r=0.84, m=0.07, 次点 C major)",
+    "12–24:D minor (r=0.70, m=0.02, 次点 D major)",
+    "16–28:A minor (r=0.80, m=0.11, 次点 D major)",
+    "20–32:A minor (r=0.76, m=0.11, 次点 D minor)",
+    "24–36:A minor (r=0.85, m=0.19, 次点 E minor)",
+    "28–40:C major (r=0.74, m=0.08, 次点 E minor)",
+    "32–44:E minor (r=0.81, m=0.23, 次点 C major)",
+    "36–48:E minor (r=0.80, m=0.14, 次点 A minor)",
+    "40–52:A minor (r=0.78, m=0.05, 次点 E minor)",
+    "44–56:A minor (r=0.81, m=0.08, 次点 E minor)",
+    "48–60:E minor (r=0.86, m=0.23, 次点 A minor)",
+    "52–64:E minor (r=0.87, m=0.26, 次点 G major)",
+    "56–68:E minor (r=0.86, m=0.15, 次点 G major)",
+    "60–72:E minor (r=0.80, m=0.05, 次点 G major)",
+    "64–76:E minor (r=0.75, m=0.05, 次点 G major)",
+    "68–80:A minor (r=0.66, m=0.03, 次点 E minor)",
+    "72–84:E minor (r=0.70, m=0.03, 次点 A minor)",
+    "76–88:E minor (r=0.73, m=0.05, 次点 A minor)",
+    "80–92:E minor (r=0.74, m=0.05, 次点 A minor)",
+    "84–96:C major (r=0.84, m=0.12, 次点 A minor)",
+    "88–100:C major (r=0.77, m=0.05, 次点 G major)",
+    "92–104:G major (r=0.77, m=0.00, 次点 C major)",
+    "96–108:G major (r=0.72, m=0.07, 次点 C major)",
+    "100–112:E minor (r=0.77, m=0.10, 次点 A minor)",
+    "104–116:G major (r=0.78, m=0.12, 次点 D major)",
+    "108–120:G major (r=0.86, m=0.18, 次点 C major)",
+    "112–124:E minor (r=0.77, m=0.13, 次点 C major)",
+    "116–128:E minor (r=0.80, m=0.25, 次点 C major)",
+    "120–132:E minor (r=0.74, m=0.19, 次点 C major)",
+    "124–136:C major (r=0.81, m=0.09, 次点 E minor)",
+    "128–140:C major (r=0.92, m=0.15, 次点 A minor)",
+    "132–144:C major (r=0.84, m=0.11, 次点 G major)",
+    "136–148:G major (r=0.73, m=0.07, 次点 D major)",
+    "140–152:G major (r=0.68, m=0.01, 次点 C major)",
+    "144–156:C major (r=0.77, m=0.13, 次点 G major)",
+    "148–160:C major (r=0.86, m=0.24, 次点 G major)",
+    "152–164:C major (r=0.90, m=0.26, 次点 A minor)",
+    "156–168:C major (r=0.90, m=0.27, 次点 G major)",
+    "160–172:C major (r=0.81, m=0.10, 次点 G major)",
+    "164–176:G major (r=0.79, m=0.03, 次点 C major)",
+    "168–180:G major (r=0.85, m=0.08, 次点 D major)",
+    "172–184:G major (r=0.80, m=0.03, 次点 E minor)",
+    "176–188:D major (r=0.78, m=0.02, 次点 G major)",
+    "180–192:G major (r=0.76, m=0.04, 次点 D major)",
+    "184–196:D major (r=0.74, m=0.01, 次点 G major)",
+    "188–200:E minor (r=0.78, m=0.10, 次点 G major)",
+    "192–204:E minor (r=0.74, m=0.06, 次点 G major)",
+    "193–205:E minor (r=0.81, m=0.12, 次点 G major)"
+  ],
+  "mixLocalKeys": [
+    "0–12:A minor (r=0.73, m=0.21, 次点 C major)",
+    "4–16:A minor (r=0.78, m=0.15, 次点 F major)",
+    "8–20:A minor (r=0.76, m=0.10, 次点 D minor)",
+    "12–24:D minor (r=0.82, m=0.16, 次点 D major)",
+    "16–28:D major (r=0.74, m=0.05, 次点 D minor)",
+    "20–32:A minor (r=0.69, m=0.03, 次点 D minor)",
+    "24–36:A minor (r=0.77, m=0.14, 次点 C major)",
+    "28–40:A minor (r=0.72, m=0.06, 次点 C major)",
+    "32–44:A minor (r=0.74, m=0.05, 次点 C major)",
+    "36–48:A minor (r=0.76, m=0.06, 次点 C major)",
+    "40–52:A minor (r=0.79, m=0.17, 次点 C major)",
+    "44–56:A minor (r=0.78, m=0.18, 次点 D minor)",
+    "48–60:D minor (r=0.76, m=0.09, 次点 G major)",
+    "52–64:D minor (r=0.78, m=0.09, 次点 G major)",
+    "56–68:D minor (r=0.78, m=0.08, 次点 G major)",
+    "60–72:G major (r=0.69, m=0.03, 次点 A minor)",
+    "64–76:G major (r=0.70, m=0.03, 次点 A minor)",
+    "68–80:A minor (r=0.68, m=0.00, 次点 G major)",
+    "72–84:G major (r=0.76, m=0.11, 次点 D major)",
+    "76–88:G major (r=0.80, m=0.15, 次点 D major)",
+    "80–92:G major (r=0.79, m=0.14, 次点 C major)",
+    "84–96:G major (r=0.76, m=0.08, 次点 A minor)",
+    "88–100:G major (r=0.84, m=0.18, 次点 C major)",
+    "92–104:G major (r=0.76, m=0.13, 次点 C major)",
+    "96–108:A minor (r=0.69, m=0.13, 次点 D minor)",
+    "100–112:A minor (r=0.78, m=0.20, 次点 C major)",
+    "104–116:A minor (r=0.76, m=0.16, 次点 C major)",
+    "108–120:A minor (r=0.78, m=0.23, 次点 C major)",
+    "112–124:A minor (r=0.72, m=0.14, 次点 C major)",
+    "116–128:A minor (r=0.74, m=0.22, 次点 D major)",
+    "120–132:A minor (r=0.71, m=0.11, 次点 G major)",
+    "124–136:A minor (r=0.80, m=0.23, 次点 D minor)",
+    "128–140:A minor (r=0.76, m=0.09, 次点 D minor)",
+    "132–144:A minor (r=0.71, m=0.03, 次点 G major)",
+    "136–148:G major (r=0.70, m=0.02, 次点 A minor)",
+    "140–152:A minor (r=0.72, m=0.03, 次点 G major)",
+    "144–156:A minor (r=0.72, m=0.07, 次点 C major)",
+    "148–160:A minor (r=0.73, m=0.08, 次点 C major)",
+    "152–164:A minor (r=0.72, m=0.07, 次点 C major)",
+    "156–168:A minor (r=0.71, m=0.09, 次点 C major)",
+    "160–172:A minor (r=0.66, m=0.00, 次点 G major)",
+    "164–176:A minor (r=0.68, m=0.05, 次点 D minor)",
+    "168–180:A minor (r=0.70, m=0.05, 次点 D minor)",
+    "172–184:C major (r=0.69, m=0.01, 次点 G major)",
+    "176–188:C major (r=0.68, m=0.04, 次点 G major)",
+    "180–192:C major (r=0.68, m=0.00, 次点 D minor)",
+    "184–196:C major (r=0.69, m=0.02, 次点 A minor)",
+    "188–200:C major (r=0.70, m=0.01, 次点 A minor)",
+    "192–204:D minor (r=0.74, m=0.03, 次点 F major)",
+    "193–205:C major (r=0.72, m=0.02, 次点 A minor)"
+  ],
+  "q2Segments": {
+    "off": "148.5–150.0:Am/A 150.0–150.9:N.C. 150.9–152.6:C/C 152.6–156.1:Cm/C 156.1–157.5:G/E 157.5–158.3:Am/A 158.3–159.5:Am/A 159.5–162.7:C/D 162.7–164.1:Dm/G 164.1–165.1:C/C 165.1–165.7:N.C. 165.7–167.3:Cm/C 167.3–167.8:Bm/B 167.8–169.0:Bm/B 169.0–170.0:Em/E",
+    "on": "148.5–150.0:Am7/A 150.0–150.9:N.C. 150.9–152.6:C/C 152.6–156.1:Cm/C 156.1–157.5:G/E 157.5–158.3:Am7/A 158.3–159.5:Am7/A 159.5–162.7:C/D 162.7–164.1:Dm/G 164.1–165.1:CM7/C 165.1–165.7:N.C. 165.7–167.3:Cm/C 167.3–167.8:Bm/B 167.8–169.0:Bm/B 169.0–170.0:Em7/E",
+    "on33": "148.5–150.0:Am7/A 150.0–150.9:N.C. 150.9–152.6:C/C 152.6–156.1:C/C 156.1–157.5:G/E 157.5–158.3:Am7/A 158.3–159.5:Am7/A 159.5–162.7:C/D 162.7–164.1:Dm/G 164.1–165.1:CM7/C 165.1–165.7:N.C. 165.7–167.3:C/C 167.3–167.8:Bm/B 167.8–169.0:Bm/B 169.0–170.0:Em7/E"
+  },
+  "q3SegmentsOn33": "83.0–84.8:G/C 84.8–85.8:N.C. 85.8–86.1:C/C 86.1–87.6:N.C./C 87.6–89.3:B7/B 89.3–91.3:E7/E 91.3–92.0:Am/A 92.0–92.8:Am7/A 92.8–93.3:C/A 93.3–93.7:Am/A 93.7–95.6:Dm7/D"
+}
