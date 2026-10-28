@@ -26,6 +26,13 @@ import { estimateLocalKeys, type LocalKeyContext } from "./localKey";
 import { applyLocalKeyModeNudge } from "./localKeyMode";
 import { estimateMeter } from "./meterEstimate";
 import {
+  applyNoteBassRelabel,
+  applyNoteBoundarySnap,
+  noteOnsets,
+  type NoteEvidenceInput,
+} from "./noteEvidence";
+import { applyNoteBassRewrite } from "./noteBassRewrite";
+import {
   applyNcGapFill,
   applyNcSegmentRematch,
   applyNcStemsFallback,
@@ -251,6 +258,50 @@ export interface StemAnalysisOptions {
    * 測定用）。既定 0 = 絶対下限のみ（原則点）。
    */
   frameGateRescueFloorRatio?: number;
+  /**
+   * 音符レベル統合の入力（noteEvidence.ts）: 音高検出で得た音符
+   * イベント列。ステム経路では harmony に other ステムの音符列、
+   * bass に bass ステムの音符列を渡す。抽出手段には依存しない。
+   * 未指定の場合、note* フラグが ON でも各統合は無動作になる
+   * （混合音経路の AnalyzeOptions.noteEvidence と同じ扱い）。
+   */
+  noteEvidence?: NoteEvidenceInput;
+  /**
+   * 音符レベル統合1: 音符証拠による bassPc の確定／付け替え
+   * （noteEvidence.ts の applyNoteBassRelabel。コードは変更
+   * しない。v2 で書き換えから分離）。既定は true（2026-10-29
+   * 採用、明示 false のときだけ無効）。採用根拠は
+   * NOTEPITCH_INTEGRATION.md および NOTEPITCH_RETRY.md
+   * （混合音経路の AnalyzeOptions.noteBass と同じ扱い）。
+   */
+  noteBass?: boolean;
+  /**
+   * 音符レベル統合1b: 厳格化したコード書き換え（修復・昇格、
+   * noteBassRewrite.ts）。音符証拠とクロマ適合の二重証拠が
+   * 揃う場合のみ発火する。stems 経路でのみ有効（混合音では
+   * 書き換え禁止）。noteBass と独立に ON/OFF できる。
+   * 既定は false。
+   */
+  noteBassRewrite?: boolean;
+  /**
+   * 音符レベル統合2: テンションの独立証人。extensions 有効時に、
+   * 第2段の 7 度音シェア証拠を other ステムの音符の実在証拠で
+   * 扱う。既定は false（明示オプトイン）。noteEvidence が必要。
+   */
+  noteTension?: boolean;
+  /**
+   * 音符証人の使い方（測定用）。既定 "replace"、"bonus" は比較用。
+   * "veto" は密度＋二重確認が揃う窓でのみ不在を棄却（v2 主形）、
+   * "gated" は差し替えを発言権のある窓に限定（v2 比較形）。
+   */
+  noteTensionMode?: "replace" | "bonus" | "gated" | "veto";
+  /**
+   * 音符レベル統合3: セグメンテーション境界の音符オンセットへの
+   * 近傍スナップ。境界決定そのものは変えず、framesToSegments の
+   * 直後に補正として働く。既定は false（明示オプトイン）。
+   * noteEvidence が必要。
+   */
+  noteBoundaries?: boolean;
 }
 
 /** 計算済みクロマから、指定した帯域戦略でステム解析を行う */
@@ -277,6 +328,19 @@ export function analyzeStemsWithStrategy(
   const bpm = estimateTempo(mixChroma.onsetEnvelope, mixChroma.frameDuration);
 
   let segments = framesToSegments(frames, fd, duration);
+  // 音符レベル統合3: 境界補正（明示オプトイン、既定 OFF）。
+  // オンセットの出所は other＋bass の音符列。境界決定そのものは
+  // 変えず、後段すべての集計に効くよう最上流に置く
+  // （混合音経路の AnalyzeOptions.noteBoundaries と同じ扱い）。
+  if (opts?.noteBoundaries && opts?.noteEvidence) {
+    segments = applyNoteBoundarySnap(
+      segments,
+      noteOnsets([
+        ...opts.noteEvidence.harmony,
+        ...(opts.noteEvidence.bass ?? []),
+      ]),
+    );
+  }
   // ベース補正は全戦略共通（低域分布 = bass ステム、スコア比較 = other 全帯域）
   segments = applyBassCorrection(
     segments,
@@ -301,6 +365,28 @@ export function analyzeStemsWithStrategy(
       otherChroma.energies,
       fd,
     );
+  }
+  // 音符レベル統合1: bassPc の確定／付け替え（既定 ON、2026-10-29
+  // 採用。v2 で書き換えから分離した基本形で、コードは変更しない。
+  // 明示 false のときだけ無効）。ベース補正・条件分岐・モード
+  // 決め直しの後に、bass ステムの音符証拠で bassPc を置換・補強
+  // する。層の再読と第2段より前に置く（混合音経路と同じ位置づけ）。
+  // noteEvidence が無い場合は無動作で、従来と完全一致する。
+  if (opts?.noteBass !== false && opts?.noteEvidence) {
+    segments = applyNoteBassRelabel(segments, opts.noteEvidence);
+  }
+  // 音符レベル統合1b: 厳格化した書き換え（サブオプション）。
+  // 付け替えの直後に、音符証拠とクロマ適合の二重証拠が揃う
+  // 場合のみ修復・昇格を許可する。二重証拠のクロマは、層の
+  // 再読が使う other 全帯域クロマと同じもの（証拠系統を増やさ
+  // ず、独立性の担保は「音符側シェア」と「エネルギー加重クロマ
+  // 集計」の系統差に置く）。stems 経路でのみ呼ばれる。
+  if (opts?.noteBassRewrite && opts?.noteEvidence) {
+    segments = applyNoteBassRewrite(segments, opts.noteEvidence, {
+      frames: otherChroma.frames,
+      energies: otherChroma.energies,
+      frameDuration: fd,
+    });
   }
   // Phase 3.3: 局所キー文脈。局所キーの出所は other ステムの全帯域
   // クロマにする（全体キー表示は従来どおり混合音由来で変えない）。
@@ -460,6 +546,13 @@ export function analyzeStemsWithStrategy(
           : {}),
         ...(consumeGenre && genreCtx
           ? { genreFactors: genreExtensionFactors(genreCtx) }
+          : {}),
+        // 音符レベル統合2: テンションの独立証人（明示オプトイン）
+        ...(opts?.noteTension && opts?.noteEvidence
+          ? {
+              noteEvidence: opts.noteEvidence,
+              noteWitnessMode: opts?.noteTensionMode ?? "replace",
+            }
           : {}),
       },
     );

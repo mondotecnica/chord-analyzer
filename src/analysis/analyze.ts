@@ -15,6 +15,12 @@ import {
 import { estimateKey, estimateTempo } from "./keyTempo";
 import { estimateLocalKeys, type LocalKeyContext } from "./localKey";
 import { estimateMeter } from "./meterEstimate";
+import {
+  applyNoteBassRelabel,
+  applyNoteBoundarySnap,
+  noteOnsets,
+  type NoteEvidenceInput,
+} from "./noteEvidence";
 import { applyNcGapFill, applyNcSegmentRematch } from "./ncRecovery";
 import { applyLocalKeyModeNudge } from "./localKeyMode";
 import { framesToSegments } from "./segmentation";
@@ -207,6 +213,54 @@ export interface AnalyzeOptions {
    * 測定用）。既定 0 = 絶対下限のみ（原則点）。
    */
   frameGateRescueFloorRatio?: number;
+  /**
+   * 音符レベル統合の入力（noteEvidence.ts）: 音高検出で得た音符
+   * イベント列。混合音経路では harmony に混合音の音符列を渡す。
+   * 抽出手段には依存しない（ハーネス測定では検証時の音符キャッシュ、
+   * 製品では将来のブラウザ推論）。未指定の場合、note* フラグが
+   * ON でも各統合は無動作になる。
+   */
+  noteEvidence?: NoteEvidenceInput;
+  /**
+   * 音符レベル統合1: 音符証拠による bassPc の確定／付け替え
+   * （noteEvidence.ts の applyNoteBassRelabel。コードは変更しない。
+   * v2 で書き換えから分離した基本形）。既定は true（2026-10-29
+   * 採用、明示 false のときだけ無効）。採用根拠は
+   * measurements/notepitch/NOTEPITCH_RETRY.md（登録基準を全て
+   * 満たし、回帰ゼロ）。noteEvidence が必要で、未指定の場合は
+   * 従来と完全一致する（音符入力なしでは無動作）。
+   */
+  noteBass?: boolean;
+  /**
+   * 音符レベル統合1b: 厳格化したコード書き換え（修復・昇格、
+   * noteBassRewrite.ts）。音符証拠とクロマ適合の二重証拠が揃う
+   * 場合のみ発火する。stems 経路（analyzeStems）でのみ作用し、
+   * 本経路（混合音）では指定されても無効（書き換え禁止）。
+   * noteBass と独立に ON/OFF できる。既定は false。
+   */
+  noteBassRewrite?: boolean;
+  /**
+   * 音符レベル統合2: テンションの独立証人。extensions 有効時に、
+   * 第2段の 7 度音シェア証拠を音符の実在証拠で扱う
+   * （extensionDetection.ts の noteWitness）。既定は false
+   * （明示オプトイン）。noteEvidence が必要で、extensions が
+   * 無効な場合は意味を持たない。
+   */
+  noteTension?: boolean;
+  /**
+   * 音符証人の使い方（測定用）。既定は "replace"（7 度音シェアの
+   * 差し替え）。"bonus" は実在証人が強い場合の加算型（比較用）。
+   * "veto" は密度＋二重確認が揃う窓でのみ不在を棄却（v2 主形）、
+   * "gated" は差し替えを発言権のある窓に限定（v2 比較形）。
+   */
+  noteTensionMode?: "replace" | "bonus" | "gated" | "veto";
+  /**
+   * 音符レベル統合3: セグメンテーション境界の音符オンセットへの
+   * 近傍スナップ（noteEvidence.ts の applyNoteBoundarySnap）。
+   * 境界決定そのものは変えず、framesToSegments の直後に補正として
+   * 働く。既定は false（明示オプトイン）。noteEvidence が必要。
+   */
+  noteBoundaries?: boolean;
 }
 
 /**
@@ -292,7 +346,20 @@ export async function analyzeAudio(
   onProgress?.({ stage: "セグメントを整形中…", ratio: 0.9 });
   await yieldToUi();
   const duration = monoSamples.length / sampleRate;
-  const phase0Segments = framesToSegments(frames, chroma.frameDuration, duration);
+  let phase0Segments = framesToSegments(frames, chroma.frameDuration, duration);
+
+  // 音符レベル統合3: 境界補正（明示オプトイン、既定 OFF）。
+  // 境界汚染は後段すべての集計に効くため、補正として最も上流
+  // （framesToSegments の直後）に置く。境界決定そのものは変えない。
+  if (options?.noteBoundaries && options?.noteEvidence) {
+    phase0Segments = applyNoteBoundarySnap(
+      phase0Segments,
+      noteOnsets([
+        ...options.noteEvidence.harmony,
+        ...(options.noteEvidence.bass ?? []),
+      ]),
+    );
+  }
 
   // Phase 1: ベース解析によるルート補正（セグメント単位・保守ルール）
   let segments = phase0Segments;
@@ -332,6 +399,21 @@ export async function analyzeAudio(
       chroma.energies,
       chroma.frameDuration,
     );
+  }
+
+  // 音符レベル統合1: bassPc の確定／付け替え（既定 ON、2026-10-29
+  // 採用。v2 で書き換えから分離した基本形で、コードは変更しない。
+  // 明示 false のときだけ無効）。ベース補正・条件分岐・モード
+  // 決め直しが終わったセグメント列に対して、音符ベース証拠で
+  // bassPc を置換・補強する。層の再読（Phase 3.2）と第2段
+  // （bassPc を参照する再解釈ゲート）より前に置く。書き換え
+  // （noteBassRewrite）は stems 経路でのみ有効で、本経路では
+  // 指定されても無効。noteEvidence が無い場合は無動作で、
+  // 従来と完全一致する。
+  if (options?.noteBass !== false && options?.noteEvidence) {
+    onProgress?.({ stage: "音符証拠でベースを確定中…", ratio: 0.972 });
+    await yieldToUi();
+    segments = applyNoteBassRelabel(segments, options.noteEvidence);
   }
 
   // Phase 3.3: 局所キー文脈の推定。全帯域クロマ（全体キーと同じ出所）
@@ -492,6 +574,13 @@ export async function analyzeAudio(
           : {}),
         ...(consumeGenre && genreCtx
           ? { genreFactors: genreExtensionFactors(genreCtx) }
+          : {}),
+        // 音符レベル統合2: テンションの独立証人（明示オプトイン）
+        ...(options?.noteTension && options?.noteEvidence
+          ? {
+              noteEvidence: options.noteEvidence,
+              noteWitnessMode: options?.noteTensionMode ?? "replace",
+            }
           : {}),
       },
     );

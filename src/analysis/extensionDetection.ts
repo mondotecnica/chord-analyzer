@@ -2,6 +2,11 @@ import { chordName } from "../lib/notes";
 import type { ChordExtension, ChordSegment } from "../types";
 import { parseChordName } from "./bassCorrection";
 import { localKeyWindowAt, type LocalKeyContext } from "./localKey";
+import {
+  noteSegmentWitness,
+  type NoteEvidenceInput,
+  type NoteWitness,
+} from "./noteEvidence";
 
 /**
  * Phase 3.1: 7th／テンションの二段判定 — 第2段（拡張音検出）。
@@ -127,6 +132,108 @@ export interface ExtensionContext {
    * （PHASE3_PLAN.md §2、ダイアトニック緩和と同じ桁の効果）。
    */
   genreFactors?: Record<ChordExtension, number>;
+  /**
+   * 音符レベル統合: テンションの独立証人（noteEvidence.ts）の入力。
+   * 呼び出し側が noteTension を有効にした場合だけ渡る。applyExtensions
+   * がセグメントごとに証人（noteWitness）を計算して judgeExtension に
+   * 渡す。証拠の使い方は noteWitnessMode で選ぶ（既定は "replace"）。
+   * 設計判断は measurements/notepitch/NOTEPITCH_INTEGRATION.md と、
+   * v2（棄権つき証人）については NOTEPITCH_RETRY.md。
+   */
+  noteEvidence?: NoteEvidenceInput;
+  /**
+   * 証人の使い方:
+   * - "replace"（v1）: 7 度音シェアを音符シェアで差し替える。
+   * - "bonus"（v1 比較用）: 実在証人が強い場合にクロマシェアへ加算。
+   * - "veto"（v2 主形）: クロマ判定が通した候補を、証人が発言権を
+   *   持つ窓（密度ゲート＋不在の二重確認）で 7 度音が不在の場合に
+   *   だけ棄却する。追加はしない。
+   * - "gated"（v2 比較形）: "replace" を、証人が発言権を持つ窓に
+   *   限定する（発言権が無い窓ではクロマ証拠に委ねる）。
+   */
+  noteWitnessMode?: "replace" | "bonus" | "gated" | "veto";
+  /**
+   * このセグメントの音符証人（applyExtensions が noteEvidence 有効時に
+   * 計算して載せる内部値。呼び出し側が直接指定するものではない）。
+   * null は「窓に音符が重ならなかった」= 証人なし（クロマに委ねる）。
+   */
+  noteWitness?: NoteWitness | null;
+}
+
+/**
+ * 音符証人（noteTension）のパラメータ。
+ * - replace: 7 度音のシェア証拠を音符シェアで差し替える。床は
+ *   クロマと同じ（♭7: 0.08 / maj7: 0.10）。検証では倍音ゴースト
+ *   音符のシェアは 0.03–0.08 に収まっており、床の下に落ちる。
+ * - bonus（比較用）: 実在証人が強い（音符シェアと被覆率が床を
+ *   超える）場合にだけ、クロマシェアへ小さな加算をする。
+ * - v2（veto / gated）の発言権ゲート: 導出根拠は
+ *   NOTEPITCH_RETRY.md「密度規則の導出」。密度候補（被覆率・
+ *   三和音シェア等）は誤発火窓と真陽性窓を単独では分離しなかった
+ *   ため、(a) は「書き起こしが機能している窓か」の資格条件として
+ *   両集団の分布の下端に置き、分離の主軸は (b) 不在の二重確認
+ *   （混合音プールでも不在）に置く。
+ */
+export const NOTE_WITNESS_CONFIG = {
+  /** bonus 型: クロマシェアへの加算量 */
+  bonus: 0.03,
+  /** bonus 型: 証人が「強い」とみなす音符シェアの下限 */
+  bonusMinNoteShare: 0.1,
+  /** bonus 型: 証人が「強い」とみなす被覆率の下限 */
+  bonusMinCoverage: 0.35,
+  /** v2 (a) 密度ゲート: 和声プールの和集合被覆率の下限 */
+  densityMinUnionCoverage: 0.75,
+  /** v2 (a) 密度ゲート: 三和音構成音の音符シェア合計の下限 */
+  densityMinTriadShare: 0.5,
+  /** v2: 7 度音の音符シェアがこの値未満なら「不在」とみなす（検証のゴースト帯 0.03–0.08 の下） */
+  absenceMaxNoteShare: 0.02,
+  /** v2 (b) 二重確認: 混合音プールでの 7 度音シェアがこの値未満なら「不在が裏付けられた」とみなす */
+  corroborationMaxSeventhShare: 0.05,
+} as const;
+
+/**
+ * v2 証人の密度ゲート (a): その窓で和声プールの書き起こしが
+ * 機能していると言えるか（和集合被覆率と、検出コードの三和音
+ * 構成音が占める音符シェア合計）。証人がどちらの方向に発言する
+ * 場合も、この資格を満たさない窓では棄権する。
+ */
+export function witnessDensityOk(
+  witness: NoteWitness,
+  root: number,
+  mode: "major" | "minor",
+): boolean {
+  const third = (root + (mode === "major" ? 4 : 3)) % 12;
+  const triadShare =
+    witness.shares[root] + witness.shares[third] + witness.shares[(root + 7) % 12];
+  return (
+    witness.unionCoverage >= NOTE_WITNESS_CONFIG.densityMinUnionCoverage &&
+    triadShare >= NOTE_WITNESS_CONFIG.densityMinTriadShare
+  );
+}
+
+/**
+ * v2 証人の棄却権: 対象ピッチクラス pc の「不在」を反証として
+ * 使えるかを返す。pc の音符シェアが「不在」の水準にあり、密度
+ * ゲート (a) を満たし、かつ不在が二重確認プール（混合音）でも
+ * 裏付けられる場合にだけ true。二重確認プールが無い（null）
+ * 場合は常に false（棄権）。実在（シェアが absenceMaxNoteShare
+ * 以上）の場合は「不在の主張」自体が無いので false を返す。
+ */
+export function witnessMayDenyAbsence(
+  witness: NoteWitness,
+  root: number,
+  mode: "major" | "minor",
+  pc: number,
+): boolean {
+  if (witness.shares[pc] >= NOTE_WITNESS_CONFIG.absenceMaxNoteShare) {
+    return false;
+  }
+  if (!witnessDensityOk(witness, root, mode)) return false;
+  if (!witness.corroborationShares) return false;
+  return (
+    witness.corroborationShares[pc] <
+    NOTE_WITNESS_CONFIG.corroborationMaxSeventhShare
+  );
 }
 
 export interface SegmentEvidence {
@@ -355,21 +462,77 @@ export function judgeExtension(
     if (ctx?.genreFactors) {
       shareThreshold *= ctx.genreFactors[ext];
     }
+    // 音符レベル統合: テンションの独立証人（noteTension）。7 度音の
+    // シェア証拠だけを音符側の実在証拠で扱う（持続性・適合度は
+    // クロマ側のまま）。"replace" はクロマでは倍音で膨らむ 7 度音
+    // シェアを、音符の実在シェア（ゴースト帯 0.03–0.08）に差し替え、
+    // 床に届かない誤発火をゲートで落とすのが狙い。"bonus" は比較用
+    // （NOTEPITCH_INTEGRATION.md の設計判断参照）。
+    // v2（NOTEPITCH_RETRY.md）: "veto" はクロマ判定を通した候補を、
+    // 証人が棄却権を持つ窓（密度ゲート＋不在の二重確認）でのみ
+    // 棄却する。"gated" は "replace" の適用を、証人に発言権がある
+    // 窓（密度ゲートを満たし、実在が確認できるか、不在が二重確認
+    // できる場合）に限定し、それ以外では棄権する（クロマに委ねる）。
+    const witnessMode = ctx?.noteWitnessMode ?? "replace";
+    let effectiveShare = shares[pc];
+    // この候補のシェア証拠が音符側に差し替わったか（下記の文脈
+    // prior 割り引きを止める条件。replace では常時、gated では
+    // 差し替えが実際に起きた候補だけ true になる）
+    let witnessReplaced = false;
+    // v2 veto: 全ゲートを通した候補に適用する棄却フラグ
+    let vetoed = false;
+    if (ctx?.noteWitness) {
+      const w = ctx.noteWitness;
+      const noteShare = w.shares[pc];
+      if (witnessMode === "bonus") {
+        if (
+          noteShare >= NOTE_WITNESS_CONFIG.bonusMinNoteShare &&
+          w.coverage[pc] >= NOTE_WITNESS_CONFIG.bonusMinCoverage
+        ) {
+          effectiveShare = shares[pc] + NOTE_WITNESS_CONFIG.bonus;
+        }
+      } else if (witnessMode === "gated") {
+        const presence =
+          noteShare >= NOTE_WITNESS_CONFIG.absenceMaxNoteShare;
+        if (
+          witnessDensityOk(w, root, mode) &&
+          (presence || witnessMayDenyAbsence(w, root, mode, pc))
+        ) {
+          effectiveShare = noteShare;
+          witnessReplaced = true;
+        }
+      } else if (witnessMode === "veto") {
+        vetoed = witnessMayDenyAbsence(w, root, mode, pc);
+      } else {
+        effectiveShare = noteShare;
+        witnessReplaced = true;
+      }
+    }
     // Phase 3.3: maj7 文脈 prior。その音が曲の他のコード区間でも
     // 同程度に鳴っている（背景シェアが高い）場合、その音はこの
     // セグメント固有の構成音とは言い切れないため、シェア証拠を
     // 背景ぶん割り引いてからしきい値と比較する。割り引くのは
     // シェア判定だけで、適合度・持続性の判定は元の証拠のまま。
     // （PHASE3_1_RESULTS.md 失敗分析3: AHDN の G → GM7 誤発火対策）
-    let shareForTest = shares[pc];
-    if (ext === "maj7" && ctx?.contextBackground !== undefined) {
+    // 音符証人の差し替え時は、証拠の出所が音符側に移っているため
+    // クロマ固有の背景割り引きは適用しない。
+    let shareForTest = effectiveShare;
+    if (
+      ext === "maj7" &&
+      ctx?.contextBackground !== undefined &&
+      !witnessReplaced
+    ) {
       shareForTest =
-        shares[pc] - EXTENSION_CONFIG.maj7ContextDiscount * ctx.contextBackground;
+        effectiveShare - EXTENSION_CONFIG.maj7ContextDiscount * ctx.contextBackground;
     }
-    if (shares[pc] < shareThreshold) continue; // 割り引き前のゲートにも届かない
+    if (effectiveShare < shareThreshold) continue; // 割り引き前のゲートにも届かない
     if (persistence[pc] < EXTENSION_CONFIG.minPersistence) continue;
     const fit = cosine(shares, seventhTemplate(root, ext));
     if (fit - fit3 < EXTENSION_CONFIG.minFitImprovement) continue;
+    // v2 veto: クロマ側の全ゲートを通しても、証人の棄却権が成立
+    // する窓では候補自体を存在しないものとして扱う（再解釈との
+    // 競合相手（bestOnRootRaw）にも数えない）
+    if (vetoed) continue;
     if (!bestOnRootRaw || fit > bestOnRootRaw.fit) {
       bestOnRootRaw = { extension: ext, fit };
     }
@@ -471,8 +634,18 @@ export function applyExtensions(
     const evidence = evidences[i];
     if (seg.edited || !parsed || !evidence) return seg;
     let segCtx = ctx;
-    if (ctx && (ctx.localKeys || ctx.contextPrior)) {
+    if (ctx && (ctx.localKeys || ctx.contextPrior || ctx.noteEvidence)) {
       segCtx = { ...ctx };
+      if (ctx.noteEvidence) {
+        // 音符証人: 和声音符が窓に重ならなければ null（クロマに委ねる）。
+        // 二重確認プール（混合音の音符列）があれば併せて渡す（v2）
+        segCtx.noteWitness = noteSegmentWitness(
+          ctx.noteEvidence.harmony,
+          seg.start,
+          seg.end,
+          ctx.noteEvidence.corroboration,
+        );
+      }
       if (ctx.localKeys) {
         const win = localKeyWindowAt(ctx.localKeys, (seg.start + seg.end) / 2);
         if (win) {

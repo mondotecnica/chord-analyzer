@@ -1,0 +1,939 @@
+{
+  "suno": {
+    "arms": {
+      "off": {
+        "stems": {
+          "q1": [
+            {
+              "range": [
+                51,
+                56
+              ],
+              "dominant": {
+                "chord": "Dm",
+                "bassPc": 2,
+                "sec": 1.7647165532879825
+              },
+              "bassCorrect": true
+            },
+            {
+              "range": [
+                93,
+                98
+              ],
+              "dominant": {
+                "chord": "Dm",
+                "bassPc": 2,
+                "sec": 1.8575963718820816
+              },
+              "bassCorrect": true
+            }
+          ],
+          "q4": {
+            "dominant": {
+              "chord": "C#m",
+              "bassPc": 1,
+              "sec": 1.6691156462585042
+            },
+            "bassCorrect": true,
+            "display": "CM7/C#"
+          },
+          "q3": [
+            {
+              "range": [
+                85,
+                87
+              ],
+              "expected": "C",
+              "label": "C",
+              "pass": true
+            },
+            {
+              "range": [
+                87,
+                89
+              ],
+              "expected": "B7",
+              "label": "A",
+              "pass": false
+            },
+            {
+              "range": [
+                89,
+                91
+              ],
+              "expected": "E7",
+              "label": "E",
+              "pass": false
+            },
+            {
+              "range": [
+                91,
+                93
+              ],
+              "expected": "Am",
+              "label": "Am",
+              "pass": true
+            }
+          ],
+          "q2CmSec": 4.799999999999991
+        },
+        "mixture": {
+          "q1": [
+            {
+              "range": [
+                51,
+                56
+              ],
+              "dominant": {
+                "chord": "G",
+                "bassPc": 7,
+                "sec": 2.40834467120181
+              },
+              "bassCorrect": false
+            },
+            {
+              "range": [
+                93,
+                98
+              ],
+              "dominant": {
+                "chord": "G",
+                "bassPc": 2,
+                "sec": 1.7182766439909187
+              },
+              "bassCorrect": true
+            }
+          ],
+          "q4": {
+            "dominant": {
+              "chord": "Am",
+              "bassPc": 9,
+              "sec": 1.3931972789115576
+            },
+            "bassCorrect": false,
+            "display": "Am"
+          },
+          "q3": [
+            {
+              "range": [
+                85,
+                87
+              ],
+              "expected": "C",
+              "label": "Bm",
+              "pass": false
+            },
+            {
+              "range": [
+                87,
+                89
+              ],
+              "expected": "B7",
+              "label": "Am",
+              "pass": false
+            },
+            {
+              "range": [
+                89,
+                91
+              ],
+              "expected": "E7",
+              "label": "Em",
+              "pass": false
+            },
+            {
+              "range": [
+                91,
+                93
+              ],
+              "expected": "Am",
+              "label": "C",
+              "pass": false
+            }
+          ],
+          "q2CmSec": 1.1000000000000003
+        }
+      },
+      "ext": {
+        "stems": {
+          "q1": [
+            {
+              "range": [
+                51,
+                56
+              ],
+              "dominant": {
+                "chord": "Dm",
+                "extension": "m7",
+                "bassPc": 2,
+                "sec": 1.7647165532879825
+              },
+              "bassCorrect": true
+            },
+            {
+              "range": [
+                93,
+                98
+              ],
+              "dominant": {
+                "chord": "Dm",
+                "extension": "m7",
+                "bassPc": 2,
+                "sec": 1.8575963718820816
+              },
+              "bassCorrect": true
+            }
+          ],
+          "q4": {
+            "dominant": {
+              "chord": "C#m",
+              "extension": "m7",
+              "bassPc": 1,
+              "sec": 1.6691156462585042
+            },
+            "bassCorrect": true,
+            "display": "CM7/C#"
+          },
+          "q3": [
+            {
+              "range": [
+                85,
+                87
+              ],
+              "expected": "C",
+              "label": "C",
+              "pass": true
+            },
+            {
+              "range": [
+                87,
+                89
+              ],
+              "expected": "B7",
+              "label": "B7",
+              "pass": true
+            },
+            {
+              "range": [
+                89,
+                91
+              ],
+              "expected": "E7",
+              "label": "E7",
+              "pass": true
+            },
+            {
+              "range": [
+                91,
+                93
+              ],
+              "expected": "Am",
+              "label": "Am7",
+              "pass": true
+            }
+          ],
+          "q2CmSec": 4.799999999999991
+        },
+        "mixture": {
+          "q1": [
+            {
+              "range": [
+                51,
+                56
+              ],
+              "dominant": {
+                "chord": "G",
+                "bassPc": 7,
+                "sec": 2.40834467120181
+              },
+              "bassCorrect": false
+            },
+            {
+              "range": [
+                93,
+                98
+              ],
+              "dominant": {
+                "chord": "G",
+                "bassPc": 2,
+                "sec": 1.7182766439909187
+              },
+              "bassCorrect": true
+            }
+          ],
+          "q4": {
+            "dominant": {
+              "chord": "Am",
+              "bassPc": 9,
+              "sec": 1.3931972789115576
+            },
+            "bassCorrect": false,
+            "display": "Am"
+          },
+          "q3": [
+            {
+              "range": [
+                85,
+                87
+              ],
+              "expected": "C",
+              "label": "Bm",
+              "pass": false
+            },
+            {
+              "range": [
+                87,
+                89
+              ],
+              "expected": "B7",
+              "label": "Am",
+              "pass": false
+            },
+            {
+              "range": [
+                89,
+                91
+              ],
+              "expected": "E7",
+              "label": "Em7",
+              "pass": false
+            },
+            {
+              "range": [
+                91,
+                93
+              ],
+              "expected": "Am",
+              "label": "CM7",
+              "pass": false
+            }
+          ],
+          "q2CmSec": 1.1000000000000003
+        }
+      },
+      "bassV2": {
+        "stems": {
+          "q1": [
+            {
+              "range": [
+                51,
+                56
+              ],
+              "dominant": {
+                "chord": "Dm",
+                "bassPc": 2,
+                "sec": 1.7647165532879825
+              },
+              "bassCorrect": true
+            },
+            {
+              "range": [
+                93,
+                98
+              ],
+              "dominant": {
+                "chord": "Dm",
+                "bassPc": 2,
+                "sec": 1.8575963718820816
+              },
+              "bassCorrect": true
+            }
+          ],
+          "q4": {
+            "dominant": {
+              "chord": "C#m",
+              "bassPc": 1,
+              "sec": 1.6691156462585042
+            },
+            "bassCorrect": true,
+            "display": "CM7/C#"
+          },
+          "q3": [
+            {
+              "range": [
+                85,
+                87
+              ],
+              "expected": "C",
+              "label": "C",
+              "pass": true
+            },
+            {
+              "range": [
+                87,
+                89
+              ],
+              "expected": "B7",
+              "label": "A",
+              "pass": false
+            },
+            {
+              "range": [
+                89,
+                91
+              ],
+              "expected": "E7",
+              "label": "E",
+              "pass": false
+            },
+            {
+              "range": [
+                91,
+                93
+              ],
+              "expected": "Am",
+              "label": "Am",
+              "pass": true
+            }
+          ],
+          "q2CmSec": 4.799999999999991
+        },
+        "mixture": {
+          "q1": [
+            {
+              "range": [
+                51,
+                56
+              ],
+              "dominant": {
+                "chord": "G",
+                "bassPc": 7,
+                "sec": 2.40834467120181
+              },
+              "bassCorrect": false
+            },
+            {
+              "range": [
+                93,
+                98
+              ],
+              "dominant": {
+                "chord": "G",
+                "bassPc": 2,
+                "sec": 1.7182766439909187
+              },
+              "bassCorrect": true
+            }
+          ],
+          "q4": {
+            "dominant": {
+              "chord": "Am",
+              "bassPc": 9,
+              "sec": 1.3931972789115576
+            },
+            "bassCorrect": false,
+            "display": "Am"
+          },
+          "q3": [
+            {
+              "range": [
+                85,
+                87
+              ],
+              "expected": "C",
+              "label": "Bm",
+              "pass": false
+            },
+            {
+              "range": [
+                87,
+                89
+              ],
+              "expected": "B7",
+              "label": "Am",
+              "pass": false
+            },
+            {
+              "range": [
+                89,
+                91
+              ],
+              "expected": "E7",
+              "label": "Em",
+              "pass": false
+            },
+            {
+              "range": [
+                91,
+                93
+              ],
+              "expected": "Am",
+              "label": "C",
+              "pass": false
+            }
+          ],
+          "q2CmSec": 1.1000000000000003
+        }
+      },
+      "bassV2r": {
+        "stems": {
+          "q1": [
+            {
+              "range": [
+                51,
+                56
+              ],
+              "dominant": {
+                "chord": "C",
+                "bassPc": 2,
+                "sec": 1.7647165532879825
+              },
+              "bassCorrect": true
+            },
+            {
+              "range": [
+                93,
+                98
+              ],
+              "dominant": {
+                "chord": "C",
+                "bassPc": 2,
+                "sec": 1.8575963718820816
+              },
+              "bassCorrect": true
+            }
+          ],
+          "q4": {
+            "dominant": {
+              "chord": "Em",
+              "bassPc": 1,
+              "sec": 1.6691156462585042
+            },
+            "bassCorrect": true,
+            "display": "Em"
+          },
+          "q3": [
+            {
+              "range": [
+                85,
+                87
+              ],
+              "expected": "C",
+              "label": "C",
+              "pass": true
+            },
+            {
+              "range": [
+                87,
+                89
+              ],
+              "expected": "B7",
+              "label": "A",
+              "pass": false
+            },
+            {
+              "range": [
+                89,
+                91
+              ],
+              "expected": "E7",
+              "label": "E",
+              "pass": false
+            },
+            {
+              "range": [
+                91,
+                93
+              ],
+              "expected": "Am",
+              "label": "Am",
+              "pass": true
+            }
+          ],
+          "q2CmSec": 4.799999999999991
+        },
+        "mixture": {
+          "q1": [
+            {
+              "range": [
+                51,
+                56
+              ],
+              "dominant": {
+                "chord": "G",
+                "bassPc": 7,
+                "sec": 2.40834467120181
+              },
+              "bassCorrect": false
+            },
+            {
+              "range": [
+                93,
+                98
+              ],
+              "dominant": {
+                "chord": "G",
+                "bassPc": 2,
+                "sec": 1.7182766439909187
+              },
+              "bassCorrect": true
+            }
+          ],
+          "q4": {
+            "dominant": {
+              "chord": "Am",
+              "bassPc": 9,
+              "sec": 1.3931972789115576
+            },
+            "bassCorrect": false,
+            "display": "Am"
+          },
+          "q3": [
+            {
+              "range": [
+                85,
+                87
+              ],
+              "expected": "C",
+              "label": "Bm",
+              "pass": false
+            },
+            {
+              "range": [
+                87,
+                89
+              ],
+              "expected": "B7",
+              "label": "Am",
+              "pass": false
+            },
+            {
+              "range": [
+                89,
+                91
+              ],
+              "expected": "E7",
+              "label": "Em",
+              "pass": false
+            },
+            {
+              "range": [
+                91,
+                93
+              ],
+              "expected": "Am",
+              "label": "C",
+              "pass": false
+            }
+          ],
+          "q2CmSec": 1.1000000000000003
+        }
+      },
+      "tensionV2": {
+        "stems": {
+          "q1": [
+            {
+              "range": [
+                51,
+                56
+              ],
+              "dominant": {
+                "chord": "Dm",
+                "extension": "m7",
+                "bassPc": 2,
+                "sec": 1.7647165532879825
+              },
+              "bassCorrect": true
+            },
+            {
+              "range": [
+                93,
+                98
+              ],
+              "dominant": {
+                "chord": "Dm",
+                "extension": "m7",
+                "bassPc": 2,
+                "sec": 1.8575963718820816
+              },
+              "bassCorrect": true
+            }
+          ],
+          "q4": {
+            "dominant": {
+              "chord": "C#m",
+              "extension": "m7",
+              "bassPc": 1,
+              "sec": 1.6691156462585042
+            },
+            "bassCorrect": true,
+            "display": "CM7/C#"
+          },
+          "q3": [
+            {
+              "range": [
+                85,
+                87
+              ],
+              "expected": "C",
+              "label": "C",
+              "pass": true
+            },
+            {
+              "range": [
+                87,
+                89
+              ],
+              "expected": "B7",
+              "label": "B7",
+              "pass": true
+            },
+            {
+              "range": [
+                89,
+                91
+              ],
+              "expected": "E7",
+              "label": "E7",
+              "pass": true
+            },
+            {
+              "range": [
+                91,
+                93
+              ],
+              "expected": "Am",
+              "label": "Am7",
+              "pass": true
+            }
+          ],
+          "q2CmSec": 4.799999999999991
+        },
+        "mixture": {
+          "q1": [
+            {
+              "range": [
+                51,
+                56
+              ],
+              "dominant": {
+                "chord": "G",
+                "bassPc": 7,
+                "sec": 2.40834467120181
+              },
+              "bassCorrect": false
+            },
+            {
+              "range": [
+                93,
+                98
+              ],
+              "dominant": {
+                "chord": "G",
+                "bassPc": 2,
+                "sec": 1.7182766439909187
+              },
+              "bassCorrect": true
+            }
+          ],
+          "q4": {
+            "dominant": {
+              "chord": "Am",
+              "bassPc": 9,
+              "sec": 1.3931972789115576
+            },
+            "bassCorrect": false,
+            "display": "Am"
+          },
+          "q3": [
+            {
+              "range": [
+                85,
+                87
+              ],
+              "expected": "C",
+              "label": "Bm",
+              "pass": false
+            },
+            {
+              "range": [
+                87,
+                89
+              ],
+              "expected": "B7",
+              "label": "Am",
+              "pass": false
+            },
+            {
+              "range": [
+                89,
+                91
+              ],
+              "expected": "E7",
+              "label": "Em7",
+              "pass": false
+            },
+            {
+              "range": [
+                91,
+                93
+              ],
+              "expected": "Am",
+              "label": "CM7",
+              "pass": false
+            }
+          ],
+          "q2CmSec": 1.1000000000000003
+        }
+      },
+      "tensionGated": {
+        "stems": {
+          "q1": [
+            {
+              "range": [
+                51,
+                56
+              ],
+              "dominant": {
+                "chord": "Dm",
+                "extension": "m7",
+                "bassPc": 2,
+                "sec": 1.7647165532879825
+              },
+              "bassCorrect": true
+            },
+            {
+              "range": [
+                93,
+                98
+              ],
+              "dominant": {
+                "chord": "Dm",
+                "extension": "m7",
+                "bassPc": 2,
+                "sec": 1.8575963718820816
+              },
+              "bassCorrect": true
+            }
+          ],
+          "q4": {
+            "dominant": {
+              "chord": "C#m",
+              "extension": "m7",
+              "bassPc": 1,
+              "sec": 1.6691156462585042
+            },
+            "bassCorrect": true,
+            "display": "CM7/C#"
+          },
+          "q3": [
+            {
+              "range": [
+                85,
+                87
+              ],
+              "expected": "C",
+              "label": "C",
+              "pass": true
+            },
+            {
+              "range": [
+                87,
+                89
+              ],
+              "expected": "B7",
+              "label": "B7",
+              "pass": true
+            },
+            {
+              "range": [
+                89,
+                91
+              ],
+              "expected": "E7",
+              "label": "E",
+              "pass": false
+            },
+            {
+              "range": [
+                91,
+                93
+              ],
+              "expected": "Am",
+              "label": "Am7",
+              "pass": true
+            }
+          ],
+          "q2CmSec": 4.799999999999991
+        },
+        "mixture": {
+          "q1": [
+            {
+              "range": [
+                51,
+                56
+              ],
+              "dominant": {
+                "chord": "G",
+                "bassPc": 7,
+                "sec": 2.40834467120181
+              },
+              "bassCorrect": false
+            },
+            {
+              "range": [
+                93,
+                98
+              ],
+              "dominant": {
+                "chord": "G",
+                "bassPc": 2,
+                "sec": 1.7182766439909187
+              },
+              "bassCorrect": true
+            }
+          ],
+          "q4": {
+            "dominant": {
+              "chord": "Am",
+              "bassPc": 9,
+              "sec": 1.3931972789115576
+            },
+            "bassCorrect": false,
+            "display": "Am"
+          },
+          "q3": [
+            {
+              "range": [
+                85,
+                87
+              ],
+              "expected": "C",
+              "label": "Bm",
+              "pass": false
+            },
+            {
+              "range": [
+                87,
+                89
+              ],
+              "expected": "B7",
+              "label": "Am",
+              "pass": false
+            },
+            {
+              "range": [
+                89,
+                91
+              ],
+              "expected": "E7",
+              "label": "Em7",
+              "pass": false
+            },
+            {
+              "range": [
+                91,
+                93
+              ],
+              "expected": "Am",
+              "label": "C",
+              "pass": false
+            }
+          ],
+          "q2CmSec": 1.1000000000000003
+        }
+      }
+    }
+  }
+}

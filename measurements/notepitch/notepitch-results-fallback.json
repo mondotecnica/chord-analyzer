@@ -1,0 +1,1454 @@
+{
+ "engine": "fallback",
+ "bassRule": "v1",
+ "synthetic": {
+  "song-a": {
+   "score": {
+    "fullLabelAccuracy": 0.8743750000000003,
+    "fullLabelCountedSec": 16.0,
+    "seventhGivenCore": null,
+    "seventhGivenCoreSec": 0.0,
+    "seventhExactAccuracy": null,
+    "falseFireRate": 0.08437500000000163,
+    "falseFireSec": 16.0,
+    "extNcShare": 0.0,
+    "confusions": [
+     {
+      "gt_det": "G → G7",
+      "sec": 1.32
+     },
+     {
+      "gt_det": "G → C",
+      "sec": 0.34
+     },
+     {
+      "gt_det": "C → Am",
+      "sec": 0.21
+     },
+     {
+      "gt_det": "Am → F",
+      "sec": 0.11
+     },
+     {
+      "gt_det": "F → G7",
+      "sec": 0.03
+     }
+    ],
+    "rootAccuracy": 0.9568750000000001,
+    "triadAccuracy": 0.9568750000000001,
+    "countedSec": 16.0,
+    "ncShare": 0.0,
+    "truthGrid": {
+     "fullLabelAccuracy": 1.0,
+     "rootAccuracy": 1.0,
+     "triadAccuracy": 1.0,
+     "seventhGivenCore": null,
+     "falseFireRate": 0.0
+    },
+    "bassAccuracy": 1.0,
+    "detection": {
+     "chordTonePcRecall": 1.0,
+     "nonChordEvidenceShare": 0.05533668268332056
+    },
+    "noteCount": 219,
+    "segmentLabels": [
+     {
+      "start": 0,
+      "end": 0.93,
+      "label": "C"
+     },
+     {
+      "start": 0.93,
+      "end": 1.49,
+      "label": "C"
+     },
+     {
+      "start": 1.49,
+      "end": 1.9,
+      "label": "C"
+     },
+     {
+      "start": 1.9,
+      "end": 3.95,
+      "label": "Am"
+     },
+     {
+      "start": 3.95,
+      "end": 5.99,
+      "label": "F"
+     },
+     {
+      "start": 5.99,
+      "end": 6.64,
+      "label": "G7"
+     },
+     {
+      "start": 6.64,
+      "end": 7.2,
+      "label": "G"
+     },
+     {
+      "start": 7.2,
+      "end": 7.66,
+      "label": "G"
+     },
+     {
+      "start": 7.66,
+      "end": 8.87,
+      "label": "C"
+     },
+     {
+      "start": 8.87,
+      "end": 9.47,
+      "label": "C"
+     },
+     {
+      "start": 9.47,
+      "end": 9.89,
+      "label": "C"
+     },
+     {
+      "start": 9.89,
+      "end": 11.94,
+      "label": "Am"
+     },
+     {
+      "start": 11.94,
+      "end": 13.98,
+      "label": "F"
+     },
+     {
+      "start": 13.98,
+      "end": 14.68,
+      "label": "G7"
+     },
+     {
+      "start": 14.68,
+      "end": 15.19,
+      "label": "G"
+     },
+     {
+      "start": 15.19,
+      "end": 15.65,
+      "label": "G"
+     },
+     {
+      "start": 15.65,
+      "end": 16,
+      "label": "G"
+     }
+    ]
+   },
+   "current": {
+    "root": 0.9568750000000001,
+    "triad": 0.8900000000000003,
+    "fullLabelOff": 0.8900000000000003,
+    "fullLabelOn": 0.8900000000000003,
+    "givenCoreOn": null,
+    "falseFireOn": 0
+   }
+  },
+  "song-b": {
+   "score": {
+    "fullLabelAccuracy": 0.5629921259842431,
+    "fullLabelCountedSec": 17.78,
+    "seventhGivenCore": null,
+    "seventhGivenCoreSec": 0.0,
+    "seventhExactAccuracy": null,
+    "falseFireRate": 0.43419572553430197,
+    "falseFireSec": 17.78,
+    "extNcShare": 0.0,
+    "confusions": [
+     {
+      "gt_det": "Am → Am7",
+      "sec": 4.41
+     },
+     {
+      "gt_det": "C → Cmaj7",
+      "sec": 1.04
+     },
+     {
+      "gt_det": "G → Am7",
+      "sec": 0.74
+     },
+     {
+      "gt_det": "D → D7/C",
+      "sec": 0.65
+     },
+     {
+      "gt_det": "D → Dmaj7",
+      "sec": 0.47
+     },
+     {
+      "gt_det": "Em → Cmaj7",
+      "sec": 0.31
+     },
+     {
+      "gt_det": "C → D7/C",
+      "sec": 0.1
+     },
+     {
+      "gt_det": "Am → Em/F",
+      "sec": 0.03
+     }
+    ],
+    "rootAccuracy": 0.9325084364454337,
+    "triadAccuracy": 0.9325084364454337,
+    "countedSec": 17.78,
+    "ncShare": 0.0,
+    "truthGrid": {
+     "fullLabelAccuracy": 0.6254218222722059,
+     "rootAccuracy": 1.0,
+     "triadAccuracy": 1.0,
+     "seventhGivenCore": null,
+     "falseFireRate": 0.37457817772777896
+    },
+    "bassAccuracy": 0.7499718753515582,
+    "detection": {
+     "chordTonePcRecall": 1.0,
+     "nonChordEvidenceShare": 0.09601818122206483
+    },
+    "noteCount": 249,
+    "segmentLabels": [
+     {
+      "start": 0,
+      "end": 0.74,
+      "label": "G"
+     },
+     {
+      "start": 0.74,
+      "end": 1.35,
+      "label": "G"
+     },
+     {
+      "start": 1.35,
+      "end": 1.86,
+      "label": "G"
+     },
+     {
+      "start": 1.86,
+      "end": 4.41,
+      "label": "Am7"
+     },
+     {
+      "start": 4.41,
+      "end": 5.48,
+      "label": "Em/F"
+     },
+     {
+      "start": 5.48,
+      "end": 6.36,
+      "label": "Em/F"
+     },
+     {
+      "start": 6.36,
+      "end": 7.71,
+      "label": "Cmaj7"
+     },
+     {
+      "start": 7.71,
+      "end": 8.31,
+      "label": "C"
+     },
+     {
+      "start": 8.31,
+      "end": 8.87,
+      "label": "C"
+     },
+     {
+      "start": 8.87,
+      "end": 9.61,
+      "label": "G"
+     },
+     {
+      "start": 9.61,
+      "end": 10.22,
+      "label": "G"
+     },
+     {
+      "start": 10.22,
+      "end": 10.73,
+      "label": "G"
+     },
+     {
+      "start": 10.73,
+      "end": 13.33,
+      "label": "Am7"
+     },
+     {
+      "start": 13.33,
+      "end": 14.3,
+      "label": "C"
+     },
+     {
+      "start": 14.3,
+      "end": 14.95,
+      "label": "C"
+     },
+     {
+      "start": 14.95,
+      "end": 15.46,
+      "label": "C"
+     },
+     {
+      "start": 15.46,
+      "end": 16.21,
+      "label": "D7/C"
+     },
+     {
+      "start": 16.21,
+      "end": 16.9,
+      "label": "D/C"
+     },
+     {
+      "start": 16.9,
+      "end": 17.37,
+      "label": "Dmaj7"
+     },
+     {
+      "start": 17.37,
+      "end": 17.78,
+      "label": "D/C#"
+     }
+    ]
+   },
+   "current": {
+    "root": 0.9325084364454337,
+    "triad": 0.8638920134982978,
+    "fullLabelOff": 0.8638920134982978,
+    "fullLabelOn": 0.8638920134982978,
+    "givenCoreOn": null,
+    "falseFireOn": 0
+   }
+  },
+  "song-c": {
+   "score": {
+    "fullLabelAccuracy": 0.9140624999999875,
+    "fullLabelCountedSec": 19.2,
+    "seventhGivenCore": null,
+    "seventhGivenCoreSec": 0.0,
+    "seventhExactAccuracy": null,
+    "falseFireRate": 0.057812499999999434,
+    "falseFireSec": 19.2,
+    "extNcShare": 0.0,
+    "confusions": [
+     {
+      "gt_det": "Em → Em7/F",
+      "sec": 1.11
+     },
+     {
+      "gt_det": "Em → Am",
+      "sec": 0.31
+     },
+     {
+      "gt_det": "C → G",
+      "sec": 0.09
+     },
+     {
+      "gt_det": "Am → Dm/F",
+      "sec": 0.06
+     },
+     {
+      "gt_det": "Am → F",
+      "sec": 0.03
+     },
+     {
+      "gt_det": "G → Am",
+      "sec": 0.03
+     },
+     {
+      "gt_det": "F → C",
+      "sec": 0.02
+     }
+    ],
+    "rootAccuracy": 0.9718749999999959,
+    "triadAccuracy": 0.9718749999999959,
+    "countedSec": 19.2,
+    "ncShare": 0.0,
+    "truthGrid": {
+     "fullLabelAccuracy": 0.8749999999999818,
+     "rootAccuracy": 1.0,
+     "triadAccuracy": 1.0,
+     "seventhGivenCore": null,
+     "falseFireRate": 0.1249999999999983
+    },
+    "bassAccuracy": 0.75,
+    "detection": {
+     "chordTonePcRecall": 1.0,
+     "nonChordEvidenceShare": 0.08893920419607475
+    },
+    "noteCount": 232,
+    "segmentLabels": [
+     {
+      "start": 0,
+      "end": 2.37,
+      "label": "Am"
+     },
+     {
+      "start": 2.37,
+      "end": 4.78,
+      "label": "F"
+     },
+     {
+      "start": 4.78,
+      "end": 5.85,
+      "label": "C"
+     },
+     {
+      "start": 5.85,
+      "end": 6.55,
+      "label": "C"
+     },
+     {
+      "start": 6.55,
+      "end": 7.11,
+      "label": "C"
+     },
+     {
+      "start": 7.11,
+      "end": 7.99,
+      "label": "G"
+     },
+     {
+      "start": 7.99,
+      "end": 8.64,
+      "label": "G"
+     },
+     {
+      "start": 8.64,
+      "end": 9.2,
+      "label": "G"
+     },
+     {
+      "start": 9.2,
+      "end": 9.57,
+      "label": "G"
+     },
+     {
+      "start": 9.57,
+      "end": 11.94,
+      "label": "Am"
+     },
+     {
+      "start": 11.94,
+      "end": 14.4,
+      "label": "Dm/F"
+     },
+     {
+      "start": 14.4,
+      "end": 15.51,
+      "label": "Em7/F"
+     },
+     {
+      "start": 15.51,
+      "end": 16.49,
+      "label": "Em/F"
+     },
+     {
+      "start": 16.49,
+      "end": 19.2,
+      "label": "Am"
+     }
+    ]
+   },
+   "current": {
+    "root": 0.9718749999999959,
+    "triad": 0.9187499999999882,
+    "fullLabelOff": 0.9187499999999882,
+    "fullLabelOn": 0.9187499999999882,
+    "givenCoreOn": null,
+    "falseFireOn": 0
+   }
+  },
+  "song-d": {
+   "score": {
+    "fullLabelAccuracy": 0.12777129521587005,
+    "fullLabelCountedSec": 17.14,
+    "seventhGivenCore": null,
+    "seventhGivenCoreSec": 0.0,
+    "seventhExactAccuracy": null,
+    "falseFireRate": 0.7806301050174943,
+    "falseFireSec": 17.14,
+    "extNcShare": 0.0,
+    "confusions": [
+     {
+      "gt_det": "Am → Fmaj7",
+      "sec": 4.16
+     },
+     {
+      "gt_det": "C → Fmaj7",
+      "sec": 3.27
+     },
+     {
+      "gt_det": "G → A#maj7/A",
+      "sec": 1.52
+     },
+     {
+      "gt_det": "G → Gm/A#",
+      "sec": 1.39
+     },
+     {
+      "gt_det": "G → Gm7/A#",
+      "sec": 1.37
+     },
+     {
+      "gt_det": "F → A#maj7/A",
+      "sec": 1.36
+     },
+     {
+      "gt_det": "C → Cmaj7/F",
+      "sec": 0.83
+     },
+     {
+      "gt_det": "F → Fmaj7/A",
+      "sec": 0.75
+     }
+    ],
+    "rootAccuracy": 0.38098016336055723,
+    "triadAccuracy": 0.21995332555425845,
+    "countedSec": 17.14,
+    "ncShare": 0.0,
+    "truthGrid": {
+     "fullLabelAccuracy": 0.2508751458576419,
+     "rootAccuracy": 0.5005834305717574,
+     "triadAccuracy": 0.2508751458576419,
+     "seventhGivenCore": null,
+     "falseFireRate": 0.4994165694282335
+    },
+    "bassAccuracy": 0.2500145832118065,
+    "detection": {
+     "chordTonePcRecall": 1.0,
+     "nonChordEvidenceShare": 0.33147097760707195
+    },
+    "noteCount": 261,
+    "segmentLabels": [
+     {
+      "start": 0,
+      "end": 1.21,
+      "label": "Fmaj7"
+     },
+     {
+      "start": 1.21,
+      "end": 2.04,
+      "label": "Cmaj7/F"
+     },
+     {
+      "start": 2.04,
+      "end": 2.55,
+      "label": "F/A"
+     },
+     {
+      "start": 2.55,
+      "end": 2.93,
+      "label": "Fmaj7/A"
+     },
+     {
+      "start": 2.93,
+      "end": 3.62,
+      "label": "F/A"
+     },
+     {
+      "start": 3.62,
+      "end": 5.06,
+      "label": "A#maj7/A"
+     },
+     {
+      "start": 5.06,
+      "end": 6.55,
+      "label": "Gm7/A#"
+     },
+     {
+      "start": 6.55,
+      "end": 8.54,
+      "label": "Fmaj7"
+     },
+     {
+      "start": 8.54,
+      "end": 9.75,
+      "label": "Fmaj7"
+     },
+     {
+      "start": 9.75,
+      "end": 10.63,
+      "label": "Fmaj7"
+     },
+     {
+      "start": 10.63,
+      "end": 11.1,
+      "label": "F/A"
+     },
+     {
+      "start": 11.1,
+      "end": 11.47,
+      "label": "Fmaj7/A"
+     },
+     {
+      "start": 11.47,
+      "end": 12.17,
+      "label": "F/A"
+     },
+     {
+      "start": 12.17,
+      "end": 13.61,
+      "label": "A#maj7/A"
+     },
+     {
+      "start": 13.61,
+      "end": 15,
+      "label": "Gm/A#"
+     },
+     {
+      "start": 15,
+      "end": 17.14,
+      "label": "Fmaj7"
+     }
+    ]
+   },
+   "current": {
+    "root": 0.2672112018669766,
+    "triad": 0.2672112018669766,
+    "fullLabelOff": 0.2672112018669766,
+    "fullLabelOn": 0.18611435239206525,
+    "givenCoreOn": null,
+    "falseFireOn": 0.08109684947491311
+   }
+  },
+  "song-e": {
+   "score": {
+    "fullLabelAccuracy": 0.7632170978627543,
+    "fullLabelCountedSec": 17.78,
+    "seventhGivenCore": 0.829969418960242,
+    "seventhGivenCoreSec": 16.35,
+    "seventhExactAccuracy": 0.7632170978627543,
+    "falseFireRate": null,
+    "falseFireSec": 0.0,
+    "extNcShare": 0.0,
+    "confusions": [
+     {
+      "gt_det": "B7 → Bmaj7/A#",
+      "sec": 2.22
+     },
+     {
+      "gt_det": "CM7 → Am7/C",
+      "sec": 1.21
+     },
+     {
+      "gt_det": "G7 → G",
+      "sec": 0.56
+     },
+     {
+      "gt_det": "Dm7 → G7",
+      "sec": 0.06
+     },
+     {
+      "gt_det": "G7 → Cmaj7",
+      "sec": 0.05
+     },
+     {
+      "gt_det": "CM7 → Bmaj7/A#",
+      "sec": 0.04
+     },
+     {
+      "gt_det": "E7 → Am7",
+      "sec": 0.03
+     },
+     {
+      "gt_det": "E7 → Bmaj7/A#",
+      "sec": 0.02
+     }
+    ],
+    "rootAccuracy": 0.9195725534308085,
+    "triadAccuracy": 0.9195725534308085,
+    "countedSec": 17.78,
+    "ncShare": 0.0,
+    "truthGrid": {
+     "fullLabelAccuracy": 0.8751406074240569,
+     "rootAccuracy": 1.0,
+     "triadAccuracy": 1.0,
+     "seventhGivenCore": 0.8751406074240569,
+     "falseFireRate": null
+    },
+    "bassAccuracy": 0.6249859376757789,
+    "detection": {
+     "chordTonePcRecall": 1.0,
+     "nonChordEvidenceShare": 0.1230727386867786
+    },
+    "noteCount": 268,
+    "segmentLabels": [
+     {
+      "start": 0,
+      "end": 0.79,
+      "label": "Cmaj7"
+     },
+     {
+      "start": 0.79,
+      "end": 2.18,
+      "label": "Cmaj7"
+     },
+     {
+      "start": 2.18,
+      "end": 3.34,
+      "label": "Bmaj7/A#"
+     },
+     {
+      "start": 3.34,
+      "end": 3.85,
+      "label": "Bmaj7/A#"
+     },
+     {
+      "start": 3.85,
+      "end": 4.46,
+      "label": "Bmaj7/A#"
+     },
+     {
+      "start": 4.46,
+      "end": 6.64,
+      "label": "E7/F"
+     },
+     {
+      "start": 6.64,
+      "end": 8.87,
+      "label": "Am7"
+     },
+     {
+      "start": 8.87,
+      "end": 11.05,
+      "label": "Dm7/G"
+     },
+     {
+      "start": 11.05,
+      "end": 12.17,
+      "label": "G7"
+     },
+     {
+      "start": 12.17,
+      "end": 12.72,
+      "label": "G7"
+     },
+     {
+      "start": 12.72,
+      "end": 13.28,
+      "label": "G"
+     },
+     {
+      "start": 13.28,
+      "end": 14.35,
+      "label": "Cmaj7"
+     },
+     {
+      "start": 14.35,
+      "end": 17.78,
+      "label": "Am7/C"
+     }
+    ]
+   },
+   "current": {
+    "root": 0.9171974522292877,
+    "triad": 0.8853503184713264,
+    "fullLabelOff": 0,
+    "fullLabelOn": 0.8187608569774073,
+    "givenCoreOn": 0.9247874427730545,
+    "falseFireOn": null
+   }
+  },
+  "song-f": {
+   "score": {
+    "fullLabelAccuracy": 0.7974999999999722,
+    "fullLabelCountedSec": 20.0,
+    "seventhGivenCore": 0.7831325301204826,
+    "seventhGivenCoreSec": 14.11,
+    "seventhExactAccuracy": 0.7366666666666675,
+    "falseFireRate": 0.0,
+    "falseFireSec": 5.0,
+    "extNcShare": 0.0,
+    "confusions": [
+     {
+      "gt_det": "CM7 → C",
+      "sec": 1.25
+     },
+     {
+      "gt_det": "G7 → G",
+      "sec": 1.21
+     },
+     {
+      "gt_det": "A7 → Amaj7",
+      "sec": 0.6
+     },
+     {
+      "gt_det": "G7 → Gm7",
+      "sec": 0.6
+     },
+     {
+      "gt_det": "C → F",
+      "sec": 0.1
+     },
+     {
+      "gt_det": "G7 → Am7",
+      "sec": 0.09
+     },
+     {
+      "gt_det": "A7 → Dm7/G",
+      "sec": 0.08
+     },
+     {
+      "gt_det": "G7 → C",
+      "sec": 0.06
+     }
+    ],
+    "rootAccuracy": 0.9804999999999973,
+    "triadAccuracy": 0.950499999999993,
+    "countedSec": 20.0,
+    "ncShare": 0.0,
+    "truthGrid": {
+     "fullLabelAccuracy": 1.0,
+     "rootAccuracy": 1.0,
+     "triadAccuracy": 1.0,
+     "seventhGivenCore": 1.0,
+     "falseFireRate": 0.0
+    },
+    "bassAccuracy": 0.875,
+    "detection": {
+     "chordTonePcRecall": 1.0,
+     "nonChordEvidenceShare": 0.05833639789847972
+    },
+    "noteCount": 229,
+    "segmentLabels": [
+     {
+      "start": 0,
+      "end": 1.21,
+      "label": "Cmaj7"
+     },
+     {
+      "start": 1.21,
+      "end": 2.46,
+      "label": "C"
+     },
+     {
+      "start": 2.46,
+      "end": 3.72,
+      "label": "A7"
+     },
+     {
+      "start": 3.72,
+      "end": 4.32,
+      "label": "A7"
+     },
+     {
+      "start": 4.32,
+      "end": 4.92,
+      "label": "Amaj7"
+     },
+     {
+      "start": 4.92,
+      "end": 7.48,
+      "label": "Dm7/G"
+     },
+     {
+      "start": 7.48,
+      "end": 8.73,
+      "label": "G7"
+     },
+     {
+      "start": 8.73,
+      "end": 9.33,
+      "label": "G7"
+     },
+     {
+      "start": 9.33,
+      "end": 9.94,
+      "label": "G"
+     },
+     {
+      "start": 9.94,
+      "end": 11.1,
+      "label": "C"
+     },
+     {
+      "start": 11.1,
+      "end": 11.84,
+      "label": "C"
+     },
+     {
+      "start": 11.84,
+      "end": 12.4,
+      "label": "C"
+     },
+     {
+      "start": 12.4,
+      "end": 15,
+      "label": "F"
+     },
+     {
+      "start": 15,
+      "end": 16.21,
+      "label": "G7"
+     },
+     {
+      "start": 16.21,
+      "end": 16.81,
+      "label": "Gm7"
+     },
+     {
+      "start": 16.81,
+      "end": 17.41,
+      "label": "G"
+     },
+     {
+      "start": 17.41,
+      "end": 20,
+      "label": "Am7"
+     }
+    ]
+   },
+   "current": {
+    "root": 0.9804999999999973,
+    "triad": 0.9204999999999889,
+    "fullLabelOff": 0.244999999999993,
+    "fullLabelOn": 0.7374999999999744,
+    "givenCoreOn": 0.7290895632864554,
+    "falseFireOn": 0
+   }
+  },
+  "song-g": {
+   "score": {
+    "fullLabelAccuracy": 0.9032634032634038,
+    "fullLabelCountedSec": 8.58,
+    "seventhGivenCore": null,
+    "seventhGivenCoreSec": 0.0,
+    "seventhExactAccuracy": null,
+    "falseFireRate": 0.05011655011655095,
+    "falseFireSec": 8.58,
+    "extNcShare": 0.0,
+    "confusions": [
+     {
+      "gt_det": "G → Am7",
+      "sec": 0.41
+     },
+     {
+      "gt_det": "Em → E/F",
+      "sec": 0.31
+     },
+     {
+      "gt_det": "Em → Am/C",
+      "sec": 0.09
+     },
+     {
+      "gt_det": "Em → Fmaj7",
+      "sec": 0.02
+     }
+    ],
+    "rootAccuracy": 0.9471022948269099,
+    "triadAccuracy": 0.9350447296771613,
+    "countedSec": 25.71,
+    "ncShare": 0.0,
+    "truthGrid": {
+     "fullLabelAccuracy": 1.0,
+     "rootAccuracy": 1.0,
+     "triadAccuracy": 1.0,
+     "seventhGivenCore": null,
+     "falseFireRate": 0.0
+    },
+    "bassAccuracy": 0.6666407404526719,
+    "detection": {
+     "chordTonePcRecall": 1.0,
+     "nonChordEvidenceShare": 0.12177061414387502
+    },
+    "noteCount": 340,
+    "segmentLabels": [
+     {
+      "start": 0,
+      "end": 1.76,
+      "label": "Am/C"
+     },
+     {
+      "start": 1.76,
+      "end": 3.2,
+      "label": "C"
+     },
+     {
+      "start": 3.2,
+      "end": 4.27,
+      "label": "Cmaj7"
+     },
+     {
+      "start": 4.27,
+      "end": 4.97,
+      "label": "G"
+     },
+     {
+      "start": 4.97,
+      "end": 5.57,
+      "label": "G"
+     },
+     {
+      "start": 5.57,
+      "end": 6.04,
+      "label": "G"
+     },
+     {
+      "start": 6.04,
+      "end": 6.41,
+      "label": "G"
+     },
+     {
+      "start": 6.41,
+      "end": 8.54,
+      "label": "Am7"
+     },
+     {
+      "start": 8.54,
+      "end": 10.73,
+      "label": "Fmaj7"
+     },
+     {
+      "start": 10.73,
+      "end": 11.7,
+      "label": "Em/F"
+     },
+     {
+      "start": 11.7,
+      "end": 12.77,
+      "label": "Em/F"
+     },
+     {
+      "start": 12.77,
+      "end": 14.63,
+      "label": "Am/C"
+     },
+     {
+      "start": 14.63,
+      "end": 16.02,
+      "label": "C"
+     },
+     {
+      "start": 16.02,
+      "end": 17.14,
+      "label": "C"
+     },
+     {
+      "start": 17.14,
+      "end": 17.83,
+      "label": "G"
+     },
+     {
+      "start": 17.83,
+      "end": 18.44,
+      "label": "G"
+     },
+     {
+      "start": 18.44,
+      "end": 18.9,
+      "label": "G"
+     },
+     {
+      "start": 18.9,
+      "end": 21.41,
+      "label": "Am7"
+     },
+     {
+      "start": 21.41,
+      "end": 23.55,
+      "label": "F"
+     },
+     {
+      "start": 23.55,
+      "end": 24.57,
+      "label": "Em/F"
+     },
+     {
+      "start": 24.57,
+      "end": 25.4,
+      "label": "Em/F"
+     },
+     {
+      "start": 25.4,
+      "end": 25.71,
+      "label": "E/F"
+     }
+    ]
+   },
+   "current": {
+    "note": "genre JSON の off 測定（参考）",
+    "root": 0.8098016336055802,
+    "triad": 0.7596266044340462
+   }
+  },
+  "song-h": {
+   "score": {
+    "fullLabelAccuracy": 0.8266666666666505,
+    "fullLabelCountedSec": 30.0,
+    "seventhGivenCore": 0.8898457122353675,
+    "seventhGivenCoreSec": 27.87,
+    "seventhExactAccuracy": 0.8266666666666505,
+    "falseFireRate": null,
+    "falseFireSec": 0.0,
+    "extNcShare": 0.0,
+    "confusions": [
+     {
+      "gt_det": "A7 → Amaj7/F",
+      "sec": 1.34
+     },
+     {
+      "gt_det": "A7 → Am7",
+      "sec": 1.2
+     },
+     {
+      "gt_det": "D7 → Dmaj7",
+      "sec": 1.12
+     },
+     {
+      "gt_det": "A7 → Amaj7",
+      "sec": 0.61
+     },
+     {
+      "gt_det": "E7 → Amaj7/F",
+      "sec": 0.33
+     },
+     {
+      "gt_det": "E7 → C#7/F",
+      "sec": 0.32
+     },
+     {
+      "gt_det": "D7 → A7",
+      "sec": 0.2
+     },
+     {
+      "gt_det": "A7 → D7",
+      "sec": 0.06
+     }
+    ],
+    "rootAccuracy": 0.9689999999999971,
+    "triadAccuracy": 0.9289999999999934,
+    "countedSec": 30.0,
+    "ncShare": 0.0,
+    "truthGrid": {
+     "fullLabelAccuracy": 1.0,
+     "rootAccuracy": 1.0,
+     "triadAccuracy": 1.0,
+     "seventhGivenCore": 1.0,
+     "falseFireRate": null
+    },
+    "bassAccuracy": 0.5833333333333334,
+    "detection": {
+     "chordTonePcRecall": 1.0,
+     "nonChordEvidenceShare": 0.09502676066363737
+    },
+    "noteCount": 342,
+    "segmentLabels": [
+     {
+      "start": 0,
+      "end": 1.21,
+      "label": "A7"
+     },
+     {
+      "start": 1.21,
+      "end": 1.81,
+      "label": "Am7"
+     },
+     {
+      "start": 1.81,
+      "end": 3.72,
+      "label": "A7"
+     },
+     {
+      "start": 3.72,
+      "end": 4.32,
+      "label": "A7"
+     },
+     {
+      "start": 4.32,
+      "end": 6.22,
+      "label": "A7"
+     },
+     {
+      "start": 6.22,
+      "end": 6.83,
+      "label": "A7"
+     },
+     {
+      "start": 6.83,
+      "end": 8.73,
+      "label": "A7"
+     },
+     {
+      "start": 8.73,
+      "end": 9.33,
+      "label": "A7"
+     },
+     {
+      "start": 9.33,
+      "end": 9.94,
+      "label": "Amaj7"
+     },
+     {
+      "start": 9.94,
+      "end": 11.19,
+      "label": "D7"
+     },
+     {
+      "start": 11.19,
+      "end": 11.84,
+      "label": "D7"
+     },
+     {
+      "start": 11.84,
+      "end": 13.7,
+      "label": "D7"
+     },
+     {
+      "start": 13.7,
+      "end": 14.35,
+      "label": "D7"
+     },
+     {
+      "start": 14.35,
+      "end": 14.91,
+      "label": "Dmaj7"
+     },
+     {
+      "start": 14.91,
+      "end": 16.21,
+      "label": "A7"
+     },
+     {
+      "start": 16.21,
+      "end": 16.81,
+      "label": "Am7"
+     },
+     {
+      "start": 16.81,
+      "end": 18.72,
+      "label": "A7"
+     },
+     {
+      "start": 18.72,
+      "end": 19.32,
+      "label": "A7"
+     },
+     {
+      "start": 19.32,
+      "end": 20.15,
+      "label": "Amaj7/F"
+     },
+     {
+      "start": 20.15,
+      "end": 22.15,
+      "label": "E7/F"
+     },
+     {
+      "start": 22.15,
+      "end": 22.52,
+      "label": "E7/F"
+     },
+     {
+      "start": 22.52,
+      "end": 23.73,
+      "label": "D7"
+     },
+     {
+      "start": 23.73,
+      "end": 24.33,
+      "label": "D7"
+     },
+     {
+      "start": 24.33,
+      "end": 24.89,
+      "label": "Dmaj7"
+     },
+     {
+      "start": 24.89,
+      "end": 26.19,
+      "label": "A7"
+     },
+     {
+      "start": 26.19,
+      "end": 26.84,
+      "label": "A7"
+     },
+     {
+      "start": 26.84,
+      "end": 27.68,
+      "label": "Amaj7/F"
+     },
+     {
+      "start": 27.68,
+      "end": 29.68,
+      "label": "E7/F"
+     },
+     {
+      "start": 29.68,
+      "end": 30,
+      "label": "C#7/F"
+     }
+    ]
+   },
+   "current": {
+    "note": "genre JSON の off 測定（参考）",
+    "root": 0.967999999999997,
+    "triad": 0.804333333333315
+   }
+  },
+  "song-i": {
+   "score": {
+    "fullLabelAccuracy": 0.8858321870701517,
+    "fullLabelCountedSec": 14.54,
+    "seventhGivenCore": null,
+    "seventhGivenCoreSec": 0.0,
+    "seventhExactAccuracy": null,
+    "falseFireRate": 0.066712517193949,
+    "falseFireSec": 14.54,
+    "extNcShare": 0.0006875214850464077,
+    "confusions": [
+     {
+      "gt_det": "G → F",
+      "sec": 0.64
+     },
+     {
+      "gt_det": "D → D7",
+      "sec": 0.55
+     },
+     {
+      "gt_det": "D → Dmaj7",
+      "sec": 0.37
+     },
+     {
+      "gt_det": "C → D7",
+      "sec": 0.05
+     },
+     {
+      "gt_det": "C → G",
+      "sec": 0.03
+     },
+     {
+      "gt_det": "F → C",
+      "sec": 0.02
+     }
+    ],
+    "rootAccuracy": 0.9491059147180194,
+    "triadAccuracy": 0.9491059147180194,
+    "countedSec": 14.54,
+    "ncShare": 0.0006875214850464077,
+    "truthGrid": {
+     "fullLabelAccuracy": 0.8749140893470794,
+     "rootAccuracy": 1.0,
+     "triadAccuracy": 1.0,
+     "seventhGivenCore": null,
+     "falseFireRate": 0.12508591065292335
+    },
+    "bassAccuracy": 0.8750085940185631,
+    "detection": {
+     "chordTonePcRecall": 1.0,
+     "nonChordEvidenceShare": 0.05445006374301593
+    },
+    "noteCount": 211,
+    "segmentLabels": [
+     {
+      "start": 0,
+      "end": 0.6,
+      "label": "G"
+     },
+     {
+      "start": 0.6,
+      "end": 1.07,
+      "label": "G"
+     },
+     {
+      "start": 1.07,
+      "end": 1.49,
+      "label": "G"
+     },
+     {
+      "start": 1.49,
+      "end": 3.62,
+      "label": "F"
+     },
+     {
+      "start": 3.62,
+      "end": 4.46,
+      "label": "C"
+     },
+     {
+      "start": 4.46,
+      "end": 4.97,
+      "label": "C"
+     },
+     {
+      "start": 4.97,
+      "end": 5.43,
+      "label": "C"
+     },
+     {
+      "start": 5.43,
+      "end": 6.04,
+      "label": "G"
+     },
+     {
+      "start": 6.04,
+      "end": 6.55,
+      "label": "G"
+     },
+     {
+      "start": 6.55,
+      "end": 7.85,
+      "label": "G"
+     },
+     {
+      "start": 7.85,
+      "end": 8.36,
+      "label": "G"
+     },
+     {
+      "start": 8.36,
+      "end": 8.78,
+      "label": "G"
+     },
+     {
+      "start": 8.78,
+      "end": 10.91,
+      "label": "F"
+     },
+     {
+      "start": 10.91,
+      "end": 11.7,
+      "label": "C"
+     },
+     {
+      "start": 11.7,
+      "end": 12.26,
+      "label": "C"
+     },
+     {
+      "start": 12.26,
+      "end": 12.68,
+      "label": "C"
+     },
+     {
+      "start": 12.68,
+      "end": 13.28,
+      "label": "D7"
+     },
+     {
+      "start": 13.28,
+      "end": 13.84,
+      "label": "D/C#"
+     },
+     {
+      "start": 13.84,
+      "end": 14.21,
+      "label": "Dmaj7"
+     },
+     {
+      "start": 14.21,
+      "end": 14.54,
+      "label": "D/C#"
+     }
+    ]
+   },
+   "current": {
+    "note": "genre JSON の off 測定（参考）",
+    "root": 0.9491408934707906,
+    "triad": 0.8790378006872855
+   }
+  }
+ }
+}

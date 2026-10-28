@@ -22,6 +22,7 @@
     "measure:nc": "vitest run scripts/measure-nc.test.ts",
     "measure:nc-recovery": "vitest run scripts/measure-nc-recovery.test.ts",
     "measure:gate": "vitest run scripts/measure-gate.test.ts",
+    "measure:note-integration": "vitest run scripts/measure-note-integration-synthetic.test.ts scripts/measure-note-integration-real.test.ts scripts/measure-note-integration-suno.test.ts",
     "measure:genre": "vitest run scripts/measure-phase-genre.test.ts",
     "test:app-stems": "vitest run scripts/analyze-stems-app-path.test.ts",
     "lint": "oxlint",
