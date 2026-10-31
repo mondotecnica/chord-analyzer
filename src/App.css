@@ -358,6 +358,128 @@
   margin-top: 18px;
 }
 
+/* 移調コントロール（サマリ内） */
+.transpose-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.transpose-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.transpose-stepper {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  padding: 0;
+  font-size: 17px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+}
+
+.transpose-value {
+  min-width: 40px;
+  text-align: center;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.transpose-note {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* 小節グリッドコントロール（サマリ内、移調行と同じトーン） */
+.bar-grid-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.bar-grid-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.bar-grid-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13.5px;
+}
+
+.bar-grid-field-label {
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+.bar-grid-number {
+  font: inherit;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 6px 8px;
+  width: 76px;
+  font-variant-numeric: tabular-nums;
+}
+
+.bar-grid-offset {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bar-grid-offset-value {
+  min-width: 58px;
+  text-align: center;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  font-size: 13.5px;
+}
+
+/* 拍子変更の区間宣言（グリッド行の下段、行全体の幅を使う） */
+.bar-grid-sections {
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bar-grid-section-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bar-grid-section-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.bar-grid-section-remove {
+  font-size: 12.5px;
+  padding: 3px 9px;
+}
+
 .hint {
   color: var(--muted);
   font-size: 12.5px;
@@ -475,6 +597,21 @@
   font-weight: 600;
   font-size: 13.5px;
   white-space: nowrap;
+}
+
+.segment-degree {
+  color: var(--muted);
+  font-size: 12.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.segment-bar {
+  color: var(--muted);
+  font-size: 12.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
 .segment-conf {

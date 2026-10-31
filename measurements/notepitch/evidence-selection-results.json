@@ -1,0 +1,1046 @@
+{
+  "generatedAt": "2026-10-31T04:15:40.858Z",
+  "config": {
+    "sustainRefSec": 0.5,
+    "melodyTopFraction": 0.5,
+    "vocalOverlapFraction": 0.5,
+    "fallbackMinShare": 0.1
+  },
+  "durationProbe": {
+    "put-your-records-on-mix": {
+      "n": 1326,
+      "p25": 0.16300000000001091,
+      "median": 0.21999999999999886,
+      "p75": 0.3019999999999925,
+      "p90": 0.4890000000000043
+    },
+    "put-your-records-on-other": {
+      "n": 1478,
+      "p25": 0.18600000000000705,
+      "median": 0.2779999999999916,
+      "p75": 0.44099999999999895,
+      "p90": 0.731000000000023
+    },
+    "everything-mix": {
+      "n": 5391,
+      "p25": 0.1739999999999995,
+      "median": 0.2319999999999709,
+      "p75": 0.34899999999998954,
+      "p90": 0.5579999999999927
+    },
+    "everything-other": {
+      "n": 5519,
+      "p25": 0.18600000000000705,
+      "median": 0.2550000000000239,
+      "p75": 0.4060000000000059,
+      "p90": 0.6039999999999992
+    },
+    "a-hard-days-night-mix": {
+      "n": 970,
+      "p25": 0.16200000000000614,
+      "median": 0.20899999999999963,
+      "p75": 0.2909999999999968,
+      "p90": 0.42900000000000205
+    },
+    "a-hard-days-night-other": {
+      "n": 1385,
+      "p25": 0.18599999999999994,
+      "median": 0.23299999999999965,
+      "p75": 0.3710000000000022,
+      "p90": 0.5120000000000005
+    },
+    "suno05-mix": {
+      "n": 1230,
+      "p25": 0.17400000000000038,
+      "median": 0.23400000000000887,
+      "p75": 0.41800000000000637,
+      "p90": 0.8140000000000214
+    },
+    "suno05-other": {
+      "n": 990,
+      "p25": 0.2320000000000011,
+      "median": 0.41900000000001114,
+      "p75": 0.7440000000000069,
+      "p90": 1.1720000000000255
+    }
+  },
+  "purity": {
+    "realPerSong": [
+      {
+        "slug": "put-your-records-on",
+        "path": "mixture",
+        "conditions": {
+          "raw": {
+            "purity": 0.6777351705714393,
+            "denomSec": 212.10000000001398
+          },
+          "sustain": {
+            "purity": 0.6882542693199813,
+            "denomSec": 212.10000000001398
+          },
+          "melody": {
+            "purity": 0.7075236169812896,
+            "denomSec": 212.10000000001398
+          },
+          "both": {
+            "purity": 0.7118539745763262,
+            "denomSec": 212.10000000001398
+          }
+        },
+        "fallbacks": {
+          "raw": 0,
+          "sustain": 0,
+          "melody": 7,
+          "both": 10
+        }
+      },
+      {
+        "slug": "put-your-records-on",
+        "path": "stems",
+        "conditions": {
+          "raw": {
+            "purity": 0.7349451240151053,
+            "denomSec": 210.4000000000136
+          },
+          "sustain": {
+            "purity": 0.7444444608500853,
+            "denomSec": 210.4000000000136
+          },
+          "melody": {
+            "purity": 0.7179097533509963,
+            "denomSec": 210.4000000000136
+          },
+          "both": {
+            "purity": 0.724888109967281,
+            "denomSec": 210.4000000000136
+          }
+        },
+        "fallbacks": {
+          "raw": 0,
+          "sustain": 0,
+          "melody": 4,
+          "both": 4
+        }
+      },
+      {
+        "slug": "everything",
+        "path": "mixture",
+        "conditions": {
+          "raw": {
+            "purity": 0.4749487836186367,
+            "denomSec": 399.2500000000565
+          },
+          "sustain": {
+            "purity": 0.481461641441714,
+            "denomSec": 399.2500000000565
+          },
+          "melody": {
+            "purity": 0.47940313144439267,
+            "denomSec": 399.2500000000565
+          },
+          "both": {
+            "purity": 0.4842873218820143,
+            "denomSec": 399.2500000000565
+          }
+        },
+        "fallbacks": {
+          "raw": 0,
+          "sustain": 0,
+          "melody": 3,
+          "both": 3
+        }
+      },
+      {
+        "slug": "everything",
+        "path": "stems",
+        "conditions": {
+          "raw": {
+            "purity": 0.48831769642055456,
+            "denomSec": 399.6000000000566
+          },
+          "sustain": {
+            "purity": 0.48937166647346403,
+            "denomSec": 399.6000000000566
+          },
+          "melody": {
+            "purity": 0.4921120767849143,
+            "denomSec": 399.6000000000566
+          },
+          "both": {
+            "purity": 0.4928283666578754,
+            "denomSec": 399.6000000000566
+          }
+        },
+        "fallbacks": {
+          "raw": 0,
+          "sustain": 0,
+          "melody": 2,
+          "both": 2
+        }
+      },
+      {
+        "slug": "a-hard-days-night",
+        "path": "mixture",
+        "conditions": {
+          "raw": {
+            "purity": 0.63805559047784,
+            "denomSec": 145.64999999999887
+          },
+          "sustain": {
+            "purity": 0.6632114101071981,
+            "denomSec": 145.64999999999887
+          },
+          "melody": {
+            "purity": 0.6869099146469871,
+            "denomSec": 145.64999999999887
+          },
+          "both": {
+            "purity": 0.7045178768980732,
+            "denomSec": 145.64999999999887
+          }
+        },
+        "fallbacks": {
+          "raw": 0,
+          "sustain": 0,
+          "melody": 5,
+          "both": 10
+        }
+      },
+      {
+        "slug": "a-hard-days-night",
+        "path": "stems",
+        "conditions": {
+          "raw": {
+            "purity": 0.763428657215807,
+            "denomSec": 145.64999999999887
+          },
+          "sustain": {
+            "purity": 0.7720888138702556,
+            "denomSec": 145.64999999999887
+          },
+          "melody": {
+            "purity": 0.7545850513073926,
+            "denomSec": 145.64999999999887
+          },
+          "both": {
+            "purity": 0.7658785204119026,
+            "denomSec": 145.64999999999887
+          }
+        },
+        "fallbacks": {
+          "raw": 0,
+          "sustain": 0,
+          "melody": 0,
+          "both": 1
+        }
+      }
+    ],
+    "realPooledByPath": {
+      "mixture": {
+        "raw": {
+          "purity": 0.5631489145192033,
+          "denomSec": 757.0000000000693
+        },
+        "sustain": {
+          "purity": 0.5743712453771228,
+          "denomSec": 757.0000000000693
+        },
+        "melody": {
+          "purity": 0.5832442383873643,
+          "denomSec": 757.0000000000693
+        },
+        "both": {
+          "purity": 0.5904213606859088,
+          "denomSec": 757.0000000000693
+        }
+      },
+      "stems": {
+        "raw": {
+          "purity": 0.6100146754528004,
+          "denomSec": 755.650000000069
+        },
+        "sustain": {
+          "purity": 0.6148862148161867,
+          "denomSec": 755.650000000069
+        },
+        "melody": {
+          "purity": 0.6055733616240563,
+          "denomSec": 755.650000000069
+        },
+        "both": {
+          "purity": 0.6100719647344556,
+          "denomSec": 755.650000000069
+        }
+      }
+    },
+    "sunoFixtures": [
+      {
+        "path": "mixture",
+        "window": "Q1a (0:51-0:56)",
+        "negative": false,
+        "values": {
+          "raw": 0.517850711941719,
+          "sustain": 0.5382847562432289,
+          "melody": 0.4658442251384258,
+          "both": 0.47714076936244965
+        }
+      },
+      {
+        "path": "mixture",
+        "window": "Q1b (1:33-1:38)",
+        "negative": false,
+        "values": {
+          "raw": 0.6087494343519211,
+          "sustain": 0.5755840688943863,
+          "melody": 0.6548685878515244,
+          "both": 0.6370964646339417
+        }
+      },
+      {
+        "path": "mixture",
+        "window": "Q4 (1:02-1:05)",
+        "negative": false,
+        "values": {
+          "raw": 0.4058336615562439,
+          "sustain": 0.34839848428964615,
+          "melody": 0.26418596506118774,
+          "both": 0.21422391384840012
+        }
+      },
+      {
+        "path": "mixture",
+        "window": "Q3-C (1:25-1:27)",
+        "negative": false,
+        "values": {
+          "raw": 0.6102557107806206,
+          "sustain": 0.6288044936954975,
+          "melody": 0.5856447070837021,
+          "both": 0.6464488878846169
+        }
+      },
+      {
+        "path": "mixture",
+        "window": "Q3-B7 (1:27-1:29)",
+        "negative": false,
+        "values": {
+          "raw": 0.39840784668922424,
+          "sustain": 0.4451272189617157,
+          "melody": 0.37923336029052734,
+          "both": 0.4561607837677002
+        }
+      },
+      {
+        "path": "mixture",
+        "window": "Q3-E7 (1:29-1:31)",
+        "negative": false,
+        "values": {
+          "raw": 0.5917232520878315,
+          "sustain": 0.6224092245101929,
+          "melody": 0.6521086096763611,
+          "both": 0.687780998647213
+        }
+      },
+      {
+        "path": "mixture",
+        "window": "Q3-Am (1:31-1:33)",
+        "negative": false,
+        "values": {
+          "raw": 0.5935397148132324,
+          "sustain": 0.5865506380796432,
+          "melody": 0.7070227563381195,
+          "both": 0.7060592100024223
+        }
+      },
+      {
+        "path": "mixture",
+        "window": "Q2 (2:33-2:48, Cm 棄却)",
+        "negative": true,
+        "values": {
+          "raw": 0.4309818036854267,
+          "sustain": 0.4485069736838341,
+          "melody": 0.4876300171017647,
+          "both": 0.4891132637858391
+        }
+      },
+      {
+        "path": "stems",
+        "window": "Q1a (0:51-0:56)",
+        "negative": false,
+        "values": {
+          "raw": 0.6304617822170258,
+          "sustain": 0.6398732364177704,
+          "melody": 0.6077391654253006,
+          "both": 0.6179567649960518
+        }
+      },
+      {
+        "path": "stems",
+        "window": "Q1b (1:33-1:38)",
+        "negative": false,
+        "values": {
+          "raw": 0.8115906715393066,
+          "sustain": 0.8133993148803711,
+          "melody": 0.7816087305545807,
+          "both": 0.7806349694728851
+        }
+      },
+      {
+        "path": "stems",
+        "window": "Q4 (1:02-1:05)",
+        "negative": false,
+        "values": {
+          "raw": 0.6729147285223007,
+          "sustain": 0.668890193104744,
+          "melody": 0.7343601882457733,
+          "both": 0.7414587736129761
+        }
+      },
+      {
+        "path": "stems",
+        "window": "Q3-C (1:25-1:27)",
+        "negative": false,
+        "values": {
+          "raw": 0.48010020703077316,
+          "sustain": 0.406809039413929,
+          "melody": 0.4682736247777939,
+          "both": 0.3782871812582016
+        }
+      },
+      {
+        "path": "stems",
+        "window": "Q3-B7 (1:27-1:29)",
+        "negative": false,
+        "values": {
+          "raw": 0.9355743229389191,
+          "sustain": 0.9377524852752686,
+          "melody": 0.9223152846097946,
+          "both": 0.925767332315445
+        }
+      },
+      {
+        "path": "stems",
+        "window": "Q3-E7 (1:29-1:31)",
+        "negative": false,
+        "values": {
+          "raw": 0.7276764065027237,
+          "sustain": 0.7322602272033691,
+          "melody": 0.80144003033638,
+          "both": 0.8070945590734482
+        }
+      },
+      {
+        "path": "stems",
+        "window": "Q3-Am (1:31-1:33)",
+        "negative": false,
+        "values": {
+          "raw": 0.6262458860874176,
+          "sustain": 0.6247261315584183,
+          "melody": 0.6142790094017982,
+          "both": 0.6168147996068001
+        }
+      },
+      {
+        "path": "stems",
+        "window": "Q2 (2:33-2:48, Cm 棄却)",
+        "negative": true,
+        "values": {
+          "raw": 0.5336195677518845,
+          "sustain": 0.5335212051868439,
+          "melody": 0.5824604853987694,
+          "both": 0.586855873465538
+        }
+      }
+    ]
+  },
+  "arbitration": {
+    "perSong": [
+      {
+        "slug": "put-your-records-on",
+        "path": "mixture",
+        "report": {
+          "disagreementSegments": 64,
+          "disagreementSec": 135.65097505668922,
+          "arbitrableSec": 78.49999999999997,
+          "nonArbitrableSec": 57.09999999999889,
+          "sources": {
+            "aggregate": {
+              "accuracy": 0.3719745222929938,
+              "denomSec": 78.49999999999997,
+              "abstainSec": 0
+            },
+            "raw": {
+              "accuracy": 0.7717678100263852,
+              "denomSec": 75.79999999999998,
+              "abstainSec": 2.700000000000001
+            },
+            "sustain": {
+              "accuracy": 0.7717678100263852,
+              "denomSec": 75.79999999999998,
+              "abstainSec": 2.700000000000001
+            },
+            "melody": {
+              "accuracy": 0.8257575757575758,
+              "denomSec": 72.59999999999998,
+              "abstainSec": 5.900000000000001
+            },
+            "both": {
+              "accuracy": 0.8257575757575758,
+              "denomSec": 72.59999999999998,
+              "abstainSec": 5.900000000000001
+            }
+          },
+          "winnerBaselineAccuracy": 0.6280254777070062,
+          "binomialBoth": {
+            "segments": 42,
+            "correct": 35,
+            "accuracy": 0.8333333333333334,
+            "pValue": 0.000007548600478912704
+          }
+        }
+      },
+      {
+        "slug": "put-your-records-on",
+        "path": "stems",
+        "report": {
+          "disagreementSegments": 53,
+          "disagreementSec": 91.20798185941024,
+          "arbitrableSec": 57.40000000000002,
+          "nonArbitrableSec": 33.60000000000023,
+          "sources": {
+            "aggregate": {
+              "accuracy": 0.3423344947735191,
+              "denomSec": 57.40000000000002,
+              "abstainSec": 0
+            },
+            "raw": {
+              "accuracy": 0.749128919860627,
+              "denomSec": 57.40000000000002,
+              "abstainSec": 0
+            },
+            "sustain": {
+              "accuracy": 0.8048780487804875,
+              "denomSec": 57.40000000000002,
+              "abstainSec": 0
+            },
+            "melody": {
+              "accuracy": 0.7869718309859154,
+              "denomSec": 56.80000000000001,
+              "abstainSec": 0.6
+            },
+            "both": {
+              "accuracy": 0.7869718309859154,
+              "denomSec": 56.80000000000001,
+              "abstainSec": 0.6
+            }
+          },
+          "winnerBaselineAccuracy": 0.6576655052264808,
+          "binomialBoth": {
+            "segments": 34,
+            "correct": 28,
+            "accuracy": 0.8235294117647058,
+            "pValue": 0.00009756279177963734
+          }
+        }
+      },
+      {
+        "slug": "everything",
+        "path": "mixture",
+        "report": {
+          "disagreementSegments": 138,
+          "disagreementSec": 240.69804988662247,
+          "arbitrableSec": 62.999999999999986,
+          "nonArbitrableSec": 175.55000000000567,
+          "sources": {
+            "aggregate": {
+              "accuracy": 0.44523809523809554,
+              "denomSec": 62.999999999999986,
+              "abstainSec": 0
+            },
+            "raw": {
+              "accuracy": 0.7752627324171382,
+              "denomSec": 61.84999999999999,
+              "abstainSec": 1.1500000000000004
+            },
+            "sustain": {
+              "accuracy": 0.7631366208569118,
+              "denomSec": 61.84999999999999,
+              "abstainSec": 1.1500000000000004
+            },
+            "melody": {
+              "accuracy": 0.7493936944219888,
+              "denomSec": 61.84999999999999,
+              "abstainSec": 1.1500000000000004
+            },
+            "both": {
+              "accuracy": 0.7679870654810024,
+              "denomSec": 61.84999999999999,
+              "abstainSec": 1.1500000000000004
+            }
+          },
+          "winnerBaselineAccuracy": 0.5547619047619045,
+          "binomialBoth": {
+            "segments": 56,
+            "correct": 43,
+            "accuracy": 0.7678571428571429,
+            "pValue": 0.00003666609198474392
+          }
+        }
+      },
+      {
+        "slug": "everything",
+        "path": "stems",
+        "report": {
+          "disagreementSegments": 164,
+          "disagreementSec": 200.43464852607886,
+          "arbitrableSec": 77.10000000000001,
+          "nonArbitrableSec": 122.44999999999519,
+          "sources": {
+            "aggregate": {
+              "accuracy": 0.27431906614785995,
+              "denomSec": 77.10000000000001,
+              "abstainSec": 0
+            },
+            "raw": {
+              "accuracy": 0.5426509186351705,
+              "denomSec": 76.2,
+              "abstainSec": 0.9000000000000002
+            },
+            "sustain": {
+              "accuracy": 0.5603674540682414,
+              "denomSec": 76.2,
+              "abstainSec": 0.9000000000000002
+            },
+            "melody": {
+              "accuracy": 0.5446194225721783,
+              "denomSec": 76.2,
+              "abstainSec": 0.9000000000000002
+            },
+            "both": {
+              "accuracy": 0.555774278215223,
+              "denomSec": 76.2,
+              "abstainSec": 0.9000000000000002
+            }
+          },
+          "winnerBaselineAccuracy": 0.72568093385214,
+          "binomialBoth": {
+            "segments": 82,
+            "correct": 49,
+            "accuracy": 0.5975609756097561,
+            "pValue": 0.048515455648649494
+          }
+        }
+      },
+      {
+        "slug": "a-hard-days-night",
+        "path": "mixture",
+        "report": {
+          "disagreementSegments": 33,
+          "disagreementSec": 65.34095238095227,
+          "arbitrableSec": 26.65000000000001,
+          "nonArbitrableSec": 37.899999999999984,
+          "sources": {
+            "aggregate": {
+              "accuracy": 0.42964352720450283,
+              "denomSec": 26.65000000000001,
+              "abstainSec": 0
+            },
+            "raw": {
+              "accuracy": 0.8237791932059446,
+              "denomSec": 23.550000000000008,
+              "abstainSec": 3.1000000000000014
+            },
+            "sustain": {
+              "accuracy": 0.8237791932059446,
+              "denomSec": 23.550000000000008,
+              "abstainSec": 3.1000000000000014
+            },
+            "melody": {
+              "accuracy": 0.8139013452914798,
+              "denomSec": 22.300000000000008,
+              "abstainSec": 4.350000000000001
+            },
+            "both": {
+              "accuracy": 0.8237791932059446,
+              "denomSec": 23.550000000000008,
+              "abstainSec": 3.1000000000000014
+            }
+          },
+          "winnerBaselineAccuracy": 0.5703564727954972,
+          "binomialBoth": {
+            "segments": 20,
+            "correct": 16,
+            "accuracy": 0.8,
+            "pValue": 0.005908966064453125
+          }
+        }
+      },
+      {
+        "slug": "a-hard-days-night",
+        "path": "stems",
+        "report": {
+          "disagreementSegments": 55,
+          "disagreementSec": 79.18004535147384,
+          "arbitrableSec": 52.350000000000016,
+          "nonArbitrableSec": 26.800000000000246,
+          "sources": {
+            "aggregate": {
+              "accuracy": 0.3314231136580707,
+              "denomSec": 52.350000000000016,
+              "abstainSec": 0
+            },
+            "raw": {
+              "accuracy": 0.7774594078319005,
+              "denomSec": 52.350000000000016,
+              "abstainSec": 0
+            },
+            "sustain": {
+              "accuracy": 0.7717287488061125,
+              "denomSec": 52.350000000000016,
+              "abstainSec": 0
+            },
+            "melody": {
+              "accuracy": 0.7994269340974209,
+              "denomSec": 52.350000000000016,
+              "abstainSec": 0
+            },
+            "both": {
+              "accuracy": 0.7994269340974209,
+              "denomSec": 52.350000000000016,
+              "abstainSec": 0
+            }
+          },
+          "winnerBaselineAccuracy": 0.6685768863419292,
+          "binomialBoth": {
+            "segments": 46,
+            "correct": 39,
+            "accuracy": 0.8478260869565217,
+            "pValue": 9.15771636300633e-7
+          }
+        }
+      }
+    ],
+    "perPath": {
+      "mixture": {
+        "disagreementSegments": 235,
+        "disagreementSec": 441.68997732426396,
+        "arbitrableSec": 168.14999999999995,
+        "nonArbitrableSec": 270.55000000000456,
+        "sources": {
+          "aggregate": {
+            "accuracy": 0.40856378233719914,
+            "denomSec": 168.14999999999995,
+            "abstainSec": 0
+          },
+          "raw": {
+            "accuracy": 0.7807071960297766,
+            "denomSec": 161.2,
+            "abstainSec": 6.950000000000003
+          },
+          "sustain": {
+            "accuracy": 0.7760545905707196,
+            "denomSec": 161.2,
+            "abstainSec": 6.950000000000003
+          },
+          "melody": {
+            "accuracy": 0.7939393939393941,
+            "denomSec": 156.74999999999997,
+            "abstainSec": 11.400000000000002
+          },
+          "both": {
+            "accuracy": 0.8028481012658228,
+            "denomSec": 157.99999999999997,
+            "abstainSec": 10.150000000000002
+          }
+        },
+        "winnerBaselineAccuracy": 0.5914362176628009,
+        "binomialBoth": {
+          "segments": 118,
+          "correct": 94,
+          "accuracy": 0.7966101694915254,
+          "pValue": 2.780216482001922e-11
+        }
+      },
+      "stems": {
+        "disagreementSegments": 272,
+        "disagreementSec": 370.82267573696294,
+        "arbitrableSec": 186.85000000000005,
+        "nonArbitrableSec": 182.84999999999565,
+        "sources": {
+          "aggregate": {
+            "accuracy": 0.31121220230131125,
+            "denomSec": 186.85000000000005,
+            "abstainSec": 0
+          },
+          "raw": {
+            "accuracy": 0.6724926055391233,
+            "denomSec": 185.95000000000005,
+            "abstainSec": 0.9000000000000002
+          },
+          "sustain": {
+            "accuracy": 0.6953482118849152,
+            "denomSec": 185.95000000000005,
+            "abstainSec": 0.9000000000000002
+          },
+          "melody": {
+            "accuracy": 0.6908551389263554,
+            "denomSec": 185.35000000000002,
+            "abstainSec": 1.5000000000000002
+          },
+          "both": {
+            "accuracy": 0.6954410574588615,
+            "denomSec": 185.35000000000002,
+            "abstainSec": 1.5000000000000002
+          }
+        },
+        "winnerBaselineAccuracy": 0.6887877976986887,
+        "binomialBoth": {
+          "segments": 162,
+          "correct": 116,
+          "accuracy": 0.7160493827160493,
+          "pValue": 1.8349020708555876e-8
+        }
+      }
+    },
+    "pooled": {
+      "disagreementSegments": 507,
+      "disagreementSec": 812.512653061227,
+      "arbitrableSec": 355.00000000000006,
+      "nonArbitrableSec": 453.40000000000015,
+      "sources": {
+        "aggregate": {
+          "accuracy": 0.3573239436619719,
+          "denomSec": 355.00000000000006,
+          "abstainSec": 0
+        },
+        "raw": {
+          "accuracy": 0.722742330404724,
+          "denomSec": 347.15000000000003,
+          "abstainSec": 7.850000000000003
+        },
+        "sustain": {
+          "accuracy": 0.7328244274809159,
+          "denomSec": 347.15000000000003,
+          "abstainSec": 7.850000000000003
+        },
+        "melody": {
+          "accuracy": 0.7380882782812043,
+          "denomSec": 342.1,
+          "abstainSec": 12.900000000000002
+        },
+        "both": {
+          "accuracy": 0.7448667540410658,
+          "denomSec": 343.35,
+          "abstainSec": 11.650000000000002
+        }
+      },
+      "winnerBaselineAccuracy": 0.642676056338028,
+      "binomialBoth": {
+        "segments": 280,
+        "correct": 210,
+        "accuracy": 0.75,
+        "pValue": 1.0146331950800119e-17
+      }
+    }
+  },
+  "b7Window": {
+    "mixture": {
+      "segments": [
+        {
+          "start": 86.61043083900226,
+          "end": 87.02839002267574,
+          "chord": "Bm",
+          "argmax": {
+            "root": 11,
+            "mode": "minor"
+          },
+          "perCondition": {
+            "raw": {
+              "bMajor": 0.4104783833026886,
+              "winner": 0.4104783833026886,
+              "argmax": 0.4104783833026886
+            },
+            "sustain": {
+              "bMajor": 0.4046129286289215,
+              "winner": 0.4046129286289215,
+              "argmax": 0.4046129286289215
+            },
+            "melody": {
+              "bMajor": 0,
+              "winner": 0,
+              "argmax": 0
+            },
+            "both": {
+              "bMajor": 0,
+              "winner": 0,
+              "argmax": 0
+            }
+          }
+        },
+        {
+          "start": 87.02839002267574,
+          "end": 87.63210884353741,
+          "chord": "G",
+          "argmax": {
+            "root": 7,
+            "mode": "major"
+          },
+          "perCondition": {
+            "raw": {
+              "bMajor": 0.3720710873603821,
+              "winner": 0.7783574163913727,
+              "argmax": 0.7783574163913727
+            },
+            "sustain": {
+              "bMajor": 0.3334939777851105,
+              "winner": 0.7110170423984528,
+              "argmax": 0.7110170423984528
+            },
+            "melody": {
+              "bMajor": 0,
+              "winner": 0.647026002407074,
+              "argmax": 0.647026002407074
+            },
+            "both": {
+              "bMajor": 0,
+              "winner": 0.5664210319519043,
+              "argmax": 0.5664210319519043
+            }
+          }
+        },
+        {
+          "start": 87.63210884353742,
+          "end": 89.6754648526077,
+          "chord": "Am",
+          "argmax": {
+            "root": 9,
+            "mode": "minor"
+          },
+          "perCondition": {
+            "raw": {
+              "bMajor": 0.36210957169532776,
+              "winner": 0.5856565907597542,
+              "argmax": 0.5856565907597542
+            },
+            "sustain": {
+              "bMajor": 0.4205724895000458,
+              "winner": 0.5414811968803406,
+              "argmax": 0.5414811968803406
+            },
+            "melody": {
+              "bMajor": 0.44149982929229736,
+              "winner": 0.525137297809124,
+              "argmax": 0.525137297809124
+            },
+            "both": {
+              "bMajor": 0.517919659614563,
+              "winner": 0.45468393713235855,
+              "argmax": 0.45468393713235855
+            }
+          }
+        }
+      ],
+      "windowShares": {
+        "raw": {
+          "bMajor": 0.36580314477014436,
+          "winner": 0.6413384917334498
+        },
+        "sustain": {
+          "bMajor": 0.39406047514506753,
+          "winner": 0.5907143406357084
+        },
+        "melody": {
+          "bMajor": 0.3019618560343375,
+          "winner": 0.5544762204209016
+        },
+        "both": {
+          "bMajor": 0.35422886107243673,
+          "winner": 0.4819585870551008
+        }
+      }
+    },
+    "stems": {
+      "segments": [
+        {
+          "start": 85.77451247165533,
+          "end": 87.63210884353741,
+          "chord": "C",
+          "argmax": {
+            "root": 0,
+            "mode": "major"
+          },
+          "perCondition": {
+            "raw": {
+              "bMajor": 0.2614556923508644,
+              "winner": 0.4660714194178581,
+              "argmax": 0.4660714194178581
+            },
+            "sustain": {
+              "bMajor": 0.2012762576341629,
+              "winner": 0.401308948174119,
+              "argmax": 0.401308948174119
+            },
+            "melody": {
+              "bMajor": 0.20177993178367615,
+              "winner": 0.4682736247777939,
+              "argmax": 0.4682736247777939
+            },
+            "both": {
+              "bMajor": 0.1783084124326706,
+              "winner": 0.3782871812582016,
+              "argmax": 0.3782871812582016
+            }
+          }
+        },
+        {
+          "start": 87.63210884353742,
+          "end": 89.30394557823129,
+          "chord": "A",
+          "argmax": {
+            "root": 11,
+            "mode": "major"
+          },
+          "perCondition": {
+            "raw": {
+              "bMajor": 0.9377028346061707,
+              "winner": 0.06229710951447487,
+              "argmax": 0.9377028346061707
+            },
+            "sustain": {
+              "bMajor": 0.9402129501104355,
+              "winner": 0.05978701636195183,
+              "argmax": 0.9402129501104355
+            },
+            "melody": {
+              "bMajor": 0.9261709451675415,
+              "winner": 0.07382901757955551,
+              "argmax": 0.9261709451675415
+            },
+            "both": {
+              "bMajor": 0.9294647723436356,
+              "winner": 0.07053518295288086,
+              "argmax": 0.9294647723436356
+            }
+          }
+        }
+      ],
+      "windowShares": {
+        "raw": {
+          "bMajor": 0.7239719350879293,
+          "winner": 0.18991176555604736
+        },
+        "sustain": {
+          "bMajor": 0.7066687410461664,
+          "winner": 0.16772653304217808
+        },
+        "melody": {
+          "bMajor": 0.6972239622980563,
+          "winner": 0.1984949798273795
+        },
+        "both": {
+          "bMajor": 0.6920584833540887,
+          "winner": 0.16780156282543307
+        }
+      }
+    }
+  }
+}

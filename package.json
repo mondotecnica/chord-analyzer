@@ -27,7 +27,14 @@
     "test:app-stems": "vitest run scripts/analyze-stems-app-path.test.ts",
     "lint": "oxlint",
     "preview": "vite preview",
-    "measure:meter": "vitest run scripts/measure-phase-meter.test.ts"
+    "measure:meter": "vitest run scripts/measure-phase-meter.test.ts",
+    "measure:suno-yoi": "vitest run scripts/measure-suno-yoi.test.ts",
+    "measure:theory-step1": "vitest run scripts/measure-theory-step1.test.ts",
+    "measure:theory-step2": "vitest run scripts/measure-theory-step2.test.ts",
+    "measure:theory-step2-retry": "vitest run scripts/measure-theory-step2-retry.test.ts",
+    "measure:evidence-selection": "vitest run scripts/measure-evidence-selection.test.ts",
+    "measure:note-arbitration": "vitest run scripts/measure-note-arbitration.test.ts",
+    "measure:chordmini": "vitest run scripts/measure-chordmini.test.ts"
   },
   "dependencies": {
     "onnxruntime-web": "^1.31.1",

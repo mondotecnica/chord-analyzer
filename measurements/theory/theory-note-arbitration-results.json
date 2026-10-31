@@ -1,0 +1,2412 @@
+{
+  "generatedAt": "2026-10-31T04:09:33.463Z",
+  "config": {
+    "nearTieMargin": 0.06,
+    "noteFlipDelta": 0.1,
+    "theoryAssist": true
+  },
+  "suites": [
+    {
+      "suite": "mixture-synth-a",
+      "path": "mixture",
+      "notesAvailable": true,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 0.8853514739229027,
+      "ncReevalSec": 0.8853514739229027,
+      "baseline": {
+        "denom": 16.000000000000092,
+        "denomTriad": 16.000000000000092,
+        "root": [
+          15.350000000000083,
+          15.350000000000083,
+          15.650000000000087,
+          16.000000000000092
+        ],
+        "triad": [
+          14.300000000000068,
+          15.350000000000083,
+          15.650000000000087,
+          16.000000000000092
+        ],
+        "core": [
+          14.300000000000068,
+          15.350000000000083,
+          15.650000000000087,
+          16.000000000000092
+        ],
+        "ncSec": 0
+      },
+      "reeval": {
+        "denom": 16.000000000000092,
+        "denomTriad": 16.000000000000092,
+        "root": [
+          15.350000000000083,
+          15.350000000000083,
+          15.350000000000083,
+          15.350000000000083
+        ],
+        "triad": [
+          14.800000000000075,
+          14.800000000000075,
+          14.800000000000075,
+          14.800000000000075
+        ],
+        "core": [
+          14.800000000000075,
+          14.800000000000075,
+          14.800000000000075,
+          14.800000000000075
+        ],
+        "ncSec": 0
+      },
+      "ablation": {
+        "denom": 16.000000000000092,
+        "denomTriad": 16.000000000000092,
+        "root": [
+          15.350000000000083,
+          15.350000000000083,
+          15.350000000000083,
+          15.350000000000083
+        ],
+        "triad": [
+          14.300000000000068,
+          14.300000000000068,
+          14.300000000000068,
+          14.300000000000068
+        ],
+        "core": [
+          14.300000000000068,
+          14.300000000000068,
+          14.300000000000068,
+          14.300000000000068
+        ],
+        "ncSec": 0
+      },
+      "flips": {
+        "flippedSegments": 1,
+        "flippedSegTruthMatch": 1,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 0.49999999999999994,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "flipsAblation": {
+        "flippedSegments": 0,
+        "flippedSegTruthMatch": 0,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 0,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "sources": {
+        "notesSegments": 0,
+        "notesSec": 0,
+        "theorySegments": 1,
+        "theorySec": 0.5108390022675735
+      }
+    },
+    {
+      "suite": "mixture-synth-b",
+      "path": "mixture",
+      "notesAvailable": true,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 0.8519727891156457,
+      "ncReevalSec": 0.8519727891156457,
+      "baseline": {
+        "denom": 17.800000000000118,
+        "denomTriad": 17.800000000000118,
+        "root": [
+          16.6000000000001,
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105
+        ],
+        "triad": [
+          15.400000000000084,
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105
+        ],
+        "core": [
+          15.400000000000084,
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105
+        ],
+        "ncSec": 0
+      },
+      "reeval": {
+        "denom": 17.800000000000118,
+        "denomTriad": 17.800000000000118,
+        "root": [
+          16.6000000000001,
+          16.6000000000001,
+          16.6000000000001,
+          16.6000000000001
+        ],
+        "triad": [
+          16.6000000000001,
+          16.6000000000001,
+          16.6000000000001,
+          16.6000000000001
+        ],
+        "core": [
+          16.6000000000001,
+          16.6000000000001,
+          16.6000000000001,
+          16.6000000000001
+        ],
+        "ncSec": 0
+      },
+      "ablation": {
+        "denom": 17.800000000000118,
+        "denomTriad": 17.800000000000118,
+        "root": [
+          16.6000000000001,
+          16.6000000000001,
+          16.6000000000001,
+          16.6000000000001
+        ],
+        "triad": [
+          15.400000000000084,
+          15.400000000000084,
+          15.400000000000084,
+          15.400000000000084
+        ],
+        "core": [
+          15.400000000000084,
+          15.400000000000084,
+          15.400000000000084,
+          15.400000000000084
+        ],
+        "ncSec": 0
+      },
+      "flips": {
+        "flippedSegments": 2,
+        "flippedSegTruthMatch": 2,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 1.2000000000000004,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "flipsAblation": {
+        "flippedSegments": 0,
+        "flippedSegTruthMatch": 0,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 0,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "sources": {
+        "notesSegments": 0,
+        "notesSec": 0,
+        "theorySegments": 2,
+        "theorySec": 1.2074376417233559
+      }
+    },
+    {
+      "suite": "mixture-synth-c",
+      "path": "mixture",
+      "notesAvailable": true,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 0.8809977324263016,
+      "ncReevalSec": 0.8809977324263016,
+      "baseline": {
+        "denom": 19.200000000000138,
+        "denomTriad": 19.200000000000138,
+        "root": [
+          18.65000000000013,
+          18.65000000000013,
+          18.70000000000013,
+          19.050000000000136
+        ],
+        "triad": [
+          17.650000000000116,
+          18.65000000000013,
+          18.70000000000013,
+          19.000000000000135
+        ],
+        "core": [
+          17.650000000000116,
+          18.65000000000013,
+          18.70000000000013,
+          19.000000000000135
+        ],
+        "ncSec": 0
+      },
+      "reeval": {
+        "denom": 19.200000000000138,
+        "denomTriad": 19.200000000000138,
+        "root": [
+          18.65000000000013,
+          18.65000000000013,
+          18.65000000000013,
+          18.65000000000013
+        ],
+        "triad": [
+          18.65000000000013,
+          18.65000000000013,
+          18.65000000000013,
+          18.65000000000013
+        ],
+        "core": [
+          18.65000000000013,
+          18.65000000000013,
+          18.65000000000013,
+          18.65000000000013
+        ],
+        "ncSec": 0
+      },
+      "ablation": {
+        "denom": 19.200000000000138,
+        "denomTriad": 19.200000000000138,
+        "root": [
+          18.65000000000013,
+          18.65000000000013,
+          18.65000000000013,
+          18.65000000000013
+        ],
+        "triad": [
+          17.650000000000116,
+          17.650000000000116,
+          17.650000000000116,
+          17.650000000000116
+        ],
+        "core": [
+          17.650000000000116,
+          17.650000000000116,
+          17.650000000000116,
+          17.650000000000116
+        ],
+        "ncSec": 0
+      },
+      "flips": {
+        "flippedSegments": 2,
+        "flippedSegTruthMatch": 2,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 1.0000000000000002,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "flipsAblation": {
+        "flippedSegments": 0,
+        "flippedSegTruthMatch": 0,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 0,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "sources": {
+        "notesSegments": 0,
+        "notesSec": 0,
+        "theorySegments": 2,
+        "theorySec": 1.0216780045351452
+      }
+    },
+    {
+      "suite": "mixture-synth-d",
+      "path": "mixture",
+      "notesAvailable": true,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 0.8672108843537423,
+      "ncReevalSec": 0.8672108843537423,
+      "baseline": {
+        "denom": 17.15000000000011,
+        "denomTriad": 17.15000000000011,
+        "root": [
+          4.549999999999992,
+          15.500000000000085,
+          15.500000000000085,
+          15.550000000000086
+        ],
+        "triad": [
+          4.549999999999992,
+          15.500000000000085,
+          15.500000000000085,
+          15.550000000000086
+        ],
+        "core": [
+          4.549999999999992,
+          15.500000000000085,
+          15.500000000000085,
+          15.550000000000086
+        ],
+        "ncSec": 0
+      },
+      "reeval": {
+        "denom": 17.15000000000011,
+        "denomTriad": 17.15000000000011,
+        "root": [
+          6.949999999999983,
+          6.949999999999983,
+          6.949999999999983,
+          6.949999999999983
+        ],
+        "triad": [
+          6.949999999999983,
+          6.949999999999983,
+          6.949999999999983,
+          6.949999999999983
+        ],
+        "core": [
+          6.949999999999983,
+          6.949999999999983,
+          6.949999999999983,
+          6.949999999999983
+        ],
+        "ncSec": 0
+      },
+      "ablation": {
+        "denom": 17.15000000000011,
+        "denomTriad": 17.15000000000011,
+        "root": [
+          6.949999999999983,
+          6.949999999999983,
+          6.949999999999983,
+          6.949999999999983
+        ],
+        "triad": [
+          6.949999999999983,
+          6.949999999999983,
+          6.949999999999983,
+          6.949999999999983
+        ],
+        "core": [
+          6.949999999999983,
+          6.949999999999983,
+          6.949999999999983,
+          6.949999999999983
+        ],
+        "ncSec": 0
+      },
+      "flips": {
+        "flippedSegments": 3,
+        "flippedSegTruthMatch": 3,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 2.3999999999999995,
+        "brokenSec": 0,
+        "changedWrongSec": 1.4000000000000006,
+        "fixedRootSec": 2.3999999999999995,
+        "brokenRootSec": 0
+      },
+      "flipsAblation": {
+        "flippedSegments": 3,
+        "flippedSegTruthMatch": 3,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 2.3999999999999995,
+        "brokenSec": 0,
+        "changedWrongSec": 1.4000000000000006,
+        "fixedRootSec": 2.3999999999999995,
+        "brokenRootSec": 0
+      },
+      "sources": {
+        "notesSegments": 3,
+        "notesSec": 3.761632653061222,
+        "theorySegments": 0,
+        "theorySec": 0
+      }
+    },
+    {
+      "suite": "mixture-synth-e",
+      "path": "mixture",
+      "notesAvailable": true,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 1.3628117913832192,
+      "ncReevalSec": 1.3628117913832192,
+      "baseline": {
+        "denom": 17.30000000000011,
+        "denomTriad": 17.30000000000011,
+        "root": [
+          15.950000000000092,
+          17.20000000000011,
+          17.25000000000011,
+          17.30000000000011
+        ],
+        "triad": [
+          15.400000000000084,
+          17.20000000000011,
+          17.25000000000011,
+          17.30000000000011
+        ],
+        "core": [
+          15.400000000000084,
+          17.20000000000011,
+          17.25000000000011,
+          17.30000000000011
+        ],
+        "ncSec": 0.49999999999999994
+      },
+      "reeval": {
+        "denom": 17.30000000000011,
+        "denomTriad": 17.30000000000011,
+        "root": [
+          15.950000000000092,
+          15.950000000000092,
+          15.950000000000092,
+          15.950000000000092
+        ],
+        "triad": [
+          15.950000000000092,
+          15.950000000000092,
+          15.950000000000092,
+          15.950000000000092
+        ],
+        "core": [
+          15.950000000000092,
+          15.950000000000092,
+          15.950000000000092,
+          15.950000000000092
+        ],
+        "ncSec": 0.49999999999999994
+      },
+      "ablation": {
+        "denom": 17.30000000000011,
+        "denomTriad": 17.30000000000011,
+        "root": [
+          15.950000000000092,
+          15.950000000000092,
+          15.950000000000092,
+          15.950000000000092
+        ],
+        "triad": [
+          15.400000000000084,
+          15.400000000000084,
+          15.400000000000084,
+          15.400000000000084
+        ],
+        "core": [
+          15.400000000000084,
+          15.400000000000084,
+          15.400000000000084,
+          15.400000000000084
+        ],
+        "ncSec": 0.49999999999999994
+      },
+      "flips": {
+        "flippedSegments": 1,
+        "flippedSegTruthMatch": 1,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 0.5499999999999999,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "flipsAblation": {
+        "flippedSegments": 0,
+        "flippedSegTruthMatch": 0,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 0,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "sources": {
+        "notesSegments": 0,
+        "notesSec": 0,
+        "theorySegments": 1,
+        "theorySec": 0.5572789115646248
+      }
+    },
+    {
+      "suite": "mixture-synth-f",
+      "path": "mixture",
+      "notesAvailable": true,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 0.8450793650793642,
+      "ncReevalSec": 0.8450793650793642,
+      "baseline": {
+        "denom": 20.00000000000015,
+        "denomTriad": 20.00000000000015,
+        "root": [
+          19.600000000000144,
+          19.600000000000144,
+          19.600000000000144,
+          19.900000000000148
+        ],
+        "triad": [
+          18.400000000000126,
+          19.600000000000144,
+          19.600000000000144,
+          19.800000000000146
+        ],
+        "core": [
+          18.400000000000126,
+          19.600000000000144,
+          19.600000000000144,
+          19.800000000000146
+        ],
+        "ncSec": 0
+      },
+      "reeval": {
+        "denom": 20.00000000000015,
+        "denomTriad": 20.00000000000015,
+        "root": [
+          19.600000000000144,
+          19.600000000000144,
+          19.600000000000144,
+          19.600000000000144
+        ],
+        "triad": [
+          19.600000000000144,
+          19.600000000000144,
+          19.600000000000144,
+          19.600000000000144
+        ],
+        "core": [
+          19.600000000000144,
+          19.600000000000144,
+          19.600000000000144,
+          19.600000000000144
+        ],
+        "ncSec": 0
+      },
+      "ablation": {
+        "denom": 20.00000000000015,
+        "denomTriad": 20.00000000000015,
+        "root": [
+          19.600000000000144,
+          19.600000000000144,
+          19.600000000000144,
+          19.600000000000144
+        ],
+        "triad": [
+          18.400000000000126,
+          18.400000000000126,
+          18.400000000000126,
+          18.400000000000126
+        ],
+        "core": [
+          18.400000000000126,
+          18.400000000000126,
+          18.400000000000126,
+          18.400000000000126
+        ],
+        "ncSec": 0
+      },
+      "flips": {
+        "flippedSegments": 2,
+        "flippedSegTruthMatch": 2,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 1.2000000000000004,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "flipsAblation": {
+        "flippedSegments": 0,
+        "flippedSegTruthMatch": 0,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 0,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "sources": {
+        "notesSegments": 0,
+        "notesSec": 0,
+        "theorySegments": 2,
+        "theorySec": 1.207437641723354
+      }
+    },
+    {
+      "suite": "mixture-synth-g",
+      "path": "mixture",
+      "notesAvailable": true,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 0.8936961451247178,
+      "ncReevalSec": 0.8936961451247178,
+      "baseline": {
+        "denom": 25.70000000000023,
+        "denomTriad": 25.70000000000023,
+        "root": [
+          20.70000000000016,
+          24.25000000000021,
+          24.30000000000021,
+          24.700000000000216
+        ],
+        "triad": [
+          19.45000000000014,
+          24.25000000000021,
+          24.30000000000021,
+          24.700000000000216
+        ],
+        "core": [
+          19.45000000000014,
+          24.25000000000021,
+          24.30000000000021,
+          24.700000000000216
+        ],
+        "ncSec": 0
+      },
+      "reeval": {
+        "denom": 25.70000000000023,
+        "denomTriad": 25.70000000000023,
+        "root": [
+          20.70000000000016,
+          20.70000000000016,
+          20.70000000000016,
+          20.70000000000016
+        ],
+        "triad": [
+          20.350000000000154,
+          20.350000000000154,
+          20.350000000000154,
+          20.350000000000154
+        ],
+        "core": [
+          20.350000000000154,
+          20.350000000000154,
+          20.350000000000154,
+          20.350000000000154
+        ],
+        "ncSec": 0
+      },
+      "ablation": {
+        "denom": 25.70000000000023,
+        "denomTriad": 25.70000000000023,
+        "root": [
+          20.70000000000016,
+          20.70000000000016,
+          20.70000000000016,
+          20.70000000000016
+        ],
+        "triad": [
+          19.45000000000014,
+          19.45000000000014,
+          19.45000000000014,
+          19.45000000000014
+        ],
+        "core": [
+          19.45000000000014,
+          19.45000000000014,
+          19.45000000000014,
+          19.45000000000014
+        ],
+        "ncSec": 0
+      },
+      "flips": {
+        "flippedSegments": 2,
+        "flippedSegTruthMatch": 2,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 0.9000000000000002,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "flipsAblation": {
+        "flippedSegments": 0,
+        "flippedSegTruthMatch": 0,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 0,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "sources": {
+        "notesSegments": 0,
+        "notesSec": 0,
+        "theorySegments": 2,
+        "theorySec": 1.021678004535147
+      }
+    },
+    {
+      "suite": "mixture-synth-h",
+      "path": "mixture",
+      "notesAvailable": true,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 0.8604988662131525,
+      "ncReevalSec": 0.8604988662131525,
+      "baseline": {
+        "denom": 30.00000000000029,
+        "denomTriad": 30.00000000000029,
+        "root": [
+          29.050000000000278,
+          29.10000000000028,
+          29.450000000000284,
+          29.80000000000029
+        ],
+        "triad": [
+          24.100000000000207,
+          29.050000000000278,
+          29.400000000000283,
+          29.750000000000288
+        ],
+        "core": [
+          24.100000000000207,
+          29.050000000000278,
+          29.400000000000283,
+          29.750000000000288
+        ],
+        "ncSec": 0
+      },
+      "reeval": {
+        "denom": 30.00000000000029,
+        "denomTriad": 30.00000000000029,
+        "root": [
+          29.050000000000278,
+          29.050000000000278,
+          29.050000000000278,
+          29.050000000000278
+        ],
+        "triad": [
+          24.100000000000207,
+          24.100000000000207,
+          24.100000000000207,
+          24.100000000000207
+        ],
+        "core": [
+          24.100000000000207,
+          24.100000000000207,
+          24.100000000000207,
+          24.100000000000207
+        ],
+        "ncSec": 0
+      },
+      "ablation": {
+        "denom": 30.00000000000029,
+        "denomTriad": 30.00000000000029,
+        "root": [
+          29.050000000000278,
+          29.050000000000278,
+          29.050000000000278,
+          29.050000000000278
+        ],
+        "triad": [
+          24.100000000000207,
+          24.100000000000207,
+          24.100000000000207,
+          24.100000000000207
+        ],
+        "core": [
+          24.100000000000207,
+          24.100000000000207,
+          24.100000000000207,
+          24.100000000000207
+        ],
+        "ncSec": 0
+      },
+      "flips": {
+        "flippedSegments": 0,
+        "flippedSegTruthMatch": 0,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 0,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "flipsAblation": {
+        "flippedSegments": 0,
+        "flippedSegTruthMatch": 0,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 0,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "sources": {
+        "notesSegments": 0,
+        "notesSec": 0,
+        "theorySegments": 0,
+        "theorySec": 0
+      }
+    },
+    {
+      "suite": "mixture-synth-i",
+      "path": "mixture",
+      "notesAvailable": true,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 0.8704535147392285,
+      "ncReevalSec": 0.8704535147392285,
+      "baseline": {
+        "denom": 14.550000000000072,
+        "denomTriad": 14.550000000000072,
+        "root": [
+          13.850000000000062,
+          13.850000000000062,
+          13.850000000000062,
+          13.850000000000062
+        ],
+        "triad": [
+          12.850000000000048,
+          13.850000000000062,
+          13.850000000000062,
+          13.850000000000062
+        ],
+        "core": [
+          12.850000000000048,
+          13.850000000000062,
+          13.850000000000062,
+          13.850000000000062
+        ],
+        "ncSec": 0
+      },
+      "reeval": {
+        "denom": 14.550000000000072,
+        "denomTriad": 14.550000000000072,
+        "root": [
+          13.850000000000062,
+          13.850000000000062,
+          13.850000000000062,
+          13.850000000000062
+        ],
+        "triad": [
+          13.350000000000055,
+          13.350000000000055,
+          13.350000000000055,
+          13.350000000000055
+        ],
+        "core": [
+          13.350000000000055,
+          13.350000000000055,
+          13.350000000000055,
+          13.350000000000055
+        ],
+        "ncSec": 0
+      },
+      "ablation": {
+        "denom": 14.550000000000072,
+        "denomTriad": 14.550000000000072,
+        "root": [
+          13.850000000000062,
+          13.850000000000062,
+          13.850000000000062,
+          13.850000000000062
+        ],
+        "triad": [
+          12.850000000000048,
+          12.850000000000048,
+          12.850000000000048,
+          12.850000000000048
+        ],
+        "core": [
+          12.850000000000048,
+          12.850000000000048,
+          12.850000000000048,
+          12.850000000000048
+        ],
+        "ncSec": 0
+      },
+      "flips": {
+        "flippedSegments": 1,
+        "flippedSegTruthMatch": 1,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 0.49999999999999994,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "flipsAblation": {
+        "flippedSegments": 0,
+        "flippedSegTruthMatch": 0,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 0,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "sources": {
+        "notesSegments": 0,
+        "notesSec": 0,
+        "theorySegments": 1,
+        "theorySec": 0.5108390022675735
+      }
+    },
+    {
+      "suite": "mixture-real-put-your-records-on",
+      "path": "mixture",
+      "notesAvailable": true,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 7.221405895691619,
+      "ncReevalSec": 7.221405895691619,
+      "baseline": {
+        "denom": 205.30000000001243,
+        "denomTriad": 205.30000000001243,
+        "root": [
+          110.39999999999587,
+          142.6499999999982,
+          162.1000000000026,
+          180.40000000000677
+        ],
+        "triad": [
+          91.14999999999696,
+          124.29999999999508,
+          149.39999999999972,
+          166.15000000000353
+        ],
+        "core": [
+          91.14999999999696,
+          124.29999999999508,
+          149.39999999999972,
+          166.15000000000353
+        ],
+        "ncSec": 7.149999999999983
+      },
+      "reeval": {
+        "denom": 205.30000000001243,
+        "denomTriad": 205.30000000001243,
+        "root": [
+          128.89999999999506,
+          128.89999999999506,
+          128.89999999999506,
+          128.89999999999506
+        ],
+        "triad": [
+          110.14999999999588,
+          110.14999999999588,
+          110.14999999999588,
+          110.14999999999588
+        ],
+        "core": [
+          110.14999999999588,
+          110.14999999999588,
+          110.14999999999588,
+          110.14999999999588
+        ],
+        "ncSec": 7.149999999999983
+      },
+      "ablation": {
+        "denom": 205.30000000001243,
+        "denomTriad": 205.30000000001243,
+        "root": [
+          128.89999999999506,
+          128.89999999999506,
+          128.89999999999506,
+          128.89999999999506
+        ],
+        "triad": [
+          110.14999999999588,
+          110.14999999999588,
+          110.14999999999588,
+          110.14999999999588
+        ],
+        "core": [
+          110.14999999999588,
+          110.14999999999588,
+          110.14999999999588,
+          110.14999999999588
+        ],
+        "ncSec": 7.149999999999983
+      },
+      "flips": {
+        "flippedSegments": 21,
+        "flippedSegTruthMatch": 10,
+        "flippedSegTruthMiss": 11,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 23.050000000000193,
+        "brokenSec": 4.049999999999994,
+        "changedWrongSec": 26.900000000000247,
+        "fixedRootSec": 23.050000000000193,
+        "brokenRootSec": 4.549999999999992
+      },
+      "flipsAblation": {
+        "flippedSegments": 20,
+        "flippedSegTruthMatch": 10,
+        "flippedSegTruthMiss": 10,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 23.050000000000193,
+        "brokenSec": 4.049999999999994,
+        "changedWrongSec": 26.45000000000024,
+        "fixedRootSec": 23.050000000000193,
+        "brokenRootSec": 4.549999999999992
+      },
+      "sources": {
+        "notesSegments": 20,
+        "notesSec": 53.45233560090698,
+        "theorySegments": 1,
+        "theorySec": 0.46439909297049553
+      }
+    },
+    {
+      "suite": "stems-put-your-records-on",
+      "path": "stems",
+      "notesAvailable": true,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 2.4816326530612365,
+      "ncReevalSec": 2.4816326530612365,
+      "baseline": {
+        "denom": 210.0000000000135,
+        "denomTriad": 210.0000000000135,
+        "root": [
+          128.44999999999496,
+          152.45000000000041,
+          174.15000000000535,
+          191.00000000000918
+        ],
+        "triad": [
+          117.09999999999549,
+          145.09999999999874,
+          166.80000000000368,
+          184.85000000000778
+        ],
+        "core": [
+          117.09999999999549,
+          145.09999999999874,
+          166.80000000000368,
+          184.85000000000778
+        ],
+        "ncSec": 2.4499999999999993
+      },
+      "reeval": {
+        "denom": 210.0000000000135,
+        "denomTriad": 210.0000000000135,
+        "root": [
+          131.7499999999957,
+          131.7499999999957,
+          131.7499999999957,
+          131.7499999999957
+        ],
+        "triad": [
+          120.3999999999953,
+          120.3999999999953,
+          120.3999999999953,
+          120.3999999999953
+        ],
+        "core": [
+          120.3999999999953,
+          120.3999999999953,
+          120.3999999999953,
+          120.3999999999953
+        ],
+        "ncSec": 2.4499999999999993
+      },
+      "ablation": {
+        "denom": 210.0000000000135,
+        "denomTriad": 210.0000000000135,
+        "root": [
+          131.7499999999957,
+          131.7499999999957,
+          131.7499999999957,
+          131.7499999999957
+        ],
+        "triad": [
+          120.3999999999953,
+          120.3999999999953,
+          120.3999999999953,
+          120.3999999999953
+        ],
+        "core": [
+          120.3999999999953,
+          120.3999999999953,
+          120.3999999999953,
+          120.3999999999953
+        ],
+        "ncSec": 2.4499999999999993
+      },
+      "flips": {
+        "flippedSegments": 9,
+        "flippedSegTruthMatch": 4,
+        "flippedSegTruthMiss": 5,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 6.499999999999985,
+        "brokenSec": 3.1999999999999966,
+        "changedWrongSec": 5.799999999999987,
+        "fixedRootSec": 6.499999999999985,
+        "brokenRootSec": 3.1999999999999966
+      },
+      "flipsAblation": {
+        "flippedSegments": 8,
+        "flippedSegTruthMatch": 4,
+        "flippedSegTruthMiss": 4,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 6.499999999999985,
+        "brokenSec": 3.1999999999999966,
+        "changedWrongSec": 4.6499999999999915,
+        "fixedRootSec": 6.499999999999985,
+        "brokenRootSec": 3.1999999999999966
+      },
+      "sources": {
+        "notesSegments": 8,
+        "notesSec": 14.349931972789115,
+        "theorySegments": 1,
+        "theorySec": 1.1609977324262957
+      }
+    },
+    {
+      "suite": "mixture-real-everything",
+      "path": "mixture",
+      "notesAvailable": true,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 18.83138321995463,
+      "ncReevalSec": 18.83138321995463,
+      "baseline": {
+        "denom": 400.70000000005683,
+        "denomTriad": 399.00000000005645,
+        "root": [
+          90.74999999999699,
+          131.09999999999556,
+          162.35000000000267,
+          207.95000000001303
+        ],
+        "triad": [
+          70.39999999999814,
+          106.4499999999961,
+          145.54999999999885,
+          191.80000000000936
+        ],
+        "core": [
+          71.94999999999806,
+          107.999999999996,
+          147.0999999999992,
+          193.50000000000975
+        ],
+        "ncSec": 1.0500000000000003
+      },
+      "reeval": {
+        "denom": 400.70000000005683,
+        "denomTriad": 399.00000000005645,
+        "root": [
+          104.19999999999622,
+          104.19999999999622,
+          104.19999999999622,
+          104.19999999999622
+        ],
+        "triad": [
+          87.0499999999972,
+          87.0499999999972,
+          87.0499999999972,
+          87.0499999999972
+        ],
+        "core": [
+          88.59999999999711,
+          88.59999999999711,
+          88.59999999999711,
+          88.59999999999711
+        ],
+        "ncSec": 1.0500000000000003
+      },
+      "ablation": {
+        "denom": 400.70000000005683,
+        "denomTriad": 399.00000000005645,
+        "root": [
+          104.19999999999622,
+          104.19999999999622,
+          104.19999999999622,
+          104.19999999999622
+        ],
+        "triad": [
+          87.0499999999972,
+          87.0499999999972,
+          87.0499999999972,
+          87.0499999999972
+        ],
+        "core": [
+          88.59999999999711,
+          88.59999999999711,
+          88.59999999999711,
+          88.59999999999711
+        ],
+        "ncSec": 1.0500000000000003
+      },
+      "flips": {
+        "flippedSegments": 52,
+        "flippedSegTruthMatch": 9,
+        "flippedSegTruthMiss": 42,
+        "flippedSegNoTruth": 1,
+        "fixedSec": 17.85000000000012,
+        "brokenSec": 1.2000000000000004,
+        "changedWrongSec": 86.29999999999724,
+        "fixedRootSec": 19.100000000000136,
+        "brokenRootSec": 5.649999999999988
+      },
+      "flipsAblation": {
+        "flippedSegments": 52,
+        "flippedSegTruthMatch": 9,
+        "flippedSegTruthMiss": 42,
+        "flippedSegNoTruth": 1,
+        "fixedSec": 17.85000000000012,
+        "brokenSec": 1.2000000000000004,
+        "changedWrongSec": 86.29999999999724,
+        "fixedRootSec": 19.100000000000136,
+        "brokenRootSec": 5.649999999999988
+      },
+      "sources": {
+        "notesSegments": 52,
+        "notesSec": 107.69414965986438,
+        "theorySegments": 0,
+        "theorySec": 0
+      }
+    },
+    {
+      "suite": "stems-everything",
+      "path": "stems",
+      "notesAvailable": true,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 16.277188208616792,
+      "ncReevalSec": 16.277188208616792,
+      "baseline": {
+        "denom": 401.65000000005705,
+        "denomTriad": 399.95000000005666,
+        "root": [
+          109.39999999999593,
+          149.99999999999986,
+          188.80000000000868,
+          233.45000000001883
+        ],
+        "triad": [
+          98.69999999999654,
+          135.49999999999656,
+          171.10000000000466,
+          209.9500000000135
+        ],
+        "core": [
+          98.69999999999654,
+          135.49999999999656,
+          171.10000000000466,
+          211.65000000001388
+        ],
+        "ncSec": 0.1
+      },
+      "reeval": {
+        "denom": 401.65000000005705,
+        "denomTriad": 399.95000000005666,
+        "root": [
+          111.44999999999581,
+          111.44999999999581,
+          111.44999999999581,
+          111.44999999999581
+        ],
+        "triad": [
+          98.99999999999652,
+          98.99999999999652,
+          98.99999999999652,
+          98.99999999999652
+        ],
+        "core": [
+          98.99999999999652,
+          98.99999999999652,
+          98.99999999999652,
+          98.99999999999652
+        ],
+        "ncSec": 0.1
+      },
+      "ablation": {
+        "denom": 401.65000000005705,
+        "denomTriad": 399.95000000005666,
+        "root": [
+          111.44999999999581,
+          111.44999999999581,
+          111.44999999999581,
+          111.44999999999581
+        ],
+        "triad": [
+          98.99999999999652,
+          98.99999999999652,
+          98.99999999999652,
+          98.99999999999652
+        ],
+        "core": [
+          98.99999999999652,
+          98.99999999999652,
+          98.99999999999652,
+          98.99999999999652
+        ],
+        "ncSec": 0.1
+      },
+      "flips": {
+        "flippedSegments": 48,
+        "flippedSegTruthMatch": 8,
+        "flippedSegTruthMiss": 39,
+        "flippedSegNoTruth": 1,
+        "fixedSec": 12.050000000000036,
+        "brokenSec": 11.750000000000032,
+        "changedWrongSec": 40.79999999999982,
+        "fixedRootSec": 13.150000000000052,
+        "brokenRootSec": 11.100000000000023
+      },
+      "flipsAblation": {
+        "flippedSegments": 48,
+        "flippedSegTruthMatch": 8,
+        "flippedSegTruthMiss": 39,
+        "flippedSegNoTruth": 1,
+        "fixedSec": 12.050000000000036,
+        "brokenSec": 11.750000000000032,
+        "changedWrongSec": 40.79999999999982,
+        "fixedRootSec": 13.150000000000052,
+        "brokenRootSec": 11.100000000000023
+      },
+      "sources": {
+        "notesSegments": 48,
+        "notesSec": 65.38739229024998,
+        "theorySegments": 0,
+        "theorySec": 0
+      }
+    },
+    {
+      "suite": "mixture-real-a-hard-days-night",
+      "path": "mixture",
+      "notesAvailable": true,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 7.417324263038552,
+      "ncReevalSec": 7.417324263038552,
+      "baseline": {
+        "denom": 146.79999999999913,
+        "denomTriad": 145.09999999999874,
+        "root": [
+          41.1499999999998,
+          59.24999999999877,
+          76.69999999999779,
+          105.69999999999614
+        ],
+        "triad": [
+          33.35000000000024,
+          52.94999999999913,
+          70.89999999999812,
+          101.84999999999636
+        ],
+        "core": [
+          34.200000000000195,
+          54.64999999999903,
+          72.59999999999802,
+          103.54999999999626
+        ],
+        "ncSec": 2.3999999999999995
+      },
+      "reeval": {
+        "denom": 146.79999999999913,
+        "denomTriad": 145.09999999999874,
+        "root": [
+          36.300000000000075,
+          36.300000000000075,
+          36.300000000000075,
+          36.300000000000075
+        ],
+        "triad": [
+          28.50000000000027,
+          28.50000000000027,
+          28.50000000000027,
+          28.50000000000027
+        ],
+        "core": [
+          29.350000000000282,
+          29.350000000000282,
+          29.350000000000282,
+          29.350000000000282
+        ],
+        "ncSec": 2.3999999999999995
+      },
+      "ablation": {
+        "denom": 146.79999999999913,
+        "denomTriad": 145.09999999999874,
+        "root": [
+          36.300000000000075,
+          36.300000000000075,
+          36.300000000000075,
+          36.300000000000075
+        ],
+        "triad": [
+          28.50000000000027,
+          28.50000000000027,
+          28.50000000000027,
+          28.50000000000027
+        ],
+        "core": [
+          29.350000000000282,
+          29.350000000000282,
+          29.350000000000282,
+          29.350000000000282
+        ],
+        "ncSec": 2.3999999999999995
+      },
+      "flips": {
+        "flippedSegments": 5,
+        "flippedSegTruthMatch": 1,
+        "flippedSegTruthMiss": 4,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 0.39999999999999997,
+        "brokenSec": 5.249999999999989,
+        "changedWrongSec": 7.549999999999981,
+        "fixedRootSec": 0.39999999999999997,
+        "brokenRootSec": 5.249999999999989
+      },
+      "flipsAblation": {
+        "flippedSegments": 5,
+        "flippedSegTruthMatch": 1,
+        "flippedSegTruthMiss": 4,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 0.39999999999999997,
+        "brokenSec": 5.249999999999989,
+        "changedWrongSec": 7.549999999999981,
+        "fixedRootSec": 0.39999999999999997,
+        "brokenRootSec": 5.249999999999989
+      },
+      "sources": {
+        "notesSegments": 5,
+        "notesSec": 13.188934240362807,
+        "theorySegments": 0,
+        "theorySec": 0
+      }
+    },
+    {
+      "suite": "stems-a-hard-days-night",
+      "path": "stems",
+      "notesAvailable": true,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 6.713469387755083,
+      "ncReevalSec": 6.713469387755083,
+      "baseline": {
+        "denom": 147.5499999999993,
+        "denomTriad": 145.64999999999887,
+        "root": [
+          74.6499999999979,
+          101.54999999999637,
+          114.34999999999565,
+          126.84999999999494
+        ],
+        "triad": [
+          73.79999999999795,
+          98.34999999999656,
+          112.44999999999575,
+          124.94999999999504
+        ],
+        "core": [
+          74.6499999999979,
+          100.24999999999645,
+          114.34999999999565,
+          126.84999999999494
+        ],
+        "ncSec": 1.6500000000000008
+      },
+      "reeval": {
+        "denom": 147.5499999999993,
+        "denomTriad": 145.64999999999887,
+        "root": [
+          78.84999999999766,
+          78.84999999999766,
+          78.84999999999766,
+          78.84999999999766
+        ],
+        "triad": [
+          76.74999999999778,
+          76.74999999999778,
+          76.74999999999778,
+          76.74999999999778
+        ],
+        "core": [
+          77.59999999999773,
+          77.59999999999773,
+          77.59999999999773,
+          77.59999999999773
+        ],
+        "ncSec": 1.6500000000000008
+      },
+      "ablation": {
+        "denom": 147.5499999999993,
+        "denomTriad": 145.64999999999887,
+        "root": [
+          78.84999999999766,
+          78.84999999999766,
+          78.84999999999766,
+          78.84999999999766
+        ],
+        "triad": [
+          76.74999999999778,
+          76.74999999999778,
+          76.74999999999778,
+          76.74999999999778
+        ],
+        "core": [
+          77.59999999999773,
+          77.59999999999773,
+          77.59999999999773,
+          77.59999999999773
+        ],
+        "ncSec": 1.6500000000000008
+      },
+      "flips": {
+        "flippedSegments": 14,
+        "flippedSegTruthMatch": 6,
+        "flippedSegTruthMiss": 8,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 9.950000000000006,
+        "brokenSec": 6.999999999999983,
+        "changedWrongSec": 6.349999999999985,
+        "fixedRootSec": 11.200000000000024,
+        "brokenRootSec": 6.999999999999983
+      },
+      "flipsAblation": {
+        "flippedSegments": 14,
+        "flippedSegTruthMatch": 6,
+        "flippedSegTruthMiss": 8,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 9.950000000000006,
+        "brokenSec": 6.999999999999983,
+        "changedWrongSec": 6.349999999999985,
+        "fixedRootSec": 11.200000000000024,
+        "brokenRootSec": 6.999999999999983
+      },
+      "sources": {
+        "notesSegments": 14,
+        "notesSec": 23.312834467120148,
+        "theorySegments": 0,
+        "theorySec": 0
+      }
+    },
+    {
+      "suite": "stems-song-d",
+      "path": "stems",
+      "notesAvailable": false,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 0.8207709750566892,
+      "ncReevalSec": 0.8207709750566892,
+      "baseline": {
+        "denom": 17.15000000000011,
+        "denomTriad": 17.15000000000011,
+        "root": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.950000000000106
+        ],
+        "triad": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.950000000000106
+        ],
+        "core": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.950000000000106
+        ],
+        "ncSec": 0
+      },
+      "reeval": {
+        "denom": 17.15000000000011,
+        "denomTriad": 17.15000000000011,
+        "root": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105
+        ],
+        "triad": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105
+        ],
+        "core": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105
+        ],
+        "ncSec": 0
+      },
+      "ablation": {
+        "denom": 17.15000000000011,
+        "denomTriad": 17.15000000000011,
+        "root": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105
+        ],
+        "triad": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105
+        ],
+        "core": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105
+        ],
+        "ncSec": 0
+      },
+      "flips": {
+        "flippedSegments": 0,
+        "flippedSegTruthMatch": 0,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 0,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "flipsAblation": {
+        "flippedSegments": 0,
+        "flippedSegTruthMatch": 0,
+        "flippedSegTruthMiss": 0,
+        "flippedSegNoTruth": 0,
+        "fixedSec": 0,
+        "brokenSec": 0,
+        "changedWrongSec": 0,
+        "fixedRootSec": 0,
+        "brokenRootSec": 0
+      },
+      "sources": {
+        "notesSegments": 0,
+        "notesSec": 0,
+        "theorySegments": 0,
+        "theorySec": 0
+      }
+    },
+    {
+      "suite": "mixture-suno05",
+      "path": "mixture",
+      "notesAvailable": true,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 10.742131519274375,
+      "ncReevalSec": 10.742131519274375,
+      "baseline": null,
+      "reeval": null,
+      "ablation": null,
+      "flips": null,
+      "flipsAblation": null,
+      "sources": {
+        "notesSegments": 12,
+        "notesSec": 21.873197278911526,
+        "theorySegments": 2,
+        "theorySec": 3.1579138321995543
+      },
+      "fixtures": [
+        {
+          "name": "Q1a (0:51-0:56)",
+          "negative": false,
+          "baseline": 0,
+          "reeval": 0,
+          "bassBaseline": 0.3267326732673275,
+          "bassReeval": 0.3267326732673275
+        },
+        {
+          "name": "Q1b (1:33-1:38)",
+          "negative": false,
+          "baseline": 0.3267326732673275,
+          "reeval": 0.3267326732673275,
+          "bassBaseline": 0.4554455445544563,
+          "bassReeval": 0.4554455445544563
+        },
+        {
+          "name": "Q4 (1:02-1:05)",
+          "negative": false,
+          "baseline": 0,
+          "reeval": 0,
+          "bassBaseline": 0.27868852459016424,
+          "bassReeval": 0.27868852459016424
+        },
+        {
+          "name": "Q3-C (1:25-1:27)",
+          "negative": false,
+          "baseline": 0.19512195121951212,
+          "reeval": 0.19512195121951212
+        },
+        {
+          "name": "Q3-B7 (1:27-1:29)",
+          "negative": false,
+          "baseline": 0,
+          "reeval": 0
+        },
+        {
+          "name": "Q3-E7 (1:29-1:31)",
+          "negative": false,
+          "baseline": 0,
+          "reeval": 0
+        },
+        {
+          "name": "Q3-Am (1:31-1:33)",
+          "negative": false,
+          "baseline": 0.3170731707317072,
+          "reeval": 0.3170731707317072
+        },
+        {
+          "name": "Q2 (2:33-2:48, Cm 棄却)",
+          "negative": true,
+          "baseline": 0.07333333333333297,
+          "reeval": 0.07333333333333297
+        }
+      ],
+      "fixturesAblation": [
+        {
+          "name": "Q1a (0:51-0:56)",
+          "negative": false,
+          "baseline": 0,
+          "reeval": 0,
+          "bassBaseline": 0.3267326732673275,
+          "bassReeval": 0.3267326732673275
+        },
+        {
+          "name": "Q1b (1:33-1:38)",
+          "negative": false,
+          "baseline": 0.3267326732673275,
+          "reeval": 0.3267326732673275,
+          "bassBaseline": 0.4554455445544563,
+          "bassReeval": 0.4554455445544563
+        },
+        {
+          "name": "Q4 (1:02-1:05)",
+          "negative": false,
+          "baseline": 0,
+          "reeval": 0,
+          "bassBaseline": 0.27868852459016424,
+          "bassReeval": 0.27868852459016424
+        },
+        {
+          "name": "Q3-C (1:25-1:27)",
+          "negative": false,
+          "baseline": 0.19512195121951212,
+          "reeval": 0.19512195121951212
+        },
+        {
+          "name": "Q3-B7 (1:27-1:29)",
+          "negative": false,
+          "baseline": 0,
+          "reeval": 0
+        },
+        {
+          "name": "Q3-E7 (1:29-1:31)",
+          "negative": false,
+          "baseline": 0,
+          "reeval": 0
+        },
+        {
+          "name": "Q3-Am (1:31-1:33)",
+          "negative": false,
+          "baseline": 0.3170731707317072,
+          "reeval": 0.3170731707317072
+        },
+        {
+          "name": "Q2 (2:33-2:48, Cm 棄却)",
+          "negative": true,
+          "baseline": 0.07333333333333297,
+          "reeval": 0.07333333333333297
+        }
+      ]
+    },
+    {
+      "suite": "stems-suno05",
+      "path": "stems",
+      "notesAvailable": true,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 6.794739229024927,
+      "ncReevalSec": 6.794739229024927,
+      "baseline": null,
+      "reeval": null,
+      "ablation": null,
+      "flips": null,
+      "flipsAblation": null,
+      "sources": {
+        "notesSegments": 17,
+        "notesSec": 30.139501133786826,
+        "theorySegments": 2,
+        "theorySec": 1.625396825396825
+      },
+      "fixtures": [
+        {
+          "name": "Q1a (0:51-0:56)",
+          "negative": false,
+          "baseline": 0,
+          "reeval": 0,
+          "bassBaseline": 0.3465346534653474,
+          "bassReeval": 0.3465346534653474
+        },
+        {
+          "name": "Q1b (1:33-1:38)",
+          "negative": false,
+          "baseline": 0.3465346534653474,
+          "reeval": 0.4257425742574267,
+          "bassBaseline": 0.44554455445544644,
+          "bassReeval": 0.44554455445544644
+        },
+        {
+          "name": "Q4 (1:02-1:05)",
+          "negative": false,
+          "baseline": 0.45901639344262357,
+          "reeval": 0.45901639344262357,
+          "bassBaseline": 0.5409836065573778,
+          "bassReeval": 0.5409836065573778
+        },
+        {
+          "name": "Q3-C (1:25-1:27)",
+          "negative": false,
+          "baseline": 0.6341463414634146,
+          "reeval": 0.6341463414634146
+        },
+        {
+          "name": "Q3-B7 (1:27-1:29)",
+          "negative": false,
+          "baseline": 0,
+          "reeval": 0.6829268292682927
+        },
+        {
+          "name": "Q3-E7 (1:29-1:31)",
+          "negative": false,
+          "baseline": 0.853658536585366,
+          "reeval": 0.853658536585366
+        },
+        {
+          "name": "Q3-Am (1:31-1:33)",
+          "negative": false,
+          "baseline": 0.7073170731707318,
+          "reeval": 0.7073170731707318
+        },
+        {
+          "name": "Q2 (2:33-2:48, Cm 棄却)",
+          "negative": true,
+          "baseline": 0.31999999999999773,
+          "reeval": 0.10999999999999947
+        }
+      ],
+      "fixturesAblation": [
+        {
+          "name": "Q1a (0:51-0:56)",
+          "negative": false,
+          "baseline": 0,
+          "reeval": 0,
+          "bassBaseline": 0.3465346534653474,
+          "bassReeval": 0.3465346534653474
+        },
+        {
+          "name": "Q1b (1:33-1:38)",
+          "negative": false,
+          "baseline": 0.3465346534653474,
+          "reeval": 0.4257425742574267,
+          "bassBaseline": 0.44554455445544644,
+          "bassReeval": 0.44554455445544644
+        },
+        {
+          "name": "Q4 (1:02-1:05)",
+          "negative": false,
+          "baseline": 0.45901639344262357,
+          "reeval": 0.45901639344262357,
+          "bassBaseline": 0.5409836065573778,
+          "bassReeval": 0.5409836065573778
+        },
+        {
+          "name": "Q3-C (1:25-1:27)",
+          "negative": false,
+          "baseline": 0.6341463414634146,
+          "reeval": 0.6341463414634146
+        },
+        {
+          "name": "Q3-B7 (1:27-1:29)",
+          "negative": false,
+          "baseline": 0,
+          "reeval": 0.6829268292682927
+        },
+        {
+          "name": "Q3-E7 (1:29-1:31)",
+          "negative": false,
+          "baseline": 0.853658536585366,
+          "reeval": 0.853658536585366
+        },
+        {
+          "name": "Q3-Am (1:31-1:33)",
+          "negative": false,
+          "baseline": 0.7073170731707318,
+          "reeval": 0.7073170731707318
+        },
+        {
+          "name": "Q2 (2:33-2:48, Cm 棄却)",
+          "negative": true,
+          "baseline": 0.31999999999999773,
+          "reeval": 0.10999999999999947
+        }
+      ]
+    },
+    {
+      "suite": "yoi-arm-b-demucs",
+      "path": "stems",
+      "notesAvailable": false,
+      "offInvariant": true,
+      "noNotesInvariant": true,
+      "ncBaselineSec": 14.640884353741503,
+      "ncReevalSec": 14.640884353741503,
+      "baseline": null,
+      "reeval": null,
+      "ablation": null,
+      "flips": null,
+      "flipsAblation": null,
+      "sources": {
+        "notesSegments": 0,
+        "notesSec": 0,
+        "theorySegments": 0,
+        "theorySec": 0
+      },
+      "fixtures": [
+        {
+          "name": "Q1a (0:51-0:56)",
+          "negative": false,
+          "baseline": 0,
+          "reeval": 0,
+          "bassBaseline": 0.4257425742574267,
+          "bassReeval": 0.4257425742574267
+        },
+        {
+          "name": "Q1b (1:33-1:38)",
+          "negative": false,
+          "baseline": 0.08910891089108927,
+          "reeval": 0.08910891089108927,
+          "bassBaseline": 0.5148514851485156,
+          "bassReeval": 0.5148514851485156
+        },
+        {
+          "name": "Q4 (1:02-1:05)",
+          "negative": false,
+          "baseline": 0.4262295081967219,
+          "reeval": 0.4262295081967219,
+          "bassBaseline": 0.5081967213114761,
+          "bassReeval": 0.5081967213114761
+        },
+        {
+          "name": "Q3-C (1:25-1:27)",
+          "negative": false,
+          "baseline": 0.7560975609756099,
+          "reeval": 0.7560975609756099
+        },
+        {
+          "name": "Q3-B7 (1:27-1:29)",
+          "negative": false,
+          "baseline": 1,
+          "reeval": 1
+        },
+        {
+          "name": "Q3-E7 (1:29-1:31)",
+          "negative": false,
+          "baseline": 0.7804878048780489,
+          "reeval": 0.7804878048780489
+        },
+        {
+          "name": "Q3-Am (1:31-1:33)",
+          "negative": false,
+          "baseline": 0.9268292682926831,
+          "reeval": 0.9268292682926831
+        },
+        {
+          "name": "Q2 (2:33-2:48, Cm 棄却)",
+          "negative": true,
+          "baseline": 0.06999999999999966,
+          "reeval": 0.06999999999999966
+        }
+      ],
+      "fixturesAblation": [
+        {
+          "name": "Q1a (0:51-0:56)",
+          "negative": false,
+          "baseline": 0,
+          "reeval": 0,
+          "bassBaseline": 0.4257425742574267,
+          "bassReeval": 0.4257425742574267
+        },
+        {
+          "name": "Q1b (1:33-1:38)",
+          "negative": false,
+          "baseline": 0.08910891089108927,
+          "reeval": 0.08910891089108927,
+          "bassBaseline": 0.5148514851485156,
+          "bassReeval": 0.5148514851485156
+        },
+        {
+          "name": "Q4 (1:02-1:05)",
+          "negative": false,
+          "baseline": 0.4262295081967219,
+          "reeval": 0.4262295081967219,
+          "bassBaseline": 0.5081967213114761,
+          "bassReeval": 0.5081967213114761
+        },
+        {
+          "name": "Q3-C (1:25-1:27)",
+          "negative": false,
+          "baseline": 0.7560975609756099,
+          "reeval": 0.7560975609756099
+        },
+        {
+          "name": "Q3-B7 (1:27-1:29)",
+          "negative": false,
+          "baseline": 1,
+          "reeval": 1
+        },
+        {
+          "name": "Q3-E7 (1:29-1:31)",
+          "negative": false,
+          "baseline": 0.7804878048780489,
+          "reeval": 0.7804878048780489
+        },
+        {
+          "name": "Q3-Am (1:31-1:33)",
+          "negative": false,
+          "baseline": 0.9268292682926831,
+          "reeval": 0.9268292682926831
+        },
+        {
+          "name": "Q2 (2:33-2:48, Cm 棄却)",
+          "negative": true,
+          "baseline": 0.06999999999999966,
+          "reeval": 0.06999999999999966
+        }
+      ]
+    }
+  ],
+  "aggregates": {
+    "mixture-synth": {
+      "baseline": {
+        "denom": 177.7000000000013,
+        "denomTriad": 177.7000000000013,
+        "root": [
+          154.300000000001,
+          170.4000000000012,
+          171.2000000000012,
+          173.05000000000123
+        ],
+        "triad": [
+          142.10000000000088,
+          170.3500000000012,
+          171.15000000000123,
+          172.85000000000122
+        ],
+        "core": [
+          142.10000000000088,
+          170.3500000000012,
+          171.15000000000123,
+          172.85000000000122
+        ],
+        "ncSec": 0.49999999999999994
+      },
+      "reeval": {
+        "denom": 177.7000000000013,
+        "denomTriad": 177.7000000000013,
+        "root": [
+          156.700000000001,
+          156.700000000001,
+          156.700000000001,
+          156.700000000001
+        ],
+        "triad": [
+          150.35000000000093,
+          150.35000000000093,
+          150.35000000000093,
+          150.35000000000093
+        ],
+        "core": [
+          150.35000000000093,
+          150.35000000000093,
+          150.35000000000093,
+          150.35000000000093
+        ],
+        "ncSec": 0.49999999999999994
+      },
+      "ablation": {
+        "denom": 177.7000000000013,
+        "denomTriad": 177.7000000000013,
+        "root": [
+          156.700000000001,
+          156.700000000001,
+          156.700000000001,
+          156.700000000001
+        ],
+        "triad": [
+          144.50000000000085,
+          144.50000000000085,
+          144.50000000000085,
+          144.50000000000085
+        ],
+        "core": [
+          144.50000000000085,
+          144.50000000000085,
+          144.50000000000085,
+          144.50000000000085
+        ],
+        "ncSec": 0.49999999999999994
+      }
+    },
+    "mixture-real": {
+      "baseline": {
+        "denom": 752.8000000000684,
+        "denomTriad": 749.4000000000676,
+        "root": [
+          242.29999999999268,
+          332.9999999999925,
+          401.15000000000305,
+          494.0500000000159
+        ],
+        "triad": [
+          194.89999999999537,
+          283.6999999999903,
+          365.84999999999667,
+          459.8000000000093
+        ],
+        "core": [
+          197.2999999999952,
+          286.9499999999901,
+          369.09999999999695,
+          463.20000000000954
+        ],
+        "ncSec": 10.599999999999984
+      },
+      "reeval": {
+        "denom": 752.8000000000684,
+        "denomTriad": 749.4000000000676,
+        "root": [
+          269.39999999999134,
+          269.39999999999134,
+          269.39999999999134,
+          269.39999999999134
+        ],
+        "triad": [
+          225.69999999999334,
+          225.69999999999334,
+          225.69999999999334,
+          225.69999999999334
+        ],
+        "core": [
+          228.0999999999933,
+          228.0999999999933,
+          228.0999999999933,
+          228.0999999999933
+        ],
+        "ncSec": 10.599999999999984
+      },
+      "ablation": {
+        "denom": 752.8000000000684,
+        "denomTriad": 749.4000000000676,
+        "root": [
+          269.39999999999134,
+          269.39999999999134,
+          269.39999999999134,
+          269.39999999999134
+        ],
+        "triad": [
+          225.69999999999334,
+          225.69999999999334,
+          225.69999999999334,
+          225.69999999999334
+        ],
+        "core": [
+          228.0999999999933,
+          228.0999999999933,
+          228.0999999999933,
+          228.0999999999933
+        ],
+        "ncSec": 10.599999999999984
+      }
+    },
+    "stems-real": {
+      "baseline": {
+        "denom": 759.2000000000698,
+        "denomTriad": 755.600000000069,
+        "root": [
+          312.49999999998875,
+          403.99999999999665,
+          477.3000000000097,
+          551.3000000000229
+        ],
+        "triad": [
+          289.59999999998996,
+          378.94999999999186,
+          450.3500000000041,
+          519.7500000000164
+        ],
+        "core": [
+          290.4499999999899,
+          380.8499999999917,
+          452.250000000004,
+          523.3500000000166
+        ],
+        "ncSec": 4.2
+      },
+      "reeval": {
+        "denom": 759.2000000000698,
+        "denomTriad": 755.600000000069,
+        "root": [
+          322.04999999998915,
+          322.04999999998915,
+          322.04999999998915,
+          322.04999999998915
+        ],
+        "triad": [
+          296.14999999998963,
+          296.14999999998963,
+          296.14999999998963,
+          296.14999999998963
+        ],
+        "core": [
+          296.99999999998954,
+          296.99999999998954,
+          296.99999999998954,
+          296.99999999998954
+        ],
+        "ncSec": 4.2
+      },
+      "ablation": {
+        "denom": 759.2000000000698,
+        "denomTriad": 755.600000000069,
+        "root": [
+          322.04999999998915,
+          322.04999999998915,
+          322.04999999998915,
+          322.04999999998915
+        ],
+        "triad": [
+          296.14999999998963,
+          296.14999999998963,
+          296.14999999998963,
+          296.14999999998963
+        ],
+        "core": [
+          296.99999999998954,
+          296.99999999998954,
+          296.99999999998954,
+          296.99999999998954
+        ],
+        "ncSec": 4.2
+      }
+    },
+    "stems-song-d": {
+      "baseline": {
+        "denom": 17.15000000000011,
+        "denomTriad": 17.15000000000011,
+        "root": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.950000000000106
+        ],
+        "triad": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.950000000000106
+        ],
+        "core": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.950000000000106
+        ],
+        "ncSec": 0
+      },
+      "reeval": {
+        "denom": 17.15000000000011,
+        "denomTriad": 17.15000000000011,
+        "root": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105
+        ],
+        "triad": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105
+        ],
+        "core": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105
+        ],
+        "ncSec": 0
+      },
+      "ablation": {
+        "denom": 17.15000000000011,
+        "denomTriad": 17.15000000000011,
+        "root": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105
+        ],
+        "triad": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105
+        ],
+        "core": [
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105,
+          16.900000000000105
+        ],
+        "ncSec": 0
+      }
+    }
+  },
+  "step2Consistency": {
+    "baselineMaxDev": 0,
+    "v1MaxDev": 0
+  },
+  "wiringChecks": [
+    {
+      "suite": "mixture-real-put-your-records-on",
+      "labelsMatch": true
+    },
+    {
+      "suite": "mixture-suno05",
+      "labelsMatch": true
+    },
+    {
+      "suite": "stems-suno05",
+      "labelsMatch": true
+    }
+  ],
+  "totals": {
+    "offInvariantSuites": 19,
+    "noNotesInvariantSuites": 19,
+    "totalSuites": 19,
+    "ncDeltaMaxSec": 0
+  }
+}

@@ -1,5 +1,10 @@
 import { computeChromagram, type ChromaBandOptions } from "../dsp/chroma";
 import { applyBassCorrection } from "./bassCorrection";
+import { attachSegmentCandidates } from "./candidates";
+import {
+  applyTheoryReevaluation,
+  THEORY_WEIGHTS_V2,
+} from "./theoryReevaluation";
 import { applyConditionalUpperRoot } from "./conditionalBand";
 import {
   estimateChordFrames,
@@ -21,8 +26,10 @@ import {
   noteOnsets,
   type NoteEvidenceInput,
 } from "./noteEvidence";
+import { applyNoteArbitration } from "./noteArbitration";
 import { applyNcGapFill, applyNcSegmentRematch } from "./ncRecovery";
 import { applyLocalKeyModeNudge } from "./localKeyMode";
+import { normalizeToAnalysisRate } from "./sampleRate";
 import { framesToSegments } from "./segmentation";
 import { applyUpperBandMode } from "./splitBand";
 import type { AnalysisResult, GenreProfile, MeterEstimate } from "../types";
@@ -261,6 +268,64 @@ export interface AnalyzeOptions {
    * 働く。既定は false（明示オプトイン）。noteEvidence が必要。
    */
   noteBoundaries?: boolean;
+  /**
+   * Theory Engine 第1段: 候補リストの露出（candidates.ts）を
+   * 有効化するか。true の場合、全ての後段処理が終わった確定
+   * セグメントに ChordSegment.candidates（上位 k 候補＋スコア＋
+   * 1位とのマージン）を加算的に付けるだけで、判定結果は
+   * 一切変えない（OFF はもちろん ON でも従来と完全一致する
+   * ことを測定で証明する: measurements/theory/
+   * THEORY_ENGINE_STEP1.md）。既定は false（明示オプトイン）。
+   * 書き出し（JSON／テキスト）への候補の追加は行わない
+   * （製品判断が別途必要）。
+   */
+  candidateRecord?: boolean;
+  /**
+   * Theory Engine 第1段: 露出する候補件数 k（1〜24 にクランプ）。
+   * 既定は 5。根拠はオラクル被覆率の測定（k=5 で被覆の伸びが
+   * ほぼ飽和する。measurements/theory/THEORY_ENGINE_STEP1.md）。
+   * candidateRecord が無効な場合は意味を持たない。
+   */
+  candidateCount?: number;
+  /**
+   * Theory Engine 第2段: 系列再評価器（theoryReevaluation.ts）を
+   * 有効化するか。true の場合、第1段の候補列を入力に、キー整合性・
+   * ダイアトニック整合性（説明可能性つき）・前後の機能的遷移で
+   * セグメント系列を再評価し、理論寄与の上限の内側でのみラベルを
+   * 反転させる（反転には theoryRationale の根拠内訳が付く）。
+   * 候補列が必要なため、candidateRecord の有無によらず候補は
+   * 内部で露出される（結果にも candidates が付く）。N.C. は理論で
+   * 埋めない。既定は false（明示オプトイン）: OFF のときは
+   * 第1段込みでも従来と完全一致する（measurements/theory/
+   * THEORY_ENGINE_STEP2.md の事前登録基準で測定）。
+   */
+  theoryReevaluation?: boolean;
+  /**
+   * Theory Engine 第2段・再挑戦: 再設計した系列再評価器（v2）を
+   * 有効化するか。意味論の3点（floored の前提化、キー項の信頼度
+   * ゲート、現ラベル擁護＝ホームアドバンテージ）だけを v1 から
+   * 作り替えた構成（theoryReevaluation.ts の THEORY_WEIGHTS_V2）。
+   * theoryReevaluation と同時に指定した場合は v2 が優先される。
+   * 既定は false（明示オプトイン）: OFF のときは従来と完全一致
+   * する（measurements/theory/THEORY_ENGINE_STEP2_RETRY.md の
+   * 事前登録基準で測定）。
+   */
+  theoryReevaluationV2?: boolean;
+  /**
+   * 音符仲裁を主軸にした再評価器（noteArbitration.ts）を有効化
+   * するか。選択済み音符証拠（noteEvidenceSelection）を第三の
+   * 証拠として、勝者と候補2位が接戦帯にあるセグメントだけを
+   * 仲裁し、音符が棄権した接戦に限り凍結した v2 理論構成を
+   * 補助に使う（反転には noteArbitrationRationale が付く）。
+   * noteEvidence が必要で、未指定の場合は完全に無動作になる。
+   * 候補列が必要なため、candidateRecord の有無によらず候補は
+   * 内部で露出される。theoryReevaluation／theoryReevaluationV2
+   * と同時に指定した場合は本オプションが優先される（v1/v2 は
+   * 適用されない。同時指定は測定対象外）。既定は false
+   * （明示オプトイン）: measurements/theory/
+   * THEORY_ENGINE_NOTE_ARBITRATION.md の事前登録基準で測定。
+   */
+  noteArbitration?: boolean;
 }
 
 /**
@@ -300,6 +365,14 @@ export async function analyzeAudio(
 ): Promise<AnalysisResult> {
   const started = performance.now();
 
+  // 解析レートの統一（48kHz クロマ異常対策、sampleRate.ts 参照）。
+  // ブラウザのデコードレート（48kHz 等）をそのままクロマへ渡すと
+  // 低域の音高クラスが半音側へ回るため、入口で 44.1kHz に揃える。
+  // 44.1kHz 入力では無変換で、既存の全測定とビット一致する。
+  const norm = normalizeToAnalysisRate(monoSamples, sampleRate);
+  const samples = norm.samples;
+  const rate = norm.sampleRate;
+
   onProgress?.({ stage: "クロマグラムを計算中…", ratio: 0.05 });
   await yieldToUi();
   // 帯域戦略の既定は "split"（Phase 1.5 分業、2026-10-27 既定化）。
@@ -311,8 +384,8 @@ export async function analyzeAudio(
   const chordBand =
     options?.chordBand !== undefined ? options.chordBand : DEFAULT_CHORD_BAND;
   const chroma = computeChromagram(
-    monoSamples,
-    sampleRate,
+    samples,
+    rate,
     (r) =>
       onProgress?.({ stage: "クロマグラムを計算中…", ratio: 0.05 + r * 0.55 }),
     { chordBand },
@@ -345,7 +418,7 @@ export async function analyzeAudio(
 
   onProgress?.({ stage: "セグメントを整形中…", ratio: 0.9 });
   await yieldToUi();
-  const duration = monoSamples.length / sampleRate;
+  const duration = samples.length / rate;
   let phase0Segments = framesToSegments(frames, chroma.frameDuration, duration);
 
   // 音符レベル統合3: 境界補正（明示オプトイン、既定 OFF）。
@@ -592,12 +665,75 @@ export async function analyzeAudio(
     );
   }
 
+  // Theory Engine 第1段: 候補リストの露出（明示オプトイン、既定 OFF）。
+  // 全ての判定・後段処理が終わった確定セグメント列に対して、
+  // コード判定用クロマ（上帯域 chordFrames）の集計証拠から候補を
+  // 加算的に付けるだけであり、ラベルには一切触れない
+  // （candidates.ts の冒頭コメントに定義と根拠）。
+  // 第2段（theoryReevaluation）も候補列を入力とするため、その場合も
+  // ここで露出する（結果に candidates が付くことは第2段の仕様）。
+  if (
+    options?.candidateRecord ||
+    options?.theoryReevaluation ||
+    options?.theoryReevaluationV2 ||
+    options?.noteArbitration
+  ) {
+    segments = attachSegmentCandidates(
+      segments,
+      {
+        frames: chroma.chordFrames,
+        energies: chroma.energies,
+        frameDuration: chroma.frameDuration,
+      },
+      options?.candidateCount,
+    );
+  }
+
+  // Theory Engine 第2段: 系列再評価器（明示オプトイン、既定 OFF）。
+  // 候補列に対してのみ働く純粋な後段処理で、キー文脈の入力は
+  // 記録済みの局所キー（localKeyCtx。記録が無い場合は全体キーへ
+  // フォールバックする）。理論寄与の上限と N.C. の扱いは
+  // theoryReevaluation.ts の冒頭コメント参照。
+  if (options?.noteArbitration) {
+    // 音符仲裁を主軸にした再評価器（明示オプトイン、既定 OFF）。
+    // 音符入力が無い場合は完全に無動作（v1/v2 へも落ちない。
+    // 同時指定時の優先順位はオプションのコメント参照）。
+    // 和声プールは混合音経路では混合音の音符列そのもの。
+    if (options?.noteEvidence) {
+      segments = applyNoteArbitration(
+        segments,
+        { harmony: options.noteEvidence.harmony },
+        {
+          keyRoot: key.root,
+          keyMode: key.mode,
+          ...(localKeyCtx ? { localKeys: localKeyCtx.windows } : {}),
+        },
+      );
+    }
+  } else if (options?.theoryReevaluationV2) {
+    segments = applyTheoryReevaluation(
+      segments,
+      {
+        keyRoot: key.root,
+        keyMode: key.mode,
+        ...(localKeyCtx ? { localKeys: localKeyCtx.windows } : {}),
+      },
+      THEORY_WEIGHTS_V2,
+    );
+  } else if (options?.theoryReevaluation) {
+    segments = applyTheoryReevaluation(segments, {
+      keyRoot: key.root,
+      keyMode: key.mode,
+      ...(localKeyCtx ? { localKeys: localKeyCtx.windows } : {}),
+    });
+  }
+
   onProgress?.({ stage: "完了", ratio: 1 });
 
   return {
     fileName,
     duration,
-    sampleRate,
+    sampleRate: rate,
     keyName: key.keyName,
     keyRoot: key.root,
     keyMode: key.mode,

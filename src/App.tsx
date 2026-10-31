@@ -32,12 +32,33 @@ import {
   type SeparationCalibration,
 } from "./stems/separationCalibration";
 import { SeparationCancelledError } from "./stems/types";
+import {
+  barDurationSec,
+  DEFAULT_BEATS_PER_BAR,
+  defaultBarGrid,
+  normalizeBarGrid,
+  normalizeBarGridSections,
+  segmentStartBar,
+  type BarGridSection,
+  type BarGridSettings,
+} from "./lib/barGrid";
 import { displaySegmentChord } from "./lib/chordDisplay";
+import { segmentDegreeInResult } from "./lib/degrees";
 import { summarizeGenre } from "./lib/genreSummary";
 import { summarizeLocalKeys } from "./lib/localKeySummary";
 import { meterSummaryText } from "./lib/meterSummary";
 import { modelFetchSummaryLine } from "./lib/modelFetchSummary";
-import { formatTime, noteName } from "./lib/notes";
+import {
+  formatTime,
+  noteNameSpelled,
+  type SpellingFamily,
+} from "./lib/notes";
+import {
+  capoFretForShift,
+  keySpelling,
+  transposeAnalysisResult,
+  transposeChordLabel,
+} from "./lib/transpose";
 import type { AnalysisResult, ChordSegment } from "./types";
 import Timeline from "./components/Timeline";
 import SegmentList from "./components/SegmentList";
@@ -45,6 +66,10 @@ import SegmentList from "./components/SegmentList";
 type Status = "idle" | "loading" | "analyzing" | "done" | "error";
 /** 解析モード（MODES.md）。簡易 = 混合音そのまま、高精度 = ステム分離 */
 type AnalysisMode = "simple" | "high-accuracy";
+
+/** 移調 UI の操作範囲（半音）。変換自体は lib/transpose.ts が任意量を受ける */
+const TRANSPOSE_MIN = -6;
+const TRANSPOSE_MAX = 6;
 
 function PlayIcon() {
   return (
@@ -82,8 +107,28 @@ export default function App() {
   const [segments, setSegments] = useState<ChordSegment[]>([]);
   const [currentTime, setCurrentTime] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  // セグメント一覧の追随スクロールの再開シグナル。再生開始とシークの
+  // たびに増やし、SegmentList はこの変化で追随を再び有効にする
+  // （ユーザーが自分でスクロールしている間の追随は止まる）。
+  const [followSignal, setFollowSignal] = useState(0);
   const [dragOver, setDragOver] = useState(false);
   const [mode, setMode] = useState<AnalysisMode>("simple");
+  // 移調量（半音、表示・書き出し専用）。解析結果そのものは書き換えず、
+  // 表示用に移調済み結果を導出する（lib/transpose.ts）。
+  const [transposeShift, setTransposeShift] = useState(0);
+  // 小節グリッド（表示・書き出し専用、lib/barGrid.ts）。拍子は推定
+  // しないためユーザーが設定する。BPM の初期値は解析の推定値で、
+  // 新しい解析結果が入るたびに既定へ戻す（各 run*Analysis 内）。
+  const [barGrid, setBarGrid] = useState<BarGridSettings>(() =>
+    defaultBarGrid(null),
+  );
+  // 拍子変更の区間宣言（lib/barGrid.ts）の追加フォーム用の入力値。
+  // 宣言そのものは barGrid.sections に保持する。
+  const [sectionStartBarInput, setSectionStartBarInput] = useState("");
+  const [sectionBeatsInput, setSectionBeatsInput] =
+    useState(DEFAULT_BEATS_PER_BAR);
+  const [sectionBpmInput, setSectionBpmInput] = useState("");
+
   const [elapsedSec, setElapsedSec] = useState(0);
   const [cancellable, setCancellable] = useState(false);
   const [interruptedRun, setInterruptedRun] =
@@ -131,6 +176,8 @@ export default function App() {
       );
       setResult(res);
       setSegments(res.segments);
+      // 小節グリッドは新しい結果ごとに既定（BPM = 解析値）へ戻す
+      setBarGrid(defaultBarGrid(res.bpm));
       setStatus("done");
     },
     [],
@@ -238,6 +285,8 @@ export default function App() {
         );
         setResult(res);
         setSegments(res.segments);
+        // 小節グリッドは新しい結果ごとに既定（BPM = 解析値）へ戻す
+        setBarGrid(defaultBarGrid(res.bpm));
         setStatus("done");
       } catch (e) {
         if (e instanceof SeparationCancelledError) {
@@ -265,6 +314,7 @@ export default function App() {
       setNotice(null);
       setResult(null);
       setSegments([]);
+      setTransposeShift(0);
       setCurrentTime(0);
       setIsPlaying(false);
       setStatus("loading");
@@ -300,6 +350,7 @@ export default function App() {
     setNotice(null);
     setResult(null);
     setSegments([]);
+    setTransposeShift(0);
     void (async () => {
       try {
         if (mode === "high-accuracy") {
@@ -334,14 +385,17 @@ export default function App() {
     if (el) {
       el.currentTime = time;
       setCurrentTime(time);
+      setFollowSignal((n) => n + 1);
     }
   }, []);
 
   const togglePlay = () => {
     const el = audioRef.current;
     if (!el) return;
-    if (el.paused) void el.play();
-    else el.pause();
+    if (el.paused) {
+      setFollowSignal((n) => n + 1);
+      void el.play();
+    } else el.pause();
   };
 
   const editSegment = useCallback((id: number, chord: string) => {
@@ -364,14 +418,110 @@ export default function App() {
     ? { ...result, segments }
     : null;
 
+  // 移調表示（表示・書き出し専用、lib/transpose.ts）。移調量 0 では
+  // transposeAnalysisResult が入力と同一オブジェクトを返すため、
+  // 表示・書き出しは従来と完全一致する。表示・書き出し・再生バーの
+  // コード名は全て viewResult / viewSpelling 経由に統一する。
+  const transposedView = useMemo(
+    () =>
+      effectiveResult
+        ? transposeAnalysisResult(effectiveResult, transposeShift)
+        : null,
+    [effectiveResult, transposeShift],
+  );
+  const viewResult = transposedView?.result ?? null;
+  const viewSpelling: SpellingFamily = transposedView?.family ?? "sharps";
+
+  // セグメント一覧での手動修正は表示中（移調済み）のラベルで届くため、
+  // 保存前に逆移調して解析側の表記（♯ 系）へ戻す。保存される
+  // セグメントは常に原曲キーの表記のままになる。
+  const editSegmentFromView = useCallback(
+    (id: number, displayedChord: string) => {
+      const original =
+        transposeShift === 0
+          ? displayedChord
+          : transposeChordLabel(displayedChord, -transposeShift, "sharps");
+      editSegment(id, original);
+    },
+    [editSegment, transposeShift],
+  );
+
   // 局所キー（Phase 3.3、記録・表示のみ既定 ON）の要約表示。
   // 窓列は記録専用で、ラベル判定には使われていない。
+  // 移調表示中は移調済み窓列（viewResult）から要約し、スペルも揃える。
   const localKeySummary = useMemo(
-    () => summarizeLocalKeys(effectiveResult?.localKeys),
-    [effectiveResult?.localKeys],
+    () => summarizeLocalKeys(viewResult?.localKeys),
+    [viewResult?.localKeys],
   );
   const localKeyLabel = (root: number, mode: "major" | "minor") =>
-    `${noteName(root)} ${mode === "major" ? "メジャー" : "マイナー"}`;
+    `${noteNameSpelled(root, viewSpelling)} ${mode === "major" ? "メジャー" : "マイナー"}`;
+
+  // 度数表示（lib/degrees.ts、表示専用）。セグメントの局所キーを
+  // 優先し、無ければ全体キーから算出する。移調表示中は移調済みの
+  // viewResult から計算するため、度数は移調量によらず保存される。
+  const viewDegrees = useMemo(
+    () =>
+      viewResult
+        ? viewResult.segments.map((s) => segmentDegreeInResult(s, viewResult))
+        : null,
+    [viewResult],
+  );
+
+  // 小節番号表示（lib/barGrid.ts、表示専用）。ユーザー設定グリッド
+  // から各セグメントの開始小節を導出する。グリッドは表示・書き出し
+  // だけに効き、解析結果には影響しない。
+  const viewBarGrid = useMemo(() => normalizeBarGrid(barGrid), [barGrid]);
+  const viewBars = useMemo(
+    () =>
+      viewResult
+        ? viewResult.segments.map((s) => segmentStartBar(s, viewBarGrid))
+        : null,
+    [viewResult, viewBarGrid],
+  );
+  // グリッドが既定（BPM = 解析値、拍子 4、オフセット 0、区間なし）から
+  // 変わっているかどうか（リセットボタンの表示判定）
+  const barGridChanged =
+    viewResult !== null &&
+    (viewBarGrid.bpm !== defaultBarGrid(viewResult.bpm).bpm ||
+      viewBarGrid.beatsPerBar !== DEFAULT_BEATS_PER_BAR ||
+      viewBarGrid.offsetSec !== 0 ||
+      (viewBarGrid.sections !== undefined &&
+        viewBarGrid.sections.length > 0));
+
+  // 拍子変更の区間宣言の追加・削除。宣言は barGrid.sections に正規化
+  // された形（startBar 昇順、重複は後勝ち）で保持する。追加時は
+  // フォームの BPM が空なら継承（bpm を持たない宣言）にする。
+  const addBarGridSection = () => {
+    const startBar = Math.floor(Number(sectionStartBarInput));
+    if (!Number.isFinite(startBar) || startBar < 2) return;
+    const bpmValue = Number(sectionBpmInput);
+    const section: BarGridSection = {
+      startBar,
+      beatsPerBar: sectionBeatsInput,
+      ...(sectionBpmInput.trim() !== "" &&
+      Number.isFinite(bpmValue) &&
+      bpmValue > 0
+        ? { bpm: bpmValue }
+        : {}),
+    };
+    setBarGrid((g) => {
+      const kept = normalizeBarGridSections(g.sections).filter(
+        (s) => s.startBar !== startBar,
+      );
+      return { ...g, sections: [...kept, section] };
+    });
+    setSectionStartBarInput("");
+    setSectionBpmInput("");
+  };
+  const removeBarGridSection = (startBar: number) => {
+    setBarGrid((g) => {
+      const kept = normalizeBarGridSections(g.sections).filter(
+        (s) => s.startBar !== startBar,
+      );
+      const { sections: _dropped, ...base } = g;
+      return kept.length > 0 ? { ...base, sections: kept } : base;
+    });
+  };
 
   // 様式プロファイル（Phase 3 後半、記録・表示のみ既定 ON）の表示。
   // 混合比率（特徴空間での様式プロトタイプへの類似度）の記録であり、
@@ -396,9 +546,21 @@ export default function App() {
     [effectiveResult?.modelFetch],
   );
 
-  const currentChord = segments.find(
+  const currentChord = viewResult?.segments.find(
     (s) => currentTime >= s.start && currentTime < s.end,
   );
+
+  // 移調コントロールの表示用: 移調先キー名（移調先の代表スペル）と
+  // カポ換算（実用範囲にある場合のみ提示される）。
+  const viewKeyName = viewResult
+    ? keySpelling(viewResult.keyRoot, viewResult.keyMode).name
+    : null;
+  const viewKeyModeJa = viewResult
+    ? viewResult.keyMode === "major"
+      ? "メジャー"
+      : "マイナー"
+    : null;
+  const capoFret = capoFretForShift(transposeShift);
 
   const busy = status === "loading" || status === "analyzing";
 
@@ -609,7 +771,7 @@ export default function App() {
               <div className="playback-meta">
                 <span className="playback-chord">
                   {currentChord
-                    ? displaySegmentChord(currentChord)
+                    ? displaySegmentChord(currentChord, viewSpelling)
                     : "—"}
                 </span>
                 <span className="playback-file">
@@ -624,21 +786,21 @@ export default function App() {
         </div>
       )}
 
-      {effectiveResult && status === "done" && (
+      {viewResult && status === "done" && (
         <>
           <section className="panel summary">
             <div className="summary-row">
               <div className="summary-item">
                 <span className="summary-label">キー（推定）</span>
                 <span className="summary-value">
-                  {noteName(effectiveResult.keyRoot)}{" "}
-                  {effectiveResult.keyMode === "major" ? "メジャー" : "マイナー"}
+                  {noteNameSpelled(viewResult.keyRoot, viewSpelling)}{" "}
+                  {viewResult.keyMode === "major" ? "メジャー" : "マイナー"}
                 </span>
               </div>
               <div className="summary-item">
                 <span className="summary-label">BPM（推定）</span>
                 <span className="summary-value">
-                  {effectiveResult.bpm ?? "不明"}
+                  {viewResult.bpm ?? "不明"}
                 </span>
               </div>
               <div className="summary-item">
@@ -648,11 +810,233 @@ export default function App() {
               <div className="summary-item">
                 <span className="summary-label">モード</span>
                 <span className="summary-value summary-value-small">
-                  {effectiveResult.mode === "high-accuracy"
+                  {viewResult.mode === "high-accuracy"
                     ? "高精度モードで解析"
                     : "簡易モードで解析"}
                 </span>
               </div>
+            </div>
+            <div className="transpose-row">
+              <span className="summary-label">移調（表示・書き出し）</span>
+              <div className="transpose-controls">
+                <button
+                  type="button"
+                  className="transpose-stepper"
+                  aria-label="半音下げる"
+                  disabled={transposeShift <= TRANSPOSE_MIN}
+                  onClick={() =>
+                    setTransposeShift((v) => Math.max(TRANSPOSE_MIN, v - 1))
+                  }
+                >
+                  −
+                </button>
+                <span className="transpose-value" aria-live="polite">
+                  {transposeShift > 0
+                    ? `+${transposeShift}`
+                    : `${transposeShift}`}
+                </span>
+                <button
+                  type="button"
+                  className="transpose-stepper"
+                  aria-label="半音上げる"
+                  disabled={transposeShift >= TRANSPOSE_MAX}
+                  onClick={() =>
+                    setTransposeShift((v) => Math.min(TRANSPOSE_MAX, v + 1))
+                  }
+                >
+                  +
+                </button>
+                {transposeShift !== 0 && (
+                  <button type="button" onClick={() => setTransposeShift(0)}>
+                    リセット
+                  </button>
+                )}
+              </div>
+              <span className="transpose-note">
+                {transposeShift === 0
+                  ? "原曲キーのまま表示しています"
+                  : `表示キー: ${viewKeyName} ${viewKeyModeJa}${
+                      capoFret !== null
+                        ? ` · Capo ${capoFret} で原曲のキーになります`
+                        : ""
+                    }`}
+              </span>
+            </div>
+            <div className="bar-grid-row">
+              <span className="summary-label">小節グリッド（表示・書き出し）</span>
+              <div className="bar-grid-controls">
+                <label className="bar-grid-field">
+                  <span className="bar-grid-field-label">拍子</span>
+                  <select
+                    value={viewBarGrid.beatsPerBar}
+                    onChange={(e) =>
+                      setBarGrid((g) => ({
+                        ...g,
+                        beatsPerBar: Number(e.target.value),
+                      }))
+                    }
+                    aria-label="拍子（1小節の拍数）"
+                  >
+                    {[2, 3, 4, 5, 6, 7].map((n) => (
+                      <option key={n} value={n}>
+                        {n}/4
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="bar-grid-field">
+                  <span className="bar-grid-field-label">BPM</span>
+                  <input
+                    type="number"
+                    className="bar-grid-number"
+                    min={1}
+                    step={1}
+                    value={Number.isFinite(barGrid.bpm) ? barGrid.bpm : ""}
+                    onChange={(e) =>
+                      setBarGrid((g) => ({
+                        ...g,
+                        bpm: e.target.valueAsNumber,
+                      }))
+                    }
+                    aria-label="小節グリッドの BPM"
+                  />
+                </label>
+                <span className="bar-grid-field">
+                  <span className="bar-grid-field-label">オフセット</span>
+                  <span className="bar-grid-offset">
+                    <button
+                      type="button"
+                      className="transpose-stepper"
+                      aria-label="オフセットを0.1秒戻す"
+                      onClick={() =>
+                        setBarGrid((g) => {
+                          const n = normalizeBarGrid(g);
+                          return {
+                            ...n,
+                            offsetSec: Math.max(
+                              0,
+                              Math.round((n.offsetSec - 0.1) * 100) / 100,
+                            ),
+                          };
+                        })
+                      }
+                    >
+                      −
+                    </button>
+                    <span className="bar-grid-offset-value" aria-live="polite">
+                      {viewBarGrid.offsetSec.toFixed(2)}秒
+                    </span>
+                    <button
+                      type="button"
+                      className="transpose-stepper"
+                      aria-label="オフセットを0.1秒進める"
+                      onClick={() =>
+                        setBarGrid((g) => {
+                          const n = normalizeBarGrid(g);
+                          return {
+                            ...n,
+                            offsetSec: Math.round((n.offsetSec + 0.1) * 100) / 100,
+                          };
+                        })
+                      }
+                    >
+                      +
+                    </button>
+                  </span>
+                </span>
+                {barGridChanged && (
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setBarGrid(defaultBarGrid(viewResult.bpm))
+                    }
+                  >
+                    リセット
+                  </button>
+                )}
+              </div>
+              <div className="bar-grid-sections">
+                {(viewBarGrid.sections ?? []).length > 0 && (
+                  <ul className="bar-grid-section-list">
+                    {(viewBarGrid.sections ?? []).map((s) => (
+                      <li key={s.startBar} className="bar-grid-section-item">
+                        <span>
+                          {s.startBar}小節から {s.beatsPerBar}/4
+                          {s.bpm !== undefined ? ` · ${s.bpm} BPM` : ""}
+                        </span>
+                        <button
+                          type="button"
+                          className="bar-grid-section-remove"
+                          aria-label={`${s.startBar}小節からの拍子変更を削除`}
+                          onClick={() => removeBarGridSection(s.startBar)}
+                        >
+                          削除
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <div className="bar-grid-controls">
+                  <label className="bar-grid-field">
+                    <span className="bar-grid-field-label">拍子変更</span>
+                    <input
+                      type="number"
+                      className="bar-grid-number"
+                      min={2}
+                      step={1}
+                      placeholder="小節"
+                      value={sectionStartBarInput}
+                      onChange={(e) => setSectionStartBarInput(e.target.value)}
+                      aria-label="拍子変更が始まる小節番号"
+                    />
+                  </label>
+                  <span className="bar-grid-field">
+                    <span className="bar-grid-field-label">小節から</span>
+                    <select
+                      value={sectionBeatsInput}
+                      onChange={(e) =>
+                        setSectionBeatsInput(Number(e.target.value))
+                      }
+                      aria-label="変更後の拍子（1小節の拍数）"
+                    >
+                      {[2, 3, 4, 5, 6, 7].map((n) => (
+                        <option key={n} value={n}>
+                          {n}/4
+                        </option>
+                      ))}
+                    </select>
+                  </span>
+                  <label className="bar-grid-field">
+                    <span className="bar-grid-field-label">BPM（任意）</span>
+                    <input
+                      type="number"
+                      className="bar-grid-number"
+                      min={1}
+                      step={1}
+                      placeholder="継承"
+                      value={sectionBpmInput}
+                      onChange={(e) => setSectionBpmInput(e.target.value)}
+                      aria-label="変更後の BPM（空欄で基準グリッドから継承）"
+                    />
+                  </label>
+                  <button
+                    type="button"
+                    onClick={addBarGridSection}
+                    disabled={
+                      !Number.isFinite(Number(sectionStartBarInput)) ||
+                      Math.floor(Number(sectionStartBarInput)) < 2 ||
+                      sectionStartBarInput.trim() === ""
+                    }
+                  >
+                    拍子変更を追加
+                  </button>
+                </div>
+              </div>
+              <span className="transpose-note">
+                拍子は自動推定しません。1小節 ={" "}
+                {barDurationSec(viewBarGrid).toFixed(2)}{" "}
+                秒。小節の頭がずれる場合はオフセットで合わせてください
+              </span>
             </div>
             {localKeySummary && (
               <p className="local-key-summary">
@@ -685,15 +1069,15 @@ export default function App() {
                 <span>{meterSummary}</span>
               </p>
             )}
-            {effectiveResult.mode === "high-accuracy" &&
-              typeof effectiveResult.separationSeconds === "number" && (
+            {viewResult.mode === "high-accuracy" &&
+              typeof viewResult.separationSeconds === "number" && (
                 <p className="hint">
                   この解析のステム分離には
-                  {formatApproxDuration(effectiveResult.separationSeconds)}
+                  {formatApproxDuration(viewResult.separationSeconds)}
                   かかりました（モデルのダウンロード時間は含みません。この実績は次回以降の目安表示に使われます）。
                 </p>
               )}
-            {effectiveResult.mode === "high-accuracy" && modelFetchLine && (
+            {viewResult.mode === "high-accuracy" && modelFetchLine && (
               <p className="hint">{modelFetchLine}</p>
             )}
             <div className="summary-actions">
@@ -701,8 +1085,12 @@ export default function App() {
                 type="button"
                 onClick={() =>
                   downloadTextFile(
-                    `${baseName(effectiveResult.fileName)}-chords.json`,
-                    resultToJson(effectiveResult),
+                    `${baseName(viewResult.fileName)}-chords.json`,
+                    resultToJson(viewResult, {
+                      spelling: viewSpelling,
+                      transposeSemitones: transposeShift,
+                      barGrid: viewBarGrid,
+                    }),
                     "application/json",
                   )
                 }
@@ -713,8 +1101,12 @@ export default function App() {
                 type="button"
                 onClick={() =>
                   downloadTextFile(
-                    `${baseName(effectiveResult.fileName)}-chords.txt`,
-                    resultToText(effectiveResult),
+                    `${baseName(viewResult.fileName)}-chords.txt`,
+                    resultToText(viewResult, {
+                      spelling: viewSpelling,
+                      transposeSemitones: transposeShift,
+                      barGrid: viewBarGrid,
+                    }),
                     "text/plain",
                   )
                 }
@@ -725,26 +1117,34 @@ export default function App() {
             <p className="hint">
               書き出しに音声データは含まれません。セグメントのコードは下の一覧で
               手動修正できます（正解データとの比較＝正解率測定の土台です）。
+              {transposeShift !== 0 &&
+                "移調表示中の書き出しには移調したラベルが入り、移調の記録も併記されます。一覧での修正は原曲キーの表記に直して保存されます。"}
             </p>
           </section>
 
           <section className="panel">
             <h2>タイムライン</h2>
             <Timeline
-              segments={segments}
-              duration={effectiveResult.duration}
+              segments={viewResult.segments}
+              duration={viewResult.duration}
               currentTime={currentTime}
               onSeek={seek}
+              spelling={viewSpelling}
             />
           </section>
 
           <section className="panel">
             <h2>コードセグメント</h2>
             <SegmentList
-              segments={segments}
+              segments={viewResult.segments}
               currentTime={currentTime}
               onSeek={seek}
-              onEdit={editSegment}
+              onEdit={editSegmentFromView}
+              spelling={viewSpelling}
+              degrees={viewDegrees ?? undefined}
+              bars={viewBars ?? undefined}
+              isPlaying={isPlaying}
+              followSignal={followSignal}
             />
           </section>
         </>

@@ -148,3 +148,39 @@ describe("displaySegmentChord（Phase 3.2: 層表示）", () => {
     ).toBe("Dm");
   });
 });
+
+describe("♭ 系スペルのラベルとスペル系つき表示（移調表示用）", () => {
+  const seg = (extra: Partial<ChordSegment>): ChordSegment => ({
+    id: 0,
+    start: 0,
+    end: 1,
+    chord: "C",
+    confidence: 0.7,
+    ...extra,
+  });
+
+  it("♭ 系スペルのコード名も解釈できる", () => {
+    expect(displayChordName("Eb", 7)).toBe("Eb/G"); // 3rd
+    expect(displayChordName("Bbm", 10)).toBe("Bbm"); // ベース = ルート
+    expect(displayChordName("Bbm", 5)).toBe("Bbm/F"); // 5th
+    expect(fullChordName("Eb", "maj7")).toBe("EbM7");
+    expect(fullChordName("Bbm", "m7")).toBe("Bbm7");
+  });
+
+  it("ベース音名は既定で ♯ 系、family 指定で ♭ 系になる", () => {
+    const s = seg({ chord: "Db", bassPc: 8 }); // 5th ベース
+    expect(displaySegmentChord(s)).toBe("Db/G#");
+    expect(displaySegmentChord(s, "flats")).toBe("Db/Ab");
+  });
+
+  it("層表示のベース音名もスペル系に従う", () => {
+    const s = seg({
+      chord: "Ebm",
+      upperChord: "Db",
+      upperExtension: "maj7",
+      bassPc: 8,
+    });
+    expect(displaySegmentChord(s, "flats")).toBe("DbM7/Ab");
+    expect(displaySegmentChord(s)).toBe("DbM7/G#");
+  });
+});

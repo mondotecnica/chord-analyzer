@@ -1,4 +1,9 @@
-import { NOTE_NAMES, noteName, NO_CHORD } from "./notes";
+import {
+  noteNameSpelled,
+  parseNoteName,
+  NO_CHORD,
+  type SpellingFamily,
+} from "./notes";
 import type { ChordExtension, ChordSegment } from "../types";
 
 /**
@@ -16,18 +21,19 @@ import type { ChordExtension, ChordSegment } from "../types";
  *   その場合は Step 1 のルート補正の対象領域であり、表示側では扱わない。
  */
 
-function parseChord(
+/** コード名（"Am" 等）→ ルートとモード。N.C. と解釈できない名前は null（lib/degrees.ts からも使う） */
+export function parseChord(
   chord: string,
 ): { root: number; mode: "major" | "minor" } | null {
   if (chord === NO_CHORD) return null;
+  // ルートの解釈は ♯ 系・♭ 系の両スペルを受ける（移調表示が ♭ 系
+  // スペルのラベルを出すため。解析ラベル自体は従来通り ♯ 系のみ）。
   if (chord.endsWith("m")) {
-    const root = NOTE_NAMES.indexOf(
-      chord.slice(0, -1) as (typeof NOTE_NAMES)[number],
-    );
-    return root >= 0 ? { root, mode: "minor" } : null;
+    const root = parseNoteName(chord.slice(0, -1));
+    return root !== null ? { root, mode: "minor" } : null;
   }
-  const root = NOTE_NAMES.indexOf(chord as (typeof NOTE_NAMES)[number]);
-  return root >= 0 ? { root, mode: "major" } : null;
+  const root = parseNoteName(chord);
+  return root !== null ? { root, mode: "major" } : null;
 }
 
 /** 3rd（major: +4 / minor: +3）または 5th（+7）かどうか */
@@ -69,16 +75,20 @@ export function displayChordName(
   chord: string,
   bassPc?: number,
   extension?: ChordExtension,
+  family: SpellingFamily = "sharps",
 ): string {
-  return displaySegmentChord({
-    id: 0,
-    start: 0,
-    end: 0,
-    chord,
-    confidence: 0,
-    ...(bassPc !== undefined ? { bassPc } : {}),
-    ...(extension !== undefined ? { extension } : {}),
-  });
+  return displaySegmentChord(
+    {
+      id: 0,
+      start: 0,
+      end: 0,
+      chord,
+      confidence: 0,
+      ...(bassPc !== undefined ? { bassPc } : {}),
+      ...(extension !== undefined ? { extension } : {}),
+    },
+    family,
+  );
 }
 
 /**
@@ -101,8 +111,16 @@ export function displayChordName(
  *   の場合のみ。addTones があれば土台に "(add9)" を付ける。
  * - ベース音が無い／土台のルートと同じ場合は通常表示。
  * - 層フィールドを持たないセグメントでは従来表示と完全に一致する。
+ *
+ * family はベース音名のスペル系（移調表示用、lib/transpose.ts）。
+ * 既定の "sharps" では従来表示と完全に一致する。土台のコード名
+ * 自体のスペルは seg 側の文字列がそのまま使われる（移調時は
+ * transpose 側がスペル済みの文字列を渡す）。
  */
-export function displaySegmentChord(seg: ChordSegment): string {
+export function displaySegmentChord(
+  seg: ChordSegment,
+  family: SpellingFamily = "sharps",
+): string {
   const useUpper = seg.upperChord !== undefined && seg.bassPc !== undefined;
   const base = useUpper ? seg.upperChord! : seg.chord;
   const baseExt = useUpper ? seg.upperExtension : seg.extension;
@@ -117,7 +135,7 @@ export function displaySegmentChord(seg: ChordSegment): string {
   if (!parsed) return full;
   const bass = ((seg.bassPc % 12) + 12) % 12;
   if (bass === parsed.root) return full;
-  if (useUpper) return `${full}/${noteName(bass)}`;
+  if (useUpper) return `${full}/${noteNameSpelled(bass, family)}`;
   if (!isChordToneBass(parsed.root, parsed.mode, bass)) return full;
-  return `${full}/${noteName(bass)}`;
+  return `${full}/${noteNameSpelled(bass, family)}`;
 }

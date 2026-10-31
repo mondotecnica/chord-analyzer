@@ -1,0 +1,938 @@
+{
+  "harness": "scripts/measureMicInput.ts（簡易モード相当: 混合音・既定オプション {}）",
+  "generatedAt": "2026-10-31T04:03:44.650Z",
+  "params": {
+    "conditions": [
+      {
+        "id": "clean",
+        "label": "clean（原音そのまま）",
+        "band": null,
+        "reverb": null,
+        "noise": null,
+        "comp": null,
+        "peakTarget": null
+      },
+      {
+        "id": "live",
+        "label": "生音マイク想定（残響 RT60 0.4s + ノイズ SNR 25dB）",
+        "band": null,
+        "reverb": {
+          "rt60Sec": 0.4,
+          "wetDb": -10,
+          "irSeed": 1001
+        },
+        "noise": {
+          "snrDb": 25,
+          "seed": 2001
+        },
+        "comp": null,
+        "peakTarget": 0.95
+      },
+      {
+        "id": "spk-good",
+        "label": "スピーカー再生＋マイク・良条件（150Hz–12kHz + RT60 0.4s + SNR 22dB）",
+        "band": {
+          "hpHz": 150,
+          "hpStages": 1,
+          "lpHz": 12000,
+          "lpStages": 1
+        },
+        "reverb": {
+          "rt60Sec": 0.4,
+          "wetDb": -8,
+          "irSeed": 1002
+        },
+        "noise": {
+          "snrDb": 22,
+          "seed": 2002
+        },
+        "comp": null,
+        "peakTarget": 0.95
+      },
+      {
+        "id": "spk-bad",
+        "label": "スピーカー再生＋マイク・悪条件（300Hz–8kHz + RT60 0.8s + SNR 13dB + 圧縮）",
+        "band": {
+          "hpHz": 300,
+          "hpStages": 2,
+          "lpHz": 8000,
+          "lpStages": 2
+        },
+        "reverb": {
+          "rt60Sec": 0.8,
+          "wetDb": -5,
+          "irSeed": 1003
+        },
+        "noise": {
+          "snrDb": 13,
+          "seed": 2003
+        },
+        "comp": {
+          "thresholdDb": -20,
+          "ratio": 3,
+          "attackSec": 0.01,
+          "releaseSec": 0.3
+        },
+        "peakTarget": 0.95
+      }
+    ],
+    "prng": "mulberry32（シードは条件パラメータ内に記載）",
+    "irSpec": "周波数領域合成（ランダム位相＋平坦振幅、帯域端 30Hz/18kHz のみ整形）→ 指数減衰包絡（RT60 で -60dB）→ 単位エネルギー正規化、長さ = min(RT60×3, 2.5s)。暗色化は入れない（入れると再正規化で低域ゲインが膨らむため）。wet 比は診断で入力3種とも ±2dB 以内を確認済み",
+    "noiseSpec": "ホワイトノイズを 1 ポール LP 400Hz で低域寄りに整形。SNR は信号全区間 RMS に対する広帯域比",
+    "bandSpec": "RBJ バイカッド（Q=0.707）。段数は条件パラメータの stages",
+    "compSpec": "ピーク包絡フォロワ（attack/release は条件パラメータ）、メイクアップなし",
+    "levelSpec": "劣化条件は最後にピーク 0.95 へ正規化（録音側のレベル調整の近似）。clean は無加工"
+  },
+  "realSongs": [
+    {
+      "slug": "put-your-records-on",
+      "title": "Put Your Records On — Corinne Bailey Rae",
+      "durationSec": 212.7,
+      "sampleRate": 44100,
+      "conditions": {
+        "clean": {
+          "rootAccuracyPct": 54.1,
+          "triadAccuracyPct": 64.2,
+          "triadCountedSec": 84.6,
+          "coreAccuracyPct": 31.1,
+          "coreCountedSec": 120.7,
+          "ncSharePct": 3.4,
+          "meanConfidence": 0.6262,
+          "detectedKey": "A minor",
+          "detectedBpm": 96,
+          "topConfusions": [
+            {
+              "gt": "Dm(maj7)",
+              "det": "D",
+              "sec": 11.67
+            },
+            {
+              "gt": "F#m6",
+              "det": "A",
+              "sec": 10.58
+            },
+            {
+              "gt": "F#m6",
+              "det": "F",
+              "sec": 7.27
+            }
+          ]
+        },
+        "live": {
+          "rootAccuracyPct": 53,
+          "triadAccuracyPct": 54.5,
+          "triadCountedSec": 84.4,
+          "coreAccuracyPct": 26.6,
+          "coreCountedSec": 119.8,
+          "ncSharePct": 3.9,
+          "meanConfidence": 0.6268,
+          "detectedKey": "A minor",
+          "detectedBpm": 96,
+          "topConfusions": [
+            {
+              "gt": "Dm(maj7)",
+              "det": "D",
+              "sec": 12.05
+            },
+            {
+              "gt": "A",
+              "det": "Am",
+              "sec": 11.74
+            },
+            {
+              "gt": "F#m6",
+              "det": "A",
+              "sec": 11.27
+            }
+          ]
+        },
+        "spk-good": {
+          "rootAccuracyPct": 53.9,
+          "triadAccuracyPct": 55.7,
+          "triadCountedSec": 83.8,
+          "coreAccuracyPct": 27,
+          "coreCountedSec": 120.3,
+          "ncSharePct": 3.9,
+          "meanConfidence": 0.5966,
+          "detectedKey": "A minor",
+          "detectedBpm": 96,
+          "topConfusions": [
+            {
+              "gt": "A",
+              "det": "Am",
+              "sec": 18.81
+            },
+            {
+              "gt": "Dm(maj7)",
+              "det": "D",
+              "sec": 11.39
+            },
+            {
+              "gt": "F#m6",
+              "det": "A",
+              "sec": 10.14
+            }
+          ]
+        },
+        "spk-bad": {
+          "rootAccuracyPct": 38.3,
+          "triadAccuracyPct": 38.9,
+          "triadCountedSec": 88.7,
+          "coreAccuracyPct": 12.6,
+          "coreCountedSec": 123.8,
+          "ncSharePct": 0,
+          "meanConfidence": 0.5907,
+          "detectedKey": "A minor",
+          "detectedBpm": 96,
+          "topConfusions": [
+            {
+              "gt": "A",
+              "det": "Am",
+              "sec": 26.85
+            },
+            {
+              "gt": "Dmaj7",
+              "det": "A",
+              "sec": 12.91
+            },
+            {
+              "gt": "Dmaj7",
+              "det": "Am",
+              "sec": 9.37
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "everything",
+      "title": "Everything — MISIA",
+      "durationSec": 429,
+      "sampleRate": 44100,
+      "conditions": {
+        "clean": {
+          "rootAccuracyPct": 22.7,
+          "triadAccuracyPct": 31.6,
+          "triadCountedSec": 94.1,
+          "coreAccuracyPct": 13.9,
+          "coreCountedSec": 306.6,
+          "ncSharePct": 0.3,
+          "meanConfidence": 0.6171,
+          "detectedKey": "A minor",
+          "detectedBpm": 129,
+          "topConfusions": [
+            {
+              "gt": "Db",
+              "det": "G#",
+              "sec": 11.96
+            },
+            {
+              "gt": "Ebm7",
+              "det": "G#",
+              "sec": 11.34
+            },
+            {
+              "gt": "Db",
+              "det": "Fm",
+              "sec": 10.43
+            }
+          ]
+        },
+        "live": {
+          "rootAccuracyPct": 23.9,
+          "triadAccuracyPct": 33.5,
+          "triadCountedSec": 93.9,
+          "coreAccuracyPct": 15.6,
+          "coreCountedSec": 306.1,
+          "ncSharePct": 0.4,
+          "meanConfidence": 0.6144,
+          "detectedKey": "A minor",
+          "detectedBpm": 129,
+          "topConfusions": [
+            {
+              "gt": "Db",
+              "det": "G#",
+              "sec": 14.19
+            },
+            {
+              "gt": "Bbm7",
+              "det": "G#",
+              "sec": 11.75
+            },
+            {
+              "gt": "Ebm7",
+              "det": "G#",
+              "sec": 10.2
+            }
+          ]
+        },
+        "spk-good": {
+          "rootAccuracyPct": 22.2,
+          "triadAccuracyPct": 39.3,
+          "triadCountedSec": 93.7,
+          "coreAccuracyPct": 11.2,
+          "coreCountedSec": 305.9,
+          "ncSharePct": 0.5,
+          "meanConfidence": 0.6127,
+          "detectedKey": "A minor",
+          "detectedBpm": 129,
+          "topConfusions": [
+            {
+              "gt": "Bbm7",
+              "det": "G#",
+              "sec": 14.16
+            },
+            {
+              "gt": "Db",
+              "det": "G#",
+              "sec": 13.72
+            },
+            {
+              "gt": "Fm7",
+              "det": "G#",
+              "sec": 13.5
+            }
+          ]
+        },
+        "spk-bad": {
+          "rootAccuracyPct": 19.7,
+          "triadAccuracyPct": 36.9,
+          "triadCountedSec": 94.2,
+          "coreAccuracyPct": 8.3,
+          "coreCountedSec": 307.6,
+          "ncSharePct": 0,
+          "meanConfidence": 0.6194,
+          "detectedKey": "A minor",
+          "detectedBpm": 129,
+          "topConfusions": [
+            {
+              "gt": "Db",
+              "det": "G#",
+              "sec": 10.54
+            },
+            {
+              "gt": "Bbm7",
+              "det": "G#",
+              "sec": 10.32
+            },
+            {
+              "gt": "Fm7",
+              "det": "G#",
+              "sec": 9.45
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "a-hard-days-night",
+      "title": "A Hard Day's Night — The Beatles",
+      "durationSec": 154.2,
+      "sampleRate": 44100,
+      "conditions": {
+        "clean": {
+          "rootAccuracyPct": 28.1,
+          "triadAccuracyPct": 22.6,
+          "triadCountedSec": 138.2,
+          "coreAccuracyPct": 36,
+          "coreCountedSec": 8.6,
+          "ncSharePct": 1.6,
+          "meanConfidence": 0.582,
+          "detectedKey": "G major",
+          "detectedBpm": 92,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "D",
+              "sec": 26.81
+            },
+            {
+              "gt": "C",
+              "det": "D",
+              "sec": 10.55
+            },
+            {
+              "gt": "G",
+              "det": "F",
+              "sec": 10.39
+            }
+          ]
+        },
+        "live": {
+          "rootAccuracyPct": 25.3,
+          "triadAccuracyPct": 20.4,
+          "triadCountedSec": 138.2,
+          "coreAccuracyPct": 40,
+          "coreCountedSec": 8.7,
+          "ncSharePct": 1.5,
+          "meanConfidence": 0.5737,
+          "detectedKey": "D minor",
+          "detectedBpm": 92,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "D",
+              "sec": 22.35
+            },
+            {
+              "gt": "C",
+              "det": "D",
+              "sec": 11.02
+            },
+            {
+              "gt": "G",
+              "det": "F",
+              "sec": 10.86
+            }
+          ]
+        },
+        "spk-good": {
+          "rootAccuracyPct": 24.5,
+          "triadAccuracyPct": 22.4,
+          "triadCountedSec": 138.2,
+          "coreAccuracyPct": 14.3,
+          "coreCountedSec": 9.1,
+          "ncSharePct": 1.3,
+          "meanConfidence": 0.5846,
+          "detectedKey": "D major",
+          "detectedBpm": 92,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "D",
+              "sec": 35.42
+            },
+            {
+              "gt": "C",
+              "det": "D",
+              "sec": 13.1
+            },
+            {
+              "gt": "G",
+              "det": "F",
+              "sec": 8.5
+            }
+          ]
+        },
+        "spk-bad": {
+          "rootAccuracyPct": 25.1,
+          "triadAccuracyPct": 20.3,
+          "triadCountedSec": 138.2,
+          "coreAccuracyPct": 55.5,
+          "coreCountedSec": 11,
+          "ncSharePct": 0,
+          "meanConfidence": 0.5959,
+          "detectedKey": "D major",
+          "detectedBpm": 92,
+          "topConfusions": [
+            {
+              "gt": "G",
+              "det": "D",
+              "sec": 35.75
+            },
+            {
+              "gt": "C",
+              "det": "D",
+              "sec": 16.46
+            },
+            {
+              "gt": "G",
+              "det": "F",
+              "sec": 6.26
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "suno05": {
+    "durationSec": 205.1,
+    "sampleRate": 44100,
+    "conditions": {
+      "clean": {
+        "ncSharePct": 5.2,
+        "meanConfidence": 0.6281,
+        "segmentCount": 131,
+        "detectedKey": "A minor",
+        "detectedBpm": 108,
+        "fixtures": {
+          "q1": [
+            {
+              "range": [
+                51,
+                56
+              ],
+              "dominantChord": "G",
+              "bassPc": 7,
+              "bassCorrect": false,
+              "display": "G",
+              "displayCorrect": false
+            },
+            {
+              "range": [
+                93,
+                98
+              ],
+              "dominantChord": "G",
+              "bassPc": 2,
+              "bassCorrect": true,
+              "display": "G/D",
+              "displayCorrect": false
+            }
+          ],
+          "q2": {
+            "range": [
+              153,
+              168
+            ],
+            "cmSec": 1.1,
+            "cSec": 0,
+            "subWindows": [
+              {
+                "range": [
+                  153,
+                  158
+                ],
+                "dominant": "Am"
+              },
+              {
+                "range": [
+                  158,
+                  163
+                ],
+                "dominant": "Am"
+              },
+              {
+                "range": [
+                  163,
+                  168
+                ],
+                "dominant": "Am"
+              }
+            ]
+          },
+          "q3": [
+            {
+              "range": [
+                85,
+                87
+              ],
+              "expected": "C",
+              "label": "Bm",
+              "fullPass": false,
+              "triadDominant": "B:minor",
+              "triadPass": false
+            },
+            {
+              "range": [
+                87,
+                89
+              ],
+              "expected": "B7",
+              "label": "Am",
+              "fullPass": false,
+              "triadDominant": "A:minor",
+              "triadPass": false
+            },
+            {
+              "range": [
+                89,
+                91
+              ],
+              "expected": "E7",
+              "label": "Em",
+              "fullPass": false,
+              "triadDominant": "E:minor",
+              "triadPass": false
+            },
+            {
+              "range": [
+                91,
+                93
+              ],
+              "expected": "Am",
+              "label": "C",
+              "fullPass": false,
+              "triadDominant": "C:major",
+              "triadPass": false
+            }
+          ],
+          "q4": {
+            "range": [
+              62,
+              65
+            ],
+            "dominantChord": "Am",
+            "bassPc": 9,
+            "bassCorrect": false,
+            "display": "Am",
+            "displayCorrect": false
+          }
+        }
+      },
+      "live": {
+        "ncSharePct": 5.6,
+        "meanConfidence": 0.6302,
+        "segmentCount": 132,
+        "detectedKey": "A minor",
+        "detectedBpm": 108,
+        "fixtures": {
+          "q1": [
+            {
+              "range": [
+                51,
+                56
+              ],
+              "dominantChord": "D",
+              "bassPc": 2,
+              "bassCorrect": true,
+              "display": "D",
+              "displayCorrect": false
+            },
+            {
+              "range": [
+                93,
+                98
+              ],
+              "dominantChord": "C",
+              "bassPc": 9,
+              "bassCorrect": false,
+              "display": "C",
+              "displayCorrect": false
+            }
+          ],
+          "q2": {
+            "range": [
+              153,
+              168
+            ],
+            "cmSec": 1.1,
+            "cSec": 0,
+            "subWindows": [
+              {
+                "range": [
+                  153,
+                  158
+                ],
+                "dominant": "Am"
+              },
+              {
+                "range": [
+                  158,
+                  163
+                ],
+                "dominant": "D"
+              },
+              {
+                "range": [
+                  163,
+                  168
+                ],
+                "dominant": "G"
+              }
+            ]
+          },
+          "q3": [
+            {
+              "range": [
+                85,
+                87
+              ],
+              "expected": "C",
+              "label": "Bm",
+              "fullPass": false,
+              "triadDominant": "B:minor",
+              "triadPass": false
+            },
+            {
+              "range": [
+                87,
+                89
+              ],
+              "expected": "B7",
+              "label": "B",
+              "fullPass": false,
+              "triadDominant": "B:major",
+              "triadPass": true
+            },
+            {
+              "range": [
+                89,
+                91
+              ],
+              "expected": "E7",
+              "label": "E",
+              "fullPass": false,
+              "triadDominant": "E:major",
+              "triadPass": true
+            },
+            {
+              "range": [
+                91,
+                93
+              ],
+              "expected": "Am",
+              "label": "Am",
+              "fullPass": true,
+              "triadDominant": "A:minor",
+              "triadPass": true
+            }
+          ],
+          "q4": {
+            "range": [
+              62,
+              65
+            ],
+            "dominantChord": "D",
+            "bassPc": 2,
+            "bassCorrect": false,
+            "display": "D",
+            "displayCorrect": false
+          }
+        }
+      },
+      "spk-good": {
+        "ncSharePct": 3.3,
+        "meanConfidence": 0.6148,
+        "segmentCount": 141,
+        "detectedKey": "G major",
+        "detectedBpm": 108,
+        "fixtures": {
+          "q1": [
+            {
+              "range": [
+                51,
+                56
+              ],
+              "dominantChord": "Am",
+              "bassPc": 9,
+              "bassCorrect": false,
+              "display": "Am",
+              "displayCorrect": false
+            },
+            {
+              "range": [
+                93,
+                98
+              ],
+              "dominantChord": "G",
+              "bassPc": 2,
+              "bassCorrect": true,
+              "display": "G/D",
+              "displayCorrect": false
+            }
+          ],
+          "q2": {
+            "range": [
+              153,
+              168
+            ],
+            "cmSec": 1.6,
+            "cSec": 3.85,
+            "subWindows": [
+              {
+                "range": [
+                  153,
+                  158
+                ],
+                "dominant": "D"
+              },
+              {
+                "range": [
+                  158,
+                  163
+                ],
+                "dominant": "C"
+              },
+              {
+                "range": [
+                  163,
+                  168
+                ],
+                "dominant": "G"
+              }
+            ]
+          },
+          "q3": [
+            {
+              "range": [
+                85,
+                87
+              ],
+              "expected": "C",
+              "label": "G",
+              "fullPass": false,
+              "triadDominant": "G:major",
+              "triadPass": false
+            },
+            {
+              "range": [
+                87,
+                89
+              ],
+              "expected": "B7",
+              "label": "Am",
+              "fullPass": false,
+              "triadDominant": "A:minor",
+              "triadPass": false
+            },
+            {
+              "range": [
+                89,
+                91
+              ],
+              "expected": "E7",
+              "label": "E",
+              "fullPass": false,
+              "triadDominant": "E:major",
+              "triadPass": true
+            },
+            {
+              "range": [
+                91,
+                93
+              ],
+              "expected": "Am",
+              "label": "G",
+              "fullPass": false,
+              "triadDominant": "G:major",
+              "triadPass": false
+            }
+          ],
+          "q4": {
+            "range": [
+              62,
+              65
+            ],
+            "dominantChord": "G",
+            "bassPc": 1,
+            "bassCorrect": true,
+            "display": "G",
+            "displayCorrect": false
+          }
+        }
+      },
+      "spk-bad": {
+        "ncSharePct": 0,
+        "meanConfidence": 0.6162,
+        "segmentCount": 119,
+        "detectedKey": "G major",
+        "detectedBpm": 108,
+        "fixtures": {
+          "q1": [
+            {
+              "range": [
+                51,
+                56
+              ],
+              "dominantChord": "G",
+              "bassPc": 9,
+              "bassCorrect": false,
+              "display": "G",
+              "displayCorrect": false
+            },
+            {
+              "range": [
+                93,
+                98
+              ],
+              "dominantChord": "G",
+              "bassPc": 0,
+              "bassCorrect": false,
+              "display": "G",
+              "displayCorrect": false
+            }
+          ],
+          "q2": {
+            "range": [
+              153,
+              168
+            ],
+            "cmSec": 0,
+            "cSec": 0,
+            "subWindows": [
+              {
+                "range": [
+                  153,
+                  158
+                ],
+                "dominant": "D"
+              },
+              {
+                "range": [
+                  158,
+                  163
+                ],
+                "dominant": "Am"
+              },
+              {
+                "range": [
+                  163,
+                  168
+                ],
+                "dominant": "G"
+              }
+            ]
+          },
+          "q3": [
+            {
+              "range": [
+                85,
+                87
+              ],
+              "expected": "C",
+              "label": "Bm",
+              "fullPass": false,
+              "triadDominant": "B:minor",
+              "triadPass": false
+            },
+            {
+              "range": [
+                87,
+                89
+              ],
+              "expected": "B7",
+              "label": "Am",
+              "fullPass": false,
+              "triadDominant": "A:minor",
+              "triadPass": false
+            },
+            {
+              "range": [
+                89,
+                91
+              ],
+              "expected": "E7",
+              "label": "Am",
+              "fullPass": false,
+              "triadDominant": "A:minor",
+              "triadPass": false
+            },
+            {
+              "range": [
+                91,
+                93
+              ],
+              "expected": "Am",
+              "label": "Em",
+              "fullPass": false,
+              "triadDominant": "E:minor",
+              "triadPass": false
+            }
+          ],
+          "q4": {
+            "range": [
+              62,
+              65
+            ],
+            "dominantChord": "G",
+            "bassPc": null,
+            "bassCorrect": false,
+            "display": "G",
+            "displayCorrect": false
+          }
+        }
+      }
+    }
+  }
+}

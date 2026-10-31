@@ -1,6 +1,6 @@
 # Phase 1 Step 1 測定結果 — ベース解析によるルート補正
 
-測定日: 2026-10-28 / ハーネス: scripts/measurePhase1.ts（`npm run measure:phase1` で再実行可能）
+測定日: 2026-10-31 / ハーネス: scripts/measurePhase1.ts（`npm run measure:phase1` で再実行可能）
 
 ## 実施内容
 

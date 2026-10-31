@@ -1,4 +1,5 @@
 import { displaySegmentChord } from "../lib/chordDisplay";
+import type { SpellingFamily } from "../lib/notes";
 import type { ChordSegment } from "../types";
 
 interface Props {
@@ -6,17 +7,19 @@ interface Props {
   duration: number;
   currentTime: number;
   onSeek: (time: number) => void;
+  /** 音名のスペル系（移調表示用）。未指定は従来の ♯ 系 */
+  spelling?: SpellingFamily;
 }
 
 /** コードのタイムライン。再生活動位置のセグメントをハイライトし、クリックでシークする。 */
-export default function Timeline({ segments, duration, currentTime, onSeek }: Props) {
+export default function Timeline({ segments, duration, currentTime, onSeek, spelling }: Props) {
   if (duration <= 0) return null;
   return (
     <div className="timeline" role="list" aria-label="コードタイムライン">
       {segments.map((seg) => {
         const widthPct = ((seg.end - seg.start) / duration) * 100;
         const active = currentTime >= seg.start && currentTime < seg.end;
-        const label = displaySegmentChord(seg);
+        const label = displaySegmentChord(seg, spelling);
         return (
           <button
             key={seg.id}

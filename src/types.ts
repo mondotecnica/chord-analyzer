@@ -26,6 +26,107 @@ export type ChordExtension = "maj7" | "7" | "m7";
  */
 export type AddTone = "add9";
 
+/**
+ * Theory Engine 第1段（候補リストの露出、analysis/candidates.ts）:
+ * セグメントごとのコード候補1件。THEORY_ENGINE_DESIGN.md §2 の前提
+ * 補強として、後段の理論評価器（第2段）が「勝者を落とす」だけで
+ * なく「次点を上げる」ことができるよう、確定ラベル以外の候補と
+ * そのスコアを加算的に露出するための型。
+ *
+ * - root / mode: 三和音コア（12 ルート × major/minor の 24 通り）。
+ *   拡張音（extension）や上層（upperChord）は第1段の候補空間には
+ *   含めない（設計書 §8 の未決事項。拡張段の候補露出は別段の課題）。
+ * - bassPc: そのセグメントのベース証拠（ChordSegment.bassPc と同じ
+ *   値）。ベース音は候補ではなくセグメントの証拠として決まるため、
+ *   同一セグメント内の全候補で共通の値を持つ。候補の (root, mode)
+ *   と組み合わせて分数表示を組み立てるのは消費側の責務。
+ * - score: そのセグメントの集約証拠が実際に付けたスコア
+ *   （コード判定用クロマ＝上帯域 chordFrames のセグメント集計と
+ *   テンプレートのコサイン類似度。定義の詳細と根拠は
+ *   analysis/candidates.ts の冒頭コメントと
+ *   measurements/theory/THEORY_ENGINE_STEP1.md）。
+ * - margin: 1位候補のスコア − この候補のスコア（1位自身は 0）。
+ *   異ルートの代替候補は、上帯域集計だけでは勝者を上回ることが
+ *   ある（確定ルートはフレーム列とベース証拠を含む複合判定で、
+ *   この集計には表れない）。その場合 margin は負になりうる。
+ *   符号は「この集計だけなら代替が勝っていた」という情報として
+ *   そのまま保持する（第2段のタイブレーカー判定に必要な信号）。
+ */
+export interface SegmentCandidate {
+  root: number; // 0=C .. 11=B
+  mode: "major" | "minor";
+  /** ベース音のピッチクラス（0=C .. 11=B）。証拠が無い場合は未設定 */
+  bassPc?: number;
+  /** 集約証拠のスコア（コサイン類似度、概ね 0..1） */
+  score: number;
+  /** 1位候補とのスコア差（score(1位) − score(この候補)）。符号つき */
+  margin: number;
+}
+
+/**
+ * Theory Engine 第2段（系列再評価器、analysis/theoryReevaluation.ts）が
+ * ラベルを反転させたセグメントにだけ加算的に付ける根拠内訳
+ * （THEORY_ENGINE_DESIGN.md §3 のモジュール契約）。値は全て
+ * 「選ばれた候補 − 確定ラベル（勝者）」の寄与差であり、合計が
+ * そのセグメントでの理論側の実現優位（遷移は実現した隣接状態で
+ * 評価）になる。音響側の差は acousticMargin（第1段の符号つき
+ * マージン、そのまま）として併記する。反転しなかったセグメント
+ * には付かない（未設定＝再評価で変わっていない、という意味）。
+ */
+export interface TheoryRationale {
+  /** 反転前の確定ラベル（候補列の1位）のルート／モード */
+  fromRoot: number; // 0=C .. 11=B
+  fromMode: "major" | "minor";
+  /** 選ばれた候補の第1段マージン（符号つき。負＝集計だけなら代替優位） */
+  acousticMargin: number;
+  /** キー整合性（局所キー文脈）の寄与差 */
+  key: number;
+  /** ダイアトニック整合性（説明可能性つき）の寄与差 */
+  diatonic: number;
+  /** 直前コードとの機能的遷移の寄与差（隣が無い／N.C. の場合は 0） */
+  transitionPrev: number;
+  /** 直後コードとの機能的遷移の寄与差（隣が無い／N.C. の場合は 0） */
+  transitionNext: number;
+}
+
+/**
+ * 音符仲裁を主軸にした再評価器（analysis/noteArbitration.ts）が
+ * ラベルを反転させたセグメントにだけ加算的に付ける根拠内訳。
+ * 反転の駆動源（source）ごとに意味が異なる:
+ * - source "notes": 選択済み音符証拠の説明率差（noteDelta =
+ *   challengerExplained − winnerExplained）が事前登録した閾値を
+ *   超えて挑戦者を支持した。theory は未設定。
+ * - source "theory": 音符証拠が棄権した（証拠なし／フォール
+ *   バック／説明率が同点）接戦で、凍結した v2 理論構成の
+ *   pairwise 優位（theory の内訳。emission と現ラベル擁護 H は
+ *   合計にのみ含まれ項目としては載らない — theoryReevaluation
+ *   の内訳契約と同じ）が正になった。noteDelta は証拠があった
+ *   同点棄権では 0、証拠なしでは null。
+ * acousticMargin は挑戦者の第1段マージン（符号つき）。
+ */
+export interface NoteArbitrationRationale {
+  /** 反転前の確定ラベル（候補列の1位）のルート／モード */
+  fromRoot: number; // 0=C .. 11=B
+  fromMode: "major" | "minor";
+  /** 反転の駆動源 */
+  source: "notes" | "theory";
+  /** 挑戦者の第1段マージン（符号つき。負＝集計だけなら挑戦者優位） */
+  acousticMargin: number;
+  /** 音符証拠による現ラベルの三和音説明率（証拠なし／フォールバック時は null） */
+  winnerExplained: number | null;
+  /** 音符証拠による挑戦者の三和音説明率（同上） */
+  challengerExplained: number | null;
+  /** 説明率差（挑戦者 − 現ラベル）。証拠なしでは null、同点棄権では 0 */
+  noteDelta: number | null;
+  /** 理論補助が駆動した場合の内訳（v2 の pairwise 優位の項別寄与差） */
+  theory?: {
+    key: number;
+    diatonic: number;
+    transitionPrev: number;
+    transitionNext: number;
+  };
+}
+
 export interface ChordSegment {
   id: number;
   start: number; // 秒
@@ -82,6 +183,31 @@ export interface ChordSegment {
    * 低く（< 0.55）抑えられる。未設定は通常のフレーム判定によるラベル。
    */
   ncFill?: "segment-rematch" | "stems-fallback" | "gap-fill";
+  /**
+   * Theory Engine 第1段: セグメント候補リスト（analysis/candidates.ts）。
+   * オプション candidateRecord が有効な場合にだけ、確定セグメントへ
+   * 加算的に付けられる（既定は未設定＝従来結果と完全一致）。
+   * 1位は常にそのセグメントの確定ラベル（chord の root/mode と
+   * bassPc）と一致する。N.C. セグメントでは確定状態は N.C. のまま、
+   * ゲートで棄却された候補の上位を保持する（THEORY_ENGINE_DESIGN.md
+   * §3・§6.5: 系列最適化の N.C. 状態はセグメント自身が担い、候補は
+   * 棄却済みの対抗候補として読む）。
+   */
+  candidates?: SegmentCandidate[];
+  /**
+   * Theory Engine 第2段: 系列再評価器（theoryReevaluation.ts）が
+   * このセグメントのラベルを反転させた場合にだけ付く根拠内訳。
+   * オプション theoryReevaluation が有効な場合にのみ現れる
+   * （既定は未設定＝従来結果と完全一致）。
+   */
+  theoryRationale?: TheoryRationale;
+  /**
+   * 音符仲裁を主軸にした再評価器（noteArbitration.ts）がこの
+   * セグメントのラベルを反転させた場合にだけ付く根拠内訳。
+   * オプション noteArbitration が有効で音符入力がある場合にのみ
+   * 現れる（既定は未設定＝従来結果と完全一致）。
+   */
+  noteArbitrationRationale?: NoteArbitrationRationale;
 }
 
 /**

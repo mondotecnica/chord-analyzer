@@ -7,6 +7,11 @@ import type {
 } from "../types";
 import { DEFAULT_CHORD_BAND, type AnalyzeProgress } from "./analyze";
 import { applyBassCorrection } from "./bassCorrection";
+import { attachSegmentCandidates } from "./candidates";
+import {
+  applyTheoryReevaluation,
+  THEORY_WEIGHTS_V2,
+} from "./theoryReevaluation";
 import {
   estimateChordFrames,
   type FrameGateMode,
@@ -23,6 +28,7 @@ import {
   genreExtensionFactors,
 } from "./genreProfile";
 import { estimateLocalKeys, type LocalKeyContext } from "./localKey";
+import { applyNoteArbitration } from "./noteArbitration";
 import { applyLocalKeyModeNudge } from "./localKeyMode";
 import { estimateMeter } from "./meterEstimate";
 import {
@@ -37,6 +43,7 @@ import {
   applyNcSegmentRematch,
   applyNcStemsFallback,
 } from "./ncRecovery";
+import { normalizeToAnalysisRate } from "./sampleRate";
 
 /**
  * Phase 2: ステム入力の解析パイプライン（アプリ本体側）。
@@ -94,6 +101,13 @@ export interface StemChromas {
   bassChroma: ReturnType<typeof computeChromagram>;
   duration: number;
   /**
+   * クロマ計算に実際に使われたサンプルレート。入力は解析レート
+   * （44.1kHz、sampleRate.ts）へ正規化されるため、入力レートに
+   * かかわらず常に 44100 になる。analyzeStemsWithStrategy へ渡す
+   * レートはこちらを使うこと（結果の sampleRate が実態と合う）。
+   */
+  sampleRate: number;
+  /**
    * Phase 3 後半（ジャンル傾向の追加チャンネル用）: drums／vocals
    * ステムが渡された場合のみ計算する。コード判定には一切使わず、
    * genreProfile のリズム（ドラム包絡）／メロディ（ボーカル
@@ -117,17 +131,26 @@ export function prepareStemChromas(
   sampleRate: number,
   extraStems?: { drums?: Float32Array; vocals?: Float32Array },
 ): StemChromas {
+  // 解析レートの統一（48kHz クロマ異常対策、sampleRate.ts 参照）。
+  // ステム経路の全クロマはここを通るため、この1か所で mix 参照を
+  // 含む全入力が 44.1kHz に揃う。44.1kHz 入力では無変換で、
+  // 既存の全測定とビット一致する。
+  const mix = normalizeToAnalysisRate(mixSamples, sampleRate);
+  const other = normalizeToAnalysisRate(otherSamples, sampleRate);
+  const bass = normalizeToAnalysisRate(bassSamples, sampleRate);
+  const rate = mix.sampleRate;
   const base: StemChromas = {
     // キー／テンポは混合音から（Phase 1 と比較条件を揃える）
-    mixChroma: computeChromagram(mixSamples, sampleRate),
+    mixChroma: computeChromagram(mix.samples, rate),
     // コード判定クロマは other ステムのみ。chordFrames は上帯域
     // （既定帯域 260Hz）版で、戦略ごとの後段処理に使う
-    otherChroma: computeChromagram(otherSamples, sampleRate, undefined, {
+    otherChroma: computeChromagram(other.samples, rate, undefined, {
       chordBand: DEFAULT_CHORD_BAND,
     }),
     // 低域分布は bass ステムから（混合音の低域を置き換える）
-    bassChroma: computeChromagram(bassSamples, sampleRate),
-    duration: otherSamples.length / sampleRate,
+    bassChroma: computeChromagram(bass.samples, rate),
+    duration: other.samples.length / rate,
+    sampleRate: rate,
   };
   // ジャンル傾向の追加チャンネル（任意）。drums と vocals が
   // 両方ある場合だけ用意する（音色チャンネルは4ステム前提）。
@@ -135,13 +158,15 @@ export function prepareStemChromas(
   // アプリ側では追加チャンネルは欠落として記録される
   // （配線は将来の拡張点として残す）。
   if (extraStems?.drums && extraStems?.vocals) {
-    base.drumsChroma = computeChromagram(extraStems.drums, sampleRate);
-    base.vocalsChroma = computeChromagram(extraStems.vocals, sampleRate);
+    const drums = normalizeToAnalysisRate(extraStems.drums, sampleRate);
+    const vocals = normalizeToAnalysisRate(extraStems.vocals, sampleRate);
+    base.drumsChroma = computeChromagram(drums.samples, rate);
+    base.vocalsChroma = computeChromagram(vocals.samples, rate);
     base.stemRms = {
-      vocals: rmsOf(extraStems.vocals),
-      drums: rmsOf(extraStems.drums),
-      bass: rmsOf(bassSamples),
-      other: rmsOf(otherSamples),
+      vocals: rmsOf(vocals.samples),
+      drums: rmsOf(drums.samples),
+      bass: rmsOf(bass.samples),
+      other: rmsOf(other.samples),
     };
   }
   return base;
@@ -302,6 +327,47 @@ export interface StemAnalysisOptions {
    * noteEvidence が必要。
    */
   noteBoundaries?: boolean;
+  /**
+   * Theory Engine 第1段: 候補リストの露出（candidates.ts）を
+   * 有効化するか。true の場合、確定セグメントに
+   * ChordSegment.candidates を加算的に付けるだけで、判定結果は
+   * 一切変えない。証拠は other ステムのコード判定用クロマ
+   * （上帯域 chordFrames）の集計であり、混合音経路と定義の形は
+   * 同じだが、集計の中身は「分離された和声ステム」の証拠になる
+   * （差異の明記は measurements/theory/THEORY_ENGINE_STEP1.md）。
+   * 既定は false（明示オプトイン。混合音経路の
+   * AnalyzeOptions.candidateRecord と同じ扱い）。
+   */
+  candidateRecord?: boolean;
+  /**
+   * Theory Engine 第1段: 露出する候補件数 k（1〜24 にクランプ）。
+   * 既定は 5（混合音経路の AnalyzeOptions.candidateCount と同じ）。
+   */
+  candidateCount?: number;
+  /**
+   * Theory Engine 第2段: 系列再評価器（theoryReevaluation.ts）を
+   * 有効化するか。混合音経路の AnalyzeOptions.theoryReevaluation と
+   * 同じ扱い: 候補列が必要なため candidateRecord の有無によらず
+   * 候補は内部で露出され、記録済みの局所キー（混合音クロマ由来）を
+   * 文脈入力に使う。既定は false（明示オプトイン）。
+   */
+  theoryReevaluation?: boolean;
+  /**
+   * Theory Engine 第2段・再挑戦: 再設計した系列再評価器（v2）を
+   * 有効化するか。混合音経路の AnalyzeOptions.theoryReevaluationV2
+   * と同じ扱い（v1 と同時指定時は v2 が優先）。既定は false。
+   */
+  theoryReevaluationV2?: boolean;
+  /**
+   * 音符仲裁を主軸にした再評価器（noteArbitration.ts）を有効化
+   * するか。混合音経路の AnalyzeOptions.noteArbitration と同じ
+   * 扱い: noteEvidence が必要で（和声プール = other ステムの
+   * 音符列）、未指定の場合は完全に無動作になる。候補列が
+   * 必要なため candidateRecord の有無によらず候補は内部で
+   * 露出される。v1/v2 と同時指定時は本オプションが優先される。
+   * 既定は false（明示オプトイン）。
+   */
+  noteArbitration?: boolean;
 }
 
 /** 計算済みクロマから、指定した帯域戦略でステム解析を行う */
@@ -564,6 +630,58 @@ export function analyzeStemsWithStrategy(
     );
   }
 
+  // Theory Engine 第1段: 候補リストの露出（明示オプトイン、既定 OFF）。
+  // 確定セグメント列に対して、other ステムのコード判定用クロマ
+  // （上帯域 chordFrames）の集計証拠から候補を加算的に付ける
+  // だけであり、ラベルには一切触れない（candidates.ts 参照）。
+  // 第2段（theoryReevaluation）の入力にもなるため、その場合も露出する。
+  if (opts?.candidateRecord || opts?.theoryReevaluation || opts?.theoryReevaluationV2 || opts?.noteArbitration) {
+    segments = attachSegmentCandidates(
+      segments,
+      {
+        frames: otherChroma.chordFrames,
+        energies: otherChroma.energies,
+        frameDuration: fd,
+      },
+      opts?.candidateCount,
+    );
+  }
+
+  // Theory Engine 第2段: 系列再評価器（明示オプトイン、既定 OFF）。
+  // 混合音経路と同じく、文脈入力は記録済みの局所キー
+  // （localKeyCtx。記録が無い場合は全体キーへフォールバック）。
+  if (opts?.noteArbitration) {
+    // 音符仲裁を主軸にした再評価器（明示オプトイン、既定 OFF）。
+    // 音符入力が無い場合は完全に無動作（混合音経路と同じ扱い）。
+    if (opts?.noteEvidence) {
+      segments = applyNoteArbitration(
+        segments,
+        { harmony: opts.noteEvidence.harmony },
+        {
+          keyRoot: key.root,
+          keyMode: key.mode,
+          ...(localKeyCtx ? { localKeys: localKeyCtx.windows } : {}),
+        },
+      );
+    }
+  } else if (opts?.theoryReevaluationV2) {
+    segments = applyTheoryReevaluation(
+      segments,
+      {
+        keyRoot: key.root,
+        keyMode: key.mode,
+        ...(localKeyCtx ? { localKeys: localKeyCtx.windows } : {}),
+      },
+      THEORY_WEIGHTS_V2,
+    );
+  } else if (opts?.theoryReevaluation) {
+    segments = applyTheoryReevaluation(segments, {
+      keyRoot: key.root,
+      keyMode: key.mode,
+      ...(localKeyCtx ? { localKeys: localKeyCtx.windows } : {}),
+    });
+  }
+
   return {
     fileName,
     duration,
@@ -589,7 +707,8 @@ export function analyzeWithStems(
   strategy: StemBandStrategy = "s-split",
 ): AnalysisResult {
   const chromas = prepareStemChromas(mixSamples, otherSamples, bassSamples, sampleRate);
-  return analyzeStemsWithStrategy(chromas, sampleRate, fileName, strategy);
+  // 結果の sampleRate は正規化後の実効レート（chromas.sampleRate）
+  return analyzeStemsWithStrategy(chromas, chromas.sampleRate, fileName, strategy);
 }
 
 // ---------------------------------------------------------------------------
@@ -624,6 +743,7 @@ const yieldToUi = () =>
 export async function analyzeStemsAudio(
   input: StemAnalysisInput,
   onProgress?: (p: AnalyzeProgress) => void,
+  opts?: StemAnalysisOptions,
 ): Promise<AnalysisResult> {
   onProgress?.({ stage: "ステムからクロマグラムを計算中…", ratio: 0.05 });
   await yieldToUi();
@@ -638,9 +758,10 @@ export async function analyzeStemsAudio(
   await yieldToUi();
   const result = analyzeStemsWithStrategy(
     chromas,
-    input.sampleRate,
+    chromas.sampleRate,
     input.fileName,
     HIGH_ACCURACY_STEM_STRATEGY,
+    opts,
   );
 
   onProgress?.({ stage: "完了", ratio: 1 });

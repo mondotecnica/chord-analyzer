@@ -1,6 +1,6 @@
 # 合成テスト音源ベースライン測定 — Phase 0
 
-測定日: 2026-10-28 / ハーネス: scripts/measureSynthetic.ts（`npm run measure:synthetic` で再実行可能）
+測定日: 2026-10-31 / ハーネス: scripts/measureSynthetic.ts（`npm run measure:synthetic` で再実行可能）
 
 ## 注意（先に読むこと）
 

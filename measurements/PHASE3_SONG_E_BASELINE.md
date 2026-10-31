@@ -1,6 +1,6 @@
 # Phase 3.1 測定土台 — 7th コード合成曲（Song E）ベースライン
 
-測定日: 2026-10-28 / ハーネス: scripts/measureSeventh.ts
+測定日: 2026-10-31 / ハーネス: scripts/measureSeventh.ts
 
 ## 位置づけ
 
